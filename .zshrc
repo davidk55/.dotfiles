@@ -2,10 +2,10 @@
 autoload -U colors && colors
 autoload -U vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats " - %s($reset_color%b$fg[red])"
+zstyle ':vcs_info:*' formats " - %s(%F{15}%b%f%F{1})%f"
 precmd() { vcs_info }
 setopt prompt_subst
-PROMPT='%F{51}[%f%F{10}%n%f%F{13}@%f%F{6}%m%f %F{70}%~%f%F{82}]%f%F{203}${vcs_info_msg_0_}%f%F{0}$%f '
+PROMPT='%B%F{89}[%f%F{10}%n%f%F{11}@%f%F{12}%m%f %F{70}%~%f%F{1}${vcs_info_msg_0_}%f%F{89}]%f%F{15}$%f%b '
 
 # History
 HISTFILE=~/.cache/zsh/hist
