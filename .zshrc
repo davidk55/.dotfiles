@@ -1,11 +1,14 @@
 # Look of the Prompt
 autoload -U colors && colors
-autoload -Uz vcs_info
+autoload -U vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats " - %s($reset_color%b$fg[red])"
 precmd() { vcs_info }
 setopt prompt_subst
-PROMPT='$fg[magenta][$fg[blue]%n$fg[red]@$fg[green]%m $fg[yellow]%~$fg[magenta]]$fg[red]${vcs_info_msg_0_}$reset_color$ '
+#PROMPT='$fg[magenta][$fg[blue]%n$fg[red]@$fg[green]%m $fg[yellow]%~$fg[magenta]]$fg[red]${vcs_info_msg_0_}$reset_color%$ '
+PROMPT='%F{51}[%f%F{10}%n%f%F{13}@%f%F{6}%m%f %F{70}%~%f%F{82}]%f%F{203}${vcs_info_msg_0_}%f%F{0}$%f '
+
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # History
 HISTFILE=~/.cache/zsh/hist
@@ -13,16 +16,17 @@ HISTSIZE=1000
 SAVEHIST=10000
 
 # Tab complete
-autoload -Uz compinit
+autoload -U compinit
 zstyle ':completion:*' menu select
-zstyle :compinstall filename '/home/david/.zshrc'
+#zstyle :compinstall filename '/home/david/.zshrc'
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)
+_comp_options+=(globdots) # include hidden files
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
 
 # Vim mode
 bindkey -v
