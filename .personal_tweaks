@@ -1,0 +1,46 @@
+# change to my layout
+	# change X11 Keyboard Layout
+	cd /usr/share/X11/xkb/symbols
+	vim us
+	# add the following lines to the first us layout
+    	key <CAPS> {        [ BackSpace,    BackSpace       ]       };
+    	key <BKSP> {        [ Caps_Lock,    Caps_Lock       ]       };
+	# change Linux console Keyboard Layout
+	cd /usr/share/kbd/keymaps/i386/qwerty
+	cp us.map.gz ../..
+	mv us.map.gz personal.map.gz
+	vim personal.map.gz
+	# swap Delete with Caps_Lock and afterwards:
+	vim /etc/vconsole.conf
+	# add the following line
+	KEYMAP=personal
+
+# install the following packages
+	sudo pacman -S man-db linux-lts linux-lts-headers base-devel vim
+    neofetch figlet cmatrix python zsh xclip git htop
+    install sudo yay pfetch autojump
+
+# make wheel members execute any command with sudo
+	sudo EDITOR=vim visudo
+	# uncomment the according line
+
+# install the followin zsh plugins
+	autojump
+	zsh-syntax-highlighting
+
+#/bin/sh
+
+sudo pacman -S man-db linux-lts linux-lts-headers base-devel vim neofetch
+figlet cmatrix python zsh xclip git htop
+
+mkdir .other_tools
+cd .other_tools
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd
+yay pfetch
+yay autojump
+mkdir .plugins
+mkdir .themes
+mkdir .cache/zsh
