@@ -23,4 +23,47 @@ set noerrorbells
 set nowrap " makes that text does not wrap to a new line when its to long
 set scrolloff=8 " scrolls when 8 lines before the end of the screen
 set updatetime=50 " gives it a little longer updatetime, but no noticable delay
-"set hidden " makes that you can leave a buffer without saving
+" set paste
+set hidden " makes that you can leave a buffer without saving
+set ruler " show current cursor position on the bottom right
+
+
+call plug#begin('~/.vim/plugins')
+Plug 'https://github.com/morhetz/gruvbox'
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
+Plug 'mbbill/undotree'
+
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
+call plug#end()
+
+"function! statuslinegit()
+	"let l:branchname = gitbranch()
+	"return strlen(l:branchname) > 0?'  '.l:branchname.'  ':''
+"endfunction
+
+"set statusline=
+"set statusline+=%{StatuslineGit()}
+
+colorscheme gruvbox
+filetype plugin on
+
+let mapleader = " "
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Find files using Telescope command-line sugar.
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+"nnoremap <leader>fb <cmd>Telescope buffers<cr>
+"nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+set termguicolors
+
+nnoremap <leader>u :UndotreeToggle<CR>
