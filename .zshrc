@@ -30,7 +30,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Plugins
-source ~/.autojump/etc/profile.d/autojump.sh
+source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
