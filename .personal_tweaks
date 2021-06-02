@@ -16,7 +16,7 @@
 	KEYMAP=personal
 
 # install the following packages
-	sudo pacman -S man-db linux-lts linux-lts-headers base-devel vim
+	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot firefox feh picom man-db linux-lts linux-lts-headers base-devel vim
     neofetch figlet cmatrix python zsh xclip git htop
     install sudo yay pfetch autojump
 
