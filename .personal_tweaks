@@ -1,35 +1,82 @@
+# make wheel members execute any command with sudo
+	sudo EDITOR=vim visudo
+	# uncomment the according line
+
 # change to my layout
 	# change X11 Keyboard Layout
 	cd /usr/share/X11/xkb/symbols
-	vim us
+	sudo vim us
 	# add the following lines to the first us layout
     	key <CAPS> {        [ BackSpace,    BackSpace       ]       };
     	key <BKSP> {        [ Caps_Lock,    Caps_Lock       ]       };
 	# change Linux console Keyboard Layout
 	cd /usr/share/kbd/keymaps/i386/qwerty
-	cp us.map.gz ../..
-	mv us.map.gz personal.map.gz
-	vim personal.map.gz
-	# swap Delete with Caps_Lock and afterwards:
-	vim /etc/vconsole.conf
+	sudo cp us.map.gz ../..
+	cd ../..
+	sudo mv us.map.gz personal.map.gz
+	sudo vim personal.map.gz
+	# swap Delete with Caps_Lock and afterwards create this file:
+	sudo vim /etc/vconsole.conf
 	# add the following line
 	KEYMAP=personal
+	# change x11 layout to us
+	localectl set-x11-keymap us
+
+# change git default editor to nvim
+git config --global core.editor nvim
 
 # install the following packages
-	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot firefox feh picom man-db linux-lts linux-lts-headers base-devel vim
-    neofetch figlet cmatrix python zsh xclip git htop
-    install sudo yay pfetch autojump
+	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot firefox feh picom man-db linux-lts linux-lts-headers base-devel
+    neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting
 
-# make wheel members execute any command with sudo
-	sudo EDITOR=vim visudo
-	# uncomment the according line
+# create hist file for zsh
+cd .cashe/
+mkdir zsh
+cd zsh/
+touch hist
 
-# install the followin zsh plugins
-	autojump
-	zsh-syntax-highlighting
+# clone dwm
+git clone https://github.com/davidk55/dwm
+git clone https://github.com/davidk55/st
+git clone https://github.com/davidk55/dmenu
 
+# make dwm/st/dmenu
+sudo make clean install
+
+# clean master branch (before applying a new patch)
+sudo make clean && rm -f config.h && git reset --hard origin/master
+
+# apply new patch
+patch < ~/Downloads/<patchname>.diff
+
+
+# change shell to zsh
+    chsh -s /usr/bin/zsh
+
+# install yay
+    sudo git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+
+# install with yay
+    yay: pfetch autojump neovim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #/bin/sh
-
 sudo pacman -S man-db linux-lts linux-lts-headers base-devel vim neofetch
 figlet cmatrix python zsh xclip git htop
 
