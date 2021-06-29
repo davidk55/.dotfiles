@@ -22,12 +22,16 @@
 	# change x11 layout to us
 	localectl set-x11-keymap us
 
+# add a compose key
+under the first option add the following line:
+Option	"XkbOptions" "compose:rctrl"
+
 # change git default editor to nvim
 git config --global core.editor nvim
 
 # install the following packages
-	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot firefox feh picom man-db linux-lts linux-lts-headers base-devel
-    neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting
+	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop firefox feh picom man-db linux-lts linux-lts-headers base-devel neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting alsa-utils discord playerctl
+
 
 # create hist file for zsh
 cd .cashe/
@@ -59,7 +63,7 @@ patch < ~/Downloads/<patchname>.diff
     makepkg -si
 
 # install with yay
-    yay: pfetch autojump neovim
+    yay: pfetch autojump neovim spotify-wm-git
 
 
 
