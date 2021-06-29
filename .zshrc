@@ -34,6 +34,11 @@ source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
+alias sudo='sudo '
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias v='nvim'
 alias vc='nvim ~/.config/nvim/init.vim'
+alias ls='ls --color'
+alias la='ls -a --color'
+alias ll='ls -al --color'
+alias cleanm='sudo make clean && rm -f config.h && git reset --hard origin/master'
