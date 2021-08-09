@@ -49,7 +49,7 @@ theme.layout_cornerne        = themes_path .. "my_theme/layouts/cornerne.png"
 theme.layout_cornersw        = themes_path .. "my_theme/layouts/cornersw.png"
 theme.layout_cornerse        = themes_path .. "my_theme/layouts/cornerse.png"
 
-theme.awesome_icon           = themes_path .. "my_theme/awesome-icon.png"
+-- theme.awesome_icon           = themes_path .. "my_theme/awesome-icon.png"
 
 -- from default for now...
 theme.menu_submenu_icon     = themes_path .. "default/submenu.png"
@@ -64,7 +64,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 )
 
 -- MISC
-theme.wallpaper             = themes_path .. "my_theme/sky-background.png"
+theme.wallpaper             = themes_path .. "my_theme/background.img"
 theme.taglist_squares       = "true"
 theme.titlebar_close_button = "true"
 theme.menu_height = dpi(15)
