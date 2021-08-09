@@ -48,7 +48,7 @@ end
 beautiful.init("/home/david/.config/awesome/themes/my_theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "st"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
