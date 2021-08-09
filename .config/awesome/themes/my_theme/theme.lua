@@ -7,7 +7,7 @@
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
-local themes_path = require("gears.filesystem").get_themes_dir()
+local themes_path = "/home/david/.config/awesome/themes/"
 
 
 -- BASICS
