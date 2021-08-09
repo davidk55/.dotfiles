@@ -12,7 +12,7 @@ local themes_path = "/home/david/.config/awesome/themes/"
 
 -- BASICS
 local theme = {}
-theme.font          = "sans 8"
+theme.font          = "Hack Nerd Font 12"
 
 theme.bg_focus      = "#e2eeea"
 theme.bg_normal     = "#729fcf"
