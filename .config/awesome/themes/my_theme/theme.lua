@@ -64,7 +64,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 )
 
 -- MISC
-theme.wallpaper             = themes_path .. "/home/david/.local/bgs/bg1"
+theme.wallpaper             = "/home/david/.local/share/bgs/bg1.jpg"
 theme.taglist_squares       = "true"
 theme.titlebar_close_button = "true"
 theme.menu_height = dpi(15)
