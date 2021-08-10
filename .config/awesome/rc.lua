@@ -571,9 +571,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
-    -- "firefox",
-    -- "discord",
-    -- "/home/david/Downloads/Obsidian-0.12.12.AppImage",
+    "firefox",
+    "discord",
+    "/home/david/Downloads/Obsidian-0.12.12.AppImage",
+    "st"
 }
 if autorun then
     for app = 1, #autorunApps do
