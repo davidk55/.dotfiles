@@ -75,6 +75,7 @@ theme.taglist_font = "Hack Nerd Font 14"
 theme.taglist_spacing = 0
 theme.tasklist_disable_icon = true
 theme.tasklist_disable_task_name = true
+theme.hotkeys_modifiers_fg = "#6D5357"
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path .. "default/titlebar/close_normal.png"
