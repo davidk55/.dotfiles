@@ -14,16 +14,16 @@ local themes_path = "/home/david/.config/awesome/themes/"
 local theme = {}
 theme.font          = "Hack Nerd Font 12"
 
-theme.bg_focus      = "#e2eeea"
-theme.bg_normal     = "#729fcf"
-theme.bg_urgent     = "#fce94f"
-theme.bg_minimize   = "#0067ce"
+theme.bg_focus      = "#6D5357"
+theme.bg_normal     = "#282828"
+theme.bg_urgent     = "#794950"
+theme.bg_minimize   = "#2c2123"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#2e3436"
-theme.fg_focus      = "#2e3436"
-theme.fg_urgent     = "#2e3436"
-theme.fg_minimize   = "#2e3436"
+theme.fg_normal     = "#ebdbb2"
+theme.fg_focus      = "#ebdbb2"
+theme.fg_urgent     = "#ebdbb2"
+theme.fg_minimize   = "#ebdbb2"
 
 theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(0)
