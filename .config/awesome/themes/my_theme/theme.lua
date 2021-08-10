@@ -26,11 +26,12 @@ theme.fg_urgent     = "#ebdbb2"
 theme.fg_minimize   = "#ebdbb2"
 
 theme.useless_gap   = dpi(10)
-theme.border_width  = dpi(0)
-theme.border_normal = "#dae3e0"
+theme.border_width  = dpi(1)
+theme.border_normal = "#292824"
 theme.border_focus  = "#729fcf"
 theme.border_marked = "#eeeeec"
 theme.tasklist_bg_focus = "#282828"
+theme.border_focus = "#ebdbb2"
 
 -- IMAGES
 theme.layout_fairh           = themes_path .. "my_theme/layouts/fairh.png"
