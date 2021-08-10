@@ -497,9 +497,9 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
      { rule = { class = "obsidian" },
-       properties = { tag = "4" } },
+       properties = { tag = " ﮶ " } },
      { rule = { instance = "discord" },
-       properties = { tag = "6" } },
+       properties = { tag = " ﭮ " } },
 }
 -- }}}
 
