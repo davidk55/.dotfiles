@@ -577,7 +577,6 @@ autorunApps =
     "firefox",
     "discord",
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
-    "st"
 }
 if autorun then
     for app = 1, #autorunApps do
