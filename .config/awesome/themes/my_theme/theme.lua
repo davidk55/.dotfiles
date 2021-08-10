@@ -71,6 +71,7 @@ theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 theme.taglist_font = "Hack Nerd Font 14"
 theme.taglist_spacing = 0
+theme.tasklist_disable_icon = true
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path .. "default/titlebar/close_normal.png"
