@@ -9,7 +9,7 @@ PROMPT='%B%F{89}[%f%F{10}%n%f%F{11}@%f%F{12}%m%f %F{70}%~%f%F{1}${vcs_info_msg_0
 
 # History
 HISTFILE=~/.cache/zsh/hist
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=10000
 
 # Tab complete
