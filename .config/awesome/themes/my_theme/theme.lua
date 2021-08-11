@@ -1,8 +1,7 @@
--------------------------------
---    "Sky" awesome theme    --
---  By Andrei "Garoth" Thorp --
--------------------------------
--- If you want SVGs and extras, get them from garoth.com/awesome/sky-theme
+--------------------------------
+--  "my_theme" awesome theme  --
+--  By David "NayzR" Köhlmann --
+--------------------------------
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -30,7 +29,6 @@ theme.border_width  = dpi(1)
 theme.border_normal = "#292824"
 theme.border_focus  = "#729fcf"
 theme.border_marked = "#eeeeec"
-theme.tasklist_bg_focus = "#282828"
 theme.border_focus = "#ebdbb2"
 
 -- IMAGES
@@ -65,16 +63,22 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 
+-- TAGLIST
+theme.taglist_font = "Hack Nerd Font 14"
+theme.taglist_spacing = 0
+
+-- TASKLIST
+theme.tasklist_bg_focus = "#404040"
+theme.tasklist_disable_icon = true
+theme.tasklist_align = "center"
+theme.tasklist_font = "Hack Nerd Font 10"
+
 -- MISC
 theme.wallpaper             = "/home/david/.local/share/bgs/bg1.jpg"
 theme.taglist_squares       = "true"
 theme.titlebar_close_button = "true"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
-theme.taglist_font = "Hack Nerd Font 14"
-theme.taglist_spacing = 0
-theme.tasklist_disable_icon = true
-theme.tasklist_disable_task_name = true
 theme.hotkeys_modifiers_fg = "#6D5357"
 
 -- Define the image to load
