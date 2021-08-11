@@ -30,28 +30,28 @@ Option	"XkbOptions" "compose:rctrl"
 git config --global core.editor nvim
 
 # install the following packages
-	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop firefox feh picom man-db linux-lts linux-lts-headers base-devel neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting alsa-utils discord playerctl
+	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop awesome vifm firefox picom man-db linux-lts linux-lts-headers base-devel neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting alsa-utils discord playerctl fuse2
 
 
 # create hist file for zsh
-cd .cashe/
+cd .cache/
 mkdir zsh
 cd zsh/
 touch hist
 
 # clone dwm
-git clone https://github.com/davidk55/dwm
-git clone https://github.com/davidk55/st
-git clone https://github.com/davidk55/dmenu
+# git clone https://github.com/davidk55/dwm
+# git clone https://github.com/davidk55/st
+# git clone https://github.com/davidk55/dmenu
 
 # make dwm/st/dmenu
-sudo make clean install
+# sudo make clean install
 
 # clean master branch (before applying a new patch)
-sudo make clean && rm -f config.h && git reset --hard origin/master
+# sudo make clean && rm -f config.h && git reset --hard origin/master
 
 # apply new patch
-patch < ~/Downloads/<patchname>.diff
+# patch < ~/Downloads/<patchname>.diff
 
 
 # change shell to zsh
@@ -64,6 +64,14 @@ patch < ~/Downloads/<patchname>.diff
 
 # install with yay
     yay: pfetch autojump neovim spotify-wm-git
+
+
+# install vifmimg (image viewer for vifm)
+
+# download latest Obsidian appimage
+
+
+
 
 
 
