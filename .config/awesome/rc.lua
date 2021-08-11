@@ -408,12 +408,20 @@ for i = 1, 9 do
                       awful.tag.viewtoggle(screen.tags[5])
                   end,
         {description = "toggle note tag"}),
+        -- Toggle music tag
         awful.key({ modkey }, "'",
                   function ()
                       local screen = awful.screen.focused()
                       awful.tag.viewtoggle(screen.tags[6])
                   end,
         {description = "toggle music tag"}),
+        -- Toggle discord tag
+        awful.key({ modkey }, "[",
+                  function ()
+                      local screen = awful.screen.focused()
+                      awful.tag.viewtoggle(screen.tags[7])
+                  end,
+        {description = "toggle discord tag"}),
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
