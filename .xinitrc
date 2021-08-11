@@ -48,25 +48,12 @@ fi
 # unset f
 #fi
 
-# Show dwm status bar
-sleep 2
-
-~/dwm-bar/dwm_bar.sh &
-
 
 # Display resolution
 xrandr --output Virtual-1 --mode 1920x1080 &
 
-# Load background image
-~/.fehbg &
-
 # Load compositor
-picom -f &
+picom  &
 
-# Loop dwm
-while true; do
-	dwm >/dev/null 2>&1
-done
-
-# Execute dwm
-exec dwm
+# Execute awesomewm
+exec awesome
