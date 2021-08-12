@@ -524,6 +524,10 @@ awful.rules.rules = {
        properties = { tag = " ﮶ " } },
      { rule = { instance = "discord" },
        properties = { tag = " ﭮ " } },
+     { rule = { name = "terminal1" },
+       properties = { tag = "  " } },
+     { rule = { name = "vifm" },
+       properties = { tag = "  " } },
 }
 -- }}}
 
