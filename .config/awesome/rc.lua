@@ -406,7 +406,9 @@ for i = 1, 9 do
         awful.key({ modkey }, "i",
                   function ()
                         for s in screen do
-                            awful.tag.viewtoggle(s.tags[3])
+                            if s ~= awful.screen.focused() then
+                                awful.tag.viewtoggle(s.tags[3])
+                            end
                         end
                   end,
         {description = "toggle firefox tag"}),
