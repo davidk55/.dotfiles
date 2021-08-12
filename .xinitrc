@@ -47,7 +47,8 @@ fi
 # done
 # unset f
 #fi
-
+# Add Compose Key
+setxkbmap -option compose:rctrl
 
 # Display resolution
 xrandr --output Virtual-1 --mode 1920x1080 &
