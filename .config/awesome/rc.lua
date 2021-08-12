@@ -384,10 +384,11 @@ for i = 1, 9 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
-                        if tag then
-                           tag:view_only()
+                        for s in screen do
+                            local tag = s.tags[i]
+                            if tag then
+                               tag:view_only()
+                            end
                         end
                   end,
                   {description = "view tag #"..i, group = "tag"}),
@@ -404,29 +405,33 @@ for i = 1, 9 do
         -- Toggle dir tag
         awful.key({ modkey }, ";",
                   function ()
-                      local screen = awful.screen.focused()
-                      awful.tag.viewtoggle(screen.tags[4])
+                        for s in screen do
+                            awful.tag.viewtoggle(s.tags[4])
+                        end
                   end,
         {description = "toggle dir tag"}),
         -- Toggle note tag
         awful.key({ modkey }, "'",
                   function ()
-                      local screen = awful.screen.focused()
-                      awful.tag.viewtoggle(screen.tags[5])
+                        for s in screen do
+                            awful.tag.viewtoggle(s.tags[5])
+                        end
                   end,
         {description = "toggle note tag"}),
         -- Toggle music tag
         awful.key({ modkey }, "[",
                   function ()
-                      local screen = awful.screen.focused()
-                      awful.tag.viewtoggle(screen.tags[6])
+                        for s in screen do
+                            awful.tag.viewtoggle(s.tags[6])
+                        end
                   end,
         {description = "toggle music tag"}),
         -- Toggle discord tag
         awful.key({ modkey }, "]",
                   function ()
-                      local screen = awful.screen.focused()
-                      awful.tag.viewtoggle(screen.tags[7])
+                        for s in screen do
+                            awful.tag.viewtoggle(s.tags[7])
+                        end
                   end,
         {description = "toggle discord tag"}),
         -- Move client to tag.
@@ -437,7 +442,7 @@ for i = 1, 9 do
                           if tag then
                               client.focus:move_to_tag(tag)
                           end
-                     end
+                      end
                   end,
                   {description = "move focused client to tag #"..i, group = "tag"}),
         -- Toggle tag on focused client.
@@ -528,13 +533,13 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
      { rule = { class = "obsidian" },
-       properties = { tag = " ﮶ " } },
+       properties = { tag = " ﮶ ", screen = 2 } },
      { rule = { instance = "discord" },
-       properties = { tag = " ﭮ " } },
+       properties = { tag = " ﭮ ", screen = 2 } },
      { rule = { name = "terminal1" },
-       properties = { tag = "  " } },
+       properties = { tag = "  ", screen = 1 } },
      { rule = { name = "vifm" },
-       properties = { tag = "  " } },
+       properties = { tag = "  ", screen = 2 } },
 }
 -- }}}
 
