@@ -401,6 +401,13 @@ for i = 1, 9 do
                       end
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
+        -- Toggle dir tag
+        awful.key({ modkey }, ";",
+                  function ()
+                      local screen = awful.screen.focused()
+                      awful.tag.viewtoggle(screen.tags[4])
+                  end,
+        {description = "toggle dir tag"}),
         -- Toggle note tag
         awful.key({ modkey }, "'",
                   function ()
