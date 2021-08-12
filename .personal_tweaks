@@ -1,3 +1,8 @@
+# create user
+	useradd -m <user>
+	passwd <user>
+	usermod -aG video,audio,storage,wheel <user>
+
 # make wheel members execute any command with sudo
 	sudo EDITOR=vim visudo
 	# uncomment the according line
@@ -30,7 +35,7 @@ Option	"XkbOptions" "compose:rctrl"
 git config --global core.editor nvim
 
 # install the following packages
-	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop awesome vifm firefox picom man-db linux-lts linux-lts-headers base-devel neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting alsa-utils discord playerctl fuse2
+	sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop awesome vifm firefox picom man-db linux-lts neofetch figlet cmatrix python zsh xclip git htop wget zsh-syntax-highlighting alsa-utils discord playerctl fuse2
 
 
 # create hist file for zsh
@@ -87,7 +92,6 @@ touch hist
 
 
 
-
 #/bin/sh
 sudo pacman -S man-db linux-lts linux-lts-headers base-devel vim neofetch
 figlet cmatrix python zsh xclip git htop
