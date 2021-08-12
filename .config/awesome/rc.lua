@@ -409,14 +409,14 @@ for i = 1, 9 do
                   end,
         {description = "toggle note tag"}),
         -- Toggle music tag
-        awful.key({ modkey }, "'",
+        awful.key({ modkey }, "[",
                   function ()
                       local screen = awful.screen.focused()
                       awful.tag.viewtoggle(screen.tags[6])
                   end,
         {description = "toggle music tag"}),
         -- Toggle discord tag
-        awful.key({ modkey }, "[",
+        awful.key({ modkey }, "]",
                   function ()
                       local screen = awful.screen.focused()
                       awful.tag.viewtoggle(screen.tags[7])
