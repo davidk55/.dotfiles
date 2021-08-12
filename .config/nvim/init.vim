@@ -29,13 +29,13 @@ set ruler " show current cursor position on the bottom right
 set encoding=utf-8
 
 
-call plug#begin('~/.vim/plugins')
+call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/morhetz/gruvbox'
 
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'kyazdani42/nvim-tree.lua'
 
-Plug 'mbbill/undotree'
+"Plug 'mbbill/undotree'
 
 "Plug 'nvim-lua/popup.nvim'
 "Plug 'nvim-lua/plenary.nvim'
