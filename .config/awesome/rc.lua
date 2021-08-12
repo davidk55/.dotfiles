@@ -82,21 +82,21 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
+-- myawesomemenu = {
+--   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+--   { "manual", terminal .. " -e man awesome" },
+--   { "edit config", editor_cmd .. " " .. awesome.conffile },
+--   { "restart", awesome.restart },
+--   { "quit", function() awesome.quit() end },
+--}
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
+--mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+--                                    { "open terminal", terminal }
+--                                  }
+--                        })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+--mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+--                                     menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -166,7 +166,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", "  ", "  ", " ﮶ ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", "  ", "  ", " ﮶ ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -221,11 +221,11 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
-))
+-- root.buttons(gears.table.join(
+--     awful.button({ }, 3, function () mymainmenu:toggle() end),
+--     awful.button({ }, 4, awful.tag.viewnext),
+--     awful.button({ }, 5, awful.tag.viewprev)
+-- ))
 -- }}}
 
 -- {{{ Key bindings
@@ -312,7 +312,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -401,22 +401,29 @@ for i = 1, 9 do
                       end
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
-        -- Toggle note tag
+        -- Toggle dir tag
         awful.key({ modkey }, ";",
+                  function ()
+                      local screen = awful.screen.focused()
+                      awful.tag.viewtoggle(screen.tags[4])
+                  end,
+        {description = "toggle dir tag"}),
+        -- Toggle note tag
+        awful.key({ modkey }, "'",
                   function ()
                       local screen = awful.screen.focused()
                       awful.tag.viewtoggle(screen.tags[5])
                   end,
         {description = "toggle note tag"}),
         -- Toggle music tag
-        awful.key({ modkey }, "'",
+        awful.key({ modkey }, "[",
                   function ()
                       local screen = awful.screen.focused()
                       awful.tag.viewtoggle(screen.tags[6])
                   end,
         {description = "toggle music tag"}),
         -- Toggle discord tag
-        awful.key({ modkey }, "[",
+        awful.key({ modkey }, "]",
                   function ()
                       local screen = awful.screen.focused()
                       awful.tag.viewtoggle(screen.tags[7])
@@ -524,6 +531,10 @@ awful.rules.rules = {
        properties = { tag = " ﮶ " } },
      { rule = { instance = "discord" },
        properties = { tag = " ﭮ " } },
+     { rule = { name = "terminal1" },
+       properties = { tag = "  " } },
+     { rule = { name = "vifm" },
+       properties = { tag = "  " } },
 }
 -- }}}
 
@@ -598,6 +609,8 @@ autorunApps =
     "firefox",
     "discord",
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
+    "alacritty -t terminal1",
+    "alacritty -t vifm -e vifm",
 }
 if autorun then
     for app = 1, #autorunApps do
