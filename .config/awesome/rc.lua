@@ -602,6 +602,8 @@ autorunApps =
     "firefox",
     "discord",
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
+    "alacritty -t terminal1",
+    "alacritty -t vifm -e vifm",
 }
 if autorun then
     for app = 1, #autorunApps do
