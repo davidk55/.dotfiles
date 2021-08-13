@@ -408,7 +408,6 @@ for i = 1, 9 do
                             if s ~= awful.screen.focused() then
                                 awful.tag.viewtoggle(s.tags[3])
                             end
-                        end
                   end,
         {description = "toggle firefox tag", group = "tag toggle"}),
         -- Toggle dir tag
@@ -622,7 +621,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
-    "firefox",
     "discord",
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
     "alacritty -t tmux -e tmux",
@@ -633,3 +631,13 @@ if autorun then
         awful.spawn(autorunApps[app])
     end
 end
+
+awful.spawn("firefox", {
+    tag = "  ",
+    screen = 2,
+})
+
+awful.spawn("firefox --new-window https://www.youtube.com", {
+    tag = "  ",
+    screen = 2
+})
