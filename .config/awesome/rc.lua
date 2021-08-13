@@ -410,7 +410,7 @@ for i = 1, 9 do
                             end
                         end
                   end,
-        {description = "toggle firefox tag"}),
+        {description = "toggle firefox tag", group = "tag toggle"}),
         -- Toggle dir tag
         awful.key({ modkey }, "'",
                   function ()
@@ -418,7 +418,7 @@ for i = 1, 9 do
                             awful.tag.viewtoggle(s.tags[4])
                         end
                   end,
-        {description = "toggle dir tag"}),
+        {description = "toggle dir tag", group = "tag toggle"}),
         -- Toggle note tag
         awful.key({ modkey }, ";",
                   function ()
@@ -426,7 +426,7 @@ for i = 1, 9 do
                             awful.tag.viewtoggle(s.tags[5])
                         end
                   end,
-        {description = "toggle note tag"}),
+        {description = "toggle note tag", group = "tag toggle"}),
         -- Toggle music tag
         awful.key({ modkey }, "[",
                   function ()
@@ -434,7 +434,7 @@ for i = 1, 9 do
                             awful.tag.viewtoggle(s.tags[6])
                         end
                   end,
-        {description = "toggle music tag"}),
+        {description = "toggle music tag", group = "tag toggle"}),
         -- Toggle discord tag
         awful.key({ modkey }, "]",
                   function ()
@@ -442,7 +442,7 @@ for i = 1, 9 do
                             awful.tag.viewtoggle(s.tags[7])
                         end
                   end,
-        {description = "toggle discord tag"}),
+        {description = "toggle discord tag", group = "tag toggle"}),
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
