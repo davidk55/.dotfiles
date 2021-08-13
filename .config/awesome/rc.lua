@@ -5,8 +5,7 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
--- Widget and layout library
+require("awful.autofocus") -- Widget and layout library
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -413,7 +412,7 @@ for i = 1, 9 do
                   end,
         {description = "toggle firefox tag"}),
         -- Toggle dir tag
-        awful.key({ modkey }, ";",
+        awful.key({ modkey }, "'",
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[4])
@@ -421,7 +420,7 @@ for i = 1, 9 do
                   end,
         {description = "toggle dir tag"}),
         -- Toggle note tag
-        awful.key({ modkey }, "'",
+        awful.key({ modkey }, ";",
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[5])
