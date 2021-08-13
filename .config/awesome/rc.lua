@@ -548,7 +548,7 @@ awful.rules.rules = {
        properties = { tag = " ﮶ ", screen = 2 } },
      { rule = { instance = "discord" },
        properties = { tag = " ﭮ ", screen = 2 } },
-     { rule = { name = "terminal1" },
+     { rule = { name = "tmux" },
        properties = { tag = "  ", screen = 1 } },
      { rule = { name = "vifm" },
        properties = { tag = "  ", screen = 2 } },
@@ -626,7 +626,7 @@ autorunApps =
     "qutebrowser",
     "discord",
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
-    "alacritty -t terminal1",
+    "alacritty -t tmux -e tmux",
     "alacritty -t vifm -e vifm",
 }
 if autorun then
