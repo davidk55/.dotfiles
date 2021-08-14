@@ -44,3 +44,4 @@ alias ll='ls -al --color'
 alias cleanm='sudo make clean && rm -f config.h && git reset --hard origin/master'
 alias upd='sudo pacman -Syu'
 alias cl='clear'
+alias x="startx"
