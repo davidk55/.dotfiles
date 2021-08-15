@@ -406,6 +406,13 @@ for i = 1, 9 do
                   function ()
                         local s = screen[2]
                         awful.tag.viewtoggle(s.tags[3])
+                        local firefox = function (c)
+                            return awful.rules.match(c, {class = "firefox"})
+                        end
+                        for c in awful.client.iterate(firefox) do
+                            client.focus = c
+                            break
+                        end
                   end,
         {description = "toggle firefox tag", group = "tag toggle"}),
         -- Toggle dir tag
@@ -413,6 +420,12 @@ for i = 1, 9 do
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[4])
+                        end
+                        local vifm = function (c)
+                            return awful.rules.match(c, {name = "vifm"})
+                        end
+                        for c in awful.client.iterate(vifm) do
+                            client.focus = c
                         end
                   end,
         {description = "toggle dir tag", group = "tag toggle"}),
@@ -422,6 +435,12 @@ for i = 1, 9 do
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[5])
                         end
+                        local obsidian = function (c)
+                            return awful.rules.match(c, {class = "obsidian"})
+                        end
+                        for c in awful.client.iterate(obsidian) do
+                            client.focus = c
+                        end
                   end,
         {description = "toggle note tag", group = "tag toggle"}),
         -- Toggle music tag
@@ -430,6 +449,12 @@ for i = 1, 9 do
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[7])
                         end
+                        local firefox = function (c)
+                            return awful.rules.match(c, {class = "firefox"})
+                        end
+                        for c in awful.client.iterate(firefox) do
+                            client.focus = c
+                        end
                   end,
         {description = "toggle music tag", group = "tag toggle"}),
         -- Toggle discord tag
@@ -437,6 +462,12 @@ for i = 1, 9 do
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[8])
+                        end
+                        local discord = function (c)
+                            return awful.rules.match(c, {instance = "discord"})
+                        end
+                        for c in awful.client.iterate(discord) do
+                            client.focus = c
                         end
                   end,
         {description = "toggle discord tag", group = "tag toggle"}),
