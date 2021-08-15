@@ -411,7 +411,6 @@ for i = 1, 9 do
                         end
                         for c in awful.client.iterate(firefox) do
                             client.focus = c
-                            break
                         end
                   end,
         {description = "toggle firefox tag", group = "tag toggle"}),
@@ -443,6 +442,20 @@ for i = 1, 9 do
                         end
                   end,
         {description = "toggle note tag", group = "tag toggle"}),
+        -- Toggle email tag
+        awful.key({ modkey }, "e",
+                  function ()
+                        for s in screen do
+                            awful.tag.viewtoggle(s.tags[6])
+                        end
+                        local thunderbird = function (c)
+                            return awful.rules.match(c, {class = "Thunderbird"})
+                        end
+                        for c in awful.client.iterate(thunderbird) do
+                            client.focus = c
+                        end
+                  end,
+        {description = "toggle email tag", group = "tag toggle"}),
         -- Toggle music tag
         awful.key({ modkey }, "[",
                   function ()
@@ -571,6 +584,8 @@ awful.rules.rules = {
     --   properties = { screen = 1, tag = "2" } },
      { rule = { class = "firefox" },
        properties = { tag = "  ", screen = 2 } },
+     { rule = { class = "Thunderbird" },
+       properties = { tag = "  ", screen = 2 } },
      { rule = { class = "obsidian" },
        properties = { tag = " ﮶ ", screen = 2 } },
      { rule = { instance = "discord" },
@@ -654,6 +669,7 @@ autorunApps =
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
     "alacritty -t tmux -e tmux",
     "alacritty -t vifm -e vifm",
+    "thunderbird"
 }
 if autorun then
     for app = 1, #autorunApps do
