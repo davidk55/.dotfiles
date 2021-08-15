@@ -594,6 +594,8 @@ awful.rules.rules = {
        properties = { tag = "  ", screen = 1 } },
      { rule = { name = "vifm" },
        properties = { tag = "  ", screen = 2 } },
+     { rule = { class = "okular" },
+       properties = { tag = "  ", screen = 2 } },
 }
 -- }}}
 
