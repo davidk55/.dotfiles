@@ -415,7 +415,7 @@ for i = 1, 9 do
                   end,
         {description = "toggle firefox tag", group = "tag toggle"}),
         -- Toggle dir tag
-        awful.key({ modkey }, "'",
+        awful.key({ modkey }, ";",
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[4])
@@ -429,7 +429,7 @@ for i = 1, 9 do
                   end,
         {description = "toggle dir tag", group = "tag toggle"}),
         -- Toggle note tag
-        awful.key({ modkey }, ";",
+        awful.key({ modkey }, "'",
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[5])
