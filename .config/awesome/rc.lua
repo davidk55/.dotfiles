@@ -264,8 +264,8 @@ globalkeys = gears.table.join(
               {description = "focus the next screen 2", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-              {description = "jump to urgent client", group = "client"}),
+--    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
+--              {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -443,7 +443,7 @@ for i = 1, 9 do
                   end,
         {description = "toggle note tag", group = "tag toggle"}),
         -- Toggle email tag
-        awful.key({ modkey }, "e",
+        awful.key({ modkey }, "u",
                   function ()
                         for s in screen do
                             awful.tag.viewtoggle(s.tags[6])
