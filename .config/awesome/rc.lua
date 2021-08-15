@@ -165,7 +165,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", "  ", "  ", " ﮶ ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", "  ", "  ", " ﮶ ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -428,7 +428,7 @@ for i = 1, 9 do
         awful.key({ modkey }, "[",
                   function ()
                         for s in screen do
-                            awful.tag.viewtoggle(s.tags[6])
+                            awful.tag.viewtoggle(s.tags[7])
                         end
                   end,
         {description = "toggle music tag", group = "tag toggle"}),
@@ -436,7 +436,7 @@ for i = 1, 9 do
         awful.key({ modkey }, "]",
                   function ()
                         for s in screen do
-                            awful.tag.viewtoggle(s.tags[7])
+                            awful.tag.viewtoggle(s.tags[8])
                         end
                   end,
         {description = "toggle discord tag", group = "tag toggle"}),
