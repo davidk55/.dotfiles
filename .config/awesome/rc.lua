@@ -671,7 +671,8 @@ autorunApps =
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
     "alacritty -t tmux -e tmux",
     "alacritty -t vifm -e vifm",
-    "thunderbird"
+    "thunderbird",
+    "redshift",
 }
 if autorun then
     for app = 1, #autorunApps do
