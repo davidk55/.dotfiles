@@ -48,5 +48,5 @@ alias x="startx"
 
 # Functions
 t() {
-    sleep "$1" && notify-send -u critical "$2" "fertig"
+    (sleep "$1" && notify-send -u critical "$2" "ready!") & disown
 }
