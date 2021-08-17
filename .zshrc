@@ -45,3 +45,8 @@ alias cleanm='sudo make clean && rm -f config.h && git reset --hard origin/maste
 alias upd='sudo pacman -Syu'
 alias cl='clear'
 alias x="startx"
+
+# Functions
+t() {
+    sleep "$1" && notify-send -u critical "$2" "fertig"
+}
