@@ -379,6 +379,102 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize horizontally", group = "client"})
 )
+-- Toggle specific tags:
+globalkeys = gears.table.join(globalkeys,
+    -- Toggle firefox tag
+    awful.key({ modkey }, "i",
+              function ()
+--                        local s = screen[2]
+--                        awful.tag.viewtoggle(s.tags[3])
+--                        local firefox = function (c)
+--                            return awful.rules.match(c, {class = "firefox"})
+--                        end
+--                        for c in awful.client.iterate(firefox) do
+--                            client.focus = c
+--                        end
+--
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[3])
+                    end
+                    local firefox = function (c)
+                        return awful.rules.match(c, {class = "firefox"})
+                    end
+                    for c in awful.client.iterate(firefox) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle firefox tag", group = "tag"}),
+    -- Toggle dir tag
+    awful.key({ modkey }, ";",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[4])
+                    end
+                    local vifm = function (c)
+                        return awful.rules.match(c, {name = "vifm"})
+                    end
+                    for c in awful.client.iterate(vifm) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle dir tag", group = "tag"}),
+    -- Toggle note tag
+    awful.key({ modkey }, "'",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[5])
+                    end
+                    local obsidian = function (c)
+                        return awful.rules.match(c, {class = "obsidian"})
+                    end
+                    for c in awful.client.iterate(obsidian) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle note tag", group = "tag"}),
+    -- Toggle email tag
+    awful.key({ modkey }, "u",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[6])
+                    end
+                    local thunderbird = function (c)
+                        return awful.rules.match(c, {class = "Thunderbird"})
+                    end
+                    for c in awful.client.iterate(thunderbird) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle email tag", group = "tag"}),
+    -- Toggle music tag
+    awful.key({ modkey }, "[",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[7])
+                    end
+                    local firefox = function (c)
+                        return awful.rules.match(c, {class = "firefox"})
+                    end
+                    for c in awful.client.iterate(firefox) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle music tag", group = "tag"}),
+    -- Toggle discord tag
+    awful.key({ modkey }, "]",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[8])
+                    end
+                    local discord = function (c)
+                        return awful.rules.match(c, {instance = "discord"})
+                    end
+                    for c in awful.client.iterate(discord) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle discord tag", group = "tag"})
+)
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
@@ -406,99 +502,6 @@ for i = 1, 9 do
                       end
                   end,
                   {description = "toggle tag #" .. i, group = "tag"}),
-        -- Toggle firefox tag
-        awful.key({ modkey }, "i",
-                  function ()
---                        local s = screen[2]
---                        awful.tag.viewtoggle(s.tags[3])
---                        local firefox = function (c)
---                            return awful.rules.match(c, {class = "firefox"})
---                        end
---                        for c in awful.client.iterate(firefox) do
---                            client.focus = c
---                        end
---
-                        for s in screen do
-                            awful.tag.viewtoggle(s.tags[3])
-                        end
-                        local firefox = function (c)
-                            return awful.rules.match(c, {class = "firefox"})
-                        end
-                        for c in awful.client.iterate(firefox) do
-                            client.focus = c
-                        end
-                  end,
-        {description = "toggle firefox tag", group = "tag"}),
-        -- Toggle dir tag
-        awful.key({ modkey }, ";",
-                  function ()
-                        for s in screen do
-                            awful.tag.viewtoggle(s.tags[4])
-                        end
-                        local vifm = function (c)
-                            return awful.rules.match(c, {name = "vifm"})
-                        end
-                        for c in awful.client.iterate(vifm) do
-                            client.focus = c
-                        end
-                  end,
-        {description = "toggle dir tag", group = "tag"}),
-        -- Toggle note tag
-        awful.key({ modkey }, "'",
-                  function ()
-                        for s in screen do
-                            awful.tag.viewtoggle(s.tags[5])
-                        end
-                        local obsidian = function (c)
-                            return awful.rules.match(c, {class = "obsidian"})
-                        end
-                        for c in awful.client.iterate(obsidian) do
-                            client.focus = c
-                        end
-                  end,
-        {description = "toggle note tag", group = "tag"}),
-        -- Toggle email tag
-        awful.key({ modkey }, "u",
-                  function ()
-                        for s in screen do
-                            awful.tag.viewtoggle(s.tags[6])
-                        end
-                        local thunderbird = function (c)
-                            return awful.rules.match(c, {class = "Thunderbird"})
-                        end
-                        for c in awful.client.iterate(thunderbird) do
-                            client.focus = c
-                        end
-                  end,
-        {description = "toggle email tag", group = "tag"}),
-        -- Toggle music tag
-        awful.key({ modkey }, "[",
-                  function ()
-                        for s in screen do
-                            awful.tag.viewtoggle(s.tags[7])
-                        end
-                        local firefox = function (c)
-                            return awful.rules.match(c, {class = "firefox"})
-                        end
-                        for c in awful.client.iterate(firefox) do
-                            client.focus = c
-                        end
-                  end,
-        {description = "toggle music tag", group = "tag"}),
-        -- Toggle discord tag
-        awful.key({ modkey }, "]",
-                  function ()
-                        for s in screen do
-                            awful.tag.viewtoggle(s.tags[8])
-                        end
-                        local discord = function (c)
-                            return awful.rules.match(c, {instance = "discord"})
-                        end
-                        for c in awful.client.iterate(discord) do
-                            client.focus = c
-                        end
-                  end,
-        {description = "toggle discord tag", group = "tag"}),
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
