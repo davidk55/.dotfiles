@@ -409,8 +409,18 @@ for i = 1, 9 do
         -- Toggle firefox tag
         awful.key({ modkey }, "i",
                   function ()
-                        local s = screen[2]
-                        awful.tag.viewtoggle(s.tags[3])
+--                        local s = screen[2]
+--                        awful.tag.viewtoggle(s.tags[3])
+--                        local firefox = function (c)
+--                            return awful.rules.match(c, {class = "firefox"})
+--                        end
+--                        for c in awful.client.iterate(firefox) do
+--                            client.focus = c
+--                        end
+--
+                        for s in screen do
+                            awful.tag.viewtoggle(s.tags[3])
+                        end
                         local firefox = function (c)
                             return awful.rules.match(c, {class = "firefox"})
                         end
