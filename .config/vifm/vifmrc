@@ -351,6 +351,9 @@ filextype */
         \ {View in thunar}
         \ Thunar %f &,
 
+" Xournal
+filetype {*.xoj,*.xopp} xournalpp %c %i &
+
 " Syntax highlighting in preview
 "
 " Explicitly set highlight type for some extensions
