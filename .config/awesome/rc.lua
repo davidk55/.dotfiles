@@ -165,7 +165,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", "  ", "  ", " ﮶ ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", "  ", "  ", " ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -436,7 +436,7 @@ globalkeys = gears.table.join(globalkeys,
     awful.key({ modkey }, "'",
               function ()
                     for s in screen do
-                        awful.tag.viewtoggle(s.tags[5])
+                        awful.tag.viewtoggle(s.tags[2])
                     end
                     local obsidian = function (c)
                         return awful.rules.match(c, {class = "obsidian"})
@@ -619,7 +619,7 @@ awful.rules.rules = {
      { rule = { class = "Thunderbird" },
        properties = { tag = "  ", screen = 2 } },
      { rule = { class = "obsidian" },
-       properties = { tag = " ﮶ ", screen = 2 } },
+       properties = { tag = "  ", screen = 2 } },
      { rule = { instance = "discord" },
        properties = { tag = " ﭮ ", screen = 2 } },
      { rule = { name = "tmux" },
