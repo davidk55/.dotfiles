@@ -1,7 +1,7 @@
 " Tabs
-set softtabstop=4 " used when you want a different tab length in blank lines
-set tabstop=4 " length of the tab
-set shiftwidth=4 " should be the same as tabstop
+set softtabstop=2 " used when you want a different tab length in blank lines
+set tabstop=2 " length of the tab
+set shiftwidth=2 " should be the same as tabstop
 set expandtab " tabs are now spaces
 set smartindent
 
@@ -31,6 +31,8 @@ set encoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/morhetz/gruvbox'
+Plug 'justinmk/vim-sneak'
+Plug 'unblevable/quick-scope'
 
 "Plug 'kyazdani42/nvim-web-devicons'
 "Plug 'kyazdani42/nvim-tree.lua'
@@ -41,6 +43,18 @@ Plug 'https://github.com/morhetz/gruvbox'
 "Plug 'nvim-lua/plenary.nvim'
 "Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
+
+
+" Configure Sneak
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+map gS <Plug>Sneak_,
+map gs <Plug>Sneak_;
+let g:sneak#prompt = '🔎 '
+
+
+" Configure Quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 "function! statuslinegit()
 	"let l:branchname = gitbranch()
