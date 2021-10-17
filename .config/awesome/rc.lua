@@ -422,7 +422,7 @@ globalkeys = gears.table.join(globalkeys,
     awful.key({ modkey }, ";",
               function ()
                     for s in screen do
-                        awful.tag.viewtoggle(s.tags[4])
+                        awful.tag.viewtoggle(s.tags[5])
                     end
                     local vifm = function (c)
                         return awful.rules.match(c, {name = "vifm"})
