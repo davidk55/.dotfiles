@@ -37,6 +37,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 alias sudo='sudo '
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias v='nvim'
+alias sv='sudoedit'
 alias vc='nvim ~/.config/nvim/init.vim'
 alias ls='ls --color'
 alias la='ls -a --color'
