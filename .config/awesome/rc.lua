@@ -419,7 +419,7 @@ globalkeys = gears.table.join(globalkeys,
               end,
     {description = "toggle firefox tag", group = "tag"}),
     -- Toggle dir tag
-    awful.key({ modkey }, ";",
+    awful.key({ modkey }, "'",
               function ()
                     for s in screen do
                         awful.tag.viewtoggle(s.tags[5])
