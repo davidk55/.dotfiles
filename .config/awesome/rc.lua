@@ -433,7 +433,7 @@ globalkeys = gears.table.join(globalkeys,
               end,
     {description = "toggle dir tag", group = "tag"}),
     -- Toggle note tag
-    awful.key({ modkey }, "'",
+    awful.key({ modkey }, "o",
               function ()
                     for s in screen do
                         awful.tag.viewtoggle(s.tags[2])
