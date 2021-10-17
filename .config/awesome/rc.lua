@@ -422,7 +422,7 @@ globalkeys = gears.table.join(globalkeys,
     awful.key({ modkey }, "p",
               function ()
                     for s in screen do
-                        awful.tag.viewtoggle(s.tags[1])
+                        awful.tag.viewtoggle(s.tags[3])
                     end
                     local pw = function (c)
                         return awful.rules.match(c, {class = "KeePassXC"})
