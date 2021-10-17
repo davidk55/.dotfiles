@@ -165,7 +165,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -385,7 +385,7 @@ globalkeys = gears.table.join(globalkeys,
     awful.key({ modkey }, "c",
               function ()
                     for s in screen do
-                        awful.tag.viewtoggle(s.tags[1])
+                        awful.tag.viewtoggle(s.tags[4])
                     end
                     local code = function (c)
                         return awful.rules.match(c, {class = "jetbrains-idea"})
