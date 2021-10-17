@@ -327,7 +327,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
+    awful.key({ modkey }, "t", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
 
@@ -418,6 +418,20 @@ globalkeys = gears.table.join(globalkeys,
                     end
               end,
     {description = "toggle firefox tag", group = "tag"}),
+    -- Toggle pw tag
+    awful.key({ modkey }, "p",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[1])
+                    end
+                    local pw = function (c)
+                        return awful.rules.match(c, {class = "KeePassXC"})
+                    end
+                    for c in awful.client.iterate(pw) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle pw tag", group = "tag"}),
     -- Toggle dir tag
     awful.key({ modkey }, "'",
               function ()
