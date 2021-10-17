@@ -394,7 +394,7 @@ globalkeys = gears.table.join(globalkeys,
                         client.focus = c
                     end
               end,
-    {description = "toggle dir tag", group = "tag"}),
+    {description = "toggle code tag", group = "tag"}),
     -- Toggle firefox tag
     awful.key({ modkey }, "i",
               function ()
