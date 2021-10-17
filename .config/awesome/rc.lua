@@ -344,7 +344,7 @@ clientkeys = gears.table.join(
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey,           }, ".", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
-    awful.key({ modkey,           }, ",",       function (c) 
+    awful.key({ modkey, "Shift"   }, ",",       function (c) 
                                                     local index = c.first_tag.index
                                                     c:move_to_screen()
                                                     local tag = c.screen.tags[index]
