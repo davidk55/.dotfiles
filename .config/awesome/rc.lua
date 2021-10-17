@@ -382,7 +382,7 @@ clientkeys = gears.table.join(
 -- Toggle specific tags:
 globalkeys = gears.table.join(globalkeys,
     -- Toggle code tag
-    awful.key({ modkey }, "c",
+    awful.key({ modkey }, ";",
               function ()
                     for s in screen do
                         awful.tag.viewtoggle(s.tags[4])
