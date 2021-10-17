@@ -165,7 +165,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "  ", "  ", "  ", "  ", " ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
+    awful.tag({ "  ", "  ", "  ", "  ", "  ", "  ", "  ", " ﭮ "}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -616,14 +616,14 @@ awful.rules.rules = {
     --   properties = { screen = 1, tag = "2" } },
      { rule = { class = "firefox" },
        properties = { tag = "  ", screen = 2 } },
-     { rule = { class = "Thunderbird" },
-       properties = { tag = "  ", screen = 2 } },
      { rule = { class = "obsidian" },
        properties = { tag = "  ", screen = 2 } },
+     { rule = { class = "KeePassXC" },
+       properties = { tag = "  ", screen = 2 } },
+     { rule = { class = "Thunderbird" },
+       properties = { tag = "  ", screen = 2 } },
      { rule = { instance = "discord" },
        properties = { tag = " ﭮ ", screen = 2 } },
-     { rule = { name = "tmux" },
-       properties = { tag = "  ", screen = 1 } },
      { rule = { name = "vifm" },
        properties = { tag = "  ", screen = 2 } },
      { rule = { class = "okular" },
@@ -701,10 +701,10 @@ autorunApps =
 {
     "discord",
     "/home/david/Downloads/Obsidian-0.12.12.AppImage",
-    "alacritty -t tmux -e tmux",
     "alacritty -t vifm -e vifm",
     "thunderbird",
     "redshift",
+    "keepassxc",
 }
 if autorun then
     for app = 1, #autorunApps do
