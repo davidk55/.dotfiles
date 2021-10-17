@@ -381,6 +381,20 @@ clientkeys = gears.table.join(
 )
 -- Toggle specific tags:
 globalkeys = gears.table.join(globalkeys,
+    -- Toggle code tag
+    awful.key({ modkey }, "c",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[1])
+                    end
+                    local code = function (c)
+                        return awful.rules.match(c, {class = "jetbrains-idea"})
+                    end
+                    for c in awful.client.iterate(code) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle dir tag", group = "tag"}),
     -- Toggle firefox tag
     awful.key({ modkey }, "i",
               function ()
