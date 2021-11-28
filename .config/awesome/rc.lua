@@ -727,7 +727,7 @@ if autorun then
     end
 end
 
-awful.spawn("firefox", {
+awful.spawn("firefox --new-window nc:8080", {
     tag = "  ",
     screen = 2,
 })
