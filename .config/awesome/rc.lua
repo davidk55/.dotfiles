@@ -500,7 +500,103 @@ globalkeys = gears.table.join(globalkeys,
                         client.focus = c
                     end
               end,
-    {description = "toggle discord tag", group = "tag"})
+    {description = "toggle discord tag", group = "tag"}),
+
+    -- Move to code tag
+        awful.key({ modkey, "Shift" }, ";",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[4]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to code tag", group = "tag"}),
+
+    -- Move firefox tag
+        awful.key({ modkey, "Shift" }, "i",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[1]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to firefox tag", group = "tag"}),
+
+    -- Move to pw tag
+        awful.key({ modkey, "Shift" }, "p",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[3]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to pw tag", group = "tag"}),
+
+    -- Move to dir tag
+        awful.key({ modkey, "Shift" }, "'",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[5]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to dir tag", group = "tag"}),
+
+    -- Move to note tag
+        awful.key({ modkey, "Shift" }, "o",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[2]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move note tag", group = "tag"}),
+
+    -- Move to email tag
+        awful.key({ modkey, "Shift" }, "u",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[6]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to email tag", group = "tag"}),
+
+    -- Move to music tag
+        awful.key({ modkey, "Shift" }, "[",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[7]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to music tag", group = "tag"}),
+
+    -- Move to discord tag
+        awful.key({ modkey, "Shift" }, "]",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[8]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to discord tag", group = "tag"})
 )
 
 -- Bind all key numbers to tags.
