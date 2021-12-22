@@ -13,10 +13,11 @@ local themes_path = "/home/david/.config/awesome/themes/"
 local theme = {}
 theme.font          = "Hack Nerd Font 12"
 
-theme.bg_focus      = "#6D5357"
-theme.bg_normal     = "#282828"
-theme.bg_urgent     = "#282828"
-theme.bg_minimize   = "#2c2123"
+theme.taglist_bg_focus      = "#262626c0"
+theme.bg_focus      = "#262626c0"
+theme.bg_normal     = "#28282800"
+theme.bg_urgent     = "#28282800"
+theme.bg_minimize   = "#2c2123d0"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#ebdbb2"
@@ -68,7 +69,6 @@ theme.taglist_font = "Hack Nerd Font 14"
 theme.taglist_spacing = 0
 
 -- TASKLIST
-theme.tasklist_bg_focus = "#404040"
 theme.tasklist_disable_icon = true
 theme.tasklist_align = "center"
 theme.tasklist_font = "Hack Nerd Font 10"
