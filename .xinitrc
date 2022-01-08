@@ -58,5 +58,10 @@ xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --right-of DP-4 &
 # Load compositor
 picom --experimental-backends &
 
+# start the gnome-keyring-daemon
+eval $(gnome-keyring-daemon --start) &
+export SSH_AUTH_SOCK &
+dbus-update-activation-environment --systemd DISPLAY & 
+
 # Execute awesomewm
 exec awesome
