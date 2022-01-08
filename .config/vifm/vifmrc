@@ -231,13 +231,13 @@ filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
-filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-        \ {View in sxiv}
-        \ sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
+filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*> qview %c &
+        " \ {View in sxiv}
+        " \ sxiv %f,
+        " \ {View in gpicview}
+        " \ gpicview %c,
+        " \ {View in shotwell}
+        " \ shotwell,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
          \ identify %f
 
