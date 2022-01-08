@@ -816,7 +816,7 @@ autorunApps =
     "thunderbird",
     "redshift",
     "keepassxc",
-    "/home/david/Downloads/Nextcloud-3.3.5-x86_64.AppImage",
+    "nextcloud",
 }
 if autorun then
     for app = 1, #autorunApps do
