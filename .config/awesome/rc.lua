@@ -811,7 +811,7 @@ autorun = true
 autorunApps =
 {
     "discord",
-    "/home/david/Downloads/Obsidian-0.13.14.AppImage",
+    "obsidian",
     "alacritty -t vifm -e vifm",
     "thunderbird",
     "redshift",
