@@ -445,6 +445,20 @@ globalkeys = gears.table.join(globalkeys,
                     end
               end,
     {description = "toggle code tag", group = "tag"}),
+    -- Toggle devdocs tag
+    awful.key({ modkey }, "d",
+              function ()
+                    for s in screen do
+                        awful.tag.viewtoggle(s.tags[6])
+                    end
+                    local code = function (c)
+                        return awful.rules.match(c, {class = "Devdocs-desktop"})
+                    end
+                    for c in awful.client.iterate(code) do
+                        client.focus = c
+                    end
+              end,
+    {description = "toggle devdocs tag", group = "tag"}),
     -- Toggle dir tag
     awful.key({ modkey }, "'",
               function ()
@@ -550,6 +564,18 @@ globalkeys = gears.table.join(globalkeys,
                       end
                   end,
     {description = "move to code tag", group = "tag"}),
+
+    -- Move to devdocs tag
+        awful.key({ modkey, "Shift" }, "d",
+                  function ()
+                      if client.focus then
+                          local tag = client.focus.screen.tags[6]
+                          if tag then
+                              client.focus:move_to_tag(tag)
+                          end
+                      end
+                  end,
+    {description = "move to devdocs tag", group = "tag"}),
 
     -- Move to dir tag
         awful.key({ modkey, "Shift" }, "'",
