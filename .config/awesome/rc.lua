@@ -166,7 +166,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ " \u{f059} ", " \u{e007} ", " \u{f186} ",  " \u{f084} ", " \u{f121} ", " \u{f518} ", " \u{f07c} ", " \u{f0e0} ", " \u{f144} ", " \u{f392} " }, s, awful.layout.layouts[1])
+    awful.tag({ " \u{f059} ", " \u{e007} ", " \u{f186} ",  " \u{f084} ", " \u{f121} ", " \u{f002} ", " \u{f07c} ", " \u{f0e0} ", " \u{f04b} ", " \u{f392} " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -754,7 +754,7 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
      { rule = { class = "Devdocs-desktop" },
-       properties = { tag = " \u{f518} ", screen = 1 } },
+       properties = { tag = " \u{f002} ", screen = 1 } },
      { rule = { class = "firefox" },
        properties = { tag = " \u{e007} ", screen = 2 } },
      { rule = { class = "obsidian" },
@@ -861,6 +861,6 @@ awful.spawn("firefox --new-window nc:8080", {
 })
 
 awful.spawn("firefox --new-window https://www.youtube.com", {
-    tag = " \u{f144} ",
+    tag = " \u{f04b} ",
     screen = 2
 })
