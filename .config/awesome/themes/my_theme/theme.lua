@@ -13,8 +13,8 @@ local themes_path = "/home/david/.config/awesome/themes/"
 local theme = {}
 theme.font          = "Hack Nerd Font 12"
 
-theme.taglist_bg_focus      = "#262626c0"
-theme.bg_focus      = "#262626c0"
+theme.taglist_bg_focus      = "#7fff0040"
+theme.bg_focus      = "262626c0"
 theme.bg_normal     = "#28282800"
 theme.bg_urgent     = "#28282800"
 theme.bg_minimize   = "#2c2123d0"
@@ -65,13 +65,13 @@ theme.menu_submenu_icon     = themes_path .. "default/submenu.png"
 --)
 
 -- TAGLIST
-theme.taglist_font = "Hack Nerd Font 14"
+theme.taglist_font = "Font Awesome 5 Free Solid 16"
 theme.taglist_spacing = 0
 
 -- TASKLIST
 theme.tasklist_disable_icon = true
 theme.tasklist_align = "center"
-theme.tasklist_font = "Hack Nerd Font 10"
+theme.tasklist_font = "Hack Nerd Font 12"
 
 -- MISC
 theme.wallpaper             = "/home/david/.local/share/bgs/bg1.jpg"
