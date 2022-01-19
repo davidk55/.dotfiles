@@ -727,6 +727,8 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+     { rule = { class = "Devdocs-desktop" },
+       properties = { tag = " \u{f518} ", screen = 1 } },
      { rule = { class = "firefox" },
        properties = { tag = " \u{e007} ", screen = 2 } },
      { rule = { class = "obsidian" },
@@ -819,6 +821,7 @@ autorunApps =
     "redshift",
     "keepassxc",
     "nextcloud",
+    "devdocs-desktop",
 }
 if autorun then
     for app = 1, #autorunApps do
