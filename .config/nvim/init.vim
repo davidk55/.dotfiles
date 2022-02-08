@@ -101,8 +101,8 @@ nnoremap <leader>0 :call ToggleLightMode()<cr>
 " *************************** TREES ******************************
 nnoremap <leader>u :UndotreeToggle<CR>
 
-"set statusline=
-"set statusline+=%{StatuslineGit()}
+lua require'nvim-tree'.setup {}
+nnoremap <leader>e :NvimTreeToggle<CR>
 
 " *************************** GIT ******************************
 " make gitgutter work on my dotfiles (bare repo)
