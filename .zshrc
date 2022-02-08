@@ -49,6 +49,7 @@ alias upd='sudo pacman -Syu'
 alias cl='clear'
 alias x="startx"
 alias tl="tldr"
+alias calc="bc"
 
 # Functions
 t() {
