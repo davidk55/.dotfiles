@@ -27,6 +27,7 @@ set updatetime=50 " gives it a little longer updatetime, but no noticable delay
 set hidden " makes that you can leave a buffer without saving
 set ruler " show current cursor position on the bottom right
 set encoding=utf-8
+set termguicolors
 let mapleader = " "
 
 
@@ -80,10 +81,25 @@ let g:sneak#prompt = '🔎 '
 " Configure Quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-"function! statuslinegit()
-	"let l:branchname = gitbranch()
-	"return strlen(l:branchname) > 0?'  '.l:branchname.'  ':''
-"endfunction
+" *************************** DELETING ******************************
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" *************************** DARK/LIGHT TOGGLE ******************************
+let s:lightmode = 0
+function! ToggleLightMode()
+    if s:lightmode
+        set background=dark
+        let s:lightmode = 0
+    else
+        set background=light
+        let s:lightmode = 1
+    endif
+endfunction
+nnoremap <leader>0 :call ToggleLightMode()<cr>
+
+" *************************** TREES ******************************
+nnoremap <leader>u :UndotreeToggle<CR>
 
 "set statusline=
 "set statusline+=%{StatuslineGit()}
