@@ -44,9 +44,18 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 "Plug 'mbbill/undotree'
 
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" git related plugins
+source $HOME/.config/nvim/vim/plugins/git.vim
+
+" plugins for java
+source $HOME/.config/nvim/vim/plugins/specific_filetype/java.vim
+
+" plugins for latex
+source $HOME/.config/nvim/vim/plugins/specific_filetype/latex.vim
+
 call plug#end()
 
 
