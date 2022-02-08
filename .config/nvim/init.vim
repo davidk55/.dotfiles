@@ -27,6 +27,7 @@ set updatetime=50 " gives it a little longer updatetime, but no noticable delay
 set hidden " makes that you can leave a buffer without saving
 set ruler " show current cursor position on the bottom right
 set encoding=utf-8
+let mapleader = " "
 
 
 call plug#begin('~/.vim/plugged')
