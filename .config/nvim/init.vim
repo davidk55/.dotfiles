@@ -42,7 +42,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
-"Plug 'mbbill/undotree'
+Plug 'mbbill/undotree'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
