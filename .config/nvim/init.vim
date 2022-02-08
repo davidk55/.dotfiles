@@ -108,18 +108,16 @@ nnoremap <leader>e :NvimTreeToggle<CR>
 " make gitgutter work on my dotfiles (bare repo)
 let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-let mapleader = " "
+let g:gitgutter_map_keys = 0
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap <leader>gp <Plug>(GitGutterPreviewHunk)
+nmap <leader>gs <Plug>(GitGutterStageHunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
+nmap <leader>gf :GitGutterFold<CR>
 
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
-
-" Find files using Telescope command-line sugar.
-"nnoremap <leader>ff <cmd>Telescope find_files<cr>
-"nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-"nnoremap <leader>fb <cmd>Telescope buffers<cr>
-"nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-nnoremap <C-n> :NvimTreeToggle<CR>
-set termguicolors
-
-nnoremap <leader>u :UndotreeToggle<CR>
+" *************************** ULTISNIPS ******************************
+let g:UltiSnipsEditSplit = "verical"
+let g:UltiSnipsJumpForwardTrigger = "<leader>l"
+let g:UltiSnipsJumpBackwardTrigger = "<leader>h"
+let g:UltiSnipsExpandTrigger = "<nop>"
