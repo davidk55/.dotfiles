@@ -121,3 +121,10 @@ let g:UltiSnipsEditSplit = "verical"
 let g:UltiSnipsJumpForwardTrigger = "<leader>l"
 let g:UltiSnipsJumpBackwardTrigger = "<leader>h"
 let g:UltiSnipsExpandTrigger = "<nop>"
+
+
+" *************************** COC ******************************
+source $HOME/.config/nvim/vim/coc/settings.vim
+
+" *************************** LATEX ******************************
+let g:vimtex_view_method = 'zathura'
