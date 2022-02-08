@@ -30,6 +30,7 @@ set encoding=utf-8
 let mapleader = " "
 
 
+" *************************** PLUGINS ******************************
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'justinmk/vim-sneak'
@@ -59,13 +60,22 @@ source $HOME/.config/nvim/vim/plugins/specific_filetype/latex.vim
 call plug#end()
 
 
+" *************************** ENABLE FILETYPE PLUGIN ******************************
+filetype plugin on
+
+" *************************** COLORSCHEME ******************************
+colorscheme gruvbox
+
+" *************************** MOVEMENT ******************************
+cnoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "<C-j>"
+cnoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "<C-k>"
+
 " Configure Sneak
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 map gS <Plug>Sneak_,
 map gs <Plug>Sneak_;
 let g:sneak#prompt = '🔎 '
-
 
 " Configure Quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -78,8 +88,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 "set statusline=
 "set statusline+=%{StatuslineGit()}
 
-colorscheme gruvbox
-filetype plugin on
+" *************************** GIT ******************************
+" make gitgutter work on my dotfiles (bare repo)
+let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 let mapleader = " "
 
