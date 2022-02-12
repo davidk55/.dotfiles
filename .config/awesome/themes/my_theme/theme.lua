@@ -65,7 +65,7 @@ theme.menu_submenu_icon     = themes_path .. "default/submenu.png"
 --)
 
 -- TAGLIST
-theme.taglist_font = "Font Awesome 5 Free Solid 16"
+theme.taglist_font = "Font Awesome 6 Free Solid 16"
 theme.taglist_spacing = 0
 
 -- TASKLIST
