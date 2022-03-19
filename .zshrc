@@ -56,7 +56,7 @@ t() {
     (sleep "$1" && notify-send -u critical "$2" "ready!") & disown
 }
 sc() {
-    (maim -s -o ~/Documents/Screenshots/"$1")
+  (maim -s -o ~/Documents/Screenshots/screenshot--$(date -u +"%Y-%m-%d--%H-%M-%S"))
 }
 
 n ()
