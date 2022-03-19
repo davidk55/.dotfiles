@@ -12,3 +12,4 @@ BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING=
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
 export NNN_PLUG='j:autojump;s:suedit;p:preview-tui;d:dragdrop;i:imgview'
 export NNN_FIFO='/tmp/nnn.fifo'
+export NNN_TMPFILE=/tmp/.lastd
