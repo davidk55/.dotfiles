@@ -68,6 +68,7 @@ filetype plugin on
 colorscheme gruvbox
 
 " *************************** MOVEMENT ******************************
+" Moving in completion
 cnoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "<C-j>"
 cnoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "<C-k>"
 
@@ -82,6 +83,7 @@ let g:sneak#prompt = '🔎 '
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " *************************** DELETING ******************************
+" Deleting into black hole register
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
@@ -105,7 +107,7 @@ lua require'nvim-tree'.setup {}
 nnoremap <leader>e :NvimTreeToggle<CR>
 
 " *************************** GIT ******************************
-" make gitgutter work on my dotfiles (bare repo)
+" Make gitgutter work on my dotfiles (bare repo)
 let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 let g:gitgutter_map_keys = 0
@@ -128,3 +130,35 @@ source $HOME/.config/nvim/vim/coc/settings.vim
 
 " *************************** LATEX ******************************
 let g:vimtex_view_method = 'zathura'
+
+" *************************** WINDOWS ******************************
+" Split Windows
+nmap ;s :split<Return><C-w>w
+nmap ;v :vsplit<Return><C-w>w
+
+" Move between Windows
+nmap ;h <C-w>h
+nmap ;j <C-w>j
+nmap ;k <C-w>k
+nmap ;l <C-w>l
+
+" Move Windows around
+nmap ;H <C-w>H
+nmap ;J <C-w>J
+nmap ;K <C-w>K
+nmap ;L <C-w>L
+nmap ;n <C-w>w
+nmap ;N <C-w>W
+
+" Resize Windows
+nmap ;< <C-w><
+nmap ;> <C-w>>
+nmap ;= <C-w>=
+nmap ;- <C-w>-
+nmap ;+ <C-w>+
+
+" Quit Window
+nmap ;q <C-w>q
+
+" *************************** TABS ******************************
+nmap ;t :tabedit<Return>
