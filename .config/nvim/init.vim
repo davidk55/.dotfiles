@@ -41,8 +41,8 @@ Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Required for nvim tree
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'mbbill/undotree'
 
@@ -103,7 +103,12 @@ nnoremap <leader>0 :call ToggleLightMode()<cr>
 " *************************** TREES ******************************
 nnoremap <leader>u :UndotreeToggle<CR>
 
-lua require'nvim-tree'.setup {}
+"lua <<EOF
+"require'nvim-tree'.setup {
+"  disable_netrw = false,
+"  hijack_netrw = false,
+"}
+"EOF
 nnoremap <leader>e :NvimTreeToggle<CR>
 
 " *************************** GIT ******************************
@@ -133,32 +138,35 @@ let g:vimtex_view_method = 'zathura'
 
 " *************************** WINDOWS ******************************
 " Split Windows
-nmap ;s :split<Return><C-w>w
-nmap ;v :vsplit<Return><C-w>w
+nmap <leader>s :split<Return><C-w>w
+nmap <leader>v :vsplit<Return><C-w>w
 
 " Move between Windows
-nmap ;h <C-w>h
-nmap ;j <C-w>j
-nmap ;k <C-w>k
-nmap ;l <C-w>l
+nmap <leader>h <C-w>h
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
+nmap <leader>l <C-w>l
 
 " Move Windows around
-nmap ;H <C-w>H
-nmap ;J <C-w>J
-nmap ;K <C-w>K
-nmap ;L <C-w>L
-nmap ;n <C-w>w
-nmap ;N <C-w>W
+nmap <leader>H <C-w>H
+nmap <leader>J <C-w>J
+nmap <leader>K <C-w>K
+nmap <leader>L <C-w>L
+nmap <leader>n <C-w>w
+nmap <leader>N <C-w>W
 
 " Resize Windows
-nmap ;< <C-w><
-nmap ;> <C-w>>
-nmap ;= <C-w>=
-nmap ;- <C-w>-
-nmap ;+ <C-w>+
+nmap <leader>< <C-w><
+nmap <leader>> <C-w>>
+nmap <leader>= <C-w>=
+nmap <leader>- <C-w>-
+nmap <leader>+ <C-w>+
 
 " Quit Window
-nmap ;q <C-w>q
+nmap <leader>q <C-w>q
 
 " *************************** TABS ******************************
-nmap ;t :tabedit<Return>
+nmap <leader>t :tabedit<Return>
+
+" *************************** EXPLORER ******************************
+nmap <leader>e :Explore<Return>
