@@ -116,8 +116,8 @@ nnoremap <leader>e :NvimTreeToggle<CR>
 let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 let g:gitgutter_map_keys = 0
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
+nmap <leader>g> <Plug>(GitGutterNextHunk)
+nmap <leader>g< <Plug>(GitGutterPrevHunk)
 nmap <leader>gp <Plug>(GitGutterPreviewHunk)
 nmap <leader>gs <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
