@@ -166,7 +166,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ " \u{f059} ", " \u{e007} ", " \u{f186} ",  " \u{f084} ", " \u{f121} ", " \u{f002} ", " \u{f07c} ", " \u{f0e0} ", " \u{f04b} ", " \u{f392} " }, s, awful.layout.layouts[1])
+    awful.tag({ " \u{f059} ", " \u{e007} ", " \u{f186} ",  " \u{f084} ", " \u{f121} ", " \u{f002} ", " \u{f120} ", " \u{f0e0} ", " \u{f04b} ", " \u{f392} " }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -431,20 +431,20 @@ globalkeys = gears.table.join(globalkeys,
                     end
               end,
     {description = "toggle pw tag", group = "tag"}),
-    -- Toggle code tag
+    -- Toggle dev tag
     awful.key({ modkey }, ";",
               function ()
                     for s in screen do
                         awful.tag.viewtoggle(s.tags[5])
                     end
                     local code = function (c)
-                        return awful.rules.match(c, {class = "jetbrains-idea"})
+                        return awful.rules.match(c, {name = "dev"})
                     end
                     for c in awful.client.iterate(code) do
                         client.focus = c
                     end
               end,
-    {description = "toggle code tag", group = "tag"}),
+    {description = "toggle dev tag", group = "tag"}),
     -- Toggle devdocs tag
     awful.key({ modkey }, "d",
               function ()
@@ -459,7 +459,7 @@ globalkeys = gears.table.join(globalkeys,
                     end
               end,
     {description = "toggle devdocs tag", group = "tag"}),
-    -- Toggle dir tag
+    -- Toggle term tag
     awful.key({ modkey }, "'",
               function ()
                     for s in screen do
@@ -472,7 +472,7 @@ globalkeys = gears.table.join(globalkeys,
                         client.focus = c
                     end
               end,
-    {description = "toggle dir tag", group = "tag"}),
+    {description = "toggle term tag", group = "tag"}),
     -- Toggle email tag
     awful.key({ modkey }, "u",
               function ()
@@ -766,8 +766,10 @@ awful.rules.rules = {
        properties = { tag = " \u{f0e0} ", screen = 2 } },
      { rule = { instance = "discord" },
        properties = { tag = " \u{f392} ", screen = 2 } },
-     { rule = { name = "vifm" },
-       properties = { tag = " \u{f07c} ", screen = 2 } },
+     { rule = { name = "dev" },
+       properties = { tag = " \u{f121} ", screen = 1 } },
+     { rule = { name = "term" },
+       properties = { tag = " \u{f120} ", screen = 1 } },
      { rule = { class = "okular" },
        properties = { tag = " \u{f07c} ", screen = 2 } },
 }
@@ -843,7 +845,8 @@ autorunApps =
 {
     "discord",
     "obsidian",
-    "alacritty -t vifm -e vifm",
+    "alacritty -t term -e term",
+    "alacritty -t dev -e dev",
     "thunderbird",
     "redshift",
     "keepassxc",
