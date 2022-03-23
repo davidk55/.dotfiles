@@ -170,3 +170,7 @@ nmap <leader>t :tabedit<Return>
 
 " *************************** EXPLORER ******************************
 nmap <leader>e :Explore<Return>
+
+" *************************** WRITING/CLOSING ******************************
+nmap <leader>w :w
+nmap <leader>! :q!<Return>
