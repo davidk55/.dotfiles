@@ -722,7 +722,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
-    "alacritty -t dev -e dev",
     "discord",
     "obsidian",
     "thunderbird",
@@ -731,6 +730,7 @@ autorunApps =
     "nextcloud",
     "devdocs-desktop",
     "alacritty -t term -e term",
+    "alacritty -t dev",
 }
 if autorun then
     for app = 1, #autorunApps do
