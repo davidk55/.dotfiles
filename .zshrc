@@ -30,6 +30,10 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 export KEYTIMEOUT=1
 
+# C-e to edit current command in vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
 # Plugins
 source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
