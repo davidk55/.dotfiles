@@ -17,7 +17,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- {{{ Error handling
+
+--------------------------- ERROR HANDLING ------------------------------
+-- {{{
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -42,7 +44,8 @@ do
 end
 -- }}}
 
--- {{{ Variable definitions
+--------------------------- VARIABLE DEFINITIONS ------------------------------
+-- {{{
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/david/.config/awesome/themes/my_theme/theme.lua")
 
@@ -79,7 +82,8 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Menu
+--------------------------- MENU ------------------------------
+-- {{{
 -- Create a launcher widget and a main menu
 -- myawesomemenu = {
 --   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -101,7 +105,9 @@ awful.layout.layouts = {
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- {{{ Wibar
+
+--------------------------- WIBAR ------------------------------
+-- {{{
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock("     %a   %b. %d   %H:%M  ")
 mytextclock.font = "SFNS Display 16"
@@ -218,15 +224,8 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
--- {{{ Mouse bindings
--- root.buttons(gears.table.join(
---     awful.button({ }, 3, function () mymainmenu:toggle() end),
---     awful.button({ }, 4, awful.tag.viewnext),
---     awful.button({ }, 5, awful.tag.viewprev)
--- ))
--- }}}
-
--- {{{ Key bindings
+--------------------------- KEYBOARD SHORTCUTS ------------------------------
+-- {{{
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
@@ -378,7 +377,7 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize horizontally", group = "client"})
 )
--- Toggle specific tags:
+
 function toggleTagAndFocusName(tag_idx, _name)
     for s in screen do
         awful.tag.viewtoggle(s.tags[tag_idx])
@@ -396,7 +395,7 @@ function toggleTagAndFocusClass(tag_idx, _name)
     for s in screen do
         awful.tag.viewtoggle(s.tags[tag_idx])
         for _,c in ipairs(s.clients) do
-            if awful.rules.match(c, {name = _name}) then
+            if awful.rules.match(c, {class = _name}) then
                 awful.screen.focus(s.index)
                 client.focus = c
                 c:raise()
@@ -418,22 +417,33 @@ function toggleTagAndFocusInstance(tag_idx, _instance)
         end
     end
 end
+function moveClientToTag(tag_idx)
+    if client.focus then
+        local tag = client.focus.screen.tags[tag_idx]
+        if tag then
+            client.focus:move_to_tag(tag)
+        end
+    end
+end
 globalkeys = gears.table.join(globalkeys,
+
+-- Toggle specific tags
+
     -- Toggle firefox tag
     awful.key({ modkey }, "i", function () toggleTagAndFocusClass(2, "firefox") end,
     {description = "toggle firefox tag", group = "tag"}),
 
     -- Toggle note tag
     awful.key({ modkey }, "o", function () toggleTagAndFocusClass(3, "obsidian") end,
-    {description = "toggle note tag", group = "tag"}),
+    {description = "toggle notes tag", group = "tag"}),
 
     -- Toggle pw tag
     awful.key({ modkey }, "p", function () toggleTagAndFocusClass(4, "KeePassXC") end,
-    {description = "toggle pw tag", group = "tag"}),
+    {description = "toggle passwords tag", group = "tag"}),
 
     -- Toggle dev tag
     awful.key({ modkey }, ";", function () toggleTagAndFocusName(5, "dev") end,
-    {description = "toggle dev tag", group = "tag"}),
+    {description = "toggle coding tag", group = "tag"}),
 
     -- Toggle devdocs tag
     awful.key({ modkey }, "d", function () toggleTagAndFocusClass(6, "Devdocs-desktop") end,
@@ -441,7 +451,7 @@ globalkeys = gears.table.join(globalkeys,
 
     -- Toggle term tag
     awful.key({ modkey }, "'", function() toggleTagAndFocusName(7, "term") end,
-    {description = "toggle term tag", group = "tag"}),
+    {description = "toggle terminal tag", group = "tag"}),
 
     -- Toggle email tag
     awful.key({ modkey }, "u", function () toggleTagAndFocusClass(8, "Thunderbird") end,
@@ -455,123 +465,48 @@ globalkeys = gears.table.join(globalkeys,
     awful.key({ modkey }, "]", function () toggleTagAndFocusInstance(10, "discord") end,
     {description = "toggle discord tag", group = "tag"}),
 
+-- Move clients to specific tags
 
     -- Move firefox tag
-        awful.key({ modkey, "Shift" }, "i",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[2]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
+    awful.key({ modkey, "Shift" }, "i", function () moveClientToTag(2) end,
     {description = "move to firefox tag", group = "tag"}),
 
     -- Move to note tag
-        awful.key({ modkey, "Shift" }, "o",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[3]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
-    {description = "move note tag", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "o", function () moveClientToTag(3) end,
+    {description = "move to notes tag", group = "tag"}),
 
     -- Move to pw tag
-        awful.key({ modkey, "Shift" }, "p",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[4]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
-    {description = "move to pw tag", group = "tag"}),
+    awful.key({ modkey, "Shift" }, "p", function () moveClientToTag(4) end,
+    {description = "move to passwords tag", group = "tag"}),
 
     -- Move to code tag
-        awful.key({ modkey, "Shift" }, ";",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[5]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
-    {description = "move to code tag", group = "tag"}),
+    awful.key({ modkey, "Shift" }, ";", function () moveClientToTag(5) end,
+    {description = "move to coding tag", group = "tag"}),
 
     -- Move to devdocs tag
-        awful.key({ modkey, "Shift" }, "d",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[6]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
+    awful.key({ modkey, "Shift" }, "d", function () moveClientToTag(6) end,
     {description = "move to devdocs tag", group = "tag"}),
 
     -- Move to dir tag
-        awful.key({ modkey, "Shift" }, "'",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[7]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
-    {description = "move to dir tag", group = "tag"}),
-
+    awful.key({ modkey, "Shift" }, "'", function () moveClientToTag(7) end,
+    {description = "move to terminal tag", group = "tag"}),
 
     -- Move to email tag
-        awful.key({ modkey, "Shift" }, "u",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[8]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
+    awful.key({ modkey, "Shift" }, "u", function () moveClientToTag(8) end,
     {description = "move to email tag", group = "tag"}),
 
     -- Move to music tag
-        awful.key({ modkey, "Shift" }, "[",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[9]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
+    awful.key({ modkey, "Shift" }, "[", function () moveClientToTag(9) end,
     {description = "move to music tag", group = "tag"}),
 
     -- Move to discord tag
-        awful.key({ modkey, "Shift" }, "]",
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[10]
-                          if tag then
-                              client.focus:move_to_tag(tag)
-                          end
-                      end
-                  end,
+    awful.key({ modkey, "Shift" }, "]", function () moveClientToTag(10) end,
     {description = "move to discord tag", group = "tag"})
 )
 
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
-        -- View tag only.
+        -- View specific tag
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
                         for s in screen do
@@ -581,7 +516,7 @@ for i = 1, 9 do
                             end
                         end
                   end,
-                  {description = "view tag #"..i, group = "tag"}),
+                  {description = "view tag #" .. i, group = "tag"}),
         -- Toggle tag display.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
@@ -631,11 +566,13 @@ clientbuttons = gears.table.join(
     end)
 )
 
--- Set keys
+-- Set the keys
 root.keys(globalkeys)
 -- }}}
 
--- {{{ Rules
+
+--------------------------- RULES --------------------------------
+-- {{{
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -714,7 +651,8 @@ awful.rules.rules = {
 }
 -- }}}
 
--- {{{ Signals
+--------------------------- SIGNALS --------------------------------
+-- {{{
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -778,19 +716,21 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
--- Autorun programs
+
+--------------------------- AUTORUN --------------------------------
+-- {{{
 autorun = true
 autorunApps =
 {
+    "alacritty -t dev -e dev",
     "discord",
     "obsidian",
-    "alacritty -t term -e term",
-    "alacritty -t dev -e dev",
     "thunderbird",
     "redshift",
     "keepassxc",
     "nextcloud",
     "devdocs-desktop",
+    "alacritty -t term -e term",
 }
 if autorun then
     for app = 1, #autorunApps do
@@ -807,3 +747,4 @@ awful.spawn("firefox --new-window https://www.youtube.com", {
     tag = " \u{f04b} ",
     screen = 2
 })
+-- }}}
