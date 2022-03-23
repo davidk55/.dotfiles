@@ -27,7 +27,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 
 # Vim mode
-bindkey -v
+bindkey -v '^?' backward-delete-char
 export KEYTIMEOUT=1
 
 # Plugins
