@@ -378,40 +378,74 @@ clientkeys = gears.table.join(
         {description = "(un)maximize horizontally", group = "client"})
 )
 
+
 function toggleTagAndFocusName(tag_idx, _name)
+    local screenToSkip
+    for _,c in ipairs(client.get()) do
+        if (c.class == _name) then
+            screenToSkip = c.screen
+        end
+    end
     for s in screen do
-        awful.tag.viewtoggle(s.tags[tag_idx])
-        for _,c in ipairs(s.clients) do
+      if (not (s == screenToSkip)) then
+          awful.tag.viewtoggle(s.tags[tag_idx])
+      end
+    end
+    if (screenToSkip ~= nil) then
+        awful.tag.viewtoggle(screenToSkip.tags[tag_idx])
+        awful.screen.focus(screenToSkip.index)
+        for _,c in ipairs(screenToSkip.clients) do
             if awful.rules.match(c, {name = _name}) then
-                awful.screen.focus(s.index)
+                awful.screen.focus(screenToSkip.index)
                 client.focus = c
-                c:raise()
                 return
             end
         end
     end
 end
-function toggleTagAndFocusClass(tag_idx, _name)
+function toggleTagAndFocusClass(tag_idx, _class)
+    local screenToSkip
+    for _,c in ipairs(client.get()) do
+        if (c.class == _class) then
+            screenToSkip = c.screen
+        end
+    end
     for s in screen do
-        awful.tag.viewtoggle(s.tags[tag_idx])
-        for _,c in ipairs(s.clients) do
-            if awful.rules.match(c, {class = _name}) then
-                awful.screen.focus(s.index)
+      if (not (s == screenToSkip)) then
+          awful.tag.viewtoggle(s.tags[tag_idx])
+      end
+    end
+    if (screenToSkip ~= nil) then
+        awful.tag.viewtoggle(screenToSkip.tags[tag_idx])
+        awful.screen.focus(screenToSkip.index)
+        for _,c in ipairs(screenToSkip.clients) do
+            if awful.rules.match(c, {name = _class}) then
+                awful.screen.focus(screenToSkip.index)
                 client.focus = c
-                c:raise()
                 return
             end
         end
     end
 end
 function toggleTagAndFocusInstance(tag_idx, _instance)
+    local screenToSkip
+    for _,c in ipairs(client.get()) do
+        if (c.class == _instance) then
+            screenToSkip = c.screen
+        end
+    end
     for s in screen do
-        awful.tag.viewtoggle(s.tags[tag_idx])
-        for _,c in ipairs(s.clients) do
+      if (not (s == screenToSkip)) then
+          awful.tag.viewtoggle(s.tags[tag_idx])
+      end
+    end
+    if (screenToSkip ~= nil) then
+        awful.tag.viewtoggle(screenToSkip.tags[tag_idx])
+        awful.screen.focus(screenToSkip.index)
+        for _,c in ipairs(screenToSkip.clients) do
             if awful.rules.match(c, {instance = _instance}) then
-                awful.screen.focus(s.index)
+                awful.screen.focus(screenToSkip.index)
                 client.focus = c
-                c:raise()
                 return
             end
         end
