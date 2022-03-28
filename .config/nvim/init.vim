@@ -174,3 +174,7 @@ nmap <leader>e :Explore<Return>
 " *************************** WRITING/CLOSING ******************************
 nmap <leader>w :w
 nmap <leader>! :q!<Return>
+
+" *************************** COPY/PASTE ******************************
+nmap <leader>y "+y
+vmap <leader>y "+y
