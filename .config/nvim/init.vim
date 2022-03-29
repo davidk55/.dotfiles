@@ -178,3 +178,5 @@ nmap <leader>! :q!<Return>
 " *************************** COPY/PASTE ******************************
 nmap <leader>y "+y
 vmap <leader>y "+y
+nmap <leader>p "+p
+vmap <leader>p "+p
