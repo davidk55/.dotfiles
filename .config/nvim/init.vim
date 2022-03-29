@@ -113,7 +113,7 @@ nnoremap <leader>e :NvimTreeToggle<CR>
 
 " *************************** GIT ******************************
 " Make gitgutter work on my dotfiles (bare repo)
-let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
+"let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 let g:gitgutter_map_keys = 0
 nmap <leader>g> <Plug>(GitGutterNextHunk)
