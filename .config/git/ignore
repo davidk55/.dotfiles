@@ -166,3 +166,7 @@ tests/cases/user/prettier/prettier
 *.exe
 *.o
 *.so
+
+
+############################### OTHER ##############################
+.git/
