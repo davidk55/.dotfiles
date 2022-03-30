@@ -44,6 +44,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'kyazdani42/nvim-web-devicons'
 "Plug 'kyazdani42/nvim-tree.lua'
 
+Plug 'junegunn/fzf.vim'
+
 Plug 'mbbill/undotree'
 
 Plug 'SirVer/ultisnips'
@@ -135,6 +137,9 @@ source $HOME/.config/nvim/vim/coc/settings.vim
 
 " *************************** LATEX ******************************
 let g:vimtex_view_method = 'zathura'
+
+" *************************** FZF ******************************
+nmap <leader>f :FZF<CR>
 
 " *************************** WINDOWS ******************************
 " Split Windows
