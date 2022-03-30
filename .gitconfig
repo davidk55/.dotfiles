@@ -1,0 +1,7 @@
+[user]
+  email = david.programming@protonmail.com
+  name = David
+
+[core]
+  editor = vim
+	excludesfile = /home/david/.config/git/ignore
