@@ -180,3 +180,8 @@ nmap <leader>y "+y
 vmap <leader>y "+y
 nmap <leader>p "+p
 vmap <leader>p "+p
+
+
+" *************************** DIFF SWAP FILE ******************************
+command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_
+      \ | diffthis | wincmd p | diffthis
