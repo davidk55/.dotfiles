@@ -16,3 +16,23 @@ export NNN_TMPFILE=/tmp/.lastd
 
 # bat (as man page replacement)
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# fzf
+MY_FD_OPTIONS="fd --color=never --hidden --exclude .git"
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard |
+                            $MY_FD_OPTIONS --type f"
+export FZF_DEFAULT_OPTS="
+  --color=dark
+  --color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
+  --color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+  --height=60%
+  --layout=reverse
+  --border
+  --multi
+  --info=inline
+  --cycle
+"
+export FZF_CTRL_T_COMMAND="$MY_FD_OPTIONS --type f"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+export FZF_ALT_C_COMMAND="$MY_FD_OPTIONS --type d"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -80'"
