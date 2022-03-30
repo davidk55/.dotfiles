@@ -37,6 +37,11 @@ bindkey '^e' edit-command-line
 # Plugins
 source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
+# FZF
+bindkey '^F' fzf-file-widget
 
 # Aliases
 alias sudo='sudo '
