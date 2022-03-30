@@ -18,6 +18,10 @@ set signcolumn=yes " add an extra column at the beginning
 set colorcolumn=80 " adds an red bar at the 80th column
 set cmdheight=2 " more space for displaying messages
 
+" Splitting
+set splitright
+set splitbelow
+
 " Misc.
 set noerrorbells
 set nowrap " makes that text does not wrap to a new line when its to long
