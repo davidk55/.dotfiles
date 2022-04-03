@@ -109,21 +109,10 @@ nnoremap <leader>0 :call ToggleLightMode()<cr>
 " *************************** TREES ******************************
 nnoremap <leader>u :UndotreeToggle<CR>
 
-"lua <<EOF
-"require'nvim-tree'.setup {
-"  disable_netrw = false,
-"  hijack_netrw = false,
-"}
-"EOF
-nnoremap <leader>e :NvimTreeToggle<CR>
-
 " *************************** GIT ******************************
-" Make gitgutter work on my dotfiles (bare repo)
-"let g:gitgutter_git_args='--git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
 let g:gitgutter_map_keys = 0
-nmap <leader>g> <Plug>(GitGutterNextHunk)
-nmap <leader>g< <Plug>(GitGutterPrevHunk)
+nmap <leader>g] <Plug>(GitGutterNextHunk)
+nmap <leader>g[ <Plug>(GitGutterPrevHunk)
 nmap <leader>gp <Plug>(GitGutterPreviewHunk)
 nmap <leader>gs <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
@@ -143,12 +132,12 @@ source $HOME/.config/nvim/vim/coc/settings.vim
 let g:vimtex_view_method = 'zathura'
 
 " *************************** FZF ******************************
-nmap <leader>f :FZF<CR>
+nmap <leader>e :FZF<CR>
 
 " *************************** WINDOWS ******************************
 " Split Windows
-nmap <leader>s :split<Return><C-w>w
-nmap <leader>v :vsplit<Return><C-w>w
+nmap <leader>s :split<Return>
+nmap <leader>v :vsplit<Return>
 
 " Move between Windows
 nmap <leader>h <C-w>h
@@ -176,9 +165,6 @@ nmap <leader>q <C-w>q
 
 " *************************** TABS ******************************
 nmap <leader>t :tabedit<Return>
-
-" *************************** EXPLORER ******************************
-nmap <leader>e :Explore<Return>
 
 " *************************** WRITING/CLOSING ******************************
 nmap <leader>w :w
