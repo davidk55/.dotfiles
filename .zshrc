@@ -59,10 +59,18 @@ alias cl='clear'
 alias x="startx"
 alias tl="tldr"
 alias calc="bc"
+alias al="alarm"
 
 # Functions
-t() {
-    (sleep "$1" && notify-send -u critical "$2" "ready!") & disown
+alarm() {
+    setopt verbose
+    echo "In how many minutes the alarm should go off?"
+    echo "(separated by a space with h=hours, m=minutes, s=seconds)"
+    read alarm_time
+    echo "Name of the alarm?"
+    read alarm_name
+    (sleep "$alarm_time" && notify-send -u critical "$alarm_name" "ready!") & disown
+    unsetopt verbose
 }
 sc() {
   (maim -s -o ~/Documents/Screenshots/screenshot--$(date -u +"%Y-%m-%d--%H-%M-%S"))
