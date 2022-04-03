@@ -325,11 +325,11 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Calculator
-    awful.key({ }, "#142",     function () awful.util.spawn("rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command 'echo -n '{result}' | xclip -sel clip'") end,
+    awful.key({ }, "#148",     function () awful.util.spawn("rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command 'echo -n '{result}' | xclip -sel clip'") end,
               {description = "run calculator", group = "launcher"}),
     -- Emoji-Selector
     awful.key({ }, "#142",     function () awful.util.spawn("rofi -show emoji -modi emoji") end,
-              {description = "run calculator", group = "launcher"}),
+              {description = "run emoji-selector", group = "launcher"}),
     -- Menubar
     awful.key({ modkey }, "t", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
