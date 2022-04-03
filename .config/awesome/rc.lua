@@ -311,7 +311,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run") end,
+    awful.key({ }, "#138",     function () awful.util.spawn("rofi -show drun") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -324,6 +324,12 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+    -- Calculator
+    awful.key({ }, "#142",     function () awful.util.spawn("rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command 'echo -n '{result}' | xclip -sel clip'") end,
+              {description = "run calculator", group = "launcher"}),
+    -- Emoji-Selector
+    awful.key({ }, "#142",     function () awful.util.spawn("rofi -show emoji -modi emoji") end,
+              {description = "run calculator", group = "launcher"}),
     -- Menubar
     awful.key({ modkey }, "t", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
@@ -382,7 +388,7 @@ clientkeys = gears.table.join(
 function toggleTagAndFocusName(tag_idx, _name)
     local screenToSkip
     for _,c in ipairs(client.get()) do
-        if (c.class == _name) then
+        if (c.name == _name) then
             screenToSkip = c.screen
         end
     end
@@ -419,7 +425,7 @@ function toggleTagAndFocusClass(tag_idx, _class)
         awful.tag.viewtoggle(screenToSkip.tags[tag_idx])
         awful.screen.focus(screenToSkip.index)
         for _,c in ipairs(screenToSkip.clients) do
-            if awful.rules.match(c, {name = _class}) then
+            if awful.rules.match(c, {class = _class}) then
                 awful.screen.focus(screenToSkip.index)
                 client.focus = c
                 return
@@ -430,7 +436,7 @@ end
 function toggleTagAndFocusInstance(tag_idx, _instance)
     local screenToSkip
     for _,c in ipairs(client.get()) do
-        if (c.class == _instance) then
+        if (c.instance == _instance) then
             screenToSkip = c.screen
         end
     end
