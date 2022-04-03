@@ -332,7 +332,16 @@ globalkeys = gears.table.join(
               {description = "run emoji-selector", group = "launcher"}),
     -- Menubar
     awful.key({ modkey }, "t", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Volume down
+    awful.key({ }, "#122", function() os.execute("amixer set Master 5%-") end,
+              {description = "lower the volume", group = "volume"}),
+    -- Volume up
+    awful.key({ }, "#123", function() os.execute("amixer set Master 5%+") end,
+              {description = "upper the volume", group = "volume"}),
+    -- Toggle mute/unmute
+    awful.key({ }, "#121", function() os.execute("amixer set Master toggle") end,
+              {description = "toggle mute/unmute", group = "volume"})
 )
 
 clientkeys = gears.table.join(
