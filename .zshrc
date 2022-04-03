@@ -2,10 +2,17 @@
 autoload -U colors && colors
 autoload -U vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats " - %s(%F{15}%b%f%F{1})%f"
-precmd() { vcs_info }
-setopt prompt_subst
-PROMPT='%B%F{89}[%f%F{10}%n%f%F{11}@%f%F{12}%m%f %F{70}%~%f%F{1}${vcs_info_msg_0_}%f%F{89}]%f%F{15}$%f%b '
+#zstyle ':vcs_info:*' formats " - %s(%F{15}%b%f%F{1})%f"
+zstyle ':vcs_info:*' formats "%F{6}%b%f"
+precmd() {
+  vcs_info
+  setopt prompt_subst
+  if [[ -n ${vcs_info_msg_0_} ]] then
+    PROMPT="%F{10}%1d%f%F{3}:%f%B%F{2}${vcs_info_msg_0_}%f%b %F{4}>%f "
+  else
+    PROMPT="%B%F{89}[%f%F{10}%n%f%F{11}@%f%F{12}%m%f%F{89}]%f %F{70}%~%f %F{4}%F{15}$%f "
+  fi
+}
 unsetopt prompt_cr prompt_sp
 
 # History
