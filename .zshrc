@@ -47,9 +47,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-# FZF
-bindkey '^F' fzf-file-widget
-
 # Aliases
 alias sudo='sudo '
 alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
