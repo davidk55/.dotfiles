@@ -1,9 +1,9 @@
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>f <Plug>(coc-format)
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader> ld <Plug>(coc-definition)
+nmap <leader> ly <Plug>(coc-type-definition)
+nmap <leader> li <Plug>(coc-implementation)
+nmap <leader> lr <Plug>(coc-references)
+nmap <leader> lf <Plug>(coc-format)
+nmap <leader> ln <Plug>(coc-rename)
 
 
 " Use tab for trigger completion with characters ahead and navigate.
