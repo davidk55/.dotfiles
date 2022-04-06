@@ -37,19 +37,28 @@ let mapleader = " "
 
 " *************************** PLUGINS ******************************
 call plug#begin('~/.vim/plugged')
+" Theme
 Plug 'https://github.com/morhetz/gruvbox'
+
+" Movement
 Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
+
+" Other
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+
+" LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Required for nvim tree
 "Plug 'kyazdani42/nvim-web-devicons'
 "Plug 'kyazdani42/nvim-tree.lua'
 
+" Searching
 Plug 'junegunn/fzf.vim'
 
+" Tree
 Plug 'mbbill/undotree'
 
 Plug 'SirVer/ultisnips'
@@ -65,7 +74,6 @@ source $HOME/.config/nvim/vim/plugins/specific_filetype/java.vim
 source $HOME/.config/nvim/vim/plugins/specific_filetype/latex.vim
 
 call plug#end()
-
 
 " *************************** ENABLE FILETYPE PLUGIN ******************************
 filetype plugin on
@@ -104,10 +112,10 @@ function! ToggleLightMode()
         let s:lightmode = 1
     endif
 endfunction
-nnoremap <leader>0 :call ToggleLightMode()<cr>
+nnoremap <silent> <leader>0 :call ToggleLightMode()<cr>
 
 " *************************** TREES ******************************
-nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
 
 " *************************** GIT ******************************
 let g:gitgutter_map_keys = 0
@@ -132,12 +140,12 @@ source $HOME/.config/nvim/vim/coc/settings.vim
 let g:vimtex_view_method = 'zathura'
 
 " *************************** FZF ******************************
-nmap <leader>e :FZF<CR>
+nmap <silent> <leader>e :FZF<CR>
 
 " *************************** WINDOWS ******************************
 " Split Windows
-nmap <leader>s :split<Return>
-nmap <leader>v :vsplit<Return>
+nmap <silent> <leader>s :new<Return>
+nmap <silent> <leader>v :vnew<Return>
 
 " Move between Windows
 nmap <leader>h <C-w>h
@@ -164,7 +172,7 @@ nmap <leader>+ <C-w>+
 nmap <leader>q <C-w>q
 
 " *************************** TABS ******************************
-nmap <leader>t :tabedit<Return>
+nmap <silent> <leader>t :tabedit<Return>
 
 " *************************** WRITING/CLOSING ******************************
 nmap <leader>w :w
