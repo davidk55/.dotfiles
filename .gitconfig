@@ -3,5 +3,5 @@
   name = David
 
 [core]
-  editor = vim
+  editor = nvim
 	excludesfile = /home/david/.config/git/ignore
