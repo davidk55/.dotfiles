@@ -29,6 +29,7 @@ vim.opt.foldmethod = 'indent'
 -- *************************** COLORTHEME ******************************
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
+vim.cmd([[colorscheme gruvbox]])
 
 -- *************************** MISC ******************************
 vim.opt.errorbells = false
