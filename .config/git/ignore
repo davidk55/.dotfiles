@@ -82,7 +82,6 @@ tests/webhost/webtsc.js
 tests/cases/**/*.js
 !tests/cases/docker/*.js/
 tests/cases/**/*.js.map
-*.config
 scripts/eslint/built/
 scripts/debug.bat
 scripts/run.bat
@@ -115,7 +114,6 @@ internal/
 !tests/cases/projects/projectOption/**/node_modules
 !tests/cases/projects/NodeModulesSearch/**/*
 !tests/baselines/reference/project/nodeModules*/**/*
-.idea
 yarn.lock
 yarn-error.log
 .parallelperf.*
