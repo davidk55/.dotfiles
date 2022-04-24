@@ -1,7 +1,7 @@
 # Look of the Prompt
 autoload -U vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats "%F{10}%r%f%F{3}:%f%F{6}%b%f %S"
+zstyle ":vcs_info:*" enable git
+zstyle ":vcs_info:*" formats "%F{10}%r%f%F{3}:%f%F{6}%b%f %S"
 precmd() {
   vcs_info
   setopt prompt_subst
@@ -21,24 +21,24 @@ SAVEHIST=10000
 
 # Tab complete
 autoload -U compinit
-zstyle ':completion:*' menu select
-#zstyle :compinstall filename '/home/david/.zshrc'
+zstyle ":completion:*" menu select
+#zstyle :compinstall filename "/home/david/.zshrc"
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # include hidden files
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect "h" vi-backward-char
+bindkey -M menuselect "k" vi-up-line-or-history
+bindkey -M menuselect "l" vi-forward-char
+bindkey -M menuselect "j" vi-down-line-or-history
 
 
 # Vim mode
-bindkey -v '^?' backward-delete-char
+bindkey -v "^?" backward-delete-char
 export KEYTIMEOUT=1
 
 # C-e to edit current command in vim
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey "^e" edit-command-line
 
 # Plugins
 source /etc/profile.d/autojump.sh
@@ -47,22 +47,24 @@ source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 # Aliases
-alias sudo='sudo '
-alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias v='nvim'
-alias d='GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim'
-alias vc='GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim ~/.config/nvim/init.vim'
-alias sv='sudoedit'
-alias ls='ls --color'
-alias la='ls -a --color'
-alias ll='ls -al --color'
-alias cleanm='sudo make clean && rm -f config.h && git reset --hard origin/master'
-alias upd='sudo pacman -Syu'
-alias cl='clear'
+alias sudo="sudo "
+alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias v="nvim"
+alias d="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim"
+alias vc="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim ~/.config/nvim/init.vim"
+alias sv="sudoedit"
+alias ls="ls --color"
+alias la="ls -a --color"
+alias ll="ls -al --color"
+alias cleanm="sudo make clean && rm -f config.h && git reset --hard origin/master"
+alias upd="sudo pacman -Syu"
+alias upd2="yay -Syu"
+alias cl="clear"
 alias x="startx"
 alias tl="tldr"
 alias calc="bc"
 alias al="alarm"
+alias cya="shutdown now"
 
 # Functions
 alarm() {
