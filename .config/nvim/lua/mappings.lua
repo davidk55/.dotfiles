@@ -37,14 +37,12 @@ vim.keymap.set("n", "<leader>t", ":tabedit<CR>", ns)
 vim.keymap.set("n", "<leader>w", ":w", n)
 vim.keymap.set("n", "<leader>!", "ZQ", n)
 
-
 -- *************************** COPY/PASTE ******************************
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y", n)
 vim.keymap.set({"n", "v"}, "<leader>p", "\"+p", n)
 
 -- *************************** DELETING ******************************
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d", n)
-
+vim.keymap.set({"n", "v"}, ",d", "\"_d", n)
 
 -- *************************** SEARCHING ******************************
 vim.keymap.set("n", "<leader>/", ":noh<CR>", ns)
@@ -86,3 +84,28 @@ vim.keymap.set("n", "<leader>ft", require("telescope.builtin").treesitter, n)
 
 -- Todo Picker
 vim.keymap.set("n", "<leader>fd", ":TodoTelescope<CR>", n)
+
+-- *************************** LUASNIP ******************************
+local luasnip = require("luasnip")
+
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+_G.tab_complete = function()
+  if luasnip.expand_or_jumpable() then
+    return t("<Plug>luasnip-expand-or-jump")
+  else
+    return t "<Tab>"
+  end
+end
+_G.s_tab_complete = function()
+  if luasnip.jumpable(-1) then
+    return t("<Plug>luasnip-jump-prev")
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.keymap.set({"i", "s"}, "<Tab>", "v:lua.tab_complete()", e)
+vim.keymap.set({"i", "s"}, "<S-Tab>", "v:lua.s_tab_complete()", e)
+vim.keymap.set({"i", "s"}, "<C-l>", "<Plug>luasnip-next-choice")
