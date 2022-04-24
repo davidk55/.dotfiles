@@ -1,5 +1,8 @@
 local u = require("utils")        -- function to load the configuration file
 
+require("plugins.nvim-cmp")       -- load the nvim-cmp configigurations
+require("plugins.lsp.lsp-servers")    -- load the lsp server configurations
+
 
 return require("packer").startup(function()
 
@@ -38,8 +41,8 @@ return require("packer").startup(function()
     config = u.load_setup("telescope")
   }
   use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make"
   }
 
   -- ************************** COMMENTS **************************
@@ -51,6 +54,26 @@ return require("packer").startup(function()
     "numToStr/Comment.nvim",
     config = require("Comment").setup()
   }
+
+  -- ************************** LSP **************************
+  use {
+    "neovim/nvim-lspconfig",
+    config = u.load_setup("nvim-lspconfig")
+  }
+
+  -- ************************** SNIPPETS **************************
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-calc"
+  use {
+    "L3MON4D3/LuaSnip",
+    config = u.load_setup("luasnip"),
+  }
+  use "saadparwaiz1/cmp_luasnip"
 
   -- ************************** MISC **************************
   use {
