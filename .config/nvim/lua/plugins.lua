@@ -56,10 +56,7 @@ return require("packer").startup(function()
   }
 
   -- ************************** LSP **************************
-  use {
-    "neovim/nvim-lspconfig",
-    config = u.load_setup("nvim-lspconfig")
-  }
+  use "neovim/nvim-lspconfig"
 
   -- ************************** SNIPPETS **************************
   use "hrsh7th/nvim-cmp"
