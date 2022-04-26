@@ -1,0 +1,34 @@
+#!/bin/zsh
+# generate a softlink of the newest obsidian version
+function createObsidianSoftLink() {
+  local obs_sln="/usr/local/bin/obsidian"
+  local obs_latest
+  # search fo the latest Obsidian AppImage
+  for file in /home/david/Downloads/*; do
+    if [[ $file == *Obsidian* ]]; then
+      obs_latest=$file
+    fi
+  done
+
+  # check if a soft link exist
+  if [[ -f $obs_sln ]]; then
+    cur_obs_sln="/usr/local/bin/obsidian"
+    cur_obs_sln_target=$(readlink -f $cur_obs_sln)
+
+    # check if softlink links the to newest version
+    if [[ $cur_obs_sln_target != $obs_latest ]]; then
+      chmod +x $obs_latest
+      rm $cur_obs_sln
+      ln -s $obs_latest /usr/local/bin/obsidian
+    else
+      echo "The obsidian softlink is up to date."
+    fi
+  else
+    # make the latest Obsidian AppImage executable
+    chmod +x $obs_latest
+    # create soft link to the latest Obsidian AppImage
+    ln -s $obs_latest /usr/local/bin/obsidian
+  fi
+}
+
+createObsidianSoftLink
