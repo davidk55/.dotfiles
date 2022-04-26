@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Start new session
+tmux new-session -s term -d
+
+# Setup for window 0
+tmux nename-window -t 0 "btop"
+tmux send-keys "btop" C-m
+
+# Setup for window 1
+tmux new-window -t 1 -n "dot"
+tmux send-keys "dot status" C-m
+
+# Select window 0
+tmux select-window -t 0
+
+tmux -2 attach-session -d

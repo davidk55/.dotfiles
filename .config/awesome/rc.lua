@@ -778,7 +778,7 @@ autorunApps =
     "keepassxc",
     "nextcloud",
     "devdocs-desktop",
-    "alacritty -t term -e term",
+    "alacritty -t term -e util-tmux",
     "alacritty -t dev",
 }
 if autorun then
