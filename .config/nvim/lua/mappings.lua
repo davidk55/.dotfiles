@@ -74,10 +74,10 @@ vim.keymap.set("n", "<leader>fl", require("telescope.builtin").reloader, n)
 
 
 -- Git Pickers
-vim.keymap.set("n", "<leader>gs", require("telescope.builtin").git_status, n)
-vim.keymap.set("n", "<leader>gc", require("telescope.builtin").git_commits, n)
-vim.keymap.set("n", "<leader>gh", require("telescope.builtin").git_bcommits, n)
-vim.keymap.set("n", "<leader>gb", require("telescope.builtin").git_branches, n)
+vim.keymap.set("n", ",fs", require("telescope.builtin").git_status, n)
+vim.keymap.set("n", ",fc", require("telescope.builtin").git_commits, n)
+vim.keymap.set("n", ",fh", require("telescope.builtin").git_bcommits, n)
+vim.keymap.set("n", ",fb", require("telescope.builtin").git_branches, n)
 
 -- Treesitter Picker
 vim.keymap.set("n", "<leader>ft", require("telescope.builtin").treesitter, n)
