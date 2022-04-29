@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # generate a softlink of the newest obsidian version
 function createObsidianSoftLink() {
   local obs_sln="/usr/local/bin/obsidian"
