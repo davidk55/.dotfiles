@@ -86,6 +86,9 @@ return require("packer").startup(function()
     config = u.load_setup("nvim-colorizer")
   }
 
+  -- ************************** LATEX **************************
+  use "lervag/vimtex"
+
   -- ************************** DEPENDENCIES **************************
   use "nvim-lua/plenary.nvim"
   use "kyazdani42/nvim-web-devicons"
