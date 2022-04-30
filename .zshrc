@@ -1,4 +1,4 @@
-# Look of the Prompt
+# ******************* PROMPT *******************
 autoload -U vcs_info
 zstyle ":vcs_info:*" enable git
 zstyle ":vcs_info:*" formats "%F{10}%r%f%F{3}:%f%F{6}%b%f %S"
@@ -14,25 +14,26 @@ precmd() {
 }
 unsetopt prompt_cr prompt_sp
 
-# History
+# ******************* HISTORY *******************
 HISTFILE=~/.cache/zsh/hist
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Tab complete
+# ******************* TAB COMPLETION *******************
 autoload -U compinit
 zstyle ":completion:*" menu select
 #zstyle :compinstall filename "/home/david/.zshrc"
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots) # include hidden files
+# vim like movement
 bindkey -M menuselect "h" vi-backward-char
 bindkey -M menuselect "k" vi-up-line-or-history
 bindkey -M menuselect "l" vi-forward-char
 bindkey -M menuselect "j" vi-down-line-or-history
 
 
-# Vim mode
+# ******************* VIM *******************
 bindkey -v "^?" backward-delete-char
 export KEYTIMEOUT=1
 
@@ -40,13 +41,13 @@ export KEYTIMEOUT=1
 autoload edit-command-line; zle -N edit-command-line
 bindkey "^e" edit-command-line
 
-# Plugins
+# ******************* PLUGINS *******************
 source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-# Aliases
+# ******************* ALIASES *******************
 alias sudo="sudo "
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias v="nvim"
@@ -66,7 +67,7 @@ alias calc="bc"
 alias al="alarm"
 alias cya="shutdown now"
 
-# Functions
+# ******************* FUNCTIONS *******************
 alarm() {
     setopt verbose
     echo "In how many minutes the alarm should go off?"
