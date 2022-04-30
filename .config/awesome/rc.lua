@@ -310,9 +310,9 @@ globalkeys = gears.table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
-    -- Prompt
+    -- Rofi-Prompt
     awful.key({ }, "#138",     function () awful.util.spawn("rofi -show drun") end,
-              {description = "run prompt", group = "launcher"}),
+              {description = "run rofi-prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -324,12 +324,15 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    -- Calculator
+    -- Rofi-Calculator
     awful.key({ }, "#148",     function () awful.util.spawn("rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command 'echo -n '{result}' | xclip -sel clip'") end,
-              {description = "run calculator", group = "launcher"}),
-    -- Emoji-Selector
+              {description = "run rofi-calculator", group = "launcher"}),
+    -- Rofi-Emoji-Selector
     awful.key({ }, "#142",     function () awful.util.spawn("rofi -show emoji -modi emoji") end,
-              {description = "run emoji-selector", group = "launcher"}),
+              {description = "run rofi-emoji-selector", group = "launcher"}),
+    -- Rofi-Power-Menu
+    awful.key({ }, "#191",     function () awful.util.spawn("rofi -show p -modi p:rofi-power-menu") end,
+              {description = "run rofi-emoji-selector", group = "launcher"}),
     -- Menubar
     awful.key({ modkey }, "t", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
