@@ -70,12 +70,12 @@ alias cya="shutdown now"
 # ******************* FUNCTIONS *******************
 alarm() {
     setopt verbose
-    echo "In how many minutes the alarm should go off?"
-    echo "(separated by a space with h=hours, m=minutes, s=seconds)"
-    read alarm_time
+    echo "When the alarm should go off?"
+    echo "(Syntax: <hours>h <minutes>m <seconds>s)"
+    read alarm_hours alarm_minutes alarm_seconds
     echo "Name of the alarm?"
     read alarm_name
-    (sleep "$alarm_time" && notify-send -u critical "$alarm_name" "ready!") & disown
+    (sleep "$alarm_hours" "$alarm_minutes" "$alarm_seconds" && notify-send -u critical "$alarm_name" "ready!") & disown
     unsetopt verbose
 }
 sc() {
