@@ -43,3 +43,5 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -80'"
 # ********************** JAVA **********************
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 
+# ********************** GTK **********************
+export GTK_THEME=Adwaita:dark
