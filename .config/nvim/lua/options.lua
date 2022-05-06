@@ -46,3 +46,4 @@ vim.g.mapleader = " "
 vim.opt.bufhidden = "unload"  -- to make jdtls lsp work properly
 vim.g.indent_blankline_use_treesitter = true
 vim.g.tex_flavor = "latex"    -- Make .tex files indentified as LaTeX by default
+vim.g.vimtex_view_method = "zathura"
