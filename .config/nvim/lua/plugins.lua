@@ -20,6 +20,12 @@ return require("packer").startup(function()
     requires = { "kyazdani42/nvim-web-devicons" }
   }
 
+  -- ************************** MOVEMENT **************************
+  use {
+    "ggandor/lightspeed.nvim",
+    config = u.load_setup("lightspeed")
+  }
+
   -- ************************** GIT **************************
   use {
     "lewis6991/gitsigns.nvim",
@@ -84,6 +90,9 @@ return require("packer").startup(function()
   use {
     "norcalli/nvim-colorizer.lua",
     config = u.load_setup("nvim-colorizer")
+  }
+  use {
+    "tpope/vim-surround"
   }
 
   -- ************************** LATEX **************************
