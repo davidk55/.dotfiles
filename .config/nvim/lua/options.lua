@@ -8,6 +8,7 @@ vim.opt.smartindent = true
 -- *************************** LINE NUMBERS ******************************
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.cursorline = true
 
 -- *************************** SEARCHING ******************************
 vim.opt.hlsearch = true
