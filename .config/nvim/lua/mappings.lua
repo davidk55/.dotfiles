@@ -74,3 +74,26 @@ end
 vim.keymap.set({"i", "s"}, "<Tab>", "v:lua.tab_complete()", e)
 vim.keymap.set({"i", "s"}, "<S-Tab>", "v:lua.s_tab_complete()", e)
 vim.keymap.set({"i", "s"}, "<C-l>", "<Plug>luasnip-next-choice")
+
+-- *************************** LIGHTSPEED ******************************
+vim.keymap.set("n", "s", "<Plug>Lightspeed_s")
+vim.keymap.set("n", "S", "<Plug>Lightspeed_S")
+
+-- *************************** BARBAR ******************************
+vim.keymap.set("n", "<leader>bb", ":BufferPick<CR>", ns)
+
+vim.keymap.set("n", "<leader>bn", ":BufferOrderByBufferNumber<CR>", ns)
+vim.keymap.set("n", "<leader>bl", ":BufferOrderByLanguage<CR>", ns)
+
+vim.keymap.set("n", "<A-c>", ":BufferClose<CR>", ns)
+
+vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>", ns)
+vim.keymap.set("n", "<A-.>", ":BufferNext<CR>", ns)
+
+vim.keymap.set("n", "<A-<>", ":BufferMovePrevious<CR>", ns)
+vim.keymap.set("n", "<A->>", ":BufferMoveNext<CR>", ns)
+
+
+-- *************************** VIMTEX ******************************
+vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", n)
+vim.keymap.set("n", "<leader>lc", ":VimtexClean<CR>", n)
