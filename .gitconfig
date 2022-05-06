@@ -5,3 +5,13 @@
 [core]
   editor = nvim
 	excludesfile = /home/david/.config/git/ignore
+[alias]
+  p = push
+  st = status
+  c = commit
+  ll = log --oneline
+  last = log -1 HEAD --stat
+  d = diff
+  dv = difftool -t vimdiff -y
+  gl = config --global -l
+  rev = reset --soft HEAD^
