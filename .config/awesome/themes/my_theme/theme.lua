@@ -74,7 +74,7 @@ theme.tasklist_align = "center"
 theme.tasklist_font = "Hack Nerd Font 12"
 
 -- MISC
-theme.wallpaper             = "/home/david/.local/share/bgs/bg1.jpg"
+theme.wallpaper             = "/home/david/.local/share/backgrounds/1.jpg"
 theme.taglist_squares       = "true"
 theme.titlebar_close_button = "true"
 theme.menu_height = dpi(15)
