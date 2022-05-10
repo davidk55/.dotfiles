@@ -56,7 +56,7 @@ alias vc="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim ~/.config/nvim/init.v
 alias sv="sudoedit"
 alias ls="ls --color"
 alias la="ls -a --color"
-alias ll="ls -al --color"
+alias ll="ls -ahl --color"
 alias cleanm="sudo make clean && rm -f config.h && git reset --hard origin/master"
 alias upd="sudo pacman -Syu"
 alias upd2="yay -Syu"
