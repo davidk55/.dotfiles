@@ -17,6 +17,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Widgets
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+
 
 --------------------------- ERROR HANDLING ------------------------------
 -- {{{
@@ -109,8 +113,11 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 --------------------------- WIBAR ------------------------------
 -- {{{
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("     %a   %b. %d   %H:%M  ")
+mytextclock = wibox.widget.textclock("%a   %b. %d   %H:%M  ")
 mytextclock.font = "SFNS Display 16"
+-- Create Separator widget
+local separator = wibox.widget.textbox("   ")
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -216,8 +223,24 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.layout.margin(wibox.widget.systray(), 4, 4, 4, 4),
+            -- order left, right, top, bottom
+            wibox.container.margin(wibox.widget.systray(), 4, 4, 4, 4),
+            separator,
+            spotify_widget ({
+              play_icon = "/home/david/.config/awesome/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
+              pause_icon = "/home/david/.config/awesome/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
+              font = "SFNS Display 14",
+              dim_when_paused = true,
+              dim_opacity = 0.5
+            }),
+            separator,
+            volume_widget {
+              widget_type = "icon_and_text",
+              font = "SFNS Display 14"
+            },
+            separator,
             mytextclock,
+            separator,
             s.mylayoutbox,
         },
     }
