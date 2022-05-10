@@ -71,15 +71,18 @@ alias cya="shutdown now"
 alarm() {
     setopt verbose
     echo "When the alarm should go off?"
-    echo "(Syntax: <hours>h <minutes>m <seconds>s)"
+    echo "(Syntax: <hours> <minutes> <seconds>)"
     read alarm_hours alarm_minutes alarm_seconds
     echo "Name of the alarm?"
     read alarm_name
-    (sleep "$alarm_hours" "$alarm_minutes" "$alarm_seconds" && notify-send -u critical "$alarm_name" "ready!") & disown
+    (sleep "$alarm_hours"h "$alarm_minutes"m "$alarm_seconds"s && notify-send -i /home/david/.local/share/icons/alarm.png -u critical "Alarm" "$alarm_name") & disown
     unsetopt verbose
+    notify-send -i /home/david/.local/share/icons/alarm.png -u critical "An alarm was set" "$(date -d "+$alarm_hours hours +$alarm_minutes minutes +$alarm_seconds seconds" -u +"%H:%M:%S")"
 }
 sc() {
-  (maim -s -o ~/Documents/Screenshots/screenshot--$(date -u +"%Y-%m-%d--%H-%M-%S"))
+  name=~/Documents/Screenshots/screenshot--$(date -u +"%Y-%m-%d--%H-%M-%S").png
+  (maim -s -o $name)
+  notify-send -i $name "A screenshot was taken and saved" "$name"
 }
 
 n ()
