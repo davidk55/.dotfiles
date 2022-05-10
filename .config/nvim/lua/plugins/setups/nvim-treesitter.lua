@@ -2,7 +2,7 @@ require"nvim-treesitter.configs".setup {
 
   ensure_installed = { "java", "lua", "html", "css", "scss", "javascript",
   "typescript", "json", "markdown", "yaml", "vim", "bash", "comment",
-  "dockerfile", "latex", "bibtex"},
+  "dockerfile", "latex", "bibtex", "commonlisp"},
 
   sync_install = true,
 
