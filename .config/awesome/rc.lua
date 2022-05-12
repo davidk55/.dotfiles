@@ -816,9 +816,4 @@ awful.spawn("firefox --new-window nc:8080", {
     tag = " \u{e007} ",
     screen = 2,
 })
-
-awful.spawn("firefox --new-window https://www.youtube.com", {
-    tag = " \u{f04b} ",
-    screen = 2
-})
 -- }}}
