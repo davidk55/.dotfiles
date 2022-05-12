@@ -12,6 +12,7 @@
   ll = log --oneline
   last = log -1 HEAD --stat
   d = diff
+  ds = diff --staged
   dv = difftool -t vimdiff -y
   gl = config --global -l
   rev = reset --soft HEAD^
