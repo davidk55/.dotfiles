@@ -77,10 +77,10 @@ alarm() {
     read alarm_name
     (sleep "$alarm_hours"h "$alarm_minutes"m "$alarm_seconds"s && notify-send -i /home/david/.local/share/icons/alarm.png -u critical "Alarm" "$alarm_name") & disown
     unsetopt verbose
-    notify-send -i /home/david/.local/share/icons/alarm.png -u critical "An alarm was set" "$(date -d "+$alarm_hours hours +$alarm_minutes minutes +$alarm_seconds seconds" -u +"%H:%M:%S")"
+    notify-send -i /home/david/.local/share/icons/alarm.png -u critical "An alarm was set" "$(date -d "+$alarm_hours hours +$alarm_minutes minutes +$alarm_seconds seconds" +"%H:%M:%S")"
 }
 sc() {
-  name=~/Documents/Screenshots/screenshot--$(date -u +"%Y-%m-%d--%H-%M-%S").png
+  name=~/Documents/Screenshots/screenshot--$(date +"%Y-%m-%d--%H-%M-%S").png
   (maim -s -o $name)
   notify-send -i $name "A screenshot was taken and saved" "$name"
 }
