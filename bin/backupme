@@ -1,5 +1,5 @@
 #!/bin/sh
 date=$(date +"%G-%m-%d--%H-%M-%S")
 filename="Backup--$date.tar.gz"
-tar -czf "$HOME/Nextcloud/Backups/$filename" "$HOME/Nextcloud/Sync/MainVault" "$HOME/Nextcloud/Sync/Passwords.kdbx" "$HOME/.mozilla/firefox/6kan0uao.default-release/places.sqlite"
+tar -czf "$HOME/Nextcloud/Backups/$filename" "$HOME/Nextcloud/Sync/MainVault" "$HOME/Nextcloud/Sync/Passwords.kdbx" "$HOME/.mozilla/firefox/6kan0uao.default-release/places.sqlite" "$HOME/.config/obsidian/Custom Dictionary.txt"
 echo "Backup was created successfully."
