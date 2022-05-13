@@ -333,7 +333,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Rofi-Prompt
-    awful.key({ }, "#138",     function () awful.util.spawn("rofi -show drun") end,
+    awful.key({ }, "#193",     function () awful.util.spawn("rofi -show drun") end,
               {description = "run rofi-prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -350,7 +350,7 @@ globalkeys = gears.table.join(
     awful.key({ }, "#148",     function () awful.util.spawn("rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command 'echo -n '{result}' | xclip -sel clip'") end,
               {description = "run rofi-calculator", group = "launcher"}),
     -- Rofi-Emoji-Selector
-    awful.key({ }, "#142",     function () awful.util.spawn("rofi -show emoji -modi emoji") end,
+    awful.key({ }, "#192",     function () awful.util.spawn("rofi -show emoji -modi emoji") end,
               {description = "run rofi-emoji-selector", group = "launcher"}),
     -- Rofi-Power-Menu
     awful.key({ }, "#191",     function () awful.util.spawn("rofi -show p -modi p:rofi-power-menu") end,
