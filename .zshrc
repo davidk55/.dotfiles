@@ -51,6 +51,7 @@ source /usr/share/fzf/key-bindings.zsh
 alias sudo="sudo "
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias v="nvim"
+alias t="tmux"
 alias d="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim"
 alias vc="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim ~/.config/nvim/init.vim"
 alias sv="sudoedit"
