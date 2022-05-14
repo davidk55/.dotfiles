@@ -44,8 +44,11 @@ bindkey "^e" edit-command-line
 # ******************* PLUGINS *******************
 source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
+zvm_after_init() { # makes sure fzf works properly with the zsh-vi-mode plugin
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+}
 
 # ******************* ALIASES *******************
 alias sudo="sudo "
