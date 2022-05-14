@@ -804,7 +804,7 @@ autorunApps =
     "nextcloud",
     "devdocs-desktop",
     "alacritty -t term -e util-tmux",
-    "alacritty -t dev",
+    "kitty --title dev",
 }
 if autorun then
     for app = 1, #autorunApps do
