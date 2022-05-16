@@ -51,7 +51,7 @@ zvm_after_init() { # makes sure fzf works properly with the zsh-vi-mode plugin
 }
 
 # ******************* ALIASES *******************
-alias sudo="sudo "
+alias sudo="sudo"
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias v="nvim"
 alias t="tmux"
@@ -70,6 +70,7 @@ alias tl="tldr"
 alias calc="bc"
 alias al="alarm"
 alias cya="shutdown now"
+alias g="git"
 
 # ******************* FUNCTIONS *******************
 alarm() {
