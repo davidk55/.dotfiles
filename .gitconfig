@@ -9,6 +9,7 @@
   p = push
   st = status
   c = commit
+  a = add
   ll = log --oneline
   last = log -1 HEAD --stat
   d = diff
