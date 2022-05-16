@@ -63,6 +63,7 @@ return require("packer").startup(function()
 
   -- ************************** LSP **************************
   use "neovim/nvim-lspconfig"
+  use "mfussenegger/nvim-dap"
 
   -- ************************** SNIPPETS **************************
   use "hrsh7th/nvim-cmp"
@@ -95,8 +96,14 @@ return require("packer").startup(function()
     "tpope/vim-surround"
   }
 
-  -- ************************** LATEX **************************
+  -- nvim in the browser
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
+
   use "lervag/vimtex"
+
 
   -- ************************** DEPENDENCIES **************************
   use "nvim-lua/plenary.nvim"
