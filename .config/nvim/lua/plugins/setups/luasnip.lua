@@ -15,6 +15,10 @@ local m = require("luasnip.extras").m
 local lambda = require("luasnip.extras").l
 local rep = require("luasnip.extras").rep
 
+-- *************************** VSCODE SNIPPETS ***************************
+-- loads snippets for various languages
+require("luasnip.loaders.from_vscode").lazy_load()
+
 ls.add_snippets("all",  {
   s("ternary", {
       -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
