@@ -68,15 +68,21 @@ local config = {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
 
+-- ********************** OPTIONS **********************
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 -- ********************** MAPPINGS **********************
 local ns = { noremap = true, silent = true}
 local nsb = { noremap = true, silent = true, buffer = 0}
+-- Diagnostics
 vim.keymap.set("n", "<leader>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", ns)
 vim.keymap.set("n", "d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", ns)
 vim.keymap.set("n", "d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", ns)
 vim.keymap.set("n", "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", ns)
 
--- Mappings.
+-- Rest
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", nsb)
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", nsb)
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", nsb)
