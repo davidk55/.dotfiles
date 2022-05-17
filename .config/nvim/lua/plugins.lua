@@ -78,6 +78,7 @@ return require("packer").startup(function()
     config = u.load_setup("luasnip"),
   }
   use "saadparwaiz1/cmp_luasnip"
+  use "rafamadriz/friendly-snippets"
 
   -- ************************** MISC **************************
   use {
