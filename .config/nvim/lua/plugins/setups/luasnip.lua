@@ -26,6 +26,29 @@ ls.add_snippets("all",  {
   ls.parser.parse_snippet("expa", "this is an expand"),
 })
 
+-- *************************** HTML SNIPPETS ***************************
+ls.add_snippets("html", {
+  s("!", fmt(
+[[
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{}</title
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{}.css" rel="stylesheet">
+  </head>
+  <body>
+    {}
+  </body>
+</html>
+]], {
+    i(1),
+    i(2, "css/style"),
+    i(0)
+  }))
+})
+
 -- *************************** JAVA SNIPPETS ***************************
 ls.add_snippets("java", {
   s("st", fmt("static {}", i(0))),
