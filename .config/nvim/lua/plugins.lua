@@ -96,6 +96,10 @@ return require("packer").startup(function()
   use {
     "tpope/vim-surround"
   }
+  use {
+    "ahmedkhalf/project.nvim",
+    config = u.load_setup("project")
+  }
 
   -- nvim in the browser
   use {
