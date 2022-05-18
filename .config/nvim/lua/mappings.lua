@@ -48,7 +48,10 @@ vim.keymap.set("n", ",fb", require("telescope.builtin").git_branches, n)
 vim.keymap.set("n", "<leader>ft", require("telescope.builtin").treesitter, n)
 
 -- Todo Picker
-vim.keymap.set("n", "<leader>fd", ":TodoTelescope<CR>", n)
+vim.keymap.set("n", "<leader>fd", ":TodoTelescope<CR>", ns)
+
+-- Project Picker
+vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", ns)
 
 -- *************************** LUASNIP ******************************
 local luasnip = require("luasnip")
