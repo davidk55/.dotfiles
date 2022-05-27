@@ -50,7 +50,9 @@ ls.add_snippets("html", {
     i(1),
     i(2, "css/style"),
     i(0)
-  }))
+  })),
+s(".", fmt("<div class=\"{}\">{}</div>", {i(1), i(0)})),
+s("css", fmt("<link rel=\"stylesheet\" href=\"{}.css\">", i(0, "style")))
 })
 
 -- *************************** JAVA SNIPPETS ***************************
