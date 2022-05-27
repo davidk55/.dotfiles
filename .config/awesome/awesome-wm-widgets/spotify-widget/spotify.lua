@@ -11,18 +11,23 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local watch = require("awful.widget.watch")
+local beautiful = require("beautiful")
+
+local format = string.format
 
 local GET_SPOTIFY_STATUS_CMD = 'sp status'
 local GET_CURRENT_SONG_CMD = 'sp current'
 
+-- Set font and foreground
+local function fontfg(fg, text)
+    return format("<span foreground='%s'>%s</span>", fg, text)
+end
+
 local function ellipsize(text, length)
-    -- utf8 only available in Lua 5.3+
-    if utf8 == nil then
-        return text:sub(0, length)
-    end
-    return (utf8.len(text) > length and length > 0)
+    local message = (utf8.len(text) > length and length > 0)
         and text:sub(0, utf8.offset(text, length - 2) - 1) .. '...'
         or text
+    return fontfg(beautiful.fg_normal, message)
 end
 
 local spotify_widget = {}
@@ -56,7 +61,7 @@ local function worker(user_args)
         },
         {
             layout = wibox.container.scroll.horizontal,
-            max_size = 100,
+            max_size = 200,
             step_function = wibox.container.scroll.step_functions.waiting_nonlinear_back_and_forth,
             speed = 40,
             {
