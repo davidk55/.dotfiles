@@ -16,6 +16,9 @@ vim.keymap.set("n", "<leader>/", ":noh<CR>", ns)
 vim.keymap.set("n", "<A-j>", ":m +1<CR>", ns)
 vim.keymap.set("n", "<A-k>", ":m -2<CR>", ns)
 
+-- *************************** Buffer ******************************
+vim.keymap.set("n", "<A-n>", ":enew<CR>", ns)
+
 -- *************************** LIGHT/DARK TOGGLE ******************************
 vim.keymap.set("n", "<leader>0", function()
   if (vim.o.background == "dark") then
