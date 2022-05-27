@@ -71,6 +71,7 @@ alias calc="bc"
 alias al="alarm"
 alias cya="shutdown now"
 alias g="git"
+alias img="sxiv ."
 
 # ******************* FUNCTIONS *******************
 alarm() {
