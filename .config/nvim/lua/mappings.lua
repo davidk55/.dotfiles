@@ -12,6 +12,10 @@ vim.keymap.set({"n", "v"}, ",d", "\"_d", n)
 -- *************************** SEARCHING ******************************
 vim.keymap.set("n", "<leader>/", ":noh<CR>", ns)
 
+-- *************************** MOVING ******************************
+vim.keymap.set("n", "<A-j>", ":m +1<CR>", ns)
+vim.keymap.set("n", "<A-k>", ":m -2<CR>", ns)
+
 -- *************************** LIGHT/DARK TOGGLE ******************************
 vim.keymap.set("n", "<leader>0", function()
   if (vim.o.background == "dark") then
