@@ -101,6 +101,11 @@ return require("packer").startup(function()
     config = u.load_setup("project")
   }
 
+  -- markdown viewer
+  use {
+    "ellisonleao/glow.nvim"
+  }
+
   -- nvim in the browser
   use {
     'glacambre/firenvim',
