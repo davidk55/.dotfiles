@@ -7,36 +7,12 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
-pcall(require, "luarocks.loader")
+local awful = require("awful")
 
--- ================ THEME ================
-require("theme")
-
--- ================ CONFIG ================
-require("config")
-
--- ================ LAYOUT ================
-require("layout")
-
--- ================ STATUS-BAR ================
-require("status-bar")
-
--- ================ SHORTCUTS ================
-require("shortcuts")
-
--- ================ RULES ================
-require("rules")
-
--- ================ SIGNALS ================
-require("signals")
-
--- ================ AUTORUN ================
-require("autorun")
-
--- ================ HOTKEYS-POPUP ================
-require("hotkeys-popup-custom")
-
--- ================ ERROR-HANDLING ================
-require("error-handling")
+-- ================ SET LAYOUTS ================
+awful.layout.layouts = {
+    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.tile,
+}
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
