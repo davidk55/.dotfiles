@@ -7,36 +7,11 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
-pcall(require, "luarocks.loader")
+local keys = {
+    nvim = require("hotkeys-popup-custom.nvim"),
+    obsidian = require("hotkeys-popup-custom.obsidian")
+}
 
--- ================ THEME ================
-require("theme")
-
--- ================ CONFIG ================
-require("config")
-
--- ================ LAYOUT ================
-require("layout")
-
--- ================ STATUS-BAR ================
-require("status-bar")
-
--- ================ SHORTCUTS ================
-require("shortcuts")
-
--- ================ RULES ================
-require("rules")
-
--- ================ SIGNALS ================
-require("signals")
-
--- ================ AUTORUN ================
-require("autorun")
-
--- ================ HOTKEYS-POPUP ================
-require("hotkeys-popup-custom")
-
--- ================ ERROR-HANDLING ================
-require("error-handling")
+return keys
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

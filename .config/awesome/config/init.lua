@@ -7,36 +7,18 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
-pcall(require, "luarocks.loader")
+local menubar = require("menubar")
 
--- ================ THEME ================
-require("theme")
+local config = {}
 
--- ================ CONFIG ================
-require("config")
+-- ================ VARIABLES ================
+config.terminal = "alacritty"
+config.editor = os.getenv("EDITOR")
+config.modkey = "Mod4"
 
--- ================ LAYOUT ================
-require("layout")
+-- ================ SET APPLICATION TERMINAL ================
+menubar.utils.terminal = config.terminal
 
--- ================ STATUS-BAR ================
-require("status-bar")
-
--- ================ SHORTCUTS ================
-require("shortcuts")
-
--- ================ RULES ================
-require("rules")
-
--- ================ SIGNALS ================
-require("signals")
-
--- ================ AUTORUN ================
-require("autorun")
-
--- ================ HOTKEYS-POPUP ================
-require("hotkeys-popup-custom")
-
--- ================ ERROR-HANDLING ================
-require("error-handling")
+return config
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

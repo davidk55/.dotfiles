@@ -7,36 +7,31 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
-pcall(require, "luarocks.loader")
+local awful = require("awful")
 
--- ================ THEME ================
-require("theme")
+local config = require("config")
 
--- ================ CONFIG ================
-require("config")
-
--- ================ LAYOUT ================
-require("layout")
-
--- ================ STATUS-BAR ================
-require("status-bar")
-
--- ================ SHORTCUTS ================
-require("shortcuts")
-
--- ================ RULES ================
-require("rules")
-
--- ================ SIGNALS ================
-require("signals")
-
--- ================ AUTORUN ================
-require("autorun")
-
--- ================ HOTKEYS-POPUP ================
-require("hotkeys-popup-custom")
-
--- ================ ERROR-HANDLING ================
-require("error-handling")
+-- ================ AUTORUN APPLICATIONS ================
+local autorun = true
+local autorunApps =
+{
+    "discord",
+    "obsidian",
+    "thunderbird",
+    "redshift",
+    "keepassxc",
+    "nextcloud",
+    config.terminal .. " -t term -e util-tmux",
+    "kitty --title dev",
+    "spotify"
+}
+if autorun then
+    print(autorun)
+    for app = 1, #autorunApps do
+        awful.spawn(autorunApps[app], { tag = " " })
+    end
+    awful.spawn("firefox --new-window nc:8080", {
+    })
+end
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

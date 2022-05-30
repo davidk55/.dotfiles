@@ -7,36 +7,26 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
-pcall(require, "luarocks.loader")
 
--- ================ THEME ================
-require("theme")
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+        title = "Oops, there were errors during startup!",
+        text = awesome.startup_errors })
+end
 
--- ================ CONFIG ================
-require("config")
+-- Handle runtime errors after startup
+do
+    local in_error = false
+    awesome.connect_signal("debug::error", function(err)
+        -- Make sure we don't go into an endless error loop
+        if in_error then return end
+        in_error = true
 
--- ================ LAYOUT ================
-require("layout")
-
--- ================ STATUS-BAR ================
-require("status-bar")
-
--- ================ SHORTCUTS ================
-require("shortcuts")
-
--- ================ RULES ================
-require("rules")
-
--- ================ SIGNALS ================
-require("signals")
-
--- ================ AUTORUN ================
-require("autorun")
-
--- ================ HOTKEYS-POPUP ================
-require("hotkeys-popup-custom")
-
--- ================ ERROR-HANDLING ================
-require("error-handling")
+        naughty.notify({ preset = naughty.config.presets.critical,
+            title = "Oops, an error happened!",
+            text = tostring(err) })
+        in_error = false
+    end)
+end
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
