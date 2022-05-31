@@ -7,26 +7,30 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
+local awful = require("awful")
+local config = require("modules.config")
 
-if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-        title = "Oops, there were errors during startup!",
-        text = awesome.startup_errors })
-end
-
--- Handle runtime errors after startup
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function(err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-            title = "Oops, an error happened!",
-            text = tostring(err) })
-        in_error = false
-    end)
+-- ================ AUTORUN APPLICATIONS ================
+local autorun = true
+local autorunApps =
+{
+    "discord",
+    "obsidian",
+    "thunderbird",
+    "redshift",
+    "keepassxc",
+    "nextcloud",
+    config.terminal .. " -t term -e util-tmux",
+    "kitty --title dev",
+    "spotify"
+}
+if autorun then
+    print(autorun)
+    for app = 1, #autorunApps do
+        awful.spawn(autorunApps[app], { tag = " " })
+    end
+    awful.spawn("firefox --new-window nc:8080", {
+    })
 end
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

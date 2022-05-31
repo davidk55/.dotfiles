@@ -10,9 +10,8 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
-
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
+local spotify_widget = require("modules.awesome-wm-widgets.spotify-widget.spotify")
 
 -- ================ TEXTCLOCK ================
 local text_clock = wibox.widget.textclock("%a   %b. %d   %H:%M  ")
@@ -81,8 +80,8 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.container.margin(wibox.widget.systray(), 8, 8, 8, 8),
             separator,
             wibox.container.margin(spotify_widget({
-                play_icon = "/home/david/.config/awesome/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
-                pause_icon = "/home/david/.config/awesome/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
+                play_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
+                pause_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
                 font = "SFNS Display 14",
                 max_length = 40;
                 dim_when_paused = true,

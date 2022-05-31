@@ -9,11 +9,10 @@
 
 local awful = require("awful")
 local gears = require("gears")
-local config = require("config")
 local hotkeys_popup = require("awful.hotkeys_popup")
-
-local toggle_clients = require("toggle-clients.toggle-clients")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local config = require("modules.config")
+local toggle_clients = require("modules.toggle-clients")
+local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
 
 local shortcuts = {}
 

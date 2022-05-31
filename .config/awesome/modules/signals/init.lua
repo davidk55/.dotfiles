@@ -8,8 +8,7 @@
 -- ********************************* @author davidk55 *******************************
 
 local awful = require("awful")
-
-local theme = require("theme")
+local theme = require("modules.theme")
 
 -- ================ SLOPPY FOCUS ================
 -- So that the focus follows the mouse
