@@ -90,7 +90,7 @@ shortcuts.globalkeys = gears.table.join(
             s.mywibox.visible = not s.mywibox.visible
         end
     end,
-        { description = "show the menubar", group = "awesome: general" })
+        { description = "show the menubar (wibar)", group = "awesome: general" })
 )
 
 
@@ -266,26 +266,29 @@ shortcuts.globalkeys = gears.table.join(shortcuts.globalkeys,
     -- Toggle firefox client
     awful.key({ config.modkey }, "i", function() toggle_clients({ class = "firefox" }) end),
 
-    -- Toggle note client
+    -- Toggle obsidian client
     awful.key({ config.modkey }, "o", function() toggle_clients({ class = "obsidian" }) end),
 
-    -- Toggle pw client
+    -- Toggle keepass client
     awful.key({ config.modkey }, "p", function() toggle_clients({ class = "KeePassXC" }) end),
 
-    -- Toggle dev tag
+    -- Toggle dev client
     awful.key({ config.modkey }, ";", function() toggle_clients({ name = "dev" }) end),
 
     -- Toggle term client
     awful.key({ config.modkey }, "'", function() toggle_clients({ name = "term" }) end),
 
-    -- Toggle email client
+    -- Toggle thunderbird client
     awful.key({ config.modkey }, "u", function() toggle_clients({ class = "Thunderbird" }) end),
 
-    -- Toggle music client
+    -- Toggle spotify client
     awful.key({ config.modkey }, "[", function() toggle_clients({ class = "Spotify" }) end),
 
     -- Toggle discord client
-    awful.key({ config.modkey }, "]", function() toggle_clients({ instance = "discord" }) end)
+    awful.key({ config.modkey }, "]", function() toggle_clients({ instance = "discord" }) end),
+
+    -- Toggle intellij client
+    awful.key({ config.modkey }, "-", function() toggle_clients({ instance = "jetbrains-idea" }) end)
 )
 
 -- ================ ROFI ================
