@@ -15,7 +15,7 @@ local spotify_widget = require("modules.awesome-wm-widgets.spotify-widget.spotif
 
 -- ================ TEXTCLOCK ================
 local text_clock = wibox.widget.textclock("%a   %b. %d   %H:%M  ")
-text_clock.font = "SFNS Display 16"
+text_clock.font = "SFNS Display 14"
 
 -- ================ SEPARATOR ================
 local separator = wibox.widget.textbox("   ")
@@ -61,52 +61,46 @@ awful.screen.connect_for_each_screen(function(s)
     filter = awful.widget.tasklist.filter.currenttags,
   })
 
-  -- ================ WIBOX ================
-  s.mywibox = awful.wibar({
-    screen = s,
-    height = 35,
-    width = 1880,
-    shape = custom_shape,
-  })
-  s.mywibox.y = 10
+    -- ================ WIBOX ================
+    s.mywibox = awful.wibar({
+        screen = s,
+        height = 35,
+        width = 1880,
+        shape = custom_shape
+    })
+    s.mywibox.y = 10
 
-  -- ================ WIDGETS ================
-  s.mywibox:setup({
-    layout = wibox.layout.align.horizontal,
-    { -- Left widgets
-      separator,
-      layout = wibox.layout.fixed.horizontal,
-      s.mytaglist,
-      s.mypromptbox,
-    },
-    s.mytasklist, -- Middle widget
-    { -- Right widgets
-      layout = wibox.layout.fixed.horizontal,
-      -- order: left, right, top, bottom
-      wibox.container.margin(wibox.widget.systray(), 8, 8, 8, 8),
-      separator,
-      wibox.container.margin(
-        spotify_widget({
-          play_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
-          pause_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
-          font = "SFNS Display 14",
-          max_length = 40,
-          dim_when_paused = true,
-          dim_opacity = 0.5,
-        }),
-        6,
-        6,
-        6,
-        6
-      ),
-      separator,
-      volume_widget({
-        widget_type = "icon_and_text",
-        font = "SFNS Display 14",
-      }),
-      separator,
-      text_clock,
-      separator,
-    },
-  })
+    -- ================ WIDGETS ================
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            separator,
+            layout = wibox.layout.fixed.horizontal,
+            s.mytaglist,
+            s.mypromptbox,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            -- order: left, right, top, bottom
+            wibox.container.margin(wibox.widget.systray(), 8, 8, 8, 8),
+            separator,
+            wibox.container.margin(spotify_widget({
+                play_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
+                pause_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
+                font = "SFNS Display 12",
+                max_length = 40;
+                dim_when_paused = true,
+                dim_opacity = 0.5
+            }), 6, 6, 6, 6),
+            separator,
+            volume_widget {
+                widget_type = "icon_and_text",
+                font = "SFNS Display 12"
+            },
+            separator,
+            text_clock,
+            separator,
+        },
+    }
 end)
