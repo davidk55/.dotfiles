@@ -41,8 +41,6 @@ awful.rules.rules = {
     }, properties = { floating = true } },
 
     -- ================ APPLICATION SPECIFIC RULES ================
-    { rule = { role = "browser" }, properties = { tag = " " } },
-
     { rule = { class = "obsidian" }, properties = { tag = " " } },
 
     { rule = { class = "KeePassXC" }, properties = { tag = " " } },
