@@ -10,33 +10,33 @@
 pcall(require, "luarocks.loader")
 
 -- ================ THEME ================
-require("theme")
+require("modules.theme")
 
 -- ================ CONFIG ================
-require("config")
+require("modules.config")
 
 -- ================ LAYOUT ================
-require("layout")
+require("modules.layout")
 
 -- ================ STATUS-BAR ================
-require("status-bar")
+require("modules.status-bar")
 
 -- ================ SHORTCUTS ================
-require("shortcuts")
+require("modules.shortcuts")
 
 -- ================ RULES ================
-require("rules")
+require("modules.rules")
 
 -- ================ SIGNALS ================
-require("signals")
+require("modules.signals")
 
 -- ================ AUTORUN ================
-require("autorun")
+require("modules.autorun")
 
 -- ================ HOTKEYS-POPUP ================
-require("hotkeys-popup-custom")
+require("modules.hotkeys-popup-custom")
 
 -- ================ ERROR-HANDLING ================
-require("error-handling")
+require("modules.error-handling")
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
