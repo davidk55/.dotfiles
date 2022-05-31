@@ -9,8 +9,8 @@
 
 require("awful.autofocus")
 local awful = require("awful")
-local theme = require("theme")
-local shortcuts = require("shortcuts")
+local theme = require("modules.theme")
+local shortcuts = require("modules.shortcuts")
 
 -- ================ SET RULES ================
 awful.rules.rules = {
