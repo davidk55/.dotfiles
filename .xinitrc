@@ -52,5 +52,8 @@ picom &
 # Load dunst
 dunst &
 
+# Load kmonad
+kmonad /home/david/.config/kmonad/keyboard.kdb &
+
 # Execute awesomewm
 exec awesome
