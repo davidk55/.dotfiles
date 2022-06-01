@@ -52,5 +52,8 @@ exec feh --bg-fill "$(find ~/Nextcloud/Main/Further-Dotfiles/Backgrounds -type f
 # Load dunst
 dunst &
 
+# Load kmonad
+kmonad /home/david/.config/kmonad/keyboard.kdb &
+
 # Execute awesomewm
 exec awesome
