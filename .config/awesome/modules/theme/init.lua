@@ -63,9 +63,6 @@ theme.tasklist_align        = "center"
 -- ================ HOTKEYS_POPUP ================
 theme.hotkeys_bg = "#000000"
 
--- ================ APPLY THE THEME ================
-beautiful.init(theme)
-
 return theme
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
