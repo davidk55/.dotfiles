@@ -7,7 +7,6 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
-local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
