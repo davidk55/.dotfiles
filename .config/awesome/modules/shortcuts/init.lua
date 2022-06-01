@@ -103,7 +103,9 @@ shortcuts.globalkeys = gears.table.join(
         else
             beautiful.useless_gap = 0
         end
-        awful.layout.arrange(awful.screen.focused())
+        for s in screen do
+            awful.layout.arrange(s)
+        end
     end,
         { description = "toggle gaps", group = "awesome: general" })
 )
