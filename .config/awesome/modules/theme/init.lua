@@ -15,9 +15,22 @@ local theme = {}
 
 -- ================ GENERAL ================
 
+-- Colors
+theme.bg_normal = "#282828"
+theme.bg_focus = "#282828"
+theme.bg_urgent = "#282828"
+theme.bg_minimize = "#282828"
+theme.bg_systray = "#282828"
+
+
+theme.fg_normal = "#ebdbb2"
+theme.fg_focus = "#ebdbb2"
+theme.fg_urgent = "#6791c9"
+theme.fg_minimize = "#6791c9"
+
+
 -- Font
 theme.font      = "Hack Nerd Font 12"
-theme.fg_normal = "#ebdbb2"
 
 -- Gaps
 theme.useless_gap = dpi(12)
@@ -26,6 +39,7 @@ theme.useless_gap = dpi(12)
 theme.border_width  = dpi(3)
 theme.border_normal = "#282828"
 theme.border_focus  = "#ebdbb2"
+theme.border_marked  = "#ebdbb2"
 
 -- Wallpaper
 theme.wallpaper = "/home/david/.local/share/backgrounds/2.jpg"
