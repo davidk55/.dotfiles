@@ -42,7 +42,6 @@ local function toggle_client(client_infos)
     local found
     for _, c in ipairs(client.get()) do
         if is_the_searched_client(c, client_infos) then
-            print("wtf")
             if found then
                 if found.hidden == c.hidden then
                     if found.hidden == false and found.active == client_is_in_active_tag(c) then
