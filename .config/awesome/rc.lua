@@ -7,10 +7,13 @@
 --                                                                       |___/
 -- ********************************* @author davidk55 *******************************
 
+local beautiful = require("beautiful")
+
 pcall(require, "luarocks.loader")
 
 -- ================ THEME ================
-require("modules.theme")
+local theme = require("modules.theme")
+beautiful.init(theme)
 
 -- ================ CONFIG ================
 require("modules.config")
