@@ -41,35 +41,35 @@ shortcuts.globalkeys = gears.table.join(
 
     -- Increase master width
     awful.key({ config.modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
-        { description = "increase master width factor", group = "layout" }),
+        { description = "increase master width factor", group = "awesome: layout" }),
 
     -- Decrease master width
     awful.key({ config.modkey, }, "h", function() awful.tag.incmwfact(-0.05) end,
-        { description = "decrease master width factor", group = "layout" }),
+        { description = "decrease master width factor", group = "awesome: layout" }),
 
     -- Increase the number of master clients
     awful.key({ config.modkey, "Shift" }, "h", function() awful.tag.incnmaster(1, nil, true) end,
-        { description = "increase the number of master clients", group = "layout" }),
+        { description = "increase the number of master clients", group = "awesome: layout" }),
 
     -- Decrease the number of master clients
     awful.key({ config.modkey, "Shift" }, "l", function() awful.tag.incnmaster(-1, nil, true) end,
-        { description = "decrease the number of master clients", group = "layout" }),
+        { description = "decrease the number of master clients", group = "awesome: layout" }),
 
     -- Increase the number of columns
     awful.key({ config.modkey, "Control" }, "h", function() awful.tag.incncol(1, nil, true) end,
-        { description = "increase the number of columns", group = "layout" }),
+        { description = "increase the number of columns", group = "awesome: layout" }),
 
     -- Decrease the number of columns
     awful.key({ config.modkey, "Control" }, "l", function() awful.tag.incncol(-1, nil, true) end,
-        { description = "decrease the number of columns", group = "layout" }),
+        { description = "decrease the number of columns", group = "awesome: layout" }),
 
     -- Selects next layout
     awful.key({ config.modkey, }, "space", function() awful.layout.inc(1) end,
-        { description = "select next", group = "layout" }),
+        { description = "select next", group = "awesome: layout" }),
 
     -- Select previous layout
     awful.key({ config.modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
-        { description = "select previous", group = "layout" }),
+        { description = "select previous", group = "awesome: layout" }),
 
     -- Run the lua execute prompt
     awful.key({ config.modkey }, "x",
