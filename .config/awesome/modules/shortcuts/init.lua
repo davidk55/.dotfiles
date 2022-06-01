@@ -16,6 +16,7 @@ local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
+local brightness_widget = require("modules.awesome-wm-widgets.brightness-widget.brightness")
 
 local shortcuts = {}
 
@@ -329,6 +330,14 @@ shortcuts.globalkeys = gears.table.join(shortcuts.globalkeys,
     awful.key({}, "#123", function() volume_widget:inc(5) end),
     -- Toggle mute/unmute
     awful.key({}, "#121", function() volume_widget:toggle() end)
+)
+
+-- ================ BRIGHTNESS ================
+shortcuts.globalkeys = gears.table.join(shortcuts.globalkeys,
+--     -- Brightness down
+    awful.key({ }, "#232", function() brightness_widget:dec() end),
+    -- Brightness up
+    awful.key({ }, "#233", function() brightness_widget:inc() end)
 )
 
 -- ================ RANDOM BACKGROUND ================
