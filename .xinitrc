@@ -63,6 +63,9 @@ picom --experimental-backends &
 # Load dunst
 dunst &
 
+# Load kmonad
+kmonad /home/david/.config/kmonad/keyboard.kdb &
+
 # start the gnome-keyring-daemon
 eval $(gnome-keyring-daemon --start) &
 export SSH_AUTH_SOCK &
