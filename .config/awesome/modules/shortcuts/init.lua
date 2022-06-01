@@ -13,6 +13,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local config = require("modules.config")
 local toggle_clients = require("modules.toggle-clients")
 local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
+local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
 
 local shortcuts = {}
 
@@ -84,12 +87,25 @@ shortcuts.globalkeys = gears.table.join(
         { description = "lua execute prompt", group = "awesome: general" }),
 
     -- Toggle the wibar
-    awful.key({ config.modkey }, "w", function()
+    awful.key({ config.modkey }, "w",
+    function()
         for s in screen do
             s.mywibox.visible = not s.mywibox.visible
         end
     end,
-        { description = "show the menubar (wibar)", group = "awesome: general" })
+        { description = "toggle the wibar", group = "awesome: general" }),
+
+    -- Toggle gaps
+    awful.key({ config.modkey }, "g",
+    function()
+        if beautiful.useless_gap == 0 then
+            beautiful.useless_gap = dpi(12)
+        else
+            beautiful.useless_gap = 0
+        end
+        awful.layout.arrange(awful.screen.focused())
+    end,
+        { description = "toggle gaps", group = "awesome: general" })
 )
 
 
