@@ -17,6 +17,7 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local mouse_on_focussed_client = require("modules.interaction").mouse_on_focussed_client
+local brightness_widget = require("modules.awesome-wm-widgets.brightness-widget.brightness")
 
 local shortcuts = {}
 local eww_is_open = false
@@ -525,6 +526,19 @@ shortcuts.globalkeys = gears.table.join(
   -- Toggle mute/unmute
   awful.key({}, "#121", function()
     volume_widget:toggle()
+  end)
+)
+
+-- ================ BRIGHTNESS ================
+shortcuts.globalkeys = gears.table.join(
+  shortcuts.globalkeys,
+  --     -- Brightness down
+  awful.key({}, "#232", function()
+    brightness_widget:dec()
+  end),
+  -- Brightness up
+  awful.key({}, "#233", function()
+    brightness_widget:inc()
   end)
 )
 
