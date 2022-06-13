@@ -19,6 +19,8 @@ return require("packer").startup(function()
     "romgrk/barbar.nvim",
     requires = { "kyazdani42/nvim-web-devicons" }
   }
+  use "rcarriga/nvim-notify"
+  vim.notify = require("notify")
 
   -- ************************** MOVEMENT **************************
   use {
