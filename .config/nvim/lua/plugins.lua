@@ -66,6 +66,14 @@ return require("packer").startup(function()
   -- ************************** LSP **************************
   use "neovim/nvim-lspconfig"
   use "mfussenegger/nvim-dap"
+  use {
+    "folke/trouble.nvim",
+    config = u.load_setup("trouble")
+  }
+  use {
+    "glepnir/lspsaga.nvim",
+    config = u.load_setup("lspsaga")
+  }
 
   -- ************************** SNIPPETS **************************
   use "hrsh7th/nvim-cmp"
