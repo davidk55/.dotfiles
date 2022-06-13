@@ -63,6 +63,11 @@ local nvim_keys = {
             ['K'] = "show information about under cursor",
         }
     }, {
+        modifiers = { "Ctrl" },
+        keys = {
+            ['space'] = "show completion",
+        }
+    }, {
         modifiers = { "leader" },
         keys = {
             ['dd'] = "show diagnostic information",
