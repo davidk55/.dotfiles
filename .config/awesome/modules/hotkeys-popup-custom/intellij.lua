@@ -23,8 +23,6 @@ local intellij_keys = {
     ["intellij: general"] = { {
         modifiers = { "Ctrl" },
         keys = {
-            ['j'] = "swap current line with line below",
-            ['k'] = "swap current line with line above",
             ['space'] = "show completion",
         }
     }, {
@@ -34,6 +32,8 @@ local intellij_keys = {
             ['y'] = "yank to clipboard",
             ['p'] = "paste from clipboard",
             ['ff'] = "go to specific file",
+            ['j'] = "swap current line with line below",
+            ['k'] = "swap current line with line above",
         }
     }, {
         modifiers = {},
