@@ -58,6 +58,7 @@ s("css", fmt("<link rel=\"stylesheet\" href=\"{}.css\">", i(0, "style")))
 -- *************************** JAVA SNIPPETS ***************************
 ls.add_snippets("java", {
   s("st", fmt("static {}", i(0))),
+  s("St", fmt("String {}", i(0))),
   s("pr", fmt("private {}", i(0))),
   s("pu", fmt("public {}", i(0))),
   s("vo", fmt("void {}", i(0))),
