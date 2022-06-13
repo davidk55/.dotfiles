@@ -1,7 +1,7 @@
 local u = require("utils")        -- function to load the configuration file
 
 require("plugins.nvim-cmp")       -- load the nvim-cmp configigurations
-require("plugins.lsp.lsp-servers")    -- load the lsp server configurations
+require("plugins.lsp")    -- load the lsp server configurations
 
 
 return require("packer").startup(function()
