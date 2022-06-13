@@ -17,6 +17,11 @@ lsp_con.cssls.setup {
   on_attach = on_attach
 }
 
+lsp_con.tailwindcss.setup {
+  capabilities =capabilities,
+  on_attach = on_attach
+}
+
 -- *************** JAVASCRIPT/TYPESCRIPT SERVER ***************
 lsp_con.tsserver.setup{
   on_attach = on_attach
