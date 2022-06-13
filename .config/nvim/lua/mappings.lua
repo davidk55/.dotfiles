@@ -13,8 +13,8 @@ vim.keymap.set({"n", "v"}, ",d", "\"_d", n)
 vim.keymap.set("n", "<leader>/", ":noh<CR>", ns)
 
 -- *************************** MOVING ******************************
-vim.keymap.set("n", "<A-j>", ":m +1<CR>", ns)
-vim.keymap.set("n", "<A-k>", ":m -2<CR>", ns)
+vim.keymap.set("n", "<leader>j", ":m +1<CR>", ns)
+vim.keymap.set("n", "<leader>k", ":m -2<CR>", ns)
 
 -- *************************** Buffer ******************************
 vim.keymap.set("n", "<A-n>", ":enew<CR>", ns)
