@@ -9,11 +9,11 @@
 
 local hotkeys_popup = require("awful.hotkeys_popup.widget")
 
-local intellij_rule_any = { class = { "obsidian" } }
+local intellij_rule_any = { instance = { "jetbrains-idea" } }
 for group_name, group_data in pairs({
-    ["intellij: general"] = { color = "#514568", rule_any = intellij_rule_any },
-    ["intellij: lsp"] = { color = "#ec3567", rule_any = intellij_rule_any },
-    ["intellij: tabs"] = { color = "#99509d", rule_any = intellij_rule_any },
+    ["intellij: general"] = { color = "#d67933", rule_any = intellij_rule_any },
+    ["intellij: lsp"] = { color = "#d67933", rule_any = intellij_rule_any },
+    ["intellij: tabs"] = { color = "#d67933", rule_any = intellij_rule_any },
 }) do
     hotkeys_popup.add_group_rules(group_name, group_data)
 end
@@ -33,6 +33,7 @@ local intellij_keys = {
             ['/'] = "remove current search highlighting",
             ['y'] = "yank to clipboard",
             ['p'] = "paste from clipboard",
+            ['ff'] = "go to specific file",
         }
     }, {
         modifiers = {},
