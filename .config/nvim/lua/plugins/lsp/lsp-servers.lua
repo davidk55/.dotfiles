@@ -3,7 +3,10 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lsp_con = require"lspconfig"
-local on_attach = require"plugins.lsp.lsp-mappings"
+local on_attach = function(client, bufnr)
+	require("plugins.lsp.lsp-mappings")(client, bufnr)
+	client.resolved_capabilities.document_formatting = false
+end
 
 -- *************** HTML SERVER ***************
 lsp_con.html.setup {
