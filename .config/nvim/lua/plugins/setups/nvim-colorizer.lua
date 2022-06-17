@@ -1,4 +1,4 @@
-require"colorizer".setup{
+require("colorizer").setup({
   -- filetypes where this plugin is active
   "css",
   "javascript",
@@ -10,6 +10,5 @@ require"colorizer".setup{
     RRGGBBAA = true,
     rgb_fn = true,
     hsl_fn = true,
-  }
-
-}
+  },
+})

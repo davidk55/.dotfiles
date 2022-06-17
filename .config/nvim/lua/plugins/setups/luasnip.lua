@@ -19,7 +19,7 @@ local rep = require("luasnip.extras").rep
 -- loads snippets for various languages
 require("luasnip.loaders.from_vscode").lazy_load()
 
-ls.add_snippets("all",  {
+ls.add_snippets("all", {
   s("ternary", {
       -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
       i(0) ,i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else")
@@ -125,10 +125,9 @@ ls.add_snippets("tex", {
 })
 
 -- *************************** SETTINGS ***************************
-ls.config.set_config ({
+ls.config.set_config({
 
   history = true,
   update_events = "TextChanged,TextChangedI",
   delete_check_events = "TextChanged",
-
 })

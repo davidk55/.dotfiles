@@ -1,20 +1,20 @@
-require("gitsigns").setup {
+require("gitsigns").setup({
 
   -- **************************** SETTINGS ****************************
   signs = {
-    add          = {hl = "GitSignsAdd"   , text = "+", numhl="GitSignsAddNr"   , linehl="GitSignsAddLn"},
-    change       = {hl = "GitSignsChange", text = "~", numhl="GitSignsChangeNr", linehl="GitSignsChangeLn"},
-    delete       = {hl = "GitSignsDelete", text = "_", numhl="GitSignsDeleteNr", linehl="GitSignsDeleteLn"},
-    topdelete    = {hl = "GitSignsDelete", text = "‾", numhl="GitSignsDeleteNr", linehl="GitSignsDeleteLn"},
-    changedelete = {hl = "GitSignsDelete", text = "~", numhl="GitSignsDeleteNr", linehl="GitSignsDeleteLn"},
+    add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+    change = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    changedelete = { hl = "GitSignsDelete", text = "~", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
   },
-  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
-  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+  signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+  numhl = false,     -- Toggle with `:Gitsigns toggle_numhl`
+  linehl = false,    -- Toggle with `:Gitsigns toggle_linehl`
+  word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {
     interval = 1000,
-    follow_files = true
+    follow_files = true,
   },
   attach_to_untracked = true,
   current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
@@ -35,10 +35,10 @@ require("gitsigns").setup {
     style = "minimal",
     relative = "cursor",
     row = 0,
-    col = 1
+    col = 1,
   },
   yadm = {
-    enable = false
+    enable = false,
   },
 
   -- **************************** KEYMAPS ****************************
@@ -53,31 +53,42 @@ require("gitsigns").setup {
 
     -- Navigation
     map("n", ",j", function()
-      if vim.wo.diff then return ",j" end
-      vim.schedule(function() gs.next_hunk() end)
+      if vim.wo.diff then
+        return ",j"
+      end
+      vim.schedule(function()
+        gs.next_hunk()
+      end)
       return "<Ignore>"
-    end, {expr=true})
+    end, { expr = true })
 
     map("n", ",k", function()
-      if vim.wo.diff then return ",k" end
-      vim.schedule(function() gs.prev_hunk() end)
+      if vim.wo.diff then
+        return ",k"
+      end
+      vim.schedule(function()
+        gs.prev_hunk()
+      end)
       return "<Ignore>"
-    end, {expr=true})
+    end, { expr = true })
 
     -- Actions
-    map({"n", "v"}, ",s", ":Gitsigns stage_hunk<CR>")
-    map({"n", "v"}, ",r", ":Gitsigns reset_hunk<CR>")
+    map({ "n", "v" }, ",s", ":Gitsigns stage_hunk<CR>")
+    map({ "n", "v" }, ",r", ":Gitsigns reset_hunk<CR>")
     map("n", ",S", gs.stage_buffer)
     map("n", ",u", gs.undo_stage_hunk)
     map("n", ",R", gs.reset_buffer)
     map("n", ",p", gs.preview_hunk)
-    map("n", ",b", function() gs.blame_line{full=true} end)
+    map("n", ",b", function()
+      gs.blame_line({ full = true })
+    end)
     map("n", ",tb", gs.toggle_current_line_blame)
     map("n", ",td", gs.toggle_deleted)
-    map("n", ",D", function() gs.diffthis("~") end)
+    map("n", ",D", function()
+      gs.diffthis("~")
+    end)
 
     -- Text object
-    map({"o", "x"}, "ih", ":<C-U>Gitsigns select_hunk<CR>")
-  end
-
-}
+    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+  end,
+})
