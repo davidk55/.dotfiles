@@ -1,4 +1,4 @@
-local ns = { noremap = true, silent = true}
+local ns = { noremap = true, silent = true }
 vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", ns)
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", ns)
 vim.keymap.set("n", "<leader>dl", "<cmd>Trouble<CR>", ns)
@@ -7,13 +7,13 @@ vim.keymap.set("n", "<leader>dw", "<cmd>Trouble workspace_diagnostics<CR>", ns)
 vim.keymap.set("n", "<leader>dl", "<cmd>Trouble loclist<CR>", ns)
 vim.keymap.set("n", "<leader>dq", "<cmd>Trouble quickfix<CR>", ns)
 
-local on_attach = function(_,bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local nsb = { noremap = true, silent = true, buffer = bufnr}
+  local nsb = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", nsb)
   vim.keymap.set("n", "gd", "<cmd>Trouble lsp_definitions<CR>", nsb)
   vim.keymap.set("n", "gr", "<cmd>Trouble lsp_references<CR>", ns)
