@@ -34,13 +34,15 @@ bindkey -M menuselect "j" vi-down-line-or-history
 
 
 # ******************* VIM *******************
-xset r rate 210 40
 bindkey -v "^?" backward-delete-char
 export KEYTIMEOUT=1
 
 # C-e to edit current command in vim
 autoload edit-command-line; zle -N edit-command-line
 bindkey "^e" edit-command-line
+
+# decrease delay when holding a key
+xset r rate 210 40
 
 # ******************* PLUGINS *******************
 source /etc/profile.d/autojump.sh
