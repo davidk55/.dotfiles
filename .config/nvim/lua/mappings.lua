@@ -103,6 +103,8 @@ vim.keymap.set("n", "<A-.>", ":BufferNext<CR>", ns)
 vim.keymap.set("n", "<A-<>", ":BufferMovePrevious<CR>", ns)
 vim.keymap.set("n", "<A->>", ":BufferMoveNext<CR>", ns)
 
+-- *************************** NVIM-TREE ******************************
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", ns)
 
 -- *************************** VIMTEX ******************************
 vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", n)
