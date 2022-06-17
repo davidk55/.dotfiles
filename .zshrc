@@ -34,6 +34,7 @@ bindkey -M menuselect "j" vi-down-line-or-history
 
 
 # ******************* VIM *******************
+xset r rate 210 40
 bindkey -v "^?" backward-delete-char
 export KEYTIMEOUT=1
 
