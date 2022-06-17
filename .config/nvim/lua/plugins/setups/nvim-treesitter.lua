@@ -1,5 +1,5 @@
-require"nvim-treesitter.configs".setup {
 
+require("nvim-treesitter.configs").setup({
   ensure_installed = { "java", "lua", "html", "css", "scss", "javascript",
   "typescript", "json", "markdown", "yaml", "vim", "bash", "comment",
   "dockerfile", "latex", "bibtex", "commonlisp"},
@@ -28,12 +28,14 @@ require"nvim-treesitter.configs".setup {
   },
 
   indent = {
-    enable = false
-  }
+    enable = false,
+  },
+})
 
-}
-
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
   set foldmethod=expr
   set foldexpr=nvim_treesitter#foldexpr()
-]], true)
+]],
+  true
+)

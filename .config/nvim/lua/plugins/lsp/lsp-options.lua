@@ -8,6 +8,6 @@ end
 -- use circle instead of square
 vim.diagnostic.config({
   virtual_text = {
-    prefix = '●'
-  }
+    prefix = "●",
+  },
 })

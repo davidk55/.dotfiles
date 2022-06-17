@@ -1,141 +1,139 @@
-local u = require("utils")        -- function to load the configuration file
+local u = require("utils") -- function to load the configuration file
 
-require("plugins.nvim-cmp")       -- load the nvim-cmp configigurations
-require("plugins.lsp")    -- load the lsp server configurations
-
+require("plugins.nvim-cmp") -- load the nvim-cmp configigurations
+require("plugins.lsp") -- load the lsp server configurations
 
 return require("packer").startup(function()
-
   -- ************************** PACKER ITSELF **************************
-  use "wbthomason/packer.nvim"
+  use("wbthomason/packer.nvim")
 
   -- ************************** LOOK AND FEEL **************************
-  use "ellisonleao/gruvbox.nvim"
-  use {
+  use("ellisonleao/gruvbox.nvim")
+  use({
     "nvim-lualine/lualine.nvim",
-    config = u.load_setup("lualine")
-  }
-  use {
+    config = u.load_setup("lualine"),
+  })
+  use({
     "romgrk/barbar.nvim",
-    requires = { "kyazdani42/nvim-web-devicons" }
-  }
-  use "rcarriga/nvim-notify"
+    requires = { "kyazdani42/nvim-web-devicons" },
+  })
+  use("rcarriga/nvim-notify")
   vim.notify = require("notify")
 
   -- ************************** MOVEMENT **************************
-  use {
+  use({
     "ggandor/lightspeed.nvim",
-    config = u.load_setup("lightspeed")
-  }
+    config = u.load_setup("lightspeed"),
+  })
 
   -- ************************** GIT **************************
-  use {
+  use({
     "lewis6991/gitsigns.nvim",
-    config = u.load_setup("gitsigns")
-  }
+    config = u.load_setup("gitsigns"),
+  })
 
   -- ************************** TREESITTER **************************
-  use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-      config = u.load_setup("nvim-treesitter")
-  }
-  use "mfussenegger/nvim-jdtls"
-  use "nvim-treesitter/playground"
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    config = u.load_setup("nvim-treesitter"),
+  })
+  use("mfussenegger/nvim-jdtls")
+  use("nvim-treesitter/playground")
 
   -- ************************** TELESCOPE **************************
-  use {
+  use({
     "nvim-telescope/telescope.nvim",
-    config = u.load_setup("telescope")
-  }
-  use {
+    config = u.load_setup("telescope"),
+  })
+  use({
     "nvim-telescope/telescope-fzf-native.nvim",
-    run = "make"
-  }
+    run = "make",
+  })
 
   -- ************************** COMMENTS **************************
-  use {
+  use({
     "folke/todo-comments.nvim",
-    config = u.load_setup("todo-comments")
-  }
-  use {
+    config = u.load_setup("todo-comments"),
+  })
+  use({
     "numToStr/Comment.nvim",
-    config = require("Comment").setup()
-  }
+    config = require("Comment").setup(),
+  })
 
   -- ************************** LSP **************************
-  use "neovim/nvim-lspconfig"
-  use "mfussenegger/nvim-dap"
-  use {
+  use("neovim/nvim-lspconfig")
+  use("mfussenegger/nvim-dap")
+  use({
     "folke/trouble.nvim",
-    config = u.load_setup("trouble")
-  }
-  use {
+    config = u.load_setup("trouble"),
+  })
+  use({
     "glepnir/lspsaga.nvim",
-    config = u.load_setup("lspsaga")
-  }
-  use {
+    config = u.load_setup("lspsaga"),
+  })
+  use({
     "jose-elias-alvarez/null-ls.nvim",
-    config = u.load_setup("null-ls")
-  }
+    config = u.load_setup("null-ls"),
+  })
 
   -- ************************** SNIPPETS **************************
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-calc"
-  use {
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lua")
+  use("hrsh7th/cmp-calc")
+  use({
     "L3MON4D3/LuaSnip",
     config = u.load_setup("luasnip"),
-  }
-  use "saadparwaiz1/cmp_luasnip"
-  use "rafamadriz/friendly-snippets"
+  })
+  use("saadparwaiz1/cmp_luasnip")
+  use("rafamadriz/friendly-snippets")
 
   -- ************************** MISC **************************
-  use {
+  use({
     "lukas-reineke/indent-blankline.nvim",
-    config = u.load_setup("indent_blankline")
-  }
-  use {
+    config = u.load_setup("indent_blankline"),
+  })
+  use({
     "windwp/nvim-autopairs",
-    config = u.load_setup("nvim-autopairs")
-  }
-  use {
+    config = u.load_setup("nvim-autopairs"),
+  })
+  use({
     "norcalli/nvim-colorizer.lua",
-    config = u.load_setup("nvim-colorizer")
-  }
-  use {
-    "tpope/vim-surround"
-  }
-  use {
+    config = u.load_setup("nvim-colorizer"),
+  })
+  use({
+    "tpope/vim-surround",
+  })
+  use({
     "ahmedkhalf/project.nvim",
-    config = u.load_setup("project")
-  }
+    config = u.load_setup("project"),
+  })
 
   -- markdown viewer
-  use {
-    "ellisonleao/glow.nvim"
-  }
+  use({
+    "ellisonleao/glow.nvim",
+  })
 
   -- nvim in the browser
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end
-  }
+  use({
+    "glacambre/firenvim",
+    run = function()
+      vim.fn["firenvim#install"](0)
+    end,
+  })
 
-  use "lervag/vimtex"
+  use("lervag/vimtex")
 
-  use {
+  use({
     "kyazdani42/nvim-tree.lua",
-    config = u.load_setup("nvim-tree")
-  }
-
+    config = u.load_setup("nvim-tree"),
+  })
 
   -- ************************** DEPENDENCIES **************************
-  use "nvim-lua/plenary.nvim"
-  use "kyazdani42/nvim-web-devicons"
-
+  use("nvim-lua/plenary.nvim")
+  use("kyazdani42/nvim-web-devicons")
 end)
