@@ -45,3 +45,6 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 
 # ********************** SET THEME **********************
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# ********************** CARGO **********************
+PATH="/home/david/.cargo/bin:$PATH"
