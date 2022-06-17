@@ -74,6 +74,10 @@ return require("packer").startup(function()
     "glepnir/lspsaga.nvim",
     config = u.load_setup("lspsaga")
   }
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = u.load_setup("null-ls")
+  }
 
   -- ************************** SNIPPETS **************************
   use "hrsh7th/nvim-cmp"
@@ -123,6 +127,11 @@ return require("packer").startup(function()
   }
 
   use "lervag/vimtex"
+
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = u.load_setup("nvim-tree")
+  }
 
 
   -- ************************** DEPENDENCIES **************************
