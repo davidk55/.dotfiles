@@ -21,7 +21,9 @@ SAVEHIST=10000
 
 # ******************* TAB COMPLETION *******************
 autoload -U compinit
-zstyle ":completion:*" menu select
+zstyle ":completion:*" menu select 
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' regular true
 #zstyle :compinstall filename "/home/david/.zshrc"
 zmodload zsh/complist
 compinit
