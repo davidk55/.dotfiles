@@ -125,3 +125,8 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
+
+git-auth () {
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/github
+}
