@@ -3,7 +3,16 @@ require("colorizer").setup({
   "css",
   "javascript",
   "html",
+  "scss",
   css = {
+    names = false,
+    RGB = true,
+    RRGGBB = true,
+    RRGGBBAA = true,
+    rgb_fn = true,
+    hsl_fn = true,
+  },
+  scss = {
     names = false,
     RGB = true,
     RRGGBB = true,
