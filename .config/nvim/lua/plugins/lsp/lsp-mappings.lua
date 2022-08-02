@@ -1,11 +1,9 @@
 local ns = { noremap = true, silent = true }
-vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", ns)
-vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", ns)
-vim.keymap.set("n", "<leader>dl", "<cmd>Trouble<CR>", ns)
+vim.keymap.set("n", "[d", require("lspsaga.diagnostic").goto_prev, ns)
+vim.keymap.set("n", "]d", require("lspsaga.diagnostic").goto_next, ns)
 vim.keymap.set("n", "<leader>dd", "<cmd>Trouble document_diagnostics<CR>", ns)
 vim.keymap.set("n", "<leader>dw", "<cmd>Trouble workspace_diagnostics<CR>", ns)
-vim.keymap.set("n", "<leader>dl", "<cmd>Trouble loclist<CR>", ns)
-vim.keymap.set("n", "<leader>dq", "<cmd>Trouble quickfix<CR>", ns)
+vim.keymap.set("n", "<leader>dl", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
 
 local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
