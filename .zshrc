@@ -16,8 +16,8 @@ unsetopt prompt_cr prompt_sp
 
 # ******************* HISTORY *******************
 HISTFILE=~/.cache/zsh/hist
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
 # ******************* TAB COMPLETION *******************
 autoload -U compinit
