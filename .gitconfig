@@ -17,3 +17,4 @@
   dv = difftool -t vimdiff -y
   gl = config --global -l
   rev = reset --soft HEAD^
+  ch = checkout
