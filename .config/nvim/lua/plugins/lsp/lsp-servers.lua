@@ -2,6 +2,8 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local navic = require("nvim-navic")
+
 local lsp_con = require("lspconfig")
 local on_attach = function(client, bufnr)
   require("plugins.lsp.lsp-mappings")(client, bufnr)
@@ -61,11 +63,6 @@ lsp_con.sumneko_lua.setup({
 lsp_con.texlab.setup({
   on_attach = on_attach,
 })
-
--- *************** JAVA SERVER ***************
--- lsp_con.jdtls.setup{
---   on_attach = on_attach
--- }
 
 -- *************** BASH SERVER ***************
 lsp_con.bashls.setup({
