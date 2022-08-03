@@ -24,8 +24,10 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- *************************** FOLDING ******************************
-vim.opt.foldenable = false
-vim.opt.foldmethod = "indent"
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
 
 -- *************************** COLORTHEME ******************************
 vim.opt.termguicolors = true

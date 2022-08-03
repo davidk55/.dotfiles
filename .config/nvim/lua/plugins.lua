@@ -133,6 +133,19 @@ return require("packer").startup(function()
     config = u.load_setup("nvim-tree"),
   })
 
+  use({
+    "kevinhwang91/nvim-ufo",
+    requires = "kevinhwang91/promise-async",
+    config = function()
+      require("ufo").setup({
+        fold_virt_text_handler = handler,
+        provider_selector = function(bufnr, filetype, buftype)
+          return { "treesitter", "indent" }
+        end,
+      })
+    end,
+  })
+
   -- ************************** DEPENDENCIES **************************
   use("nvim-lua/plenary.nvim")
   use("kyazdani42/nvim-web-devicons")
