@@ -33,6 +33,7 @@ lsp_con.tsserver.setup({
   on_attach = function(client, bufnr)
     require("plugins.lsp.lsp-mappings")(client, bufnr)
     client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
   end,
 })
 
@@ -56,6 +57,7 @@ lsp_con.sumneko_lua.setup({
   on_attach = function(client, bufnr)
     require("plugins.lsp.lsp-mappings")(client, bufnr)
     client.resolved_capabilities.document_formatting = false
+    navic.attach(client, bufnr)
   end,
 })
 
