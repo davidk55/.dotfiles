@@ -5,6 +5,7 @@ local e = { expr = true }
 -- *************************** COPY/PASTE ******************************
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', n)
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', n)
+vim.keymap.set({ "n", "v" }, "<leader>P", '$"+p', n)
 
 -- *************************** DELETING ******************************
 vim.keymap.set({ "n", "v" }, ",d", '"_d', n)
