@@ -131,3 +131,13 @@ git-auth () {
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/github
 }
+
+run () {
+  local -a args
+
+  setsid "$1" &>/dev/null; exit
+
+}
+
+# add all commands in current path to autocompletion of run
+compdef _path_commands run
