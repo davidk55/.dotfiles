@@ -56,7 +56,7 @@ xrandr --output DP-4 --primary --mode 1920x1080 --rate 144 --left-of HDMI-0 &
 xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --right-of DP-4 &
 
 # Load background
-exec feh --bg-fill ~/.local/share/backgrounds/2.jpg &
+exec feh --bg-fill "$(find ~/.local/share/backgrounds -type f | shuf -n 1)" &
 
 # Load compositor
 picom --experimental-backends &
