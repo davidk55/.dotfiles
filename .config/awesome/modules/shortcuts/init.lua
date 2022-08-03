@@ -335,7 +335,7 @@ shortcuts.globalkeys = gears.table.join(shortcuts.globalkeys,
 
 -- ================ RANDOM BACKGROUND ================
 shortcuts.globalkeys = gears.table.join(shortcuts.globalkeys,
-    awful.key({ config.modkey }, "b", function() os.execute("feh --randomize --bg-fill ~/.local/share/backgrounds/*") end)
+    awful.key({ config.modkey }, "b", function() os.execute("feh --bg-fill \"$(find ~/.local/share/backgrounds -type f | shuf -n 1)\"") end)
 )
 
 root.keys(shortcuts.globalkeys)
