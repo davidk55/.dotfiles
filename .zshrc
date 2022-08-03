@@ -78,7 +78,8 @@ alias cya="shutdown now"
 alias g="git"
 alias gt="git ls-tree -r --name-only HEAD | tree --fromfile"
 alias img="sxiv ."
-alias cat="bat -p"
+alias cat="bat --paging=never"
+alias less="bat --paging=always"
 
 # ******************* FUNCTIONS *******************
 alarm() {
