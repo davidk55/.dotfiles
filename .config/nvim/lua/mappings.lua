@@ -117,6 +117,6 @@ vim.keymap.set("n", "<leader><leader>l", ":lua _LUA_TOGGLE()<CR>", ns)
 vim.keymap.set("n", "<leader><leader>j", ":lua _JAVA_TOGGLE()<CR>", ns)
 vim.keymap.set("t", "<A-Esc>", "<C-\\><C-n>", n)
 -- *************************** NVIM-UFO ******************************
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
