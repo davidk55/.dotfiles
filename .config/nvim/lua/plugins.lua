@@ -13,6 +13,7 @@ return require("packer").startup(function()
     "nvim-lualine/lualine.nvim",
     config = u.load_setup("lualine"),
   })
+  use("SmiteshP/nvim-navic")
   use({
     "romgrk/barbar.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
