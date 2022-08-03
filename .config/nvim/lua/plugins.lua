@@ -135,7 +135,10 @@ return require("packer").startup(function()
     config = u.load_setup("nvim-colorizer"),
   })
   use({
-    "tpope/vim-surround",
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
   })
   use({
     "ahmedkhalf/project.nvim",
