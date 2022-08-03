@@ -103,7 +103,7 @@ vim.keymap.set("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<C
 vim.keymap.set("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", nsb)
 vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", nsb)
 vim.keymap.set("n", "<leader>D", "<cmd>Trouble lsp_type_definitions<CR>", nsb)
-vim.keymap.set("n", "<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>", nsb)
+vim.keymap.set("n", "<leader>rn", "<cmd>lua require('lspsaga.rename').lsp_rename()<CR>", nsb)
 vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", nsb)
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", nsb)
 vim.keymap.set("n", "<leader>oi", "<cmd>lua require(\"jdtls\").organize_imports()<CR>", nsb)
