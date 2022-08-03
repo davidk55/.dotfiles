@@ -27,7 +27,11 @@ lsp_con.tailwindcss.setup({
 
 -- *************** JAVASCRIPT/TYPESCRIPT SERVER ***************
 lsp_con.tsserver.setup({
-  on_attach = on_attach,
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    require("plugins.lsp.lsp-mappings")(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end,
 })
 
 -- *************** JSON SERVER ***************
@@ -47,7 +51,10 @@ lsp_con.sumneko_lua.setup({
       },
     },
   },
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    require("plugins.lsp.lsp-mappings")(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end,
 })
 
 -- *************** LATEX SERVER ***************
