@@ -11,7 +11,7 @@ vim.keymap.set({ "n", "v" }, "<leader>P", '$"+p', n)
 vim.keymap.set({ "n", "v" }, ",d", '"_d', n)
 
 -- *************************** SEARCHING ******************************
-vim.keymap.set("n", "<leader>/", ":noh<CR>", ns)
+vim.keymap.set("n", "<leader>/", ":noh<CR>:echo ''<CR>", ns)
 
 -- *************************** MOVING ******************************
 vim.keymap.set("n", "<leader>j", ":m +1<CR>", ns)
