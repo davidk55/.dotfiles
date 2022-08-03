@@ -1,8 +1,8 @@
 -- *************************** TABS ******************************
-vim.opt.softtabstop = 2       -- used when you want a different tab length in blank lines
-vim.opt.tabstop = 2           -- length of the tab
-vim.opt.shiftwidth = 2        -- should be the same as tabstop
-vim.opt.expandtab = true      -- tabs are now spaces
+vim.opt.softtabstop = 2 -- used when you want a different tab length in blank lines
+vim.opt.tabstop = 2 -- length of the tab
+vim.opt.shiftwidth = 2 -- should be the same as tabstop
+vim.opt.expandtab = true -- tabs are now spaces
 vim.opt.smartindent = true
 
 -- *************************** LINE NUMBERS ******************************
@@ -15,9 +15,9 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 -- *************************** LOOK ******************************
-vim.opt.signcolumn = "yes"    -- add an extra column at the beginning
-vim.opt.colorcolumn = "80"    -- adds an bar at the 80th column
-vim.opt.cmdheight = 2         -- more space for displaying messages
+vim.opt.signcolumn = "yes" -- add an extra column at the beginning
+vim.opt.colorcolumn = "80" -- adds an bar at the 80th column
+vim.opt.cmdheight = 2 -- more space for displaying messages
 
 -- *************************** SPLITTING ******************************
 vim.opt.splitright = true
@@ -36,17 +36,17 @@ vim.cmd([[colorscheme gruvbox]])
 
 -- *************************** MISC ******************************
 vim.opt.errorbells = false
-vim.opt.wrap = false          -- makes that text does not wrap to a new line when its to long
-vim.opt.scrolloff = 10        -- scrolls when 8 lines before the end of the screen
-vim.opt.updatetime = 50       -- gives it a little longer updatetime, but no noticable delay
-vim.opt.hidden = true         -- makes that you can leave a buffer without saving
-vim.opt.ruler = true          -- show current cursor position on the bottom right
+vim.opt.wrap = false -- makes that text does not wrap to a new line when its to long
+vim.opt.scrolloff = 10 -- scrolls when 8 lines before the end of the screen
+vim.opt.updatetime = 50 -- gives it a little longer updatetime, but no noticable delay
+vim.opt.hidden = true -- makes that you can leave a buffer without saving
+vim.opt.ruler = true -- show current cursor position on the bottom right
 vim.opt.encoding = "utf-8"
 vim.g.mapleader = " "
 
 -- *************************** PLUGIN RELATED ******************************
-vim.opt.bufhidden = "unload"  -- to make jdtls lsp work properly
+vim.opt.bufhidden = "unload" -- to make jdtls lsp work properly
 vim.g.indent_blankline_use_treesitter = true
-vim.g.tex_flavor = "latex"    -- Make .tex files indentified as LaTeX by default
+vim.g.tex_flavor = "latex" -- Make .tex files indentified as LaTeX by default
 vim.g.vimtex_view_method = "zathura"
 vim.g.lightspeed_no_default_keymaps = true -- disable all default mappings of lightspeed
