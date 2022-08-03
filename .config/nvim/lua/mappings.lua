@@ -108,3 +108,10 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", ns)
 -- *************************** VIMTEX ******************************
 vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", n)
 vim.keymap.set("n", "<leader>lc", ":VimtexClean<CR>", n)
+
+-- *************************** TOGGLETERM ******************************
+vim.keymap.set("n", ",,g", ":lua _LAZYGIT_TOGGLE()<CR>", ns)
+vim.keymap.set("n", "<leader><leader>n", ":lua _NODE_TOGGLE()<CR>", ns)
+vim.keymap.set("n", "<leader><leader>l", ":lua _LUA_TOGGLE()<CR>", ns)
+vim.keymap.set("n", "<leader><leader>j", ":lua _JAVA_TOGGLE()<CR>", ns)
+vim.keymap.set("t", "<A-Esc>", "<C-\\><C-n>", n)
