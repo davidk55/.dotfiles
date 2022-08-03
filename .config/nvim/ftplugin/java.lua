@@ -68,6 +68,12 @@ local config = {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
 
+local navic = require("nvim-navic")
+
+config['on_attach'] = function(client, bufnr)
+  navic.attach(client, bufnr)
+end
+
 -- ********************** OPTIONS **********************
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
