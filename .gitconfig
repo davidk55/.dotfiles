@@ -20,6 +20,7 @@
   gl = config --global -l
   rev = reset --soft HEAD^
   ch = checkout
+  sh = show
 
 [interactive]
   diffFilter = delta --color-only
