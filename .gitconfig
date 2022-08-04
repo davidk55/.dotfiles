@@ -5,6 +5,8 @@
 [core]
   editor = nvim
 	excludesfile = /home/david/.config/git/ignore
+  pager = delta
+
 [alias]
   p = push
   st = status
@@ -18,3 +20,34 @@
   gl = config --global -l
   rev = reset --soft HEAD^
   ch = checkout
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  file-decoration-style = grey ul
+	file-style = grey
+	hunk-header-decoration-style = grey box
+	hunk-header-line-number-style = grey
+	line-numbers = true
+	line-numbers-left-format = {nm:>3}│
+	line-numbers-left-style = grey
+	line-numbers-minus-style = grey
+	line-numbers-plus-style = grey
+	line-numbers-right-format = {np:>3}│
+	line-numbers-right-style = grey
+	line-numbers-zero-style = grey
+	minus-emph-style = red bold grey
+	minus-style = "red #1d2021"
+	navigate = false
+	plus-emph-style = green bold grey
+	plus-style = "green #3c3836"
+	side-by-side = false
+	true-color = auto
+	zero-style = grey
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
