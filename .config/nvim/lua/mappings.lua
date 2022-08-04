@@ -186,3 +186,11 @@ vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
 vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
 vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
 vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
+
+-- *************************** NVIM-DAP ******************************
+vim.keymap.set("n", "<leader>lb", ":lua require'dap'.toggle_breakpoint()<CR>", ns)
+vim.keymap.set("n", "<leader>lB", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", ns)
+vim.keymap.set("n", "<F1>", ":lua require'dap'.step_over()<CR>", ns)
+vim.keymap.set("n", "<F2>", ":lua require'dap'.step_into()<CR>", ns)
+vim.keymap.set("n", "<F3>", ":lua require'dap'.step_out()<CR>", ns)
+vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>", ns)

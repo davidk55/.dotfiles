@@ -70,9 +70,26 @@ require("jdtls").start_or_attach(config)
 
 local navic = require("nvim-navic")
 
+-- ********************** DEBUGGER **********************
 config['on_attach'] = function(client, bufnr)
+  -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
+  -- you make during a debug session immediately.
+  -- Remove the option if you do not want that.
   navic.attach(client, bufnr)
+  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 end
+
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob("/home/david/.local/share/Java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
+};
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/david/.local/share/Java/vscode-java-test/server/*.jar"), "\n"))
+config['init_options'] = {
+  bundles = bundles;
+}
+
 
 -- ********************** OPTIONS **********************
 vim.opt.softtabstop = 4

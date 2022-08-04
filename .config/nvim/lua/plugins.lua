@@ -2,6 +2,35 @@ local u = require("utils") -- function to load the configuration file
 
 require("plugins.nvim-cmp") -- load the nvim-cmp configigurations
 require("plugins.lsp") -- load the lsp server configurations
+require("plugins.setups.nvim-dap")
+
+local handler = function(virtText, lnum, endLnum, width, truncate)
+  local newVirtText = {}
+  local suffix = ("  %d "):format(endLnum - lnum)
+  local sufWidth = vim.fn.strdisplaywidth(suffix)
+  local targetWidth = width - sufWidth
+  local curWidth = 0
+  for _, chunk in ipairs(virtText) do
+    local chunkText = chunk[1]
+    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+    if targetWidth > curWidth + chunkWidth then
+      table.insert(newVirtText, chunk)
+    else
+      chunkText = truncate(chunkText, targetWidth - curWidth)
+      local hlGroup = chunk[2]
+      table.insert(newVirtText, { chunkText, hlGroup })
+      chunkWidth = vim.fn.strdisplaywidth(chunkText)
+      -- str width returned from truncate() may less than 2nd argument, need padding
+      if curWidth + chunkWidth < targetWidth then
+        suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+      end
+      break
+    end
+    curWidth = curWidth + chunkWidth
+  end
+  table.insert(newVirtText, { suffix, "MoreMsg" })
+  return newVirtText
+end
 
 return require("packer").startup(function()
   -- ************************** PACKER ITSELF **************************
@@ -79,6 +108,19 @@ return require("packer").startup(function()
   -- ************************** LSP **************************
   use("neovim/nvim-lspconfig")
   use("mfussenegger/nvim-dap")
+  use({
+    "rcarriga/nvim-dap-ui",
+    config = u.load_setup("nvim-dap-ui"),
+  })
+  use("Pocco81/dap-buddy.nvim")
+  use({
+    "theHamsta/nvim-dap-virtual-text",
+    config = require("nvim-dap-virtual-text").setup(),
+  })
+  -- use({
+  --   "mxsdev/nvim-dap-vscode-js",
+  --   config = u.load_setup("nvim-dap-vscode-js"),
+  -- })
   use({
     "folke/trouble.nvim",
     config = u.load_setup("trouble"),
