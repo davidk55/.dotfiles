@@ -29,6 +29,9 @@ vim.keymap.set("n", "<leader>0", function()
   end
 end, n)
 
+-- *************************** PACKER ******************************
+vim.keymap.set("n", "<leader><leader>u", ":PackerSync<CR>", ns)
+
 -- *************************** TELESCOPE ******************************
 -- File Pickers
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, n)
@@ -116,7 +119,7 @@ vim.keymap.set("n", "<leader><leader>n", ":lua _NODE_TOGGLE()<CR>", ns)
 vim.keymap.set("n", "<leader><leader>l", ":lua _LUA_TOGGLE()<CR>", ns)
 vim.keymap.set("n", "<leader><leader>j", ":lua _JAVA_TOGGLE()<CR>", ns)
 vim.keymap.set("t", "<A-Esc>", "<C-\\><C-n>", n)
+
 -- *************************** NVIM-UFO ******************************
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-
