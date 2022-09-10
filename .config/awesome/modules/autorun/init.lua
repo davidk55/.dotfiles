@@ -23,6 +23,7 @@ local autorunApps = {
   "kitty --title dev",
   "spotify",
   "udiskie",
+  "blueman-manager",
 }
 if autorun then
   print(autorun)
