@@ -22,79 +22,91 @@ local separator = wibox.widget.textbox("   ")
 
 -- ================ CUSTOM SHAPES ================
 local function custom_shape(cr, width, height)
-    gears.shape.rounded_rect(cr, width, height, 10)
+  gears.shape.rounded_rect(cr, width, height, 10)
 end
 
 -- ================ DRAW WIBAR ================
 awful.screen.connect_for_each_screen(function(s)
+  -- ================ PROMPTBOX ================
+  s.mypromptbox = awful.widget.prompt()
 
-    -- ================ PROMPTBOX ================
-    s.mypromptbox = awful.widget.prompt()
+  -- ================ LAYOUTBOX ================
+  s.mylayoutbox = awful.widget.layoutbox(s)
+  s.mylayoutbox:buttons(gears.table.join(
+    awful.button({}, 1, function()
+      awful.layout.inc(1)
+    end),
+    awful.button({}, 3, function()
+      awful.layout.inc(-1)
+    end),
+    awful.button({}, 4, function()
+      awful.layout.inc(1)
+    end),
+    awful.button({}, 5, function()
+      awful.layout.inc(-1)
+    end)
+  ))
 
-    -- ================ LAYOUTBOX ================
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(gears.table.join(
-        awful.button({}, 1, function() awful.layout.inc(1) end),
-        awful.button({}, 3, function() awful.layout.inc(-1) end),
-        awful.button({}, 4, function() awful.layout.inc(1) end),
-        awful.button({}, 5, function() awful.layout.inc(-1) end)
-    ))
+  -- ================ TAGLIST ================
+  awful.tag({ " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " " }, s, awful.layout.layouts[1])
 
-    -- ================ TAGLIST ================
-    awful.tag({ " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " " },
-        s, awful.layout.layouts[1])
+  s.mytaglist = awful.widget.taglist({
+    screen = s,
+    filter = awful.widget.taglist.filter.all,
+  })
 
-    s.mytaglist = awful.widget.taglist {
-        screen = s,
-        filter = awful.widget.taglist.filter.all,
-    }
+  -- ================ TASKLIST ================
+  s.mytasklist = awful.widget.tasklist({
+    screen = s,
+    filter = awful.widget.tasklist.filter.currenttags,
+  })
 
-    -- ================ TASKLIST ================
-    s.mytasklist = awful.widget.tasklist {
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-    }
+  -- ================ WIBOX ================
+  s.mywibox = awful.wibar({
+    screen = s,
+    height = 35,
+    width = 1880,
+    shape = custom_shape,
+  })
+  s.mywibox.y = 10
 
-    -- ================ WIBOX ================
-    s.mywibox = awful.wibar({
-        screen = s,
-        height = 35,
-        width = 1880,
-        shape = custom_shape
-    })
-    s.mywibox.y = 10
-
-    -- ================ WIDGETS ================
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            separator,
-            layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            -- order: left, right, top, bottom
-            wibox.container.margin(wibox.widget.systray(), 8, 8, 8, 8),
-            separator,
-            wibox.container.margin(spotify_widget({
-                play_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
-                pause_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
-                font = "SFNS Display 14",
-                max_length = 40;
-                dim_when_paused = true,
-                dim_opacity = 0.5
-            }), 6, 6, 6, 6),
-            separator,
-            volume_widget {
-                widget_type = "icon_and_text",
-                font = "SFNS Display 14"
-            },
-            separator,
-            text_clock,
-            separator,
-        },
-    }
+  -- ================ WIDGETS ================
+  s.mywibox:setup({
+    layout = wibox.layout.align.horizontal,
+    { -- Left widgets
+      separator,
+      layout = wibox.layout.fixed.horizontal,
+      s.mytaglist,
+      s.mypromptbox,
+    },
+    s.mytasklist, -- Middle widget
+    { -- Right widgets
+      layout = wibox.layout.fixed.horizontal,
+      -- order: left, right, top, bottom
+      wibox.container.margin(wibox.widget.systray(), 8, 8, 8, 8),
+      separator,
+      wibox.container.margin(
+        spotify_widget({
+          play_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
+          pause_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
+          font = "SFNS Display 14",
+          max_length = 40,
+          dim_when_paused = true,
+          dim_opacity = 0.5,
+        }),
+        6,
+        6,
+        6,
+        6
+      ),
+      separator,
+      volume_widget({
+        widget_type = "icon_and_text",
+        font = "SFNS Display 14",
+      }),
+      separator,
+      text_clock,
+      separator,
+    },
+  })
 end)
