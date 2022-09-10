@@ -41,7 +41,7 @@ awful.screen.connect_for_each_screen(function(s)
     ))
 
     -- ================ TAGLIST ================
-    awful.tag({ " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " " },
+    awful.tag({ " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " \u{f111} ", " " },
         s, awful.layout.layouts[1])
 
     s.mytaglist = awful.widget.taglist {

@@ -113,7 +113,7 @@ shortcuts.globalkeys = gears.table.join(
 
 
 -- ================ TAGS ================
-for i = 1, 4 do
+for i = 1, 5 do
     shortcuts.globalkeys = gears.table.join(shortcuts.globalkeys,
         -- View specific tag
         awful.key({ config.modkey }, "#" .. i + 9,
