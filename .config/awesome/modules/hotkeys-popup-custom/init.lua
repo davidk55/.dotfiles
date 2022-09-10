@@ -8,9 +8,9 @@
 -- ********************************* @author davidk55 *******************************
 
 local keys = {
-    nvim = require("modules.hotkeys-popup-custom.nvim"),
-    obsidian = require("modules.hotkeys-popup-custom.obsidian"),
-    intellij = require("modules.hotkeys-popup-custom.intellij")
+  nvim = require("modules.hotkeys-popup-custom.nvim"),
+  obsidian = require("modules.hotkeys-popup-custom.obsidian"),
+  intellij = require("modules.hotkeys-popup-custom.intellij"),
 }
 
 return keys

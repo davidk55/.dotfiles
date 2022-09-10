@@ -14,42 +14,47 @@ local shortcuts = require("modules.shortcuts")
 
 -- ================ SET RULES ================
 awful.rules.rules = {
-    -- ================ CLIENTS DEFAULT RULE ================
-    { rule = {},
-        properties = { border_width = theme.border_width,
-            border_color = theme.border_normal,
-            focus = awful.client.focus.filter,
-            raise = true,
-            keys = shortcuts.clientkeys,
-            buttons = shortcuts.clientbuttons,
-            screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap + awful.placement.no_offscreen
-        }
+  -- ================ CLIENTS DEFAULT RULE ================
+  {
+    rule = {},
+    properties = {
+      border_width = theme.border_width,
+      border_color = theme.border_normal,
+      focus = awful.client.focus.filter,
+      raise = true,
+      keys = shortcuts.clientkeys,
+      buttons = shortcuts.clientbuttons,
+      screen = awful.screen.preferred,
+      placement = awful.placement.no_overlap + awful.placement.no_offscreen,
     },
+  },
 
-    -- ================ FLOATING RULES ================
-    { rule_any = {
-        role = {
-            "toolbox", -- firefox: devtools
-            "Msgcompose", -- thunderbird: writing a message
-            "addressbook" -- thunderbird: address book
-        },
+  -- ================ FLOATING RULES ================
+  {
+    rule_any = {
+      role = {
+        "toolbox", -- firefox: devtools
+        "Msgcompose", -- thunderbird: writing a message
+        "addressbook", -- thunderbird: address book
+      },
 
-        name = {
-            "Event Tester", -- xev.
-        },
-    }, properties = { floating = true } },
+      name = {
+        "Event Tester", -- xev.
+      },
+    },
+    properties = { floating = true },
+  },
 
-    -- ================ APPLICATION SPECIFIC RULES ================
-    { rule = { class = "obsidian" }, properties = { tag = " " } },
+  -- ================ APPLICATION SPECIFIC RULES ================
+  { rule = { class = "obsidian" }, properties = { tag = " " } },
 
-    { rule = { class = "KeePassXC" }, properties = { tag = " " } },
+  { rule = { class = "KeePassXC" }, properties = { tag = " " } },
 
-    { rule = { role = "3pane" }, properties = { tag = " " } },
+  { rule = { role = "3pane" }, properties = { tag = " " } },
 
-    { rule = { instance = "discord" }, properties = { tag = " " } },
+  { rule = { instance = "discord" }, properties = { tag = " " } },
 
-    { rule = { name = "dev" }, properties = { tag = " " } },
+  { rule = { name = "dev" }, properties = { tag = " " } },
 
-    { rule = { name = "term" }, properties = { tag = " " } },
+  { rule = { name = "term" }, properties = { tag = " " } },
 }

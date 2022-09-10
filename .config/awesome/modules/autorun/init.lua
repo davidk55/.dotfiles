@@ -12,23 +12,21 @@ local config = require("modules.config")
 
 -- ================ AUTORUN APPLICATIONS ================
 local autorun = true
-local autorunApps =
-{
-    -- "discord",
-    "obsidian",
-    "thunderbird",
-    "redshift",
-    "keepassxc",
-    "nextcloud",
-    config.terminal .. " -t term -e util-tmux",
-    "kitty --title dev",
-    "spotify"
+local autorunApps = {
+  -- "discord",
+  "obsidian",
+  "thunderbird",
+  "redshift",
+  "keepassxc",
+  "nextcloud",
+  config.terminal .. " -t term -e util-tmux",
+  "kitty --title dev",
+  "spotify",
 }
 if autorun then
-    print(autorun)
-    for app = 1, #autorunApps do
-        awful.spawn(autorunApps[app], { tag = " " })
-    end
-    awful.spawn("firefox", {
-    })
+  print(autorun)
+  for app = 1, #autorunApps do
+    awful.spawn(autorunApps[app], { tag = " " })
+  end
+  awful.spawn("firefox", {})
 end
