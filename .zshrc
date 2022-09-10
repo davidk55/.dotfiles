@@ -80,6 +80,9 @@ alias gt="git ls-tree -r --name-only HEAD | tree --fromfile"
 alias img="sxiv ."
 alias cat="bat --paging=never"
 alias less="bat --paging=always"
+alias sa=". starmarks -a"
+alias sj=". starmarks -j"
+alias sd=". starmarks -d"
 
 # ******************* FUNCTIONS *******************
 alarm() {
