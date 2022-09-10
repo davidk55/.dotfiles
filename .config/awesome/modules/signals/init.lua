@@ -9,6 +9,7 @@
 
 local awful = require("awful")
 local theme = require("modules.theme")
+local gears = require("gears")
 
 -- ================ SLOPPY FOCUS ================
 -- So that the focus follows the mouse
@@ -27,5 +28,11 @@ client.connect_signal("manage", function(c)
         and not c.size_hints.user_position
         and not c.size_hints.program_position then
         awful.placement.no_offscreen(c)
+    end
+    if string.sub(c.class, 1, 3) == "eww" then
+      c.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h, 15)
+      end
+      c.border_width = 0
     end
 end)
