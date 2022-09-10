@@ -182,6 +182,7 @@ return require("packer").startup(function()
       })
     end,
   })
+  use("elkowar/yuck.vim")
 
   -- ************************** DEPENDENCIES **************************
   use("nvim-lua/plenary.nvim")
