@@ -32,5 +32,3 @@ if autorun then
     awful.spawn("firefox --new-window nc:8080", {
     })
 end
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
