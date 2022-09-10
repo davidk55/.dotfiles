@@ -57,4 +57,6 @@ awful.rules.rules = {
   { rule = { name = "dev" }, properties = { tag = " " } },
 
   { rule = { name = "term" }, properties = { tag = " " } },
+
+  { rule = { name = "Mailspring" }, properties = { tag = " " } },
 }

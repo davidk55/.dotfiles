@@ -296,9 +296,9 @@ shortcuts.globalkeys = gears.table.join(
     toggle_clients({ name = "term" })
   end),
 
-  -- Toggle thunderbird client
+  -- Toggle e-mail client
   awful.key({ config.modkey }, "u", function()
-    toggle_clients({ class = "Thunderbird" })
+    toggle_clients({ class = "Mailspring" })
   end),
 
   -- Toggle spotify client

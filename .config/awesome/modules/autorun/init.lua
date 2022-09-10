@@ -15,7 +15,7 @@ local autorun = true
 local autorunApps = {
   -- "discord",
   "obsidian",
-  "thunderbird",
+  "mailspring",
   "redshift",
   "keepassxc",
   "nextcloud",
@@ -30,5 +30,5 @@ if autorun then
   for app = 1, #autorunApps do
     awful.spawn(autorunApps[app], { tag = " " })
   end
-  awful.spawn("firefox", {})
+  awful.spawn("firefox", { tag = " " })
 end
