@@ -11,6 +11,6 @@ local awful = require("awful")
 
 -- ================ SET LAYOUTS ================
 awful.layout.layouts = {
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.tile,
+  awful.layout.suit.spiral.dwindle,
+  awful.layout.suit.tile,
 }
