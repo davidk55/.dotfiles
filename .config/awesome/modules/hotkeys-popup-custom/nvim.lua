@@ -149,5 +149,3 @@ local nvim_keys = {
 }
 
 hotkeys_popup.add_hotkeys(nvim_keys)
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
