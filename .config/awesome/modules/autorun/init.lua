@@ -14,7 +14,7 @@ local config = require("modules.config")
 local autorun = true
 local autorunApps =
 {
-    "discord",
+    -- "discord",
     "obsidian",
     "thunderbird",
     "redshift",
@@ -29,6 +29,6 @@ if autorun then
     for app = 1, #autorunApps do
         awful.spawn(autorunApps[app], { tag = " " })
     end
-    awful.spawn("firefox --new-window nc:8080", {
+    awful.spawn("firefox", {
     })
 end
