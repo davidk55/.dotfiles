@@ -115,10 +115,10 @@ shortcuts.globalkeys = gears.table.join(
     end
   end, { description = "toggle gaps", group = "awesome: general" }),
 
-  awful.key({ config.modkey }, "y", function()
+  awful.key({ config.modkey }, "t", function()
     os.execute("eww open-many profile uptime github youtube")
   end),
-  awful.key({ config.modkey }, "t", function()
+  awful.key({ config.modkey }, "r", function()
     os.execute("eww close profile uptime github youtube")
   end)
 )
@@ -314,7 +314,12 @@ shortcuts.globalkeys = gears.table.join(
   -- Toggle intellij client
   awful.key({ config.modkey }, "-", function()
     toggle_clients({ instance = "jetbrains-idea" })
-  end)
+  end),
+
+  -- Toggle newsboat
+  awful.key({ config.modkey }, "y", function()
+    awful.spawn.easy_async(config.terminal .. " -e newsboat")
+  end, { description = "toggle newsboat", group = "" })
 )
 
 -- ================ ROFI ================
