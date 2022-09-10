@@ -107,7 +107,14 @@ shortcuts.globalkeys = gears.table.join(
             awful.layout.arrange(s)
         end
     end,
-        { description = "toggle gaps", group = "awesome: general" })
+        { description = "toggle gaps", group = "awesome: general" }),
+
+  awful.key({ config.modkey }, "y", function()
+    os.execute("eww open-many profile uptime github youtube")
+  end),
+  awful.key({ config.modkey }, "t", function()
+    os.execute("eww close profile uptime github youtube")
+  end)
 )
 
 
