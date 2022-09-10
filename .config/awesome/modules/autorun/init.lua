@@ -22,6 +22,7 @@ local autorunApps = {
   config.terminal .. " -t term -e util-tmux",
   "kitty --title dev",
   "spotify",
+  "udiskie",
 }
 if autorun then
   print(autorun)

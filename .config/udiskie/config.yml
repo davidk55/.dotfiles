@@ -1,0 +1,6 @@
+program_options:
+  automount: false
+  tray: yes
+device_config:
+  - is_loop: true
+    ignore: true
