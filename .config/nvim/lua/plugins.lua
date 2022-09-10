@@ -66,6 +66,7 @@ return require("packer").startup(function()
     run = ":TSUpdate",
     config = u.load_setup("nvim-treesitter"),
   })
+  use("nvim-treesitter/nvim-treesitter-context")
   use("mfussenegger/nvim-jdtls")
   use("nvim-treesitter/playground")
 
