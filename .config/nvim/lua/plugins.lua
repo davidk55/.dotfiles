@@ -188,6 +188,7 @@ return require("packer").startup(function()
     end,
   })
   use("elkowar/yuck.vim")
+  use("jbyuki/venn.nvim")
 
   -- ************************** DEPENDENCIES **************************
   use("nvim-lua/plenary.nvim")
