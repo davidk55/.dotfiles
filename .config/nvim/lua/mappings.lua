@@ -112,6 +112,9 @@ vim.keymap.set("n", "<A->>", ":BufferMoveNext<CR>", ns)
 -- *************************** NVIM-TREE ******************************
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", ns)
 
+-- *************************** CCC ******************************
+vim.keymap.set("n", "<leader><leader>c", ":CccPick<CR>", ns)
+
 -- *************************** VIMTEX ******************************
 vim.keymap.set("n", "<leader>ll", ":VimtexCompile<CR>", n)
 vim.keymap.set("n", "<leader>lc", ":VimtexClean<CR>", n)
