@@ -136,6 +136,10 @@ return require("packer").startup(function()
     config = u.load_setup("nvim-colorizer"),
   })
   use({
+    "https://github.com/uga-rosa/ccc.nvim",
+    branch = "0.7.2",
+  })
+  use({
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({})
