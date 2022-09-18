@@ -132,7 +132,7 @@ return require("packer").startup(function()
     config = u.load_setup("nvim-autopairs"),
   })
   use({
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua",
     config = u.load_setup("nvim-colorizer"),
   })
   use({
