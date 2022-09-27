@@ -319,7 +319,11 @@ shortcuts.globalkeys = gears.table.join(
   -- Toggle newsboat
   awful.key({ config.modkey }, "y", function()
     awful.spawn.easy_async(config.terminal .. " -e newsboat")
-  end, { description = "toggle newsboat", group = "" })
+  end),
+  -- Toggle anki
+  awful.key({ config.modkey }, "a", function()
+    toggle_clients({ class = "Anki" })
+  end)
 )
 
 -- ================ ROFI ================

@@ -28,6 +28,10 @@ awful.rules.rules = {
       placement = awful.placement.no_overlap + awful.placement.no_offscreen,
     },
   },
+  {
+    rule = { class = "Anki" },
+    properties = { above = true },
+  },
 
   -- ================ FLOATING RULES ================
   {
@@ -40,6 +44,9 @@ awful.rules.rules = {
 
       name = {
         "Event Tester", -- xev.
+      },
+      class = {
+        "Anki",
       },
     },
     properties = { floating = true },
