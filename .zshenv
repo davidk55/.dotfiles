@@ -48,3 +48,10 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # ********************** CARGO **********************
 PATH="/home/david/.cargo/bin:$PATH"
+
+# ********************** FCITX5 **********************
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx # for some games
+export GLFW_IM_MODULE=ibus # for kitty
