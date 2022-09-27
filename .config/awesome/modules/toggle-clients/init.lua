@@ -47,9 +47,7 @@ local function toggle_client(client_infos)
                     if found.hidden == false and found.active == client_is_in_active_tag(c) then
                         move_to_first_focused_tag(c)
                     end
-                    print("hoooo")
                     goto skip_to_next
-                    print("hi")
                 end
             end
             found = { hidden = false, active = true }
