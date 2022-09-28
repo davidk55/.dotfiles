@@ -68,7 +68,7 @@ picom --experimental-backends &
 dunst &
 
 # start the gnome-keyring-daemon
-eval $(gnome-keyring-daemon --start) &
+eval "$(gnome-keyring-daemon --start)" &
 export SSH_AUTH_SOCK &
 dbus-update-activation-environment --systemd DISPLAY & 
 
