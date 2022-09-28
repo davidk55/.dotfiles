@@ -377,6 +377,14 @@ shortcuts.globalkeys = gears.table.join(
   end)
 )
 
+-- ================ SCREENSHOT SELECT TO CLIPBOARD ================
+shortcuts.globalkeys = gears.table.join(
+  shortcuts.globalkeys,
+  awful.key({}, "#194", function()
+    os.execute("maim -s | xclip -selection clipboard -target image/png")
+  end)
+)
+
 root.keys(shortcuts.globalkeys)
 
 return shortcuts
