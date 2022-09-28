@@ -102,7 +102,7 @@ sc() {
   notify-send -i $name "A screenshot was taken and saved" "$name"
 }
 
-n ()
+n()
 {
     # Block nesting of nnn in subshells
     if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
@@ -130,12 +130,12 @@ n ()
     fi
 }
 
-git-auth () {
+git-auth() {
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/github
 }
 
-run () {
+run() {
   local -a args
 
   setsid "$1" &>/dev/null; exit
