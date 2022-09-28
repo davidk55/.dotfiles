@@ -385,6 +385,22 @@ shortcuts.globalkeys = gears.table.join(
   end)
 )
 
+-- ================ COPY ENGLISH TEXT OF SCREENSHOT ================
+shortcuts.globalkeys = gears.table.join(
+  shortcuts.globalkeys,
+  awful.key({}, "#195", function()
+    os.execute("maim -s | tesseract stdin - 2>/dev/null | xclip -selection clipboard")
+  end)
+)
+
+-- ================ COPY GERMAN TEXT OF SCREENSHOT ================
+shortcuts.globalkeys = gears.table.join(
+  shortcuts.globalkeys,
+  awful.key({}, "#196", function()
+    os.execute("maim -s | tesseract -l deu stdin - 2>/dev/null | xclip -selection clipboard")
+  end)
+)
+
 root.keys(shortcuts.globalkeys)
 
 return shortcuts
