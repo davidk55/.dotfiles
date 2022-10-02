@@ -156,5 +156,25 @@ tablet() {
   xsetwacom --set 'HID 256c:006d stylus' Button 3 "key e"
 }
 
+js-project() {
+  gh repo clone davidk55/js-project-template "$1"
+  cd "$1"
+  sudo rm -r .git/
+  cd ..
+  gh repo create --clone "$1" --public
+  cd "$1"
+  git branch -m main
+}
+
+js-project-hidden() {
+  gh repo clone davidk55/js-project-template "$1"
+  cd "$1"
+  sudo rm -r .git/
+  cd ..
+  gh repo create --clone "$1" --hidden
+  cd "$1"
+  git branch -m main
+}
+
 # add all commands in current path to autocompletion of run
 compdef _path_commands run
