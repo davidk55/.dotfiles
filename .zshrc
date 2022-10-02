@@ -83,6 +83,7 @@ alias less="bat --paging=always"
 alias sa=". starmarks -a"
 alias sj=". starmarks -j"
 alias sd=". starmarks -d"
+alias nv="/home/david/Code/Git/BuildingRepos/binaries/neovim/bin/nvim"
 
 # ******************* FUNCTIONS *******************
 alarm() {
