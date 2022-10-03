@@ -9,6 +9,7 @@
 
 [alias]
   p = push
+  pc = push origin HEAD
   st = status
   c = commit
   a = add
@@ -20,6 +21,7 @@
   gl = config --global -l
   rev = reset --soft HEAD^
   ch = checkout
+  chm = checkout main
   sh = show
 
 [interactive]
