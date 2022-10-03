@@ -25,3 +25,28 @@ require("null-ls").setup({
     end
   end,
 })
+
+-- NullLsStop command to stop null-ls
+local null_ls_stop = function()
+  local null_ls_client
+  for _, client in ipairs(vim.lsp.get_active_clients()) do
+    if client.name == "null-ls" then
+      null_ls_client = client
+      vim.notify("[null-ls] null-ls is now disabled in this buffer", "info")
+    end
+  end
+  if not null_ls_client then
+    vim.notify("[null-ls] Trying to disable null-ls, hower null-ls is not active in this buffer", "error")
+    return
+  end
+
+  null_ls_client.stop()
+end
+
+vim.api.nvim_create_user_command("NullLsStop", null_ls_stop, {})
+
+-- NullLsToggle command to toggle null-ls
+vim.api.nvim_create_user_command("NullLsToggle", function()
+  require("null-ls").toggle({})
+  vim.notify("[null-ls] Toggle null-ls between active and inactive", "info")
+end, {})
