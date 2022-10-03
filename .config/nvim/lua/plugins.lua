@@ -10,6 +10,19 @@ return require("packer").startup(function()
   -- ************************** LOOK AND FEEL **************************
   use("ellisonleao/gruvbox.nvim")
   use({
+    "folke/tokyonight.nvim",
+    config = require("tokyonight").setup({
+      on_highlights = function(hl, c)
+        hl.TelescopeSelection = {
+          bg = "#394b70",
+        }
+        hl.TelescopeSelectionCaret = {
+          bg = "#394b70",
+        }
+      end,
+    }),
+  })
+  use({
     "nvim-lualine/lualine.nvim",
     config = u.load_setup("lualine"),
   })
