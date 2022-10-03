@@ -7,7 +7,7 @@ local navic = require("nvim-navic")
 local lsp_con = require("lspconfig")
 local on_attach = function(client, bufnr)
   require("plugins.lsp.lsp-mappings")(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
 end
 
 -- *************** HTML SERVER ***************
@@ -32,7 +32,7 @@ lsp_con.tsserver.setup({
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     require("plugins.lsp.lsp-mappings")(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
     navic.attach(client, bufnr)
   end,
 })
@@ -56,7 +56,7 @@ lsp_con.sumneko_lua.setup({
   },
   on_attach = function(client, bufnr)
     require("plugins.lsp.lsp-mappings")(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
     navic.attach(client, bufnr)
   end,
 })
