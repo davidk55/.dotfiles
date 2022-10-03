@@ -123,7 +123,6 @@ return require("packer").startup(function()
   })
   use({
     "https://github.com/uga-rosa/ccc.nvim",
-    branch = "0.7.2",
   })
   use({
     "kylechui/nvim-surround",
