@@ -34,6 +34,8 @@ vim.opt.fillchars = [[eob: ,fold: ,foldopen:\uf47c,foldsep: ,foldclose:\uf460]]
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.cmd([[colorscheme gruvbox]])
+vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3c3836", fg = "orange" })
+vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "#3c3836", fg = "red" })
 
 -- *************************** MISC ******************************
 vim.opt.errorbells = false
