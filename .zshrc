@@ -46,6 +46,9 @@ bindkey "^e" edit-command-line
 # decrease delay when holding a key
 xset r rate 210 40
 
+# ******************* OTHER KEYBINDINGS *******************
+bindkey -s "^g" "git status^m"
+
 # ******************* PLUGINS *******************
 source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
