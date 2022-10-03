@@ -24,10 +24,11 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- *************************** FOLDING ******************************
-vim.opt.foldcolumn = "1"
-vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldcolumn = "0"
+vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:\uf47c,foldsep: ,foldclose:\uf460]]
 
 -- *************************** COLORTHEME ******************************
 vim.opt.termguicolors = true
