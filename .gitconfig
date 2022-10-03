@@ -16,7 +16,7 @@
   last = log -1 HEAD --stat
   d = diff
   ds = diff --staged
-  dv = difftool -t vimdiff -y
+  dv = difftool -t nvimdiff -y
   gl = config --global -l
   rev = reset --soft HEAD^
   ch = checkout
@@ -51,4 +51,4 @@
     conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+  tool = nvimdiff
