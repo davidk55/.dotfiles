@@ -96,18 +96,18 @@ vim.keymap.set("n", "s", "<Plug>Lightspeed_s")
 vim.keymap.set("n", "S", "<Plug>Lightspeed_S")
 
 -- *************************** BARBAR ******************************
-vim.keymap.set("n", "<leader>bb", ":BufferPick<CR>", ns)
+vim.keymap.set("n", "<leader>bb", "<Cmd>BufferPick<CR>", ns)
 
-vim.keymap.set("n", "<leader>bn", ":BufferOrderByBufferNumber<CR>", ns)
-vim.keymap.set("n", "<leader>bl", ":BufferOrderByLanguage<CR>", ns)
+vim.keymap.set("n", "<leader>bn", "<Cmd>BufferOrderByBufferNumber<CR>", ns)
+vim.keymap.set("n", "<leader>bl", "<Cmd>BufferOrderByLanguage<CR>", ns)
 
-vim.keymap.set("n", "<A-c>", ":BufferClose<CR>", ns)
+vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", ns)
 
-vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>", ns)
-vim.keymap.set("n", "<A-.>", ":BufferNext<CR>", ns)
+vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", ns)
+vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", ns)
 
-vim.keymap.set("n", "<A-<>", ":BufferMovePrevious<CR>", ns)
-vim.keymap.set("n", "<A->>", ":BufferMoveNext<CR>", ns)
+vim.keymap.set("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", ns)
+vim.keymap.set("n", "<A->>", "<Cmd>BufferMoveNext<CR>", ns)
 
 -- *************************** NVIM-TREE ******************************
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", ns)
