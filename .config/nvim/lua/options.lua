@@ -44,6 +44,7 @@ vim.opt.scrolloff = 10 -- scrolls when 8 lines before the end of the screen
 vim.opt.updatetime = 50 -- gives it a little longer updatetime, but no noticable delay
 vim.opt.hidden = true -- makes that you can leave a buffer without saving
 vim.opt.ruler = true -- show current cursor position on the bottom right
+vim.opt.ch = 0 -- set the cmdheight to 0
 vim.opt.encoding = "utf-8"
 vim.g.mapleader = " "
 
