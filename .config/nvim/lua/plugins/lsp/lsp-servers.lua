@@ -1,3 +1,5 @@
+local u = require("utils") -- function to load the configuration file
+
 -- Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -17,15 +19,31 @@ lsp_con.html.setup({
 })
 
 -- *************** CSS SERVER ***************
-lsp_con.cssls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+local function checkProjectUsesTailwind()
+  local lines = u.get_lines(vim.loop.cwd() .. "/package.json")
+  for _, v in pairs(lines) do
+    if string.match(v, "tailwindcss") then
+      return true
+    end
+  end
+  return false
+end
 
-lsp_con.tailwindcss.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+if checkProjectUsesTailwind() then
+  lsp_con.tailwindcss.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
+else
+  lsp_con.cssls.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      require("plugins.lsp.lsp-mappings")(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      navic.attach(client, bufnr)
+    end,
+  })
+end
 
 -- *************** JAVASCRIPT/TYPESCRIPT SERVER ***************
 lsp_con.tsserver.setup({
