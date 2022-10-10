@@ -15,7 +15,11 @@ end
 -- *************** HTML SERVER ***************
 lsp_con.html.setup({
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    require("plugins.lsp.lsp-mappings")(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = false
+    navic.attach(client, bufnr)
+  end,
 })
 
 -- *************** CSS SERVER ***************
