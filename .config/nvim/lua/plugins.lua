@@ -73,7 +73,7 @@ return require("packer").startup(function()
   })
   use({
     "numToStr/Comment.nvim",
-    config = require("Comment").setup(),
+    config = u.load_setup("comment"),
   })
 
   -- ************************** LSP **************************
@@ -91,6 +91,14 @@ return require("packer").startup(function()
     "jose-elias-alvarez/null-ls.nvim",
     config = u.load_setup("null-ls"),
   })
+  -- use({
+  --   "JoosepAlviste/nvim-ts-context-commentstring",
+  --   config = require("nvim-treesitter.configs").setup({
+  --     context_commentstring = {
+  --       enable = true,
+  --     },
+  --   }),
+  -- })
 
   -- ************************** SNIPPETS **************************
   use("hrsh7th/nvim-cmp")
