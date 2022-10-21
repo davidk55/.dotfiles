@@ -186,6 +186,11 @@ return require("packer").startup(function()
 
   use("mrjones2014/smart-splits.nvim")
 
+  use({
+    "https://github.com/nat-418/boole.nvim",
+    config = u.load_setup("boole"),
+  })
+
   -- ************************** DEPENDENCIES **************************
   use("nvim-lua/plenary.nvim")
   use("kyazdani42/nvim-web-devicons")
