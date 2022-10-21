@@ -72,27 +72,41 @@ vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", ns)
 -- *************************** LUASNIP ******************************
 local luasnip = require("luasnip")
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
 _G.tab_complete = function()
   if luasnip.expand_or_jumpable() then
-    return t("<Plug>luasnip-expand-or-jump")
+    return "<cmd>lua require'luasnip'.jump(1)<CR>"
   else
-    return t("<Tab>")
+    return "<Tab>"
   end
 end
 _G.s_tab_complete = function()
   if luasnip.jumpable(-1) then
-    return t("<Plug>luasnip-jump-prev")
+    return "<cmd>lua require'luasnip'.jump(-1)<CR>"
   else
-    return t("<S-Tab>")
+    return "<S-Tab>"
+  end
+end
+
+_G.ctrl_n_next_choice = function()
+  if luasnip.choice_active then
+    return "<Plug>luasnip-next-choice"
+  else
+    return "<C-n>"
+  end
+end
+
+_G.ctrl_p_prev_choice = function()
+  if luasnip.choice_active then
+    return "<Plug>luasnip-prev-choice"
+  else
+    return "<C-p>"
   end
 end
 
 vim.keymap.set({ "i", "s" }, "<Tab>", "v:lua.tab_complete()", e)
 vim.keymap.set({ "i", "s" }, "<S-Tab>", "v:lua.s_tab_complete()", e)
-vim.keymap.set({ "i", "s" }, "<C-l>", "<Plug>luasnip-next-choice")
+vim.keymap.set({ "i", "s" }, "<C-n>", "v:lua.ctrl_n_next_choice()", e)
+vim.keymap.set({ "i", "s" }, "<C-p>", "v:lua.ctrl_p_prev_choice()", e)
 
 -- *************************** LIGHTSPEED ******************************
 vim.keymap.set("n", "s", "<Plug>Lightspeed_s")
