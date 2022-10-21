@@ -23,6 +23,9 @@ vim.keymap.set("n", "<A-n>", ":enew<CR>", ns)
 -- *************************** SOURCING ******************************
 vim.keymap.set("n", "<leader><leader>s", ":so %<CR>", ns)
 
+-- *************************** SPLITS ******************************
+vim.keymap.set("n", "<C-q>", "<C-w>q", n)
+
 -- *************************** LIGHT/DARK TOGGLE ******************************
 vim.keymap.set("n", "<leader>0", function()
   if vim.o.background == "dark" then
