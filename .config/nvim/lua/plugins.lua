@@ -184,6 +184,8 @@ return require("packer").startup(function()
   use("elkowar/yuck.vim")
   use("jbyuki/venn.nvim")
 
+  use("mrjones2014/smart-splits.nvim")
+
   -- ************************** DEPENDENCIES **************************
   use("nvim-lua/plenary.nvim")
   use("kyazdani42/nvim-web-devicons")
