@@ -147,6 +147,10 @@ vim.keymap.set("t", "<A-Esc>", "<C-\\><C-n>", n)
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
+-- *************************** REACT-EXTRACT ******************************
+vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_new_file)
+vim.keymap.set({ "v" }, "<Leader>rc", require("react-extract").extract_to_current_file)
+
 -- *************************** VENN ******************************
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()

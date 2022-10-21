@@ -99,6 +99,14 @@ return require("packer").startup(function()
       },
     }),
   })
+  use({
+    "davidk55/react-extract.nvim",
+    config = require("react-extract").setup({
+      js_template_before = "const [COMPONENT_NAME] = " .. "([PROPERTIES]) => {\n" .. "[INDENT]return (\n",
+      js_template_after = "[INDENT]);\n};\n\n\nexport default [COMPONENT_NAME];",
+      use_autoimport = true,
+    }),
+  })
 
   -- ************************** SNIPPETS **************************
   use("hrsh7th/nvim-cmp")
