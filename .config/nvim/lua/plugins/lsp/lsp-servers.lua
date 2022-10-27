@@ -60,6 +60,8 @@ lsp_con.tsserver.setup({
 })
 
 -- *************** JSON SERVER ***************
+vim.api.nvim_create_autocmd("BufRead", { command = "setlocal filetype=jsonc", pattern = { "tsconfig.json" } })
+
 lsp_con.jsonls.setup({
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
