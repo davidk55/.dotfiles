@@ -61,7 +61,9 @@ lsp_con.tsserver.setup({
 
 -- *************** JSON SERVER ***************
 lsp_con.jsonls.setup({
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    navic.attach(client, bufnr)
+  end,
 })
 
 -- *************** LUA SERVER ***************
