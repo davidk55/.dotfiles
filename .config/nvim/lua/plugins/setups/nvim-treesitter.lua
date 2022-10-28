@@ -17,6 +17,7 @@ require("nvim-treesitter.configs").setup({
     "latex",
     "bibtex",
     "commonlisp",
+    "tsx",
   },
 
   sync_install = true,
