@@ -3,6 +3,14 @@
 # inspired by: https://github.com/jocelynmallon/zshmarks
 
 
+check_if_pos_integer() {
+  case "$1" in
+    *[!0123456789]*) return 1 ;;
+    '') return 1 ;;
+    *) return 0 ;;
+  esac
+}
+
 HELP="
 -a      add 🌟
 -d      delete 🌟
@@ -55,7 +63,7 @@ jump() {
   clear
   cur_id=1
 
-  echo 🌟 select id to jump
+  echo type 🌟 id to jump to 
   echo
   echo " ID        PATH"
   echo "--------------------------------------"
@@ -68,19 +76,21 @@ jump() {
   read -r
   cur_id=1
   clear
-  while IFS='' read -r LINE || [ -n "${LINE}" ]; do
-    if [ "$cur_id" = "$REPLY" ]; then
-      cd "${LINE}" || exit
-    fi
-    cur_id=$((cur_id+1))
-  done < "$STARMARKS_PATH$STARMARKS_FILE"
+  if (check_if_pos_integer "$REPLY") then
+    while IFS='' read -r LINE || [ -n "${LINE}" ]; do
+      if [ "$cur_id" = "$REPLY" ]; then
+        cd "${LINE}" || exit
+      fi
+      cur_id=$((cur_id+1))
+    done < "$STARMARKS_PATH$STARMARKS_FILE"
+  fi
 }
 
 delete() {
   clear
   cur_id=1
 
-  echo 🌟 select id to delete
+  echo type 🌟 id to delete
   echo
   echo " ID        PATH"
   echo "--------------------------------------"
@@ -91,8 +101,10 @@ delete() {
   echo
 
   read -r
-  sed -i "$REPLY d" .local/share/starmarks/saved_starmarks
   clear
+  if (check_if_pos_integer "$REPLY") then
+    sed -i "$REPLY d" "$STARMARKS_PATH$STARMARKS_FILE"
+  fi
 }
 
 OPTIND=1
