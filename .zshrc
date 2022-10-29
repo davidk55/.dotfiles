@@ -159,9 +159,10 @@ tablet() {
   xsetwacom --set 'HID 256c:006d stylus' Button 3 "key e"
 }
 
-js-project() {
+ts-project() {
   gh repo clone davidk55/js-project-template "$1"
   cd "$1"
+  git checkout react-tailwind-typescript
   sudo rm -r .git/
   cd ..
   gh repo create --clone "$1" --public
@@ -169,12 +170,13 @@ js-project() {
   git branch -m main
 }
 
-js-project-hidden() {
+ts-project-private() {
   gh repo clone davidk55/js-project-template "$1"
   cd "$1"
+  git checkout react-tailwind-typescript
   sudo rm -r .git/
   cd ..
-  gh repo create --clone "$1" --hidden
+  gh repo create --clone "$1" --private
   cd "$1"
   git branch -m main
 }
