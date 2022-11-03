@@ -38,9 +38,6 @@ theme.border_normal = "#282828"
 theme.border_focus = "#ebdbb2"
 theme.border_marked = "#ebdbb2"
 
--- Wallpaper
-theme.wallpaper = "/home/david/.local/share/backgrounds/2.jpg"
-
 -- ================ TAGLIST ================
 theme.taglist_fg_focus = "#ebdbb2"
 theme.taglist_fg_empty = "#54534e"
