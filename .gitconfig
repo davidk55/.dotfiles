@@ -31,7 +31,7 @@
 
 [delta]
   file-decoration-style = grey ul
-	file-style = grey
+	file-style = orange
 	hunk-header-decoration-style = grey box
 	hunk-header-line-number-style = grey
 	line-numbers = true
