@@ -25,6 +25,8 @@ vim.keymap.set("n", "<leader><leader>s", ":so %<CR>", ns)
 
 -- *************************** SPLITS ******************************
 vim.keymap.set("n", "<C-q>", "<C-w>q", n)
+vim.keymap.set("n", "<A-v>", ":vert sbprevious<CR>", n)
+vim.keymap.set("n", "<A-s>", ":hor sbprevious<CR>", n)
 
 -- *************************** LIGHT/DARK TOGGLE ******************************
 vim.keymap.set("n", "<leader>0", function()
