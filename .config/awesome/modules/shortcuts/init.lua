@@ -373,7 +373,7 @@ shortcuts.globalkeys = gears.table.join(
 shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   awful.key({ config.modkey }, "b", function()
-    os.execute('feh --bg-fill "$(find ~/.local/share/backgrounds -type f | shuf -n 1)"')
+    os.execute('feh --bg-fill "$(find ~/Nextcloud/Sync/Backgrounds -type f | shuf -n 1)"')
   end)
 )
 
