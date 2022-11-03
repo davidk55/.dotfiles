@@ -1,0 +1,80 @@
+" ================= OPTIONS =================
+" Line Numbers
+set relativenumber
+
+" Searching
+set hlsearch
+set incsearch
+
+" Set Leader Key
+let mapleader=" "
+
+" IDEA Specific
+set ideajoin
+set idearefactormode=keep
+
+" ================= MAPPINGS =================
+" Language
+nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(GotoDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gm <Action>(GotoSuperMethod)
+nmap gt <Action>(GotoTest)
+
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>rf <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>ri <Action>(OptimizeImports)
+nmap <leader>ca <Action>(Generate)
+nmap <leader>lf <Action>(ReformatCode)
+
+vmap <leader>em <Action>(ExtractMethod)
+vmap <leader>ef <Action>(ExtractFunction)
+vmap <leader>ec <Action>(ExtractClass)
+vmap <leader>es <Action>(ExtractSuperclass)
+
+nmap <leader>ic <Action>(IntroduceConstant)
+nmap <leader>iv <Action>(IntroduceVariable)
+nmap <leader>if <Action>(IntroduceField)
+
+" Diagnostics
+nmap d[ <Action>(GotoNextError)
+nmap d] <Action>(GotoPreviousError)
+nmap <leader>dd <Action>(ShowErrorDescription)
+
+" Clipboard
+vmap <leader>y "+y
+nmap <leader>y "+y
+
+" Swap Lines
+nnoremap <leader>j :m +1<CR>
+nnoremap <leader>k :m -2<CR>
+
+" Tabs
+nmap <A-,> <Action>(PreviousTab)
+nmap <A-.> <Action>(NextTab)
+nmap <A-c> <Action>(CloseContent)
+
+" Windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Other
+nmap <leader>/ :noh<CR>
+nmap <leader>ff <Action>(GotoFile)
+
+" ================= PLUGINS =================
+set surround
+set commentary
+set highlightedyank
+set easymotion
+set NERDTree
+set sneak
+set vim-paragraph-motion
+
+" ================= NERDTREE =================
+let g:NERDTreeMapOpenVSplit="v"
+let g:NERDTreeMapOpenSplit="s"
+let g:NERDTreeMapPreviewVSplit="gv"
+let g:NERDTreeMapPreviewSplit="gs"
