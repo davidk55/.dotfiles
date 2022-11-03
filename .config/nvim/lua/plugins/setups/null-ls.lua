@@ -1,5 +1,7 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
+  -- -- enable for debugging
+  debug = false,
   sources = {
     require("null-ls").builtins.formatting.stylua.with({
       extra_args = {
