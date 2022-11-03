@@ -35,6 +35,11 @@ vim.keymap.set("n", "<leader>0", function()
   end
 end, n)
 
+-- *************************** WORD WRAP TOGGLE ******************************
+vim.keymap.set("n", "<leader>w", function()
+  vim.o.wrap = not vim.o.wrap
+end, n)
+
 -- *************************** PACKER ******************************
 vim.keymap.set("n", "<leader><leader>u", ":PackerSync<CR>", ns)
 
