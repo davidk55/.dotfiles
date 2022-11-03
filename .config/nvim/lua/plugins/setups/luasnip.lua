@@ -18,7 +18,7 @@ local rep = require("luasnip.extras").rep
 -- *************************** VSCODE SNIPPETS ***************************
 -- loads snippets for various languages
 require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip").filetype_extend("typescriptreact", { "html" })
+require("luasnip").filetype_extend("typescriptreact", { "javascriptreact" })
 
 ls.add_snippets("all", {
   s("ternary", {
