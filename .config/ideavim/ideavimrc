@@ -24,7 +24,7 @@ nmap gt <Action>(GotoTest)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>rf <Action>(Refactorings.QuickListPopupAction)
 nmap <leader>ri <Action>(OptimizeImports)
-nmap <leader>ca <Action>(Generate)
+nmap <leader>la <Action>(Generate)
 nmap <leader>lf <Action>(ReformatCode)
 
 vmap <leader>em <Action>(ExtractMethod)
