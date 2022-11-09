@@ -100,6 +100,10 @@ return require("packer").startup(function()
     }),
   })
   use({
+    "jose-elias-alvarez/typescript.nvim",
+    config = u.load_setup("typescript"),
+  })
+  use({
     "davidk55/react-extract.nvim",
     config = require("react-extract").setup({
       js_template_before = "const [COMPONENT_NAME] = " .. "([PROPERTIES]) => {\n" .. "[INDENT]return (\n",

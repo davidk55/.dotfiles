@@ -50,14 +50,14 @@ else
 end
 
 -- *************** JAVASCRIPT/TYPESCRIPT SERVER ***************
-lsp_con.tsserver.setup({
-  capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    require("plugins.lsp.lsp-mappings")(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-    navic.attach(client, bufnr)
-  end,
-})
+-- lsp_con.tsserver.setup({
+--   capabilities = capabilities,
+--   on_attach = function(client, bufnr)
+--     require("plugins.lsp.lsp-mappings")(client, bufnr)
+--     client.server_capabilities.documentFormattingProvider = false
+--     navic.attach(client, bufnr)
+--   end,
+-- })
 
 -- *************** JSON SERVER ***************
 vim.api.nvim_create_autocmd("BufRead", { command = "setlocal filetype=jsonc", pattern = { "tsconfig.json" } })
