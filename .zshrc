@@ -184,3 +184,6 @@ ts-project-private() {
 
 # add all commands in current path to autocompletion of run
 compdef _path_commands run
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
