@@ -13,14 +13,12 @@ local config = require("modules.config")
 -- ================ AUTORUN APPLICATIONS ================
 local autorun = true
 local autorunApps = {
-  -- "discord",
   "obsidian",
   "mailspring",
   "redshift",
   "keepassxc",
   "nextcloud",
-  config.terminal .. " -t term -e util-tmux",
-  "kitty --title dev",
+  "kitty --title dev -e tmux",
   "spotify",
   "udiskie",
   "blueman-manager",
