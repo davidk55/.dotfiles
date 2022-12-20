@@ -38,3 +38,9 @@ client.connect_signal("manage", function(c)
     c.border_width = 0
   end
 end)
+
+client.connect_signal("property::maximized", function(c)
+  if c.maximized and c.class == "sioyek" then
+    c.maximized = false
+  end
+end)
