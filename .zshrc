@@ -89,6 +89,7 @@ alias sj=". starmarks -j"
 alias sd=". starmarks -d"
 alias nv="/home/david/Code/Git/BuildingRepos/binaries/neovim/bin/nvim"
 alias rm="trash"
+alias b="buku"
 
 # ******************* FUNCTIONS *******************
 alarm() {
