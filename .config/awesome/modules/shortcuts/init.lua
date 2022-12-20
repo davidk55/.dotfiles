@@ -291,9 +291,9 @@ shortcuts.globalkeys = gears.table.join(
     toggle_clients({ name = "dev" })
   end),
 
-  -- Toggle term client
+  -- Toggle pdf viewer
   awful.key({ config.modkey }, "'", function()
-    toggle_clients({ name = "term" })
+    toggle_clients({ class = "sioyek" })
   end),
 
   -- Toggle e-mail client
@@ -320,6 +320,7 @@ shortcuts.globalkeys = gears.table.join(
   awful.key({ config.modkey }, "y", function()
     awful.spawn.easy_async(config.terminal .. " -e newsboat")
   end),
+
   -- Toggle anki
   awful.key({ config.modkey }, "a", function()
     toggle_clients({ class = "Anki" })
