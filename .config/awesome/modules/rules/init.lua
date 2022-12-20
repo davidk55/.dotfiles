@@ -57,6 +57,8 @@ awful.rules.rules = {
 
   { rule = { class = "KeePassXC" }, properties = { tag = " " } },
 
+  { rule = { class = "sioyek" }, properties = { tag = " " } },
+
   { rule = { role = "3pane" }, properties = { tag = " " } },
 
   { rule = { instance = "discord" }, properties = { tag = " " } },
