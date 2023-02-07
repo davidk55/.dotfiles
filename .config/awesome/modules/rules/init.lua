@@ -57,7 +57,7 @@ awful.rules.rules = {
 
   { rule = { class = "KeePassXC" }, properties = { tag = " " } },
 
-  { rule = { class = "sioyek" }, properties = { tag = " " } },
+  { rule = { class = "dolphin" }, properties = { tag = " ", floating = true, ontop = true } },
 
   { rule = { role = "3pane" }, properties = { tag = " " } },
 

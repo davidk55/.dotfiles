@@ -293,7 +293,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle pdf viewer
   awful.key({ config.modkey }, "'", function()
-    toggle_clients({ class = "sioyek" })
+    toggle_clients({ class = "dolphin" })
   end),
 
   -- Toggle e-mail client
