@@ -22,7 +22,7 @@ local autorunApps = {
   "spotify",
   "udiskie",
   "blueman-manager",
-  "sioyek",
+  "dolphin",
 }
 if autorun then
   print(autorun)
