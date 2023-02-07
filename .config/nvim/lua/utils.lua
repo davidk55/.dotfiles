@@ -1,10 +1,5 @@
 local M = {}
 
--- used to load from the plugin specific file in the setup directory
-function M.load_setup(plugin_name)
-  pcall(require, "plugins.setups." .. plugin_name)
-end
-
 local function file_exists(file)
   local f = io.open(file, "rb")
   if f then
@@ -22,6 +17,19 @@ function M.get_lines(path)
     lines[#lines + 1] = line
   end
   return lines
+end
+
+local function is_substring(str, substr)
+  return string.find(str, substr, 1, true) ~= nil
+end
+
+function M.get_full_filename(search_input, path)
+  local files = vim.fn.split(vim.fn.glob(path .. "/*"), "\n")
+  for _, file in ipairs(files) do
+    if is_substring(file, search_input) then
+      return file
+    end
+  end
 end
 
 return M
