@@ -33,9 +33,6 @@ vim.opt.fillchars = [[eob: ,fold: ,foldopen:\uf47c,foldsep: ,foldclose:\uf460]]
 -- *************************** COLORTHEME ******************************
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
-vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3c3836", fg = "orange" })
-vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "#3c3836", fg = "red" })
 
 -- *************************** MISC ******************************
 vim.opt.errorbells = false
@@ -44,13 +41,6 @@ vim.opt.scrolloff = 10 -- scrolls when 8 lines before the end of the screen
 vim.opt.updatetime = 50 -- gives it a little longer updatetime, but no noticable delay
 vim.opt.hidden = true -- makes that you can leave a buffer without saving
 vim.opt.ruler = true -- show current cursor position on the bottom right
-vim.opt.ch = 0 -- set the cmdheight to 0
+vim.opt.cmdheight = 0 -- set the cmdheight to 0
 vim.opt.encoding = "utf-8"
 vim.g.mapleader = " "
-
--- *************************** PLUGIN RELATED ******************************
-vim.opt.bufhidden = "unload" -- to make jdtls lsp work properly
-vim.g.indent_blankline_use_treesitter = true
-vim.g.tex_flavor = "latex" -- Make .tex files indentified as LaTeX by default
-vim.g.vimtex_view_method = "zathura"
-vim.g.lightspeed_no_default_keymaps = true -- disable all default mappings of lightspeed
