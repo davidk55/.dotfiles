@@ -19,4 +19,5 @@ return {
   -- ls.parser.parse_snippet("expa", "this is an expand"),
   s("cc", fmt("-- =============== {} ===============", i(0))),
   s("c#", fmt("-- ############### {} ###############", i(0))),
+  s("fn", fmt("function()\n\t{}\nend", i(0))),
 }
