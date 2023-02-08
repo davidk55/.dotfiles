@@ -26,6 +26,7 @@ return {
     -- =============== LOAD EXTENSIONS ===============
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("projects")
+    require("telescope").load_extension("bookmarks")
 
     -- =============== MAPPINGS ===============
     -- File Pickers
@@ -33,7 +34,7 @@ return {
     vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { noremap = true })
 
     -- Vim Pickers
-    vim.keymap.set("n", "<leader>fb", require("telescope.builtin").oldfiles, { noremap = true })
+    vim.keymap.set("n", "<leader>fo", require("telescope.builtin").oldfiles, { noremap = true })
     vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { noremap = true })
     vim.keymap.set("n", "<leader>f/", require("telescope.builtin").search_history, { noremap = true })
     vim.keymap.set("n", "<leader>f:", require("telescope.builtin").command_history, { noremap = true })
@@ -57,6 +58,53 @@ return {
 
     -- Project Picker
     vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", { noremap = true, silent = true })
+
+    -- Bookmark Picker
+    vim.keymap.set("n", "<leader>fb", ":Telescope bookmarks<CR>", { noremap = true, silent = true })
+
+    -- Custom Picker
+    local nvim_config_picker = function()
+      require("telescope.builtin").find_files({
+        prompt_title = "Neovim Config",
+        cwd = "~/.config/nvim/lua/",
+      })
+    end
+    local awesome_config_picker = function()
+      require("telescope.builtin").find_files({
+        prompt_title = "Neovim Config",
+        cwd = "~/.config/awesome/",
+      })
+    end
+    local code_picker = function()
+      require("telescope.builtin").find_files({
+        prompt_title = "Code",
+        search_dirs = { "/home/david/code", "/home/david/Code" },
+      })
+    end
+
+    local pickers = require("telescope.pickers")
+    local finders = require("telescope.finders")
+    local conf = require("telescope.config").values
+    local dotfiles_picker = function()
+      pickers.new({
+        prompt_title = "Dotfiles",
+        finder = finders.new_oneshot_job({
+          "git",
+          "--git-dir=/home/david/.dotfiles",
+          "--work-tree=/home/david",
+          "ls-tree",
+          "--full-tree",
+          "-r",
+          "--name-only",
+          "HEAD",
+        }),
+        sorter = conf.file_sorter(),
+      }):find()
+    end
+    vim.keymap.set("n", "<leader>fn", nvim_config_picker, { noremap = true })
+    vim.keymap.set("n", "<leader>fa", awesome_config_picker, { noremap = true })
+    vim.keymap.set("n", "<leader>f1", dotfiles_picker, { noremap = true })
+    vim.keymap.set("n", "<leader>f2", code_picker, { noremap = true })
 
     -- =============== OPTIONS ===============
     vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3c3836", fg = "orange" })
