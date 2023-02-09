@@ -18,6 +18,7 @@ return {
           extra_args = { "--single-quote", "--jsx-single-quote" },
         }),
         require("null-ls").builtins.formatting.google_java_format,
+        require("null-ls").builtins.formatting.shfmt,
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
