@@ -140,6 +140,11 @@ shortcuts.globalkeys = gears.table.join(
     end
   end, { description = "toggle gaps", group = "awesome: general" }),
 
+  -- Toggle opacity
+  awful.key({ config.modkey }, "0", function()
+    os.execute("picom-trans --toggle")
+  end),
+
   awful.key({ config.modkey }, "t", function()
     os.execute("eww open-many profile uptime github youtube")
   end),
