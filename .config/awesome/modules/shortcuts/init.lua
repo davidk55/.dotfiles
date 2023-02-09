@@ -120,7 +120,7 @@ shortcuts.globalkeys = gears.table.join(
     if beautiful.useless_gap == 0 then
       beautiful.useless_gap = dpi(12)
       for _, c in ipairs(client.get()) do
-        c.border_width = dpi(3)
+        c.border_width = 3
       end
       for s in screen do
         s.mywibox.visible = true
@@ -128,7 +128,7 @@ shortcuts.globalkeys = gears.table.join(
     else
       beautiful.useless_gap = 0
       for _, c in ipairs(client.get()) do
-        c.border_width = dpi(1)
+        c.border_width = 2
       end
       for s in screen do
         s.mywibox.visible = false
