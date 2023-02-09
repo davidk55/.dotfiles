@@ -90,6 +90,8 @@ alias sd=". starmarks -d"
 alias nv="/home/david/Code/Git/BuildingRepos/binaries/neovim/bin/nvim"
 alias rm="trash"
 alias b="buku"
+alias l="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias tm="btop"
 
 # ******************* FUNCTIONS *******************
 alarm() {
