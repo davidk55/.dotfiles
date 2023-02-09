@@ -115,6 +115,31 @@ shortcuts.globalkeys = gears.table.join(
     end
   end, { description = "toggle gaps", group = "awesome: general" }),
 
+  -- Toggle distraction free
+  awful.key({ config.modkey }, "=", function()
+    if beautiful.useless_gap == 0 then
+      beautiful.useless_gap = dpi(12)
+      for _, c in ipairs(client.get()) do
+        c.border_width = dpi(3)
+      end
+      for s in screen do
+        s.mywibox.visible = true
+      end
+    else
+      beautiful.useless_gap = 0
+      for _, c in ipairs(client.get()) do
+        c.border_width = dpi(1)
+      end
+      for s in screen do
+        s.mywibox.visible = false
+      end
+    end
+
+    for s in screen do
+      awful.layout.arrange(s)
+    end
+  end, { description = "toggle gaps", group = "awesome: general" }),
+
   awful.key({ config.modkey }, "t", function()
     os.execute("eww open-many profile uptime github youtube")
   end),
