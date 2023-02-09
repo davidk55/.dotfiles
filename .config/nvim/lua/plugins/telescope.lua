@@ -71,7 +71,7 @@ return {
     end
     local awesome_config_picker = function()
       require("telescope.builtin").find_files({
-        prompt_title = "Neovim Config",
+        prompt_title = "Awesome Config",
         cwd = "~/.config/awesome/",
       })
     end
