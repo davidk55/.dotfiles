@@ -32,4 +32,17 @@ function M.get_full_filename(search_input, path)
   end
 end
 
+function M.get_dotfiles()
+  local dotfiles_str = vim.fn.system(
+    "/usr/bin/git --git-dir=/home/david/.dotfiles --work-tree=/home/david ls-tree --full-tree -r --name-only HEAD"
+  )
+
+  local dotiles_tbl = {}
+
+  for line in string.gmatch(dotfiles_str, "[^\n]+") do
+    table.insert(dotiles_tbl, "/home/david/" .. line)
+  end
+  return dotiles_tbl
+end
+
 return M
