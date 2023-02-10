@@ -1,7 +1,7 @@
 return {
   "Exafunction/codeium.vim",
   ft = { "html", "css", "typescript", "typescriptreact", "javascript", "javascriptreact", "java" },
-  enable = false,
+  enabled = false,
   config = function()
     vim.keymap.set("i", "<M-CR>", function()
       return vim.fn["codeium#Accept"]()
