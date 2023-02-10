@@ -3,7 +3,10 @@ return {
 
   config = function()
     -- =============== SETUP ===============
-    require("toggleterm").setup()
+    require("toggleterm").setup({
+      open_mapping = [[<c-\>]],
+      size = 20,
+    })
 
     -- =============== GLOBAL FUNCTIONS ===============
     local Terminal = require("toggleterm.terminal").Terminal
