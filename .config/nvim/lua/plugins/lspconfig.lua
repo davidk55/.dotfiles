@@ -63,7 +63,7 @@ return {
     })
 
     -- *************** LUA SERVER ***************
-    lsp_con.sumneko_lua.setup({
+    lsp_con.lua_ls.setup({
       settings = {
         Lua = {
           diagnostics = {
