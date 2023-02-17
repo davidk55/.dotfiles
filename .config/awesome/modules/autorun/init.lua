@@ -8,7 +8,6 @@
 -- ********************************* @author davidk55 *******************************
 
 local awful = require("awful")
-local config = require("modules.config")
 
 -- ================ AUTORUN APPLICATIONS ================
 local autorun = true
@@ -23,6 +22,7 @@ local autorunApps = {
   "udiskie",
   "blueman-manager",
   "dolphin",
+  "psensor",
 }
 if autorun then
   print(autorun)
