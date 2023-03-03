@@ -27,7 +27,7 @@ local autorunApps = {
 if autorun then
   print(autorun)
   for app = 1, #autorunApps do
-    awful.spawn(autorunApps[app], { tag = " " })
+    awful.spawn(autorunApps[app])
   end
-  awful.spawn("firefox", { tag = " " })
+  awful.spawn("firefox")
 end
