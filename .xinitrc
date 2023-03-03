@@ -27,6 +27,12 @@ if [ -f "$usermodmap" ]; then
 	xmodmap "$usermodmap"
 fi
 
+# Hide Clients
+(
+	sleep 5
+	/home/david/hide_clients.sh
+) &
+
 # Add Compose Key
 setxkbmap -option compose:ralt &
 
