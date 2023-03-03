@@ -9,19 +9,19 @@ return {
     capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     local lsp_con = require("lspconfig")
-    local on_attach = function(client, bufnr)
+    local on_attach_external_formatter = function(client, bufnr)
       require("plugins.lsp.mappings")(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
+    end
+    local on_attach = function(client, bufnr)
+      require("plugins.lsp.mappings")(client, bufnr)
     end
 
     -- =============== LSP SERVERS ===============
     -- *************** HTML SERVER ***************
     lsp_con.html.setup({
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        require("plugins.lsp.mappings")(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-      end,
+      on_attach = on_attach_external_formatter,
     })
 
     -- *************** CSS SERVER ***************
@@ -43,17 +43,17 @@ return {
     else
       lsp_con.cssls.setup({
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
-          require("plugins.lsp.mappings")(client, bufnr)
-          client.server_capabilities.documentFormattingProvider = false
-        end,
+        on_attach = on_attach_external_formatter,
       })
     end
 
     -- *************** JSON SERVER ***************
+    -- set the the filetype of tsconfig.json to jsonc (json with comments)
     vim.api.nvim_create_autocmd("BufRead", { command = "setlocal filetype=jsonc", pattern = { "tsconfig.json" } })
 
     lsp_con.jsonls.setup({
+      capabilities = capabilities,
+      on_attach = on_attach_external_formatter,
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
@@ -64,30 +64,52 @@ return {
 
     -- *************** LUA SERVER ***************
     lsp_con.lua_ls.setup({
+      capabilities = capabilities,
+      on_attach = on_attach_external_formatter,
       settings = {
         Lua = {
           diagnostics = {
-            globals = { "vim", "use" },
+            globals = { "vim", "use", "awesome", "naughty", "screen", "client", "root" },
           },
           telemetry = {
             enable = false,
           },
         },
       },
-      on_attach = function(client, bufnr)
-        require("plugins.lsp.mappings")(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-      end,
     })
 
     -- *************** LATEX SERVER ***************
     lsp_con.texlab.setup({
-      on_attach = on_attach,
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
     })
 
     -- *************** BASH SERVER ***************
     lsp_con.bashls.setup({
-      on_attach = on_attach,
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
+    })
+
+    -- *************** DOCKER SERVER ***************
+    lsp_con.sqlls.setup({
+      on_attach = on_attach_external_formatter,
+    })
+
+    -- *************** SQL SERVER ***************
+    require("lspconfig").sqlls.setup({
+      capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
+    })
+
+    -- *************** YAML SERVER ***************
+    require("lspconfig").yamlls.setup({
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+      end,
     })
 
     -- =============== OPTIONS ===============
