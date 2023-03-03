@@ -14,7 +14,7 @@ local shortcuts = require("modules.shortcuts")
 
 -- ================ SET RULES ================
 awful.rules.rules = {
-  -- ================ CLIENTS DEFAULT RULE ================
+  -- ================ CLIENTS DEFAULT RULES ================
   {
     rule = {},
     properties = {
@@ -28,12 +28,26 @@ awful.rules.rules = {
       placement = awful.placement.no_overlap + awful.placement.no_offscreen,
     },
   },
+
+  -- ================ SPECIFIC FLOATING RULES ================
   {
     rule = { class = "Anki" },
     properties = { above = true },
   },
+  {
+    rule = { class = "dolphin" },
+    properties = { width = 1110, height = 730, placement = awful.placement.centered, above = true },
+  },
+  {
+    rule = { class = "Mailspring" },
+    properties = { width = 1200, height = 900, placement = awful.placement.centered, above = true },
+  },
+  {
+    rule = { class = "mpv" },
+    properties = { placement = awful.placement.centered, above = true },
+  },
 
-  -- ================ FLOATING RULES ================
+  -- ================ GENERAL FLOATING RULES ================
   {
     rule_any = {
       role = {
@@ -47,6 +61,9 @@ awful.rules.rules = {
       },
       class = {
         "Anki",
+        "dolphin",
+        "Mailspring",
+        "mpv",
       },
     },
     properties = { floating = true },
