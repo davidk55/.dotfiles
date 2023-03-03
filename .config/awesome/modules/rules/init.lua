@@ -68,21 +68,4 @@ awful.rules.rules = {
     },
     properties = { floating = true },
   },
-
-  -- ================ APPLICATION SPECIFIC RULES ================
-  { rule = { class = "obsidian" }, properties = { tag = " " } },
-
-  { rule = { class = "KeePassXC" }, properties = { tag = " " } },
-
-  { rule = { class = "dolphin" }, properties = { tag = " ", floating = true, ontop = true } },
-
-  { rule = { role = "3pane" }, properties = { tag = " " } },
-
-  { rule = { instance = "discord" }, properties = { tag = " " } },
-
-  { rule = { name = "dev" }, properties = { tag = " " } },
-
-  { rule = { name = "term" }, properties = { tag = " " } },
-
-  { rule = { name = "Mailspring" }, properties = { tag = " " } },
 }
