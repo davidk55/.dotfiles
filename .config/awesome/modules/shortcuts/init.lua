@@ -18,6 +18,25 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local shortcuts = {}
+local eww_is_open = false
+local toggleable_applications = {
+  class = {
+    "firefox",
+    "obsidian",
+    "KeePassXC",
+    "dolphin",
+    "Mailspring",
+    "Spotify",
+    "Anki",
+    "Psensor",
+    "Blueman-manager",
+  },
+  name = {
+    "dev",
+    "pulsemixer",
+  },
+  instance = { "discord", "jetbrains-idea" },
+}
 
 -- ================ GENERAL ================
 
@@ -86,16 +105,6 @@ shortcuts.globalkeys = gears.table.join(
     awful.layout.inc(-1)
   end, { description = "select previous", group = "awesome: layout" }),
 
-  -- Run the lua execute prompt
-  awful.key({ config.modkey }, "x", function()
-    awful.prompt.run({
-      prompt = "Run Lua code: ",
-      textbox = awful.screen.focused().mypromptbox.widget,
-      exe_callback = awful.util.eval,
-      history_path = awful.util.get_cache_dir() .. "/history_eval",
-    })
-  end, { description = "lua execute prompt", group = "awesome: general" }),
-
   -- Toggle the wibar
   awful.key({ config.modkey }, "w", function()
     for s in screen do
@@ -141,15 +150,47 @@ shortcuts.globalkeys = gears.table.join(
   end, { description = "toggle gaps", group = "awesome: general" }),
 
   -- Toggle opacity
-  awful.key({ config.modkey }, "0", function()
+  awful.key({ config.modkey }, "-", function()
     os.execute("picom-trans --toggle")
   end),
-
-  awful.key({ config.modkey }, "t", function()
-    os.execute("eww open-many profile uptime github youtube")
+  -- Hide all clients
+  awful.key({ config.modkey }, "x", function()
+    for _, c in ipairs(client.get()) do
+      c.hidden = true
+    end
   end),
-  awful.key({ config.modkey }, "r", function()
-    os.execute("eww close profile uptime github youtube")
+  -- Unhide all non toggleable clients
+  awful.key({ config.modkey }, "z", function()
+    for _, c in ipairs(client.get()) do
+      local is_toggleable = false
+      for _, name in ipairs(toggleable_applications.name) do
+        if c.name == name then
+          is_toggleable = true
+        end
+      end
+      for _, class in ipairs(toggleable_applications.class) do
+        if c.class == class then
+          is_toggleable = true
+        end
+      end
+      for _, instance in ipairs(toggleable_applications.instance) do
+        if c.instance == instance then
+          is_toggleable = true
+        end
+      end
+      if not is_toggleable then
+        c.hidden = false
+      end
+    end
+  end),
+
+  awful.key({ config.modkey }, "e", function()
+    if eww_is_open then
+      os.execute("eww open-many profile uptime github youtube")
+    else
+      os.execute("eww close profile uptime github youtube")
+    end
+    eww_is_open = not eww_is_open
   end)
 )
 
@@ -342,12 +383,12 @@ shortcuts.globalkeys = gears.table.join(
   end),
 
   -- Toggle intellij client
-  awful.key({ config.modkey }, "-", function()
+  awful.key({ config.modkey }, "y", function()
     toggle_clients({ instance = "jetbrains-idea" })
   end),
 
   -- Toggle newsboat
-  awful.key({ config.modkey }, "y", function()
+  awful.key({ config.modkey }, "r", function()
     awful.spawn.easy_async(config.terminal .. " -e newsboat")
   end),
 
@@ -361,8 +402,8 @@ shortcuts.globalkeys = gears.table.join(
 shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   -- Open rofi drun
-  awful.key({}, "#193", function()
-    awful.util.spawn("rofi -show drun")
+  awful.key({}, "#202", function()
+    awful.util.spawn("rofi -show drun -show-icons")
   end),
 
   -- Open rofi calculator
@@ -373,13 +414,28 @@ shortcuts.globalkeys = gears.table.join(
   end),
 
   -- Open rofi emoji selector
-  awful.key({}, "#192", function()
+  awful.key({}, "#193", function()
     awful.util.spawn("rofi -show emoji -modi emoji")
   end),
 
   -- Open rofi power menu
   awful.key({}, "#191", function()
     awful.util.spawn("rofi -show p -modi p:rofi-power-menu")
+  end),
+
+  -- Open rofi widgets menu
+  awful.key({}, "#192", function()
+    os.execute("~/bin/widgets")
+  end),
+
+  -- Opens rofi bookmarks menu
+  awful.key({}, "#201", function()
+    os.execute("~/bin/bookmarks")
+  end),
+
+  -- Opens rofi search
+  awful.key({}, "#198", function()
+    os.execute("~/bin/web-search")
   end)
 )
 
@@ -405,30 +461,6 @@ shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   awful.key({ config.modkey }, "b", function()
     os.execute('feh --bg-fill "$(find ~/Nextcloud/Sync/Backgrounds -type f | shuf -n 1)"')
-  end)
-)
-
--- ================ SCREENSHOT SELECT TO CLIPBOARD ================
-shortcuts.globalkeys = gears.table.join(
-  shortcuts.globalkeys,
-  awful.key({}, "#194", function()
-    os.execute("maim -s | xclip -selection clipboard -target image/png")
-  end)
-)
-
--- ================ COPY ENGLISH TEXT OF SCREENSHOT ================
-shortcuts.globalkeys = gears.table.join(
-  shortcuts.globalkeys,
-  awful.key({}, "#195", function()
-    os.execute("maim -s | tesseract stdin - 2>/dev/null | xclip -selection clipboard")
-  end)
-)
-
--- ================ COPY GERMAN TEXT OF SCREENSHOT ================
-shortcuts.globalkeys = gears.table.join(
-  shortcuts.globalkeys,
-  awful.key({}, "#196", function()
-    os.execute("maim -s | tesseract -l deu stdin - 2>/dev/null | xclip -selection clipboard")
   end)
 )
 
