@@ -49,6 +49,9 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # ********************** CARGO **********************
 PATH="/home/david/.cargo/bin:$PATH"
 
+# ********************** GO **********************
+PATH="/home/david/go/bin:$PATH"
+
 # ********************** FCITX5 **********************
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
