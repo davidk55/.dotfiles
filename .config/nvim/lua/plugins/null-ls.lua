@@ -16,9 +16,31 @@ return {
         }),
         require("null-ls").builtins.formatting.prettier.with({
           extra_args = { "--single-quote", "--jsx-single-quote" },
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue",
+            "css",
+            "scss",
+            "less",
+            "html",
+            "json",
+            "jsonc",
+            "markdown",
+            "markdown.mdx",
+            "graphql",
+            "handlebars",
+          },
         }),
         require("null-ls").builtins.formatting.google_java_format,
         require("null-ls").builtins.formatting.shfmt,
+        require("null-ls").builtins.formatting.latexindent,
+        require("null-ls").builtins.formatting.sqlfluff.with({
+          extra_args = { "--dialect", "postgres" },
+        }),
+        require("null-ls").builtins.formatting.yamlfmt,
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
