@@ -42,5 +42,6 @@ vim.opt.updatetime = 50 -- gives it a little longer updatetime, but no noticable
 vim.opt.hidden = true -- makes that you can leave a buffer without saving
 vim.opt.ruler = true -- show current cursor position on the bottom right
 vim.opt.cmdheight = 0 -- set the cmdheight to 0
+vim.opt.mouse = "a" -- enable mouse in all modes
 vim.opt.encoding = "utf-8"
 vim.g.mapleader = " "
