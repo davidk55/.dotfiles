@@ -1,0 +1,46 @@
+#!/bin/bash
+
+main() {
+	IFS=$'\n'
+	while read -r line; do
+		filter_out_non_git_repos "$line"
+	done
+}
+
+filter_out_non_git_repos() {
+	LINE="$1"
+	if eval git -C "$LINE" rev-parse --show-toplevel --is-inside-work-tree &>/dev/null; then
+		GIT_CHECKS="$(git -C "$LINE" rev-parse --is-inside-work-tree --is-bare-repository --show-toplevel)"
+
+		# create array
+		set --
+		# set field separator to new line
+		IFS=$'\n'
+		while read -r GIT_CHECKS_SPLITTED; do
+			# push to array
+			set -- "$@" "$GIT_CHECKS_SPLITTED"
+		done <<<"$GIT_CHECKS"
+
+		IS_INSIDE_WORK_TREE=${1}
+		IS_BARE_REPO=${2}
+		TOP_LEVEL_DIR=${3}
+
+		# filter out repos that are in the trash directiory
+		if ! [[ "$LINE" == "/home/david/.local/share/Trash/files/"* ]]; then
+
+			# check if directory is inside git repo and a non bare repo
+			if [ "$IS_INSIDE_WORK_TREE$IS_BARE_REPO" == "truefalse" ]; then
+
+				# check if the directory is the top level of the repo
+				if [ "$TOP_LEVEL_DIR" = "$LINE" ]; then
+					echo "$LINE"
+				fi
+
+			fi
+
+		fi
+
+	fi
+}
+
+main

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+SELECTED_REPO_PATH=$(zoxide query -l | ~/bin/repo-filter | fzf --header --height=100% --border=none --header="Git Repo Opener")
+
+if [ "$SELECTED_REPO_PATH" != "" ]; then
+	REPO_NAME=$(basename "$SELECTED_REPO_PATH")
+
+	# create session when session does not exist
+	if ! tmux has-session -t "$REPO_NAME" 2>/dev/null; then
+		tmux new-session -c "$SELECTED_REPO_PATH" -d -s "$REPO_NAME"
+	fi
+
+  # check if tmux is running in the current terminal
+	if [ "$TMUX" != "" ]; then
+		tmux switch -t "$REPO_NAME"
+  # check if any terminal is attached to tmux
+  elif [ "$(tmux list-clients | wc -l)" -gt 0 ]; then
+    tmux_clients="$(tmux list-clients)"
+    IFS=$'\n'
+    while read -r line; do
+      # HACK: this is very hacky and is not tested properly
+      # it checks if the first terminal is attached tmux (hopefully my autorun kitty dev instance)
+      if [ "${line%%:*}" = "/dev/pts/0" ]; then
+		    tmux switch -t "$REPO_NAME"
+        echo "require(\"modules.toggle-clients\").show_client({name = \"dev\"})" | awesome-client
+      fi
+    done <<<"$tmux_clients"
+	else
+		tmux attach-session -t "$REPO_NAME"
+	fi
+fi
