@@ -47,7 +47,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 PATH="/home/david/.cargo/bin:$PATH"
 
 # ********************** GO **********************
-GOPATH="/home/david/.local/share/go/"
+GOPATH="/home/david/.local/share/go"
 PATH="$GOPATH/bin:$PATH"
 
 # ********************** FCITX5 **********************
