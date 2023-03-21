@@ -35,6 +35,9 @@ bindkey -M menuselect "l" vi-forward-char
 bindkey -M menuselect "j" vi-down-line-or-history
 
 
+# ******************* ZOXIDE *******************
+eval "$(zoxide init zsh)"
+
 # ******************* VIM *******************
 bindkey -v "^?" backward-delete-char
 export KEYTIMEOUT=1
