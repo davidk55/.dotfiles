@@ -11,11 +11,12 @@ local awful = require("awful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local config = require("modules.config")
-local toggle_clients = require("modules.toggle-clients")
+local toggle_client = require("modules.toggle-clients").toggle_client
 local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
+local mouse_on_focussed_client = require("modules.interaction").mouse_on_focussed_client
 
 local shortcuts = {}
 local eww_is_open = false
@@ -45,8 +46,20 @@ shortcuts.globalkeys = gears.table.join(
   awful.key({ config.modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome: general" }),
 
   -- Focus the next screen (by index)
-  awful.key({ config.modkey }, ",", function()
-    awful.screen.focus_relative(1)
+  awful.key({ config.modkey }, ",", function(c)
+    local next_screen_index = (mouse.screen.index % screen.count()) + 1
+    local next_screen = screen[next_screen_index]
+
+    if not (#next_screen.clients == 0) then
+      if client.focus then
+        awful.screen.focus_relative(1)
+      else
+        awful.screen.focus(next_screen)
+      end
+      mouse_on_focussed_client()
+    else
+      awful.screen.focus(next_screen)
+    end
   end, { description = "focus the next screen", group = "awesome: general" }),
 
   -- Open a terminal
@@ -184,6 +197,7 @@ shortcuts.globalkeys = gears.table.join(
     end
   end),
 
+  -- Toggle eww
   awful.key({ config.modkey }, "e", function()
     if eww_is_open then
       os.execute("eww open-many profile uptime github youtube")
@@ -235,6 +249,7 @@ shortcuts.clientkeys = gears.table.join(
   awful.key({ config.modkey }, "f", function(c)
     c.fullscreen = not c.fullscreen
     c:raise()
+    mouse_on_focussed_client()
   end, { description = "toggle fullscreen", group = "awesome: clients" }),
 
   -- Kill current client
@@ -252,15 +267,21 @@ shortcuts.clientkeys = gears.table.join(
 
   -- Make focused client master
   awful.key({ config.modkey }, ".", function(c)
-    c:swap(awful.client.getmaster())
+    if c == awful.client.getmaster() then
+      local current_screen = awful.screen.focused()
+      local last_focused_client = awful.client.focus.history.get(current_screen, 1)
+      last_focused_client:swap(c)
+    else
+      c:swap(awful.client.getmaster())
+    end
   end, { description = "move to master", group = "awesome: clients" }),
 
   -- Move focused client to next screen
   awful.key({ config.modkey, "Shift" }, ",", function(c)
     local index = c.first_tag.index
-    c:move_to_screen()
     local tag = c.screen.tags[index]
     c:move_to_tag(tag)
+    c:move_to_screen()
   end, { description = "move to screen", group = "awesome: clients" }),
 
   -- Minimize focused client
@@ -272,28 +293,33 @@ shortcuts.clientkeys = gears.table.join(
   awful.key({ config.modkey }, "m", function(c)
     c.maximized = not c.maximized
     c:raise()
+    mouse_on_focussed_client()
   end, { description = "(un)maximize", group = "awesome: clients" }),
 
   -- Toggle maximize the focused client vertically
   awful.key({ config.modkey, "Control" }, "m", function(c)
     c.maximized_vertical = not c.maximized_vertical
     c:raise()
+    mouse_on_focussed_client()
   end, { description = "(un)maximize vertically", group = "awesome: clients" }),
 
   -- Toggle maximize the focused client horizontally
   awful.key({ config.modkey, "Shift" }, "m", function(c)
     c.maximized_horizontal = not c.maximized_horizontal
     c:raise()
+    mouse_on_focussed_client()
   end, { description = "(un)maximize horizontally", group = "awesome: clients" }),
 
   -- Focus the next client (by index)
   awful.key({ config.modkey }, "j", function()
     awful.client.focus.byidx(1)
+    mouse_on_focussed_client()
   end, { description = "focus next by index", group = "awesome: clients" }),
 
   -- Focus the previous client (by index)
   awful.key({ config.modkey }, "k", function()
     awful.client.focus.byidx(-1)
+    mouse_on_focussed_client()
   end, { description = "focus previous by index", group = "awesome: clients" }),
 
   -- Swap with the next client (by index)
@@ -312,6 +338,7 @@ shortcuts.clientkeys = gears.table.join(
     if client.focus then
       client.focus:raise()
     end
+    mouse_on_focussed_client()
   end, { description = "go back", group = "awesome: clients" }),
 
   -- Restore last minimized client
@@ -321,6 +348,7 @@ shortcuts.clientkeys = gears.table.join(
     if c then
       c:emit_signal("request::activate", "key.unminimize", { raise = true })
     end
+    mouse_on_focussed_client()
   end, { description = "restore minimized", group = "awesome: clients" })
 )
 
@@ -344,47 +372,47 @@ shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   -- Toggle firefox client
   awful.key({ config.modkey }, "i", function()
-    toggle_clients({ class = "firefox" })
+    toggle_client({ class = "firefox" })
   end),
 
   -- Toggle obsidian client
   awful.key({ config.modkey }, "o", function()
-    toggle_clients({ class = "obsidian" })
+    toggle_client({ class = "obsidian" })
   end),
 
   -- Toggle keepass client
   awful.key({ config.modkey }, "p", function()
-    toggle_clients({ class = "KeePassXC" })
+    toggle_client({ class = "KeePassXC" })
   end),
 
   -- Toggle dev client
   awful.key({ config.modkey }, ";", function()
-    toggle_clients({ name = "dev" })
+    toggle_client({ name = "dev" })
   end),
 
   -- Toggle pdf viewer
   awful.key({ config.modkey }, "'", function()
-    toggle_clients({ class = "dolphin" })
+    toggle_client({ class = "dolphin" })
   end),
 
   -- Toggle e-mail client
   awful.key({ config.modkey }, "u", function()
-    toggle_clients({ class = "Mailspring" })
+    toggle_client({ class = "Mailspring" })
   end),
 
   -- Toggle spotify client
   awful.key({ config.modkey }, "[", function()
-    toggle_clients({ class = "Spotify" })
+    toggle_client({ class = "Spotify" })
   end),
 
   -- Toggle discord client
   awful.key({ config.modkey }, "]", function()
-    toggle_clients({ instance = "discord" })
+    toggle_client({ instance = "discord" })
   end),
 
   -- Toggle intellij client
   awful.key({ config.modkey }, "y", function()
-    toggle_clients({ instance = "jetbrains-idea" })
+    toggle_client({ instance = "jetbrains-idea" })
   end),
 
   -- Toggle newsboat
@@ -394,11 +422,11 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle anki
   awful.key({ config.modkey }, "a", function()
-    toggle_clients({ class = "Anki" })
+    toggle_client({ class = "Anki" })
   end)
 )
 
--- ================ ROFI ================
+-- ================ ROFI/FZF ================
 shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   -- Open rofi drun
@@ -425,17 +453,28 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Open rofi widgets menu
   awful.key({}, "#192", function()
-    os.execute("~/bin/widgets")
+    os.execute("~/bin/rofi-widgets")
   end),
 
   -- Opens rofi bookmarks menu
   awful.key({}, "#201", function()
-    os.execute("~/bin/bookmarks")
+    os.execute("~/bin/rofi-bookmarks")
   end),
 
   -- Opens rofi search
   awful.key({}, "#198", function()
-    os.execute("~/bin/web-search")
+    os.execute("~/bin/rofi-web-search")
+  end),
+
+  -- Opens rofi setup launcher
+  awful.key({}, "#200", function()
+    awful.util.spawn("/home/david/Nextcloud/Sync/bin/setup-launcher/rofi-setup-launcher")
+  end),
+
+  -- Opens rofi appimages
+  awful.key({}, "#196", function()
+    awful.util.spawn("/home/david/bin/rofi-appimages")
+  end),
 
   -- Opens fzf to find obsidian notes by name
   awful.key({}, "#194", function()
