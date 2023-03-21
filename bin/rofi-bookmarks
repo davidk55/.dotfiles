@@ -1,0 +1,20 @@
+#!/bin/bash
+
+main() {
+  options="Firefox Bookmarks\nBuku Bookmarks"
+  choice=$(echo -e "$options" | rofi -dmenu -i)
+
+  case "$choice" in
+  "Firefox Bookmarks")
+    rofi -show firefox_bookmarks -modi "firefox_bookmarks:~/Nextcloud/Sync/bin/rofi-bookmarks-firefox" -theme-str 'window {width: 70%;height: 60%;}'
+    ;;
+  "Buku Bookmarks")
+    rofi-buku
+    ;;
+  *)
+    echo "Invalid choice"
+    ;;
+  esac
+}
+
+main
