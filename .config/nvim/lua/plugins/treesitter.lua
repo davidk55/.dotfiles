@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     -- =============== SETUP ===============
     require("nvim-treesitter.configs").setup({
@@ -14,6 +15,7 @@ return {
         "typescript",
         "json",
         "markdown",
+        "markdown_inline",
         "yaml",
         "vim",
         "bash",
@@ -39,6 +41,7 @@ return {
       indent = {
         enable = true,
       },
+      highlight = { enable = true },
     })
     -- =============== OPTIONS ===============
     vim.g.indent_blankline_use_treesitter = true
