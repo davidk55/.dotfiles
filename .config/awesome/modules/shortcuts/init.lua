@@ -436,6 +436,15 @@ shortcuts.globalkeys = gears.table.join(
   -- Opens rofi search
   awful.key({}, "#198", function()
     os.execute("~/bin/web-search")
+
+  -- Opens fzf to find obsidian notes by name
+  awful.key({}, "#194", function()
+    awful.spawn.easy_async(config.terminal .. " --class obsidian-fzf -e /home/david/bin/obsidian-fzf ")
+  end),
+
+  -- Opens rg to find obsidian notes by content
+  awful.key({}, "#195", function()
+    awful.spawn.easy_async(config.terminal .. " --class obsidian-rg -e /home/david/bin/obsidian-rg")
   end)
 )
 

@@ -50,6 +50,14 @@ awful.rules.rules = {
     rule = { class = "Steam" },
     properties = { placement = awful.placement.centered },
   },
+  {
+    rule = { class = "obsidian-fzf" },
+    properties = { placement = awful.placement.centered, above = true },
+  },
+  {
+    rule = { class = "obsidian-rg" },
+    properties = { width = 1200, height = 700, above = true },
+  },
 
   -- ================ GENERAL FLOATING RULES ================
   {
@@ -68,6 +76,8 @@ awful.rules.rules = {
         "dolphin",
         "Mailspring",
         "mpv",
+        "obsidian-fzf",
+        "obsidian-rg",
       },
     },
     properties = { floating = true },
