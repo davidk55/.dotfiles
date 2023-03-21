@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+main() {
+  SESSIONS=$(tmux list-sessions -F '#S')
+
+  set --
+  i=1
+
+  if [ "$SESSIONS" != "" ]; then
+    IFS=$'\n'
+    while read -r line; do
+      set -- "$@" "$line"
+      set -- "$@" "$i"
+      set -- "$@" "switch -t \"$line\""
+      ((i=i+1))
+    done <<<"$SESSIONS"
+  fi
+
+  tmux display-menu -x C -y C -T "Switch to Session" "$@"
+}
+
+main
