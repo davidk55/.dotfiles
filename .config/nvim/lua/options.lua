@@ -17,7 +17,6 @@ vim.opt.incsearch = true
 -- *************************** LOOK ******************************
 vim.opt.signcolumn = "yes" -- add an extra column at the beginning
 vim.opt.colorcolumn = "80" -- adds an bar at the 80th column
-vim.opt.cmdheight = 2 -- more space for displaying messages
 
 -- *************************** SPLITTING ******************************
 vim.opt.splitright = true
