@@ -25,6 +25,13 @@ client.connect_signal("unfocus", function(c)
   c.border_color = theme.border_normal
 end)
 
+-- ================ DISALLOW SIOYEK MAXIMIZE ================
+client.connect_signal("request::geometry", function(c)
+  if c.class == "sioyek" then
+    c.maximized = false
+  end
+end)
+
 -- ================ OTHER ================
 -- Prevent clients from being unreachable after screen count changes.
 client.connect_signal("manage", function(c)
@@ -36,11 +43,5 @@ client.connect_signal("manage", function(c)
       gears.shape.rounded_rect(cr, w, h, 15)
     end
     c.border_width = 0
-  end
-end)
-
-client.connect_signal("property::maximized", function(c)
-  if c.maximized and c.class == "sioyek" then
-    c.maximized = false
   end
 end)
