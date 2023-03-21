@@ -7,14 +7,14 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
-if [ -f $sysresources ]; then
+if [ -f "$sysresources" ]; then
 
-	xrdb -merge $sysresources
+	xrdb -merge "$sysresources"
 
 fi
 
-if [ -f $sysmodmap ]; then
-	xmodmap $sysmodmap
+if [ -f "$sysmodmap" ]; then
+	xmodmap "$sysmodmap"
 fi
 
 if [ -f "$userresources" ]; then
@@ -29,8 +29,8 @@ fi
 
 # Hide Clients
 (
-	sleep 5
-	/home/david/hide_clients.sh
+	sleep 6
+	/home/david/bin/awesome-startup
 ) &
 
 # Add Compose Key
