@@ -46,6 +46,10 @@ awful.rules.rules = {
     rule = { class = "mpv" },
     properties = { placement = awful.placement.centered, above = true },
   },
+  {
+    rule = { class = "Steam" },
+    properties = { placement = awful.placement.centered },
+  },
 
   -- ================ GENERAL FLOATING RULES ================
   {
