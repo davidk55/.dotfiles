@@ -17,7 +17,7 @@ local autorunApps = {
   "redshift",
   "keepassxc",
   "nextcloud",
-  "kitty --title dev -e tmux",
+  "kitty --title dev",
   "spotify",
   "udiskie",
   "blueman-manager",
@@ -25,7 +25,6 @@ local autorunApps = {
   "psensor",
 }
 if autorun then
-  print(autorun)
   for app = 1, #autorunApps do
     awful.spawn(autorunApps[app])
   end
