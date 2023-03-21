@@ -87,8 +87,9 @@ return {
 
     -- *************** BASH SERVER ***************
     lsp_con.bashls.setup({
-      on_attach = function(client)
+      on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
+        require("plugins.lsp.mappings")(client, bufnr)
       end,
     })
 
