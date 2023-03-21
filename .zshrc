@@ -61,14 +61,13 @@ zvm_after_init() { # makes sure fzf works properly with the zsh-vi-mode plugin
 
 # ******************* ALIASES *******************
 alias sudo="sudo"
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias d="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias v="nvim"
 alias t="tmux"
-alias d="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim"
-alias vc="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim ~/.config/nvim/init.vim"
+alias dv="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim"
 alias sv="sudoedit"
-alias ls="ls --color"
-alias la="ls -a --color"
+alias ls="ls --color=auto"
+alias la="ls -a --color=auto"
 alias ll="exa -l -a"
 alias cleanm="sudo make clean && rm -f config.h && git reset --hard origin/master"
 alias upd="sudo pacman -Syu"
@@ -90,8 +89,10 @@ alias sd=". starmarks -d"
 alias nv="/home/david/Code/Git/BuildingRepos/binaries/neovim/bin/nvim"
 alias rm="trash"
 alias b="buku"
-alias l="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias l="lazygit"
+alias dl="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias tm="btop"
+alias p="tmux-repo-opener"
 
 # ******************* FUNCTIONS *******************
 alarm() {
@@ -105,14 +106,8 @@ alarm() {
     unsetopt verbose
     notify-send -i /home/david/.local/share/icons/alarm.png -u critical "An alarm was set" "$(date -d "+$alarm_hours hours +$alarm_minutes minutes +$alarm_seconds seconds" +"%H:%M:%S")"
 }
-sc() {
-  name=~/Documents/Screenshots/screenshot--$(date +"%Y-%m-%d--%H-%M-%S").png
-  (maim -s -o $name)
-  notify-send -i $name "A screenshot was taken and saved" "$name"
-}
 
-n()
-{
+n() {
     # Block nesting of nnn in subshells
     if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
         echo "nnn is already running"
