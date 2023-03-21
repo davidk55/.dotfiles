@@ -1,0 +1,16 @@
+[updates]
+auto_update = true
+
+[style.command_name]
+foreground = "red"
+
+[style.example_text]
+foreground = "green"
+
+[style.example_code]
+foreground = "yellow"
+
+[style.example_variable]
+foreground = "blue"
+underline = true
+
