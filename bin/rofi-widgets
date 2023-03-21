@@ -1,0 +1,30 @@
+#!/bin/bash
+
+main() {
+  options="Screenshot to Clipboard\nScreenshot Save\nColor Picker\nEnglish Text Extractor\nGerman Text Extractor\nJapanese Text Extractor"
+  choice=$(echo -e "$options" | rofi -dmenu -i)
+
+  case "$choice" in
+  "Screenshot to Clipboard")
+    eval "maim -s | xclip -selection clipboard -target image/png"
+    ;;
+  "Screenshot Save")
+    /home/david/bin/save-screen-select
+    ;;
+  "Color Picker")
+    eval "grabc | xclip -selection clipboard"
+    ;;
+  "English Text Extractor")
+    eval "maim -s | tesseract stdin - 2>/dev/null | xclip -selection clipboard"
+    ;;
+  "German Text Extractor")
+    eval "maim -s | tesseract -l deu stdin - 2>/dev/null | xclip -selection clipboard"
+    ;;
+  "Japanese Text Extractor")
+    eval "maim -s | tesseract -l jpn stdin - 2>/dev/null | xclip -selection clipboard"
+    ;;
+  *)
+    echo "Invalid choice"
+    ;;
+  esac
+}
