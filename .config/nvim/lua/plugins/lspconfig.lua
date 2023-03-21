@@ -69,7 +69,7 @@ return {
       settings = {
         Lua = {
           diagnostics = {
-            globals = { "vim", "use", "awesome", "naughty", "screen", "client", "root" },
+            globals = { "vim", "use", "awesome", "naughty", "screen", "client", "root", "mouse" },
           },
           telemetry = {
             enable = false,
