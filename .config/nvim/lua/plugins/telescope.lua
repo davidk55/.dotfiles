@@ -10,7 +10,6 @@ return {
         mappings = {
           -- insert mode mappings
           i = {
-            ["<C-s>"] = actions.select_horizontal,
             ["<C-w>t"] = actions.select_tab,
           },
 
@@ -34,12 +33,12 @@ return {
     vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { noremap = true })
 
     -- Vim Pickers
-    vim.keymap.set("n", "<leader>fo", require("telescope.builtin").oldfiles, { noremap = true })
+    vim.keymap.set("n", "<leader>fr", require("telescope.builtin").oldfiles, { noremap = true })
     vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { noremap = true })
     vim.keymap.set("n", "<leader>f/", require("telescope.builtin").search_history, { noremap = true })
     vim.keymap.set("n", "<leader>f:", require("telescope.builtin").command_history, { noremap = true })
     vim.keymap.set("n", '<leader>f"', require("telescope.builtin").registers, { noremap = true })
-    vim.keymap.set("n", "<leader>fr", require("telescope.builtin").commands, { noremap = true })
+    vim.keymap.set("n", "<leader>f;", require("telescope.builtin").commands, { noremap = true })
     vim.keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, { noremap = true })
     vim.keymap.set("n", "<leader>fc", require("telescope.builtin").colorscheme, { noremap = true })
     vim.keymap.set("n", "<leader>fl", require("telescope.builtin").reloader, { noremap = true })
