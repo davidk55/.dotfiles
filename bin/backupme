@@ -1,5 +1,10 @@
 #!/bin/sh
-date=$(date +"%G-%m-%d--%H-%M-%S")
-filename="Backup--$date.tar.gz"
-tar -czf "$HOME/Nextcloud/Backups/$filename" "$HOME/Nextcloud/Sync/MainVault" "$HOME/Nextcloud/Sync/Passwords.kdbx" "$HOME/.mozilla/firefox/6kan0uao.default-release/places.sqlite" "$HOME/.config/obsidian/Custom Dictionary.txt" "$HOME/Nextcloud/Sync/Configurations/Buku/bookmarks.db"
-echo "Backup was created successfully."
+main() {
+  date=$(date +"%G-%m-%d--%H-%M-%S")
+  filename="Backup--$date.tar.gz"
+  HOME_WITHOUT_ROOT="home/david"
+  tar -C / -czf "$HOME/Nextcloud/Backups/$filename" "$HOME_WITHOUT_ROOT/Nextcloud/Sync/MainVault" "$HOME_WITHOUT_ROOT/Nextcloud/Sync/Passwords.kdbx" "$HOME_WITHOUT_ROOT/.mozilla/firefox/6kan0uao.default-release/places.sqlite" "$HOME_WITHOUT_ROOT/.config/obsidian/Custom Dictionary.txt" "$HOME_WITHOUT_ROOT/Nextcloud/Sync/Configurations/Buku/bookmarks.db"
+  echo "Backup was created successfully."
+}
+
+main
