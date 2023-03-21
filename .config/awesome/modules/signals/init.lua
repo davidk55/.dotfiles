@@ -32,6 +32,13 @@ client.connect_signal("request::geometry", function(c)
   end
 end)
 
+-- ================ MAXIMIZE OBSIDIAN-RG ================
+client.connect_signal("manage", function(c)
+  if c.class == "obsidian-rg" then
+    awful.placement.centered(c)
+  end
+end)
+
 -- ================ OTHER ================
 -- Prevent clients from being unreachable after screen count changes.
 client.connect_signal("manage", function(c)
