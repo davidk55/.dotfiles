@@ -1,0 +1,23 @@
+#!/bin/bash
+
+main() {
+  # Set the directory where your scripts are stored
+  APPIMAGES_DIR=~/Documents/Tech/AppImages
+  # Create an empty array to store the script names
+  APPIMAGES_NAMES=
+  # Iterate over the files in the directory and add the script names to the array
+  for file in "$APPIMAGES_DIR"/*; do
+    if [ -x "$file" ] && [ -f "$file" ]; then
+      APPIMAGES_NAMES="$APPIMAGES_NAMES $(basename "$file")"
+    fi
+  done
+
+  # Launch rofi and display the list of scripts
+  selected=$(echo "$APPIMAGES_NAMES" | xargs printf "%s\n" | rofi -dmenu "Select script:")
+  # If a script was selected, execute it
+  if [ "$selected" != "" ]; then
+    "$APPIMAGES_DIR/$selected"
+  fi
+}
+
+main
