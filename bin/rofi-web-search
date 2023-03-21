@@ -1,0 +1,6 @@
+#!/bin/bash
+#for additional ddgr options see "ddgr --help"
+export DDG_ARGS='["-n", 5]'
+export ROFI_SEARCH='ddgr'
+
+rofi -modi blocks -blocks-wrap /usr/bin/rofi-search -show blocks -lines 4 -eh 4 -kb-custom-1 'Control+y' -theme ~/.local/share/rofi/themes/rounded-nord-dark.rasi -theme-str 'window {width: 50%;}'
