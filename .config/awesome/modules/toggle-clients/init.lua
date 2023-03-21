@@ -8,68 +8,85 @@
 -- ********************************* @author davidk55 *******************************
 
 local awful = require("awful")
+local has_any_equal_client_info = require("modules.utils").has_any_equal_client_info
 
-local function client_is_in_active_tag(c)
-    local tags = awful.screen.focused().selected_tags
-    local found = false
-    for _, t in ipairs(tags) do
-        for _, tc in ipairs(t:clients()) do
-            if tc == c then found = true end
-        end
+local M = {}
+
+local function in_active_tag(c)
+  local tags = awful.screen.focused().selected_tags
+  local found = false
+  for _, t in ipairs(tags) do
+    for _, tc in ipairs(t:clients()) do
+      if tc == c then
+        found = true
+      end
     end
-    return found
+  end
+  return found
 end
 
-local function is_the_searched_client(c, client_infos)
-    if client_infos.name then
-        return c.name == client_infos.name
-    end
-    if client_infos.class then
-        return c.class == client_infos.class
-    end
-    if client_infos.instance then
-        return c.instance == client_infos.instance
-    end
-    return false
+local function move_to_focussed_tag(c)
+  local first_focused_tag = awful.screen.focused().selected_tags[1]
+  c:move_to_tag(first_focused_tag)
 end
 
-local function move_to_first_focused_tag(c)
-    local first_focused_tag = awful.screen.focused().selected_tags[1]
-    c:move_to_tag(first_focused_tag)
-end
-
-local function toggle_client(client_infos)
-    local found
-    for _, c in ipairs(client.get()) do
-        if is_the_searched_client(c, client_infos) then
-            if found then
-                if found.hidden == c.hidden then
-                    if found.hidden == false and found.active == client_is_in_active_tag(c) then
-                        move_to_first_focused_tag(c)
-                    end
-                    goto skip_to_next
-                end
+M.toggle_client = function(client_infos)
+  local found
+  for _, c in ipairs(client.get()) do
+    if has_any_equal_client_info(c, client_infos) then
+      (function()
+        if found then
+          if found.hidden == c.hidden then
+            if found.hidden == false and found.active == in_active_tag(c) then
+              move_to_focussed_tag(c)
             end
-            found = { hidden = false, active = true }
-            if c.hidden then
-                c.hidden = false
-                if not client_is_in_active_tag(c) then
-                    move_to_first_focused_tag(c)
-                end
-                client.focus = c
-            else
-                if not client_is_in_active_tag(c) then
-                    move_to_first_focused_tag(c)
-                    client.focus = c
-                else
-                    c.hidden = true
-                    found.hidden = true
-                    found.active = false
-                end
-            end
-            ::skip_to_next::
+            return
+          end
         end
+        found = { hidden = false, active = true }
+        if c.hidden then
+          c.hidden = false
+
+          if not in_active_tag(c) then
+            move_to_focussed_tag(c)
+          end
+
+          client.focus = c
+          c:swap(awful.client.getmaster())
+
+          if c.floating then
+            awful.placement.centered(c)
+          end
+        else
+          if not in_active_tag(c) then
+            move_to_focussed_tag(c)
+            client.focus = c
+          else
+            c.hidden = true
+            found.hidden = true
+            found.active = false
+          end
+        end
+      end)()
     end
+  end
 end
 
-return toggle_client
+M.show_client = function(client_infos)
+  for _, c in ipairs(client.get()) do
+    if has_any_equal_client_info(c, client_infos) then
+      if c.hidden == true then
+        c.hidden = false
+      end
+
+      if not in_active_tag(c) then
+        move_to_focussed_tag(c)
+      end
+      client.focus = c
+      c:swap(awful.client.getmaster())
+      break
+    end
+  end
+end
+
+return M
