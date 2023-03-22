@@ -5,7 +5,7 @@ export SUDO_EDITOR="nvim"
 export TERM="alacritty"
 
 # ********************** SCRIPTS **********************
-PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # ********************** DOCKER **********************
 export DOCKER_FORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nImage\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
@@ -44,11 +44,11 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -80'"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # ********************** CARGO **********************
-PATH="/home/david/.cargo/bin:$PATH"
+export PATH="/home/david/.cargo/bin:$PATH"
 
 # ********************** GO **********************
-GOPATH="/home/david/.local/share/go"
-PATH="$GOPATH/bin:$PATH"
+export GOPATH="/home/david/.local/share/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # ********************** FCITX5 **********************
 export GTK_IM_MODULE=fcitx
