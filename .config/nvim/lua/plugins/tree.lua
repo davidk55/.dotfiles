@@ -9,6 +9,8 @@ return {
       update_focused_file = {
         enable = true,
         update_root = true,
+        -- FIX: https://github.com/nvim-tree/nvim-tree.lua/issues/2057
+        ignore_list = { "toggleterm" },
       },
     })
     -- =============== MAPPING ===============
