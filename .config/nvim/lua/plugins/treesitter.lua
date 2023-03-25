@@ -41,7 +41,7 @@ return {
       indent = {
         enable = true,
       },
-      highlight = { enable = true },
+      highlight = { enable = true, disable = { "latex" } },
     })
     -- =============== OPTIONS ===============
     vim.g.indent_blankline_use_treesitter = true

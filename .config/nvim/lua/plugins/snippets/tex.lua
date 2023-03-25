@@ -18,6 +18,7 @@ return {
       })
     ),
     s(
+    s(
       "art",
       fmt("\\documentclass{}{{article}}\n{}", {
         c(1, { sn(nil, { t("["), i(1), t("]") }), t("") }),
