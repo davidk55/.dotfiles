@@ -18,6 +18,13 @@ return {
       })
     ),
     s(
+      "fr",
+      fmt("\\frac{{{}}}{{{}}}{}", {
+        i(1),
+        i(2),
+        i(0),
+      })
+    ),
     s(
       "art",
       fmt("\\documentclass{}{{article}}\n{}", {
