@@ -36,7 +36,9 @@ return {
         }),
         require("null-ls").builtins.formatting.google_java_format,
         require("null-ls").builtins.formatting.shellharden,
-        require("null-ls").builtins.formatting.latexindent,
+        require("null-ls").builtins.formatting.latexindent.with({
+          extra_args = { "-c", "/tmp" },
+        }),
         require("null-ls").builtins.formatting.sqlfluff.with({
           extra_args = { "--dialect", "postgres" },
         }),
