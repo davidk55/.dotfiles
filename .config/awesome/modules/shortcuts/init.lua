@@ -270,6 +270,7 @@ shortcuts.clientkeys = gears.table.join(
     if c == awful.client.getmaster() then
       local current_screen = awful.screen.focused()
       local last_focused_client = awful.client.focus.history.get(current_screen, 1)
+      client.focus = last_focused_client
       last_focused_client:swap(c)
     else
       c:swap(awful.client.getmaster())
