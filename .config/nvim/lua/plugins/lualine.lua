@@ -31,7 +31,7 @@ return {
           "diff",
           "diagnostics",
         },
-        lualine_c = { { "filename", path = 1 }, "searchcount" },
+        lualine_c = { { "filename", path = 1 }, "searchcount", "selectioncount" },
         lualine_x = { "encoding", "filesize", "filetype", "fileformat" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
