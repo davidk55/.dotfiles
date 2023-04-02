@@ -4,6 +4,10 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "MunifTanjim/nui.nvim",
   },
-  enabled = false,
-  config = true,
+  enabled = true,
+  config = function()
+    require("regexplainer").setup({
+      auto = true,
+    })
+  end,
 }
