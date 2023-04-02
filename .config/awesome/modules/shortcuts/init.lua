@@ -293,6 +293,14 @@ shortcuts.clientkeys = gears.table.join(
   -- Toggle maximize the focused client
   awful.key({ config.modkey }, "m", function(c)
     c.maximized = not c.maximized
+    if c.maximized == true then
+      local focussed_screen = awful.screen.focused()
+      focussed_screen.mywibox.visible = false
+    else
+      for s in screen do
+        s.mywibox.visible = true
+      end
+    end
     c:raise()
     mouse_on_focussed_client()
   end, { description = "(un)maximize", group = "awesome: clients" }),
