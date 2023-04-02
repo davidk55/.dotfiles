@@ -67,6 +67,12 @@ M.toggle_client = function(client_infos)
             found.active = false
           end
         end
+
+        if c.maximized and not c.hidden then
+          c.screen.mywibox.visible = false
+        else
+          c.screen.mywibox.visible = true
+        end
       end)()
     end
   end
