@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Neovim Wrapper
+TryExec=/usr/bin/nvim-wrapper %F
+Exec=/usr/bin/nvim-wrapper %F
+Terminal=true
+Type=Application
+Icon=nvim
+Categories=Utility;TextEditor;
+StartupNotify=false
