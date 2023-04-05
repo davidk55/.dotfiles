@@ -5,6 +5,7 @@ return {
     priority = 1000,
     config = function()
       vim.cmd([[colorscheme gruvbox]])
+      vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank{ higroup='Visual', timeout=300 }]])
     end,
   },
 
