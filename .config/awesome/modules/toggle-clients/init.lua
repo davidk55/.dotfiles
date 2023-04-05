@@ -68,9 +68,9 @@ M.toggle_client = function(client_infos)
           end
         end
 
-        if c.maximized and not c.hidden then
+        if (c.maximized and not c.hidden) and not DISTRACTION_FREE then
           c.screen.mywibox.visible = false
-        else
+        elseif c.maximized and not DISTRACTION_FREE then
           c.screen.mywibox.visible = true
         end
       end)()
