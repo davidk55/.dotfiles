@@ -139,7 +139,9 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle distraction free
   awful.key({ config.modkey }, "=", function()
-    if beautiful.useless_gap == 0 then
+    if not DISTRACTION_FREE then
+      DISTRACTION_FREE = true
+
       beautiful.useless_gap = dpi(12)
       for _, c in ipairs(client.get()) do
         c.border_width = 3
@@ -148,6 +150,8 @@ shortcuts.globalkeys = gears.table.join(
         s.mywibox.visible = true
       end
     else
+      DISTRACTION_FREE = false
+
       beautiful.useless_gap = 0
       for _, c in ipairs(client.get()) do
         c.border_width = 2
@@ -295,8 +299,14 @@ shortcuts.clientkeys = gears.table.join(
     c.maximized = not c.maximized
     if c.maximized == true then
       local focussed_screen = awful.screen.focused()
+      if not DISTRACTION_FREE then
+        return
+      end
       focussed_screen.mywibox.visible = false
     else
+      if not DISTRACTION_FREE then
+        return
+      end
       for s in screen do
         s.mywibox.visible = true
       end
