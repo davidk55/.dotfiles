@@ -35,6 +35,10 @@ M.toggle_client = function(client_infos)
   for _, c in ipairs(client.get()) do
     if has_any_equal_client_info(c, client_infos) then
       (function()
+        if c.minimized == true then
+          c.minimized = false
+          return
+        end
         if found then
           if found.hidden == c.hidden then
             if found.hidden == false and found.active == in_active_tag(c) then
