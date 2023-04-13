@@ -17,7 +17,7 @@ local autorunApps = {
   "redshift",
   "keepassxc",
   "nextcloud",
-  "kitty --title dev",
+  "kitty --title dev -e /home/david/Nextcloud/Sync/bin/pokemon/showpoke",
   "spotify",
   "udiskie",
   "blueman-manager",
