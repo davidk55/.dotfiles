@@ -30,4 +30,6 @@ main() {
       tmux attach-session -t "$REPO_NAME"
     fi
   fi
-  }
+}
+
+main
