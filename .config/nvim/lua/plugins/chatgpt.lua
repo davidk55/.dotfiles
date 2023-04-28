@@ -10,8 +10,10 @@ return {
     require("chatgpt").setup({
       keymaps = {
         close = { "<C-q>" },
-        submit = "<Enter>",
         yank_last_code = "<C-c>",
+      },
+      popup_input = {
+        submit = "<C-s>",
       },
     })
     -- =============== MAPPINGS ===============
