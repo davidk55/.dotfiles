@@ -12,6 +12,10 @@ return {
         changedelete = { text = "~" },
         untracked = { text = "┆" },
       },
+      current_line_blame_opts = {
+        delay = 0,
+      },
+      current_line_blame_formatter = "<summary> - <author> (<author_time:%Y-%m-%d--%H-%M>)",
 
       -- **************************** KEYMAPS ****************************
       on_attach = function(bufnr)
@@ -54,9 +58,9 @@ return {
         map("n", ",b", function()
           gs.blame_line({ full = true })
         end)
-        map("n", ",tb", gs.toggle_current_line_blame)
-        map("n", ",td", gs.toggle_deleted)
-        map("n", ",D", function()
+        map("n", ",,b", gs.toggle_current_line_blame)
+        map("n", ",,d", gs.toggle_deleted)
+        map("n", ",d", function()
           gs.diffthis("~")
         end)
 
