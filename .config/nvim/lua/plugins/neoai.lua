@@ -29,4 +29,5 @@ return {
   end,
   -- =============== MAPPINGS ===============
   vim.keymap.set("n", "<leader><leader>a", ":NeoAIToggle<CR>", { noremap = true, silent = true }),
+  vim.keymap.set({ "n", "v" }, "<leader>ac", ":NeoAIContext<CR>", { noremap = true, silent = true }),
 }
