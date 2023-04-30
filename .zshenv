@@ -50,6 +50,9 @@ export PATH="/home/david/.cargo/bin:$PATH"
 export GOPATH="/home/david/.local/share/go"
 export PATH="$GOPATH/bin:$PATH"
 
+# ********************** PIPX **********************
+export PATH="$PATH:/home/david/.local/bin"
+
 # ********************** FCITX5 **********************
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
