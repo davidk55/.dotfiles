@@ -20,6 +20,7 @@
   dt = difftool
   gl = config --global -l
   rev = reset --soft HEAD^
+  tidy = reset --hard HEAD
   ch = checkout
   chm = checkout main
   sh = show
