@@ -53,7 +53,6 @@ xset r rate 210 40
 bindkey -s "^g" "git status^m"
 
 # ******************* PLUGINS *******************
-source /etc/profile.d/autojump.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /home/david/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
