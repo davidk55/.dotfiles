@@ -1,6 +1,6 @@
 return {
-  -- "ahmedkhalf/project.nvim",
-  dir = "/home/david/Code/Git/BuildingRepos/project.nvim",
+  "ahmedkhalf/project.nvim",
+  -- dir = "/home/david/Code/Git/BuildingRepos/project.nvim",
   config = function()
     -- =============== SETUP ===============
     require("project_nvim").setup({
