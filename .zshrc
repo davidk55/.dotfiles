@@ -96,6 +96,7 @@ alias l="lazygit"
 alias dl="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias tm="btop"
 alias p="tmux-repo-opener"
+alias reload-compose-key="setxkbmap -option compose:ralt &"
 
 # ******************* FUNCTIONS *******************
 alarm() {
