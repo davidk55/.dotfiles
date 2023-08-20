@@ -12,7 +12,7 @@ local menubar = require("menubar")
 local config = {}
 
 -- ================ VARIABLES ================
-config.terminal = "alacritty"
+config.terminal = "kitty"
 config.editor = os.getenv("EDITOR")
 config.modkey = "Mod4"
 
