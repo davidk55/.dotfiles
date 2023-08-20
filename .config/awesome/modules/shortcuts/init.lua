@@ -442,6 +442,11 @@ shortcuts.globalkeys = gears.table.join(
   -- Toggle anki
   awful.key({ config.modkey }, "a", function()
     toggle_client({ class = "Anki" })
+  end),
+
+  -- Toggle whatsapp
+  awful.key({ config.modkey }, "d", function()
+    toggle_client({ class = "Whatsapp-for-linux" })
   end)
 )
 
