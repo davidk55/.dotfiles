@@ -289,9 +289,9 @@
 
 (deflayer second_layer
   _   _    _     _    _    _    _    _    _    _    _    _    _    _
-  _   _    _  KeyF14  _    _    _  pgup   _    _    up   _    _    _
-  _   _  KeyF13 pgdn  _    _  left down   up  right _ KeyCalc _
-  _   _    _     _    _    _  down KeyF15 _    _    _    _
+  _ KeyF13 KeyF14  KeyF15 _  _  _    _    _ KeyF19  _    _    _    _
+  _ KeyF18  KeyF22 _  _ KeyF20 left down up  right  _ KeyCalc _
+  _   _    _     _    _ KeyF23  _  KeyF24 _    _    _    _
   _   _    _               _              _    _    _    _
 )
 
