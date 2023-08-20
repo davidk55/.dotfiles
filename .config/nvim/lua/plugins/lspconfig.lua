@@ -113,6 +113,18 @@ return {
       end,
     })
 
+    -- *************** RUST SERVER ***************
+    require("lspconfig").rust_analyzer.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      cmd = {
+        "rustup",
+        "run",
+        "stable",
+        "rust-analyzer",
+      },
+    })
+
     -- =============== OPTIONS ===============
     -- set signs
     local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
