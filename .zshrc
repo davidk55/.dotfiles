@@ -96,6 +96,7 @@ alias l="lazygit"
 alias dl="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias tm="btop"
 alias p="tmux-repo-opener"
+alias cw="curl \"wttr.in/?format=Temperature:+++%t+(feels+like+%f)\nWeather:+++++++%C+%c\nSunrise:+++++++%S\nSunset:++++++++%s\nMoon:++++++++++%m\nUV-Index:++++++%u\n\""
 alias reload-compose-key="setxkbmap -option compose:ralt &"
 
 # ******************* FUNCTIONS *******************
