@@ -20,14 +20,6 @@ return {
       require("various-textobjs").value(false)
     end)
 
-    -- to select the a js regex pattern
-    vim.keymap.set({ "o", "x" }, "i/", function()
-      require("various-textobjs").jsRegex(true)
-    end)
-    vim.keymap.set({ "o", "x" }, "a/", function()
-      require("various-textobjs").jsRegex(false)
-    end)
-
     -- to select a number
     vim.keymap.set({ "o", "x" }, "in", function()
       require("various-textobjs").number(true)
