@@ -14,15 +14,11 @@ local autorun = true
 local autorunApps = {
   "obsidian",
   "mailspring",
-  "redshift",
   "keepassxc",
   "nextcloud",
   "kitty --title dev",
-  "spotify",
-  "udiskie",
   "blueman-manager",
   "dolphin",
-  "psensor",
 }
 if autorun then
   for app = 1, #autorunApps do
