@@ -7,6 +7,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # merge in defaults and keymaps
 
+# check if the file exists
 if [ -f "$sysresources" ]; then
 
 	xrdb -merge "$sysresources"
@@ -51,11 +52,6 @@ picom &
 
 # Load dunst
 dunst &
-
-# start the gnome-keyring-daemon
-eval "$(gnome-keyring-daemon --start)" &
-export SSH_AUTH_SOCK &
-dbus-update-activation-environment --systemd DISPLAY &
 
 # Execute awesomewm
 exec awesome
