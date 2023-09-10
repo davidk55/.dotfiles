@@ -436,7 +436,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle newsboat
   awful.key({ config.modkey }, "r", function()
-    awful.spawn.easy_async(config.terminal .. " -e newsboat")
+    awful.spawn.easy_async(config.terminal .. " -e newsboat -u ~/Nextcloud/Sync/Configurations/Newsboat/urls")
   end),
 
   -- Toggle anki
