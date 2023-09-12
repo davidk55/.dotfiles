@@ -2,7 +2,6 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
-export TERM="alacritty"
 
 # ********************** SCRIPTS **********************
 export PATH="$HOME/bin:$PATH"
@@ -19,6 +18,7 @@ export NNN_TMPFILE=/tmp/.lastd
 
 # ********************** BAT (man page replacment) **********************
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 # ********************** FZF **********************
 MY_FD_OPTIONS="fd --color=never --hidden --exclude .git"
