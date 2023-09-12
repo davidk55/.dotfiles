@@ -1,6 +1,6 @@
 # General
 auto-reload yes
-max-items 50
+max-items 100
 browser "firefox --new-tab %u"
 
 # Keybindings
