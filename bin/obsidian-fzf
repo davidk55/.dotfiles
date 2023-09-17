@@ -12,6 +12,7 @@ main() {
   if [ "$selected_note" != "" ]; then
     # open note in obsidian
     /home/david/Nextcloud/Sync/bin/obs open "$selected_note" --vault MainVault
+    sleep 0.4
     # open and the obsidian client
     awesome-client "require(\"modules.toggle-clients\").show_client({class = \"obsidian\"})"
   fi
