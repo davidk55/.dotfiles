@@ -96,12 +96,19 @@ return {
         search_dirs = dotfiles,
       })
     end
+    local nextcloud_find_files = function()
+      require("telescope.builtin").find_files({
+        prompt_title = "Nextcloud",
+        search_dirs = { "/home/david/Nextcloud" },
+      })
+    end
 
     vim.keymap.set("n", "<leader>fn", nvim_config_picker, { noremap = true })
     vim.keymap.set("n", "<leader>fa", awesome_config_picker, { noremap = true })
     vim.keymap.set("n", "<leader>f1", dotfiles_find_files, { noremap = true })
     vim.keymap.set("n", "<leader>f2", dotfiles_live_grep, { noremap = true })
     vim.keymap.set("n", "<leader>f3", code_picker, { noremap = true })
+    vim.keymap.set("n", "<leader>f4", nextcloud_find_files, { noremap = true })
 
     -- =============== OPTIONS ===============
     vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3c3836", fg = "orange" })
