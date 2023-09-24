@@ -26,6 +26,8 @@ return {
         "commonlisp",
         "tsx",
         "regex",
+        "c",
+        "cmake",
       },
       sync_install = true,
 
