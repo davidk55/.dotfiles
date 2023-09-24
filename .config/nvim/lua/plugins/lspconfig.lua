@@ -113,6 +113,22 @@ return {
       end,
     })
 
+    -- *************** C SERVER ***************
+    require("lspconfig").ccls.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      -- for more info, check: https://github.com/MaskRay/ccls/wiki/Customization#initialization-options
+      init_options = {
+        compilationDatabaseDirectory = "build",
+        index = {
+          threads = 0,
+        },
+        clang = {
+          excludeArgs = { "-frounding-math" },
+        },
+      },
+    })
+
     -- *************** RUST SERVER ***************
     require("lspconfig").rust_analyzer.setup({
       capabilities = capabilities,
