@@ -6,7 +6,7 @@ main() {
 
   case "$choice" in
   "Screenshot to Clipboard")
-    eval "maim -s | xclip -selection clipboard -target image/png"
+    eval "maim -s --hidecursor | xclip -selection clipboard -target image/png"
     ;;
   "Screenshot Save")
     /home/david/bin/save-screen-select
@@ -15,13 +15,13 @@ main() {
     eval "grabc | xclip -selection clipboard"
     ;;
   "English Text Extractor")
-    eval "maim -s | tesseract stdin - 2>/dev/null | xclip -selection clipboard"
+    eval "maim -s --hidecursor | tesseract stdin - 2>/dev/null | xclip -selection clipboard"
     ;;
   "German Text Extractor")
-    eval "maim -s | tesseract -l deu stdin - 2>/dev/null | xclip -selection clipboard"
+    eval "maim -s --hidecursor | tesseract -l deu stdin - 2>/dev/null | xclip -selection clipboard"
     ;;
   "Japanese Text Extractor")
-    eval "maim -s | tesseract -l jpn stdin - 2>/dev/null | xclip -selection clipboard"
+    eval "maim -s --hidecursor | tesseract -l jpn stdin - 2>/dev/null | xclip -selection clipboard"
     ;;
   *)
     echo "Invalid choice"
