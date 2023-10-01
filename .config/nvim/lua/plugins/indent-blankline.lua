@@ -1,14 +1,17 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  dependencies = "ellisonleao/gruvbox.nvim", -- makes sure that the colors are loaded from the theme
   config = function()
-    vim.cmd([[highlight IndentBlanklineContextStart guisp=#FF0000 gui=underline]])
+    -- =============== VARIABLES ===============
+    local highlight = {
+      "BlankLineColor",
+    }
+    local hooks = require("ibl.hooks")
+    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+      vim.api.nvim_set_hl(0, "BlankLineColor", { fg = "#d3869b" })
+    end)
     -- =============== SETUP ===============
-    require("indent_blankline").setup({
-      -- show a vertical line that marks the current scope
-      show_current_context = true,
-      -- show a horizontal line of the beginning of the scope
-      -- show_current_context_start = true,
+    require("ibl").setup({
+      scope = { highlight = highlight },
     })
   end,
 }
