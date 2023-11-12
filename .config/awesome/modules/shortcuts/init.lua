@@ -23,6 +23,7 @@ local eww_is_open = false
 local toggleable_applications = {
   class = {
     "firefox",
+    "LibreWolf",
     "obsidian",
     "KeePassXC",
     "dolphin",
@@ -391,6 +392,7 @@ shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   -- Toggle firefox client
   awful.key({ config.modkey }, "i", function()
+    toggle_client({ class = "LibreWolf" })
     toggle_client({ class = "firefox" })
   end),
 
