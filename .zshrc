@@ -154,7 +154,7 @@ run() {
 }
 
 tablet() {
-  xinput map-to-output $(xinput list | grep stylus | cut -f 2 | cut -c 4-) DP-4
+  xinput map-to-output $(xinput list | grep stylus | cut -f 2 | cut -c 4-) DP-0
   xsetwacom --set 'HID 256c:006d Pad pad' Button 1 "key alt f3"
   xsetwacom --set 'HID 256c:006d Pad pad' Button 2 "key ctrl z"
   xsetwacom --set 'HID 256c:006d Pad pad' Button 3 "key ctrl shift z"
