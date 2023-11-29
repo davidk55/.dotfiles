@@ -13,7 +13,7 @@ local awful = require("awful")
 local autorun = true
 local autorunApps = {
   "obsidian",
-  "mailspring",
+  'mailspring --password-store="gnome-libsecret"',
   "keepassxc",
   "nextcloud",
   "kitty --title dev",
