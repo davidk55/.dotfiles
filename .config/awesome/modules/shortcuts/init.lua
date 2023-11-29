@@ -514,6 +514,15 @@ shortcuts.globalkeys = gears.table.join(
 )
 
 -- ================ SOUND ================
+local function togglePause()
+  for _, c in ipairs(client.get()) do
+    if c.class == "Spotify" then
+      awful.spawn.easy_async("sp play")
+      return
+    end
+  end
+  awful.spawn.easy_async('xdotool key --window "$(xdotool search --class firefox | tail -1)" XF86AudioPlay')
+end
 shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   -- Volume down
@@ -527,6 +536,12 @@ shortcuts.globalkeys = gears.table.join(
   -- Toggle mute/unmute
   awful.key({}, "#121", function()
     volume_widget:toggle()
+  end),
+  awful.key({}, "#208", function()
+    togglePause()
+  end),
+  awful.key({}, "#209", function()
+    togglePause()
   end)
 )
 
