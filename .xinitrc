@@ -28,6 +28,9 @@ if [ -f "$usermodmap" ]; then
 	xmodmap "$usermodmap"
 fi
 
+# start the ssh agent
+eval "$(ssh-agent)"
+
 # Hide Clients
 (
 	sleep 6
