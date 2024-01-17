@@ -438,7 +438,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle newsboat
   awful.key({ config.modkey }, "r", function()
-    awful.spawn.easy_async(config.terminal .. " -e newsboat -u ~/Nextcloud/Sync/Configurations/Newsboat/urls")
+    awful.spawn.easy_async(config.terminal .. " -e newsboat -u ~/Nextcloud/Main/Further-Dotfiles/config/newsboat/urls")
   end),
 
   -- Toggle anki
@@ -494,7 +494,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Opens rofi setup launcher
   awful.key({}, "#200", function()
-    awful.util.spawn("/home/david/Nextcloud/Sync/bin/setup-launcher/rofi-setup-launcher")
+    awful.util.spawn("/home/david/Nextcloud/Main/Further-Dotfiles/bin/setup-launcher/rofi-setup-launcher")
   end),
 
   -- Opens rofi appimages
@@ -549,7 +549,7 @@ shortcuts.globalkeys = gears.table.join(
 shortcuts.globalkeys = gears.table.join(
   shortcuts.globalkeys,
   awful.key({ config.modkey }, "b", function()
-    os.execute('feh --bg-fill "$(find ~/Nextcloud/Sync/Backgrounds -type f | shuf -n 1)"')
+    os.execute('feh --bg-fill "$(find ~/Nextcloud/Main/FurtherDotfiles/Backgrounds -type f | shuf -n 1)"')
   end)
 )
 

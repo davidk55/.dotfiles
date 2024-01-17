@@ -188,9 +188,9 @@ ts-project-private() {
 }
 
 
-# run showpoke on startup when not in tmux in the terminal is kitty
+# run showpoke on startup when not in tmux and the terminal is kitty
 if [[ $KITTY_INSTALLATION_DIR == "/usr/lib/kitty" ]] && [[ ! $TERM_PROGRAM == "tmux" ]] && [[ ! -v NVIM_LOG_FILE ]]; then
-  /home/david/Nextcloud/Sync/bin/pokemon/showpoke
+  /home/david/Nextcloud/Main/Further-Dotfiles/bin/pokemon/showpoke
 fi
 
 # add all commands in current path to autocompletion of run

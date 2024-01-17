@@ -45,7 +45,7 @@ xrandr --output DP-0 --primary --mode 1920x1080 --rate 144 --left-of HDMI-0 &
 xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --right-of DP-0 &
 
 # Load background
-exec feh --bg-fill "$(find ~/Nextcloud/Sync/Backgrounds -type f | shuf -n 1)" &
+exec feh --bg-fill "$(find ~/Nextcloud/Main/Further-Dotfiles/Backgrounds -type f | shuf -n 1)" &
 
 # Load compositor
 picom &
