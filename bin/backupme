@@ -3,7 +3,7 @@ main() {
   date=$(date +"%G-%m-%d--%H-%M-%S")
   filename="Backup--$date.tar.gz"
   HOME_WITHOUT_ROOT="home/david"
-  tar -C / -czf "$HOME/Nextcloud/Backups/$filename" "$HOME_WITHOUT_ROOT/Nextcloud/Sync/MainVault" "$HOME_WITHOUT_ROOT/Nextcloud/Sync/Passwords/Passwords.kdbx" "$HOME_WITHOUT_ROOT/.mozilla/firefox/6kan0uao.default-release/places.sqlite" "$HOME_WITHOUT_ROOT/.config/obsidian/Custom Dictionary.txt" "$HOME_WITHOUT_ROOT/Nextcloud/Sync/Configurations/Buku/bookmarks.db"
+  tar -C / -czf "$HOME/Nextcloud/Backups/$filename" "$HOME_WITHOUT_ROOT/Nextcloud/Main/Obsidian/MainVault" "$HOME_WITHOUT_ROOT/Nextcloud/Main/Passwords/Passwords.kdbx" "$HOME_WITHOUT_ROOT/.mozilla/firefox/6kan0uao.default-release/places.sqlite" "$HOME_WITHOUT_ROOT/.config/obsidian/Custom Dictionary.txt" "$HOME_WITHOUT_ROOT/Nextcloud/Main/Further-Dotfiles/share/buku/bookmarks.db"
   echo "Backup was created successfully."
 }
 
