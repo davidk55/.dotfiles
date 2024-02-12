@@ -100,6 +100,7 @@ alias cw="curl \"wttr.in/?format=Temperature:+++%t+(feels+like+%f)\nWeather:++++
 alias reload-compose-key="setxkbmap -option compose:ralt &"
 alias cp="cp -n"
 alias zsh-stats="cat ~/.cache/zsh/hist | cut -d ' ' -f 2- | awk '{a[\$0]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head -n 50"
+alias dc="docker-compose"
 
 # ******************* FUNCTIONS *******************
 alarm() {
