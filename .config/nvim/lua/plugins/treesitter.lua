@@ -28,6 +28,7 @@ return {
         "regex",
         "c",
         "cmake",
+        "php",
       },
       sync_install = true,
 

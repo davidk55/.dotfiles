@@ -13,6 +13,7 @@ return {
       -- use snippets like c => const {1} of javascript also for .ts and .tsx files
       require("luasnip").filetype_extend("typescript", { "javascript" })
       require("luasnip").filetype_extend("typescriptreact", { "javascript" })
+      require("luasnip").filetype_extend("php", { "html" })
 
       -- load my custom snippets
       require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lua/plugins/snippets" })

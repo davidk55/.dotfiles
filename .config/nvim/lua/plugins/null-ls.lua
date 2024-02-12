@@ -43,6 +43,9 @@ return {
           extra_args = { "--dialect", "postgres" },
         }),
         require("null-ls").builtins.formatting.yamlfmt,
+        require("null-ls").builtins.formatting.phpcsfixer.with({
+          extra_args = { "--no-interaction", "--quiet", "fix", "page.php" },
+        }),
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

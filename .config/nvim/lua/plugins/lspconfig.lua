@@ -141,6 +141,86 @@ return {
       },
     })
 
+    -- *************** PHP SERVER ***************
+    -- require("lspconfig").phpactor.setup({
+    --   capabilities = capabilities,
+    --   on_attach = function(client)
+    --     client.server_capabilities.documentFormattingProvider = false
+    --   end,
+    -- })
+    require("lspconfig").intelephense.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        intelephense = {
+          stubs = {
+            "bcmath",
+            "bz2",
+            "calendar",
+            "Core",
+            "curl",
+            "date",
+            "dba",
+            "dom",
+            "enchant",
+            "fileinfo",
+            "filter",
+            "ftp",
+            "gd",
+            "gettext",
+            "hash",
+            "iconv",
+            "imap",
+            "intl",
+            "json",
+            "ldap",
+            "libxml",
+            "mbstring",
+            "mcrypt",
+            "mysql",
+            "mysqli",
+            "password",
+            "pcntl",
+            "pcre",
+            "PDO",
+            "pdo_mysql",
+            "Phar",
+            "readline",
+            "recode",
+            "Reflection",
+            "regex",
+            "session",
+            "SimpleXML",
+            "soap",
+            "sockets",
+            "sodium",
+            "SPL",
+            "standard",
+            "superglobals",
+            "sysvsem",
+            "sysvshm",
+            "tokenizer",
+            "xml",
+            "xdebug",
+            "xmlreader",
+            "xmlwriter",
+            "yaml",
+            "zip",
+            "zlib",
+            "wordpress",
+            "woocommerce",
+            "acf-pro",
+            "acf-stubs",
+            "wordpress-globals",
+            "wp-cli",
+            "genesis",
+            "polylang",
+            "sbi",
+          },
+        },
+      },
+    })
+
     -- =============== OPTIONS ===============
     -- set signs
     local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
