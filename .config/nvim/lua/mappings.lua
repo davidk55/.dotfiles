@@ -42,7 +42,10 @@ vim.keymap.set("n", "<leader>w", function()
 end, n)
 
 -- *************************** FINISH STATEMENT ******************************
-vim.keymap.set("i", "<C-;>", "<ESC>$a;<ESC>o", n)
+vim.keymap.set("i", ";;", "<ESC>$a;<ESC>o", n)
+-- vim.keymap.set("i", ",,", '<ESC>:call search([[\'"]], "W")<CR>a, ', n)
+vim.keymap.set("i", ",,", "<Esc>/['\"]<CR>:noh<CR>a, ", n)
+-- inoremap <expr> <F3> "\<Esc>/['\"]\<CR>:noh\<CR>a, "
 
 -- *************************** LAZY ******************************
 vim.keymap.set("n", "<leader><leader>u", ":Lazy<CR>", ns)
