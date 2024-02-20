@@ -50,9 +50,6 @@ xrandr --output HDMI-0 --mode 1920x1080 --rate 60 --right-of DP-0 &
 # Load background
 exec feh --bg-fill "$(find ~/Nextcloud/Main/Further-Dotfiles/Backgrounds -type f | shuf -n 1)" &
 
-# Load compositor
-picom &
-
 # Load dunst
 dunst &
 
