@@ -41,5 +41,8 @@ vim.keymap.set("n", "<leader>w", function()
   vim.o.wrap = not vim.o.wrap
 end, n)
 
+-- *************************** FINISH STATEMENT ******************************
+vim.keymap.set("i", "<C-;>", "<ESC>$a;<ESC>o", n)
+
 -- *************************** LAZY ******************************
 vim.keymap.set("n", "<leader><leader>u", ":Lazy<CR>", ns)
