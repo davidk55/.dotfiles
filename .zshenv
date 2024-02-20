@@ -4,7 +4,7 @@ export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
 
 # ********************** SCRIPTS **********************
-export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/bin:/home/david/Nextcloud/Main/Further-Dotfiles/bin/"
 
 # ********************** DOCKER **********************
 export DOCKER_FORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nImage\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
@@ -61,4 +61,4 @@ export SDL_IM_MODULE=fcitx # for some games
 export GLFW_IM_MODULE=ibus # for kitty
 
 # ********************** ADDITIONAL ENV VARIABLES **********************
-source /home/david/Nextcloud/Main/Further-Dotfiles/config/zsh/zshenv
+source /home/david/Nextcloud/Main/Further-Dotfiles/config/environment_variables
