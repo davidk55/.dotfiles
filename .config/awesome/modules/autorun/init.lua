@@ -19,7 +19,7 @@ local autorunApps = {
   "kitty --title dev",
   "blueman-manager",
   "dolphin",
-  "/home/david/Nextcloud/Main/Further-Dotfiles/bin/connect-bt-headphones",
+  "/home/david/Nextcloud/Main/Further-Dotfiles/scripts/connect-bt-headphones",
 }
 if autorun then
   for app = 1, #autorunApps do

@@ -494,7 +494,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Opens rofi setup launcher
   awful.key({}, "#200", function()
-    awful.util.spawn("/home/david/Nextcloud/Main/Further-Dotfiles/bin/setup-launcher/rofi-setup-launcher")
+    awful.util.spawn("/home/david/Nextcloud/Main/Further-Dotfiles/scripts/setup-launcher/rofi-setup-launcher")
   end),
 
   -- Opens rofi appimages

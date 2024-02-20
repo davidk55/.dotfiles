@@ -11,7 +11,7 @@ main() {
   # check for `Esc` key
   if [ "$selected_note" != "" ]; then
     # open note in obsidian
-    /home/david/Nextcloud/Main/Further-Dotfiles/bin/obs open "$selected_note" --vault MainVault
+    /home/david/Nextcloud/Main/Further-Dotfiles/scripts/obs open "$selected_note" --vault MainVault
     sleep 0.4
     # open and the obsidian client
     awesome-client "require(\"modules.toggle-clients\").show_client({class = \"obsidian\"})"
