@@ -3,7 +3,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
-  enabled = true,
+  enabled = false,
   config = function()
     require("regexplainer").setup({
       auto = true,
