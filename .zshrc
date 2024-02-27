@@ -188,6 +188,19 @@ ts-project-private() {
   git branch -m main
 }
 
+vs() {
+  # items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
+  items=("default" "LazyVim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+}
+
 
 # run showpoke on startup when not in tmux and the terminal is kitty
 if [[ $KITTY_INSTALLATION_DIR == "/usr/lib/kitty" ]] && [[ ! $TERM_PROGRAM == "tmux" ]] && [[ ! -v NVIM_LOG_FILE ]]; then
