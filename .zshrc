@@ -203,6 +203,11 @@ vs() {
   NVIM_APPNAME=$config nvim $@
 }
 
+cdr(){
+  root_path=git rev-parse --show-toplevel
+  cd $root_path
+}
+
 
 # run showpoke on startup when not in tmux and the terminal is kitty
 if [[ $KITTY_INSTALLATION_DIR == "/usr/lib/kitty" ]] && [[ ! $TERM_PROGRAM == "tmux" ]] && [[ ! -v NVIM_LOG_FILE ]]; then
