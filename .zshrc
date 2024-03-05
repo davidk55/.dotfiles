@@ -104,6 +104,9 @@ alias cp="cp -n"
 alias zsh-stats="cat ~/.cache/zsh/hist | cut -d ' ' -f 2- | awk '{a[\$0]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head -n 50"
 alias dc="docker-compose"
 
+# ******************* ADDITIONAL ALIASES *******************
+source /home/david/Nextcloud/Main/Further-Dotfiles/config/aliases
+
 # ******************* FUNCTIONS *******************
 alarm() {
     setopt verbose
