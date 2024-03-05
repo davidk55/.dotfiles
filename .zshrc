@@ -24,6 +24,8 @@ autoload -U compinit
 zstyle ":completion:*" menu select 
 zstyle ':completion:*' completer _expand_alias _complete _ignored
 zstyle ':completion:*' regular true
+zstyle ':completion:*' hosts off
+zstyle ':completion:*:*:git:*' hosts off
 #zstyle :compinstall filename "/home/david/.zshrc"
 zmodload zsh/complist
 compinit
