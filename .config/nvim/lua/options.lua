@@ -44,6 +44,7 @@ vim.opt.cmdheight = 0 -- set the cmdheight to 0
 vim.opt.mouse = "a" -- enable mouse in all modes
 vim.opt.encoding = "utf-8"
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- *************************** NEOVIDE ******************************
 vim.o.guifont = "Fira Code:h11" -- text below applies for VimScript
