@@ -37,7 +37,7 @@ vim.opt.background = "dark"
 vim.opt.errorbells = false
 vim.opt.wrap = false -- makes that text does not wrap to a new line when its to long
 vim.opt.scrolloff = 10 -- scrolls when 8 lines before the end of the screen
-vim.opt.updatetime = 50 -- gives it a little longer updatetime, but no noticable delay
+vim.opt.updatetime = 50 -- gives it a little longer updatetime, but no noticeable delay
 vim.opt.hidden = true -- makes that you can leave a buffer without saving
 vim.opt.ruler = true -- show current cursor position on the bottom right
 vim.opt.cmdheight = 0 -- set the cmdheight to 0
@@ -49,6 +49,7 @@ vim.g.mapleader = " "
 vim.o.guifont = "Fira Code:h11" -- text below applies for VimScript
 vim.g.neovide_scale_factor = 1.0
 
+-- *************************** LOREM IPSUM ******************************
 vim.cmd(
   'let @l = "    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."'
 )
