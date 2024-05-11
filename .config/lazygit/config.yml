@@ -1,6 +1,6 @@
 customCommands:
   - key: 'C'
-    command: 'git cz commit'
+    command: 'git cz'
     context: 'files'
     loadingText: 'opening commitizen commit tool'
     subprocess: true
