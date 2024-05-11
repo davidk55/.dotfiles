@@ -13,7 +13,6 @@
   st = status
   c = commit
   a = add
-  ll = log --oneline
   last = log -1 HEAD --stat
   d = diff
   ds = diff --staged
@@ -24,8 +23,10 @@
   ch = checkout
   chm = checkout main
   sh = show
-  graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
-  graph-date = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  m = branch -m main
+  i = init
+  ll = log --graph --abbrev-commit --decorate --all --format=format:'%C(red)%h %C(reset)- %C(yellow)%d %C(reset)%s %C(green)(%cr) %Creset'
+  ld = log --graph --abbrev-commit --decorate --all --format=format:'%C(cyan)[%cD] %C(red)%h %C(reset)- %C(yellow)%d %C(reset)%s %C(green)(%cr) %Creset'
 
 [interactive]
   diffFilter = delta --color-only
