@@ -56,7 +56,6 @@ bindkey -s "^g" "git status^m"
 
 # ******************* PLUGINS *******************
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /home/david/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh
 zvm_after_init() { # makes sure fzf works properly with the zsh-vi-mode plugin
   source /usr/share/fzf/completion.zsh
@@ -102,7 +101,6 @@ alias cw="curl \"wttr.in/?format=Temperature:+++%t+(feels+like+%f)\nWeather:++++
 alias reload-compose-key="setxkbmap -option compose:ralt &"
 alias cp="cp -n"
 alias zsh-stats="cat ~/.cache/zsh/hist | cut -d ' ' -f 2- | awk '{a[\$0]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head -n 50"
-alias dc="docker-compose"
 
 # ******************* ADDITIONAL ALIASES *******************
 source /home/david/Nextcloud/Main/Further-Dotfiles/config/aliases
