@@ -2,6 +2,7 @@
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { noremap = true, desc = "Yank to clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { noremap = true, desc = "Paste from clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>P", '$"+p', { noremap = true, desc = "Paste clipboard to end of the line" })
+vim.keymap.set("n", "<C-p>", "o<C-r>+<Esc>", { noremap = true, desc = "Paste clipboard and go to next line" })
 
 -- *************************** DELETING ******************************
 vim.keymap.set({ "n", "v" }, ",d", '"_d', { noremap = true, desc = "Delete to black hole register" })
