@@ -1,31 +1,28 @@
-local ns = { noremap = true, silent = true }
-local n = { noremap = true }
-
 -- *************************** COPY/PASTE ******************************
-vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', n)
-vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', n)
-vim.keymap.set({ "n", "v" }, "<leader>P", '$"+p', n)
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { noremap = true, desc = "Yank to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { noremap = true, desc = "Paste from clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>P", '$"+p', { noremap = true, desc = "Paste clipboard to end of the line" })
 
 -- *************************** DELETING ******************************
-vim.keymap.set({ "n", "v" }, ",d", '"_d', n)
+vim.keymap.set({ "n", "v" }, ",d", '"_d', { noremap = true, desc = "Delete to black hole register" })
 
 -- *************************** SEARCHING ******************************
-vim.keymap.set("n", "<leader>/", ":noh<CR>", ns)
+vim.keymap.set("n", "<leader>/", ":noh<CR>", { noremap = true, silent = true, desc = "Cancel current search" })
 
 -- *************************** MOVING ******************************
-vim.keymap.set("n", "<leader>j", ":m +1<CR>", ns)
-vim.keymap.set("n", "<leader>k", ":m -2<CR>", ns)
+vim.keymap.set("n", "<A-j>", ":m +1<CR>", { noremap = true, silent = true, desc = "Swap with line below" })
+vim.keymap.set("n", "<A-k>", ":m -2<CR>", { noremap = true, silent = true, desc = "Swap with line above" })
 
 -- *************************** Buffer ******************************
-vim.keymap.set("n", "<A-n>", ":enew<CR>", ns)
+vim.keymap.set("n", "<A-n>", ":enew<CR>", { noremap = true, silent = true, desc = "Create new buffer" })
 
 -- *************************** SOURCING ******************************
-vim.keymap.set("n", "<leader><leader>s", ":so %<CR>", ns)
+vim.keymap.set("n", "<leader><leader>s", ":so %<CR>", { noremap = true, silent = true, desc = "Source current file" })
 
 -- *************************** SPLITS ******************************
-vim.keymap.set("n", "<C-q>", "<C-w>q", n)
-vim.keymap.set("n", "<A-v>", ":vert sbprevious<CR>", n)
-vim.keymap.set("n", "<A-s>", ":hor sbprevious<CR>", n)
+vim.keymap.set("n", "<C-q>", "<C-w>q", { noremap = true, desc = "Quit current window" })
+vim.keymap.set("n", "<A-v>", ":vert sbprevious<CR>", { noremap = true, desc = "Open a vertical split" })
+vim.keymap.set("n", "<A-s>", ":hor sbprevious<CR>", { noremap = true, desc = "Open a horizontal split" })
 
 -- *************************** LIGHT/DARK TOGGLE ******************************
 vim.keymap.set("n", "<leader>0", function()
@@ -34,18 +31,26 @@ vim.keymap.set("n", "<leader>0", function()
   else
     vim.o.background = "dark"
   end
-end, n)
+end, { noremap = true, desc = "Toggle dark mode" })
 
 -- *************************** WORD WRAP TOGGLE ******************************
 vim.keymap.set("n", "<leader>w", function()
   vim.o.wrap = not vim.o.wrap
-end, n)
+end, { noremap = true, desc = "Toggle word wrap" })
 
 -- *************************** FINISH STATEMENT ******************************
-vim.keymap.set("i", ";;", "<ESC>$a;<ESC>o", n)
--- vim.keymap.set("i", ",,", '<ESC>:call search([[\'"]], "W")<CR>a, ', n)
-vim.keymap.set("i", ",,", "<Esc>/['\"]<CR>:noh<CR>a, ", n)
--- inoremap <expr> <F3> "\<Esc>/['\"]\<CR>:noh\<CR>a, "
+vim.keymap.set(
+  "i",
+  ";;",
+  "<ESC>$a;<ESC>o",
+  { noremap = true, silent = true, desc = "Put ; at the end and go to next line" }
+)
+vim.keymap.set(
+  "i",
+  ",,",
+  "<Esc>/['\"]<CR>:noh<CR>a, ",
+  { noremap = true, silent = true, desc = "Put a , after the next ' or \"" }
+)
 
 -- *************************** LAZY ******************************
-vim.keymap.set("n", "<leader><leader>u", ":Lazy<CR>", ns)
+vim.keymap.set("n", "<leader><leader>u", ":Lazy<CR>", { noremap = true, silent = true, desc = "Open lazy" })
