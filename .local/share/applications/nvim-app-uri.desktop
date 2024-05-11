@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim URI Opener
+Comment=Uri handler to file in neovim
+Exec=/home/david/.local/share/uri-handler/nvim %u
+MimeType=x-scheme-handler/nvim

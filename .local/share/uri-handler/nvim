@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if [[ "$1" == "nvim:"* ]]; then
+    URL=${1#nvim:}
+    if [[ ! -e $URL ]]; then
+        notify-send -u normal "Error" "File could not be found: $URL"
+    else
+        kitty --class neovim nvim "$URL"
+    fi
+else
+    xdg-open "$1"
+fi
