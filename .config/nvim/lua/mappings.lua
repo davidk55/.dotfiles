@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>w", function()
   vim.o.wrap = not vim.o.wrap
 end, { noremap = true, desc = "Toggle word wrap" })
 
--- *************************** FINISH STATEMENT ******************************
+-- *************************** FINISH STATEMENT/ARGUMENT ******************************
 vim.keymap.set(
   "i",
   ";;",
