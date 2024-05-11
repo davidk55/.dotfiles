@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim Opener
+Comment=Open file in neovim in a new terminal of kitty
+Exec=kitty --class neovim nvim %f
