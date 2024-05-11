@@ -205,8 +205,7 @@ vs() {
 }
 
 cdr(){
-  root_path=git rev-parse --show-toplevel
-  cd $root_path
+  cd $(git rev-parse --show-toplevel)
 }
 
 
