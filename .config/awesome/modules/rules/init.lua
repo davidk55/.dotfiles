@@ -40,7 +40,7 @@ awful.rules.rules = {
   },
   {
     rule = { class = "Mailspring" },
-    properties = { width = 1200, height = 900, placement = awful.placement.centered, above = true },
+    properties = { width = 1400, height = 900, placement = awful.placement.centered, above = true },
   },
   {
     rule = { class = "mpv" },
