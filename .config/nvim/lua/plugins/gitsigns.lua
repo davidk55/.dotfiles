@@ -3,7 +3,7 @@ return {
   config = function()
     -- =============== SETUP ===============
     require("gitsigns").setup({
-      -- **************************** SETTINGS ****************************
+      -- *************** SETTINGS ***************
       signs = {
         add = { text = "+" },
         change = { text = "~" },
@@ -17,7 +17,7 @@ return {
       },
       current_line_blame_formatter = "<summary> - <author> (<author_time:%Y-%m-%d--%H-%M>)",
 
-      -- **************************** KEYMAPS ****************************
+      -- *************** KEYMAPS ***************
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
