@@ -7,7 +7,7 @@ return {
       if venn_enabled == "nil" then
         vim.b.venn_enabled = true
         vim.cmd([[setlocal ve=all]])
-        -- draw a line on HJKL keystokes
+        -- draw a line on HJKL keystrokes
         vim.keymap.set("n", "J", "<C-v>j:VBox<CR>", { noremap = true, buffer = 0 })
         vim.keymap.set("n", "K", "<C-v>k:VBox<CR>", { noremap = true, buffer = 0 })
         vim.keymap.set("n", "L", "<C-v>l:VBox<CR>", { noremap = true, buffer = 0 })
@@ -20,6 +20,7 @@ return {
         vim.b.venn_enabled = nil
       end
     end
+
     -- =============== MAPPING ===============
     -- toggle keymappings for venn using <leader>v
     vim.keymap.set("n", "<leader><leader>v", ":lua Toggle_venn()<CR>", { noremap = true })

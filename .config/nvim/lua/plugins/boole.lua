@@ -1,5 +1,5 @@
 return {
-  "https://github.com/nat-418/boole.nvim",
+  "nat-418/boole.nvim",
   config = function()
     -- =============== SETUP ===============
     require("boole").setup({
