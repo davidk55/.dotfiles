@@ -25,6 +25,14 @@ vim.keymap.set("n", "<C-q>", "<C-w>q", { noremap = true, desc = "Quit current wi
 vim.keymap.set("n", "<A-v>", ":vert sbprevious<CR>", { noremap = true, desc = "Open a vertical split" })
 vim.keymap.set("n", "<A-s>", ":hor sbprevious<CR>", { noremap = true, desc = "Open a horizontal split" })
 
+-- *************************** QUICKFIX LIST ******************************
+vim.keymap.set("n", "<leader>q", ":copen<CR><C-w>k", { noremap = true, silent = true, desc = "[quickfixlist] Open" })
+vim.keymap.set("n", "<leader>Q", ":cclose<CR>", { noremap = true, silent = true, desc = "[quickfixlist] Close" })
+vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true, silent = true, desc = "[quickfixlist] Next item" })
+vim.keymap.set("n", "[q", ":cprev<CR>", { noremap = true, silent = true, desc = "[quickfixlist] Previous item" })
+vim.keymap.set("n", "]Q", ":cnext<CR>", { noremap = true, silent = true, desc = "[quickfixlist] Last item" })
+vim.keymap.set("n", "[Q", ":cprev<CR>", { noremap = true, silent = true, desc = "[quickfixlist] First item" })
+
 -- *************************** LIGHT/DARK TOGGLE ******************************
 vim.keymap.set("n", "<leader>0", function()
   if vim.o.background == "dark" then
