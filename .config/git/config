@@ -25,6 +25,7 @@
   sh = show
   m = branch -m main
   i = init
+  ch- = checkout -
   ll = log --graph --abbrev-commit --decorate --all --format=format:'%C(red)%h %C(reset)- %C(yellow)%d %C(reset)%s %C(green)(%cr) %Creset'
   ld = log --graph --abbrev-commit --decorate --all --format=format:'%C(cyan)[%cD] %C(red)%h %C(reset)- %C(yellow)%d %C(reset)%s %C(green)(%cr) %Creset'
 
