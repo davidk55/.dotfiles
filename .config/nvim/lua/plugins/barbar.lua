@@ -6,6 +6,7 @@ return {
     require("bufferline").setup({
       insert_at_end = true,
     })
+
     -- =============== MAPPINGS ===============
     vim.keymap.set(
       "n",
