@@ -1,10 +1,9 @@
 return {
   "akinsho/toggleterm.nvim",
-
   config = function()
     -- =============== SETUP ===============
     require("toggleterm").setup({
-      open_mapping = [[<c-\>]],
+      open_mapping = [[<C-\>]],
       size = 20,
     })
 
@@ -47,6 +46,7 @@ return {
     function _JAVA_TOGGLE()
       java:toggle()
     end
+
     -- =============== MAPPINGS ===============
     vim.keymap.set(
       "n",
