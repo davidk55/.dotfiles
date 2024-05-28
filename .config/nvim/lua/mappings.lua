@@ -62,4 +62,4 @@ vim.keymap.set(
 )
 
 -- *************************** LAZY ******************************
-vim.keymap.set("n", "<leader><leader>u", ":Lazy<CR>", { noremap = true, silent = true, desc = "Open lazy" })
+vim.keymap.set("n", "<leader><leader>u", ":Lazy<CR>", { noremap = true, silent = true, desc = "[lazy] Open lazy" })

@@ -9,7 +9,17 @@ return {
     })
 
     -- =============== MAPPINGS ===============
-    vim.keymap.set({ "v" }, "<Leader>re", require("react-extract").extract_to_new_file)
-    vim.keymap.set({ "v" }, "<Leader>rc", require("react-extract").extract_to_current_file)
+    vim.keymap.set(
+      { "v" },
+      "<Leader>re",
+      require("react-extract").extract_to_new_file,
+      { noremap = true, desc = "[react-extract] Extract to new file" }
+    )
+    vim.keymap.set(
+      { "v" },
+      "<Leader>rc",
+      require("react-extract").extract_to_current_file,
+      { noremap = true, desc = "[react-extract] Extract to current file" }
+    )
   end,
 }

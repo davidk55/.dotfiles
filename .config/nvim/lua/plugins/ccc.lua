@@ -5,6 +5,11 @@ return {
     require("ccc").setup()
 
     -- =============== MAPPING ===============
-    vim.keymap.set("n", "<leader><leader>c", ":CccPick<CR>", { noremap = true, silent = true })
+    vim.keymap.set(
+      "n",
+      "<leader><leader>c",
+      ":CccPick<CR>",
+      { noremap = true, silent = true, desc = "[ccc] Open the color picker" }
+    )
   end,
 }
