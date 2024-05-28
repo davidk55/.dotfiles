@@ -1,87 +1,137 @@
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local u = require("utils")
-
--- =============== CONFIG ===============
-local config = {
-  cmd = {
-    "/home/david/.sdkman/candidates/java/17.0.5-tem/bin/java",
-
-    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-    "-Dosgi.bundles.defaultStartLevel=4",
-    "-Declipse.product=org.eclipse.jdt.ls.core.product",
-    "-Dlog.protocol=true",
-    "-Dlog.level=ALL",
-    "-Xms1g",
-    "--add-modules=ALL-SYSTEM",
-    "--add-opens",
-    "java.base/java.util=ALL-UNNAMED",
-    "--add-opens",
-    "java.base/java.lang=ALL-UNNAMED",
-    "-javaagent:/home/david/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar",
-
-    "-jar",
-    u.get_full_filename("org.eclipse.equinox.launcher_", "/usr/lib/jvm/eclipse.jdt.ls/plugins"),
-
-    "-configuration",
-    "/home/david/.local/share/Java/eclipse.jdt.ls/config_linux/",
-
-    "-data",
-    "/home/david/.cache/jdtls/" .. project_name,
-  },
-
-  root_dir = require("jdtls.setup").find_root({ ".git", "pom.xml", "gradlew" }),
-}
-
-require("jdtls").start_or_attach(config)
-
-config.handlers["language/status"] = function() end
-
--- =============== OPTIONS ===============
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.bo.formatoptions = "jnqlr"
+-- =============== AUTOCOMMANDS ===============
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.java",
+  callback = function()
+    vim.opt_local.formatoptions = "jnqlr"
+  end,
+})
 
 -- =============== MAPPINGS ===============
-local ns = { noremap = true, silent = true }
-local nsb = { noremap = true, silent = true, buffer = 0 }
-local e = { expr = true }
-
--- Diagnostics
-vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", ns)
-vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", ns)
-vim.keymap.set("n", "<leader>dl", "<cmd>Trouble<CR>", ns)
-vim.keymap.set("n", "<leader>dd", "<cmd>Trouble document_diagnostics<CR>", ns)
-vim.keymap.set("n", "<leader>dw", "<cmd>Trouble workspace_diagnostics<CR>", ns)
-vim.keymap.set("n", "<leader>dl", "<cmd>Trouble loclist<CR>", ns)
-
+-- -- Diagnostics
+vim.keymap.set(
+  "n",
+  "[r",
+  "<cmd>Lspsaga diagnostic_jump_prev<CR>",
+  { noremap = true, desc = "[lsp] Jump to next diagnostic" }
+)
+vim.keymap.set(
+  "n",
+  "]r",
+  "<cmd>Lspsaga diagnostic_jump_next<CR>",
+  { noremap = true, desc = "[lsp] Jump to prev diagnostic" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rr",
+  "<cmd>Trouble document_diagnostics<CR>",
+  { noremap = true, desc = "[lsp] Show list of diagnostics in file" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rw",
+  "<cmd>Trouble workspace_diagnostics<CR>",
+  { noremap = true, desc = "[lsp] Show list of diagnostics in workspace" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rl",
+  "<cmd>Lspsaga show_line_diagnostics<CR>",
+  { noremap = true, desc = "[lsp] Show diagnostics in current line" }
+)
 -- GENERAL
-vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", nsb)
-vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", nsb)
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", nsb)
-vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", nsb)
-vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", nsb)
-vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", nsb)
-
+vim.keymap.set(
+  "n",
+  "gr",
+  "<cmd>Lspsaga finder<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Show search results" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>ld",
+  "<cmd>Lspsaga peek_definition<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Peek the definition" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>lD",
+  "<cmd>Lspsaga peek_type_definition<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Peek the type definition" }
+)
+vim.keymap.set(
+  "n",
+  "gd",
+  "<cmd>Lspsaga goto_definition<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Go to the definition" }
+)
+vim.keymap.set(
+  "n",
+  "gD",
+  "<cmd>Lspsaga goto_type_definition<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Go to type the definition" }
+)
+vim.keymap.set(
+  "n",
+  "K",
+  "<cmd>Lspsaga hover_doc<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Show docs of under cursor" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>K",
+  "<cmd>Lspsaga hover_doc ++keep<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Toggle docs of under cursor" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>rn",
+  "<cmd>Lspsaga rename<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Rename under cursor" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>la",
+  "<cmd>Lspsaga code_action<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Code action with under cursor" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>lo",
+  "<cmd>Lspsaga outline<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[lsp] Outline treesitter in cur file" }
+)
 -- JAVA SPECIFIC
-vim.keymap.set("n", "<leader>oi", '<cmd>lua require("jdtls").organize_imports()<CR>', nsb)
-vim.keymap.set("n", "<leader>ev", '<cmd>lua require("jdtls").extract_variable()<CR>', nsb)
-vim.keymap.set("v", "<leader>ev", '<esc><cmd>lua require("jdtls").extract_variable(true)<CR>', nsb)
-vim.keymap.set("n", "<leader>ec", '<cmd>lua require("jdtls").extract_constant()<CR>', nsb)
-vim.keymap.set("v", "<leader>ec", '<esc><cmd>lua require("jdtls").extract_constant(true)<CR>', nsb)
-vim.keymap.set("v", "<leader>em", '<esc><cmd>lua require("jdtls").extract_method(true)<CR>', nsb)
-
+vim.keymap.set(
+  "n",
+  "<leader>jj",
+  ":JavaRunnerToggleLogs<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Toggle runner console" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>jr",
+  ":JavaRunnerRunMain<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Run main" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>jt",
+  ":JavaTestRunCurrentMethod<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Run current test method" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>jT",
+  ":JavaTestRunCurrentClass<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Run current test class" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>jl",
+  ":JavaTestViewLastReport<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] View last test results" }
+)
 -- CUSTOM
-vim.keymap.set("i", "<A-;>", "<esc>A;<CR>", nsb)
-vim.keymap.set("n", "<A-;>", function()
-  local line = vim.api.nvim_get_current_line()
-  if string.sub(line, #line, #line) == ";" then
-    return "$i"
-  else
-    return "A;<esc>^"
-  end
-end, e)
-vim.keymap.set("n", "<A-'>", function()
+vim.keymap.set("n", "<leader>js", function()
   local line = vim.api.nvim_get_current_line()
   if string.find(line, "System") ~= nil then
     return "^df(<esc>$hx^"
@@ -90,4 +140,4 @@ vim.keymap.set("n", "<A-'>", function()
   else
     return "ISystem.out.println(<esc>$a);<esc>^"
   end
-end, e)
+end, { expr = true, buffer = true, desc = "[java] Toggle print statement" })

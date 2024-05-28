@@ -6,5 +6,4 @@ vim.bo.shiftwidth = 4
 -- vimtex
 vim.g.vimtex_general_viewer = "sioyek"
 vim.g.tex_flavor = "latex" -- make `.tex` files indentified as LaTeX by default
-vim.g.maplocalleader = " "
 vim.opt.cmdheight = 2 -- remove `Hit ENTER to continue...` prompt

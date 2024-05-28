@@ -51,10 +51,25 @@ return {
       end
 
       -- =============== MAPPINGS ===============
-      vim.keymap.set({ "i", "s" }, "<Tab>", "v:lua.tab_complete()", { expr = true })
-      vim.keymap.set({ "i", "s" }, "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
-      vim.keymap.set({ "i", "s" }, "<C-n>", "v:lua.ctrl_n_next_choice()", { expr = true })
-      vim.keymap.set({ "i", "s" }, "<C-p>", "v:lua.ctrl_p_prev_choice()", { expr = true })
+      vim.keymap.set({ "i", "s" }, "<Tab>", "v:lua.tab_complete()", { expr = true, desc = "[luasnip] Tab complete" })
+      vim.keymap.set(
+        { "i", "s" },
+        "<S-Tab>",
+        "v:lua.s_tab_complete()",
+        { expr = true, desc = "[luasnip] Shift tab complete" }
+      )
+      vim.keymap.set(
+        { "i", "s" },
+        "<C-n>",
+        "v:lua.ctrl_n_next_choice()",
+        { expr = true, desc = "[luasnip] Next choice" }
+      )
+      vim.keymap.set(
+        { "i", "s" },
+        "<C-p>",
+        "v:lua.ctrl_p_prev_choice()",
+        { expr = true, desc = "[luasnip] Previous choice" }
+      )
     end,
   },
   "saadparwaiz1/cmp_luasnip",
