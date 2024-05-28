@@ -48,15 +48,17 @@ vim.keymap.set("n", "<leader>w", function()
 end, { noremap = true, desc = "Toggle word wrap" })
 
 -- *************************** FINISH STATEMENT/ARGUMENT ******************************
+vim.keymap.set("i", ";;", function()
+  local line = vim.api.nvim_get_current_line()
+  if string.sub(line, #line, #line) == ";" then
+    return "<Esc>$i"
+  else
+    return "<Esc>A;<Esc><CR>"
+  end
+end, { expr = true, desc = "Put ; at the end and go to next line" })
 vim.keymap.set(
   "i",
-  ";;",
-  "<ESC>$a;<ESC>o",
-  { noremap = true, silent = true, desc = "Put ; at the end and go to next line" }
-)
-vim.keymap.set(
-  "i",
-  ",,",
+  ";,",
   "<Esc>/['\"]<CR>:noh<CR>a, ",
   { noremap = true, silent = true, desc = "Put a , after the next ' or \"" }
 )

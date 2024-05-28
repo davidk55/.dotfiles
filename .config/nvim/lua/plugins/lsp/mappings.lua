@@ -91,7 +91,7 @@ local on_attach = function(_, bufnr)
   )
   vim.keymap.set(
     "n",
-    "<leader>o",
+    "<leader>lo",
     "<cmd>Lspsaga outline<CR>",
     { noremap = true, silent = true, buffer = bufnr, desc = "[lsp] Outline treesitter in cur file" }
   )
