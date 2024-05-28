@@ -10,6 +10,13 @@ return {
         return "Recording @" .. recording_register
       end
     end
+    local lint_progress = function()
+      local linters = require("lint").get_running()
+      if #linters == 0 then
+        return "󰦕"
+      end
+      return "󱉶 " .. table.concat(linters, ", ")
+    end
 
     -- =============== SETUP ===============
     require("lualine").setup({
@@ -31,7 +38,12 @@ return {
           "diff",
           "diagnostics",
         },
-        lualine_c = { { "filename", path = 1 }, "searchcount", "selectioncount" },
+        lualine_c = {
+          { "filename", path = 1 },
+          "searchcount",
+          "selectioncount",
+          { "lint-progress", fmt = lint_progress },
+        },
         lualine_x = { "encoding", "filesize", "filetype", "fileformat" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
