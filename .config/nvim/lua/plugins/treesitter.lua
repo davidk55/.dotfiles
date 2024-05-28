@@ -66,6 +66,9 @@ return {
       },
       indent = {
         enable = true,
+        disable = {
+          "markdown",
+        },
       },
       highlight = { enable = true, disable = { "latex" } },
     })
