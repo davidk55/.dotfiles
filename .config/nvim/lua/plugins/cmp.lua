@@ -51,9 +51,16 @@ return {
         },
         mapping = {
           ["<C-n>"] = cmp.mapping.select_next_item(),
-          ["<C-p>"] = cmp.mapping.select_prev_item(),
-          ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-j>"] = cmp.mapping.scroll_docs(4),
+          ["<C-p>"] = function()
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              local key = vim.api.nvim_replace_termcodes("<C-r>+", true, false, true)
+              vim.api.nvim_feedkeys(key, "n", false)
+            end
+          end,
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<C-y>"] = function(fallback)
