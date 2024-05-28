@@ -79,6 +79,7 @@ return {
           { name = "path" },
           { name = "buffer", keyword_length = 4 },
           { name = "calc" },
+          { name = "crates" },
         }),
         formatting = {
           format = function(entry, vim_item)
