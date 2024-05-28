@@ -15,6 +15,11 @@ return {
     })
 
     -- =============== MAPPING ===============
-    vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+    vim.keymap.set(
+      "n",
+      "<leader>e",
+      ":NvimTreeToggle<CR>",
+      { noremap = true, silent = true, desc = "[tree] Toggle nvim tree" }
+    )
   end,
 }
