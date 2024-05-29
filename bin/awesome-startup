@@ -1,7 +1,6 @@
 #!/bin/bash
 main() {
   awesome-client "require('modules.interaction').hide_clients( { { class = 'firefox' } } )"
-  # awesome-client "require('modules.interaction').move_client_to_screen( { class = 'obsidian' }, 1)"
   awesome-client "require('modules.interaction').move_client_to_screen( { class = 'firefox' }, 1)"
 }
 
