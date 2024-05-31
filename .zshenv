@@ -60,5 +60,8 @@ export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx # for some games
 export GLFW_IM_MODULE=ibus # for kitty
 
+# ********************** TMUXINATOR **********************
+export TMUXINATOR_CONFIG="/home/david/Nextcloud/Main/Further-Dotfiles/share/tmuxinator"
+
 # ********************** ADDITIONAL ENV VARIABLES **********************
 source /home/david/Nextcloud/Main/Further-Dotfiles/config/environment_variables
