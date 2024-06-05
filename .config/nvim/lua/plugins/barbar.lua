@@ -3,7 +3,7 @@ return {
   dependencies = { "kyazdani42/nvim-web-devicons" },
   config = function()
     -- =============== SETUP ===============
-    require("bufferline").setup({
+    require("barbar").setup({
       insert_at_end = true,
     })
 
