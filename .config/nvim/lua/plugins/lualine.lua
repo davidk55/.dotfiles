@@ -10,21 +10,16 @@ return {
         return "Recording @" .. recording_register
       end
     end
-    local lint_progress = function()
-      local linters = require("lint").get_running()
-      if #linters == 0 then
-        return "󰦕"
-      end
-      return "󱉶 " .. table.concat(linters, ", ")
-    end
 
     -- =============== SETUP ===============
     require("lualine").setup({
       options = {
-        theme = "gruvbox",
+        theme = "catppuccin",
         disabled_filetypes = {
           "NvimTree",
         },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         globalstatus = true,
       },
       sections = {
@@ -42,9 +37,8 @@ return {
           { "filename", path = 1 },
           "searchcount",
           "selectioncount",
-          { "lint-progress", fmt = lint_progress },
         },
-        lualine_x = { "encoding", "filesize", "filetype", "fileformat" },
+        lualine_x = { "filetype" },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
