@@ -318,8 +318,15 @@ return {
     vim.keymap.set("n", "<leader>f4", nextcloud_find_files, { noremap = true, desc = "[telescope] Nextcloud" })
     vim.keymap.set("n", "<leader>f$", nextcloud_live_grep, { noremap = true, desc = "[telescope] Nextcloud live grep" })
 
-    -- =============== OPTIONS ===============
-    vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3c3836", fg = "orange" })
-    vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "#3c3836", fg = "red" })
+    -- =============== AUTOCOMMANDS ===============
+    vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+      callback = function()
+        if vim.o.background == "dark" then
+          vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#414559", fg = "#ef9f76" })
+          vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { bg = "#414559", fg = "#e78284" })
+        end
+      end,
+      desc = "Disable mini-indentscope for several filetypes",
+    })
   end,
 }
