@@ -82,6 +82,7 @@ return {
           { name = "crates" },
         }),
         formatting = {
+          fields = { "abbr", "kind", "menu" },
           format = function(entry, vim_item)
             -- Kind icons
             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
@@ -98,6 +99,7 @@ return {
             vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
             return vim_item
           end,
+          expandable_indicator = true,
         },
         -- disable cmp when writing comments
         enabled = function()

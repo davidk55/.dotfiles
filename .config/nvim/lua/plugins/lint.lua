@@ -50,7 +50,7 @@ return {
       end
     end, { desc = "[nvim-lint] Toggle linting" })
 
-    -- =============== AUTO COMMANDS ===============
+    -- =============== AUTOCOMMANDS ===============
     vim.api.nvim_create_autocmd({ "InsertLeave" }, {
       callback = function()
         if vim.b.is_linting_disabled then
