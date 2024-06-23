@@ -32,7 +32,7 @@ return {
         nix = { "alejandra", "nixpkgs_fmt" },
         sql = { "sqlfluff" },
         yaml = { "yamlfmt" },
-        php = { "php_cs_fixer" },
+        php = { "prettierd", "rustywind", "php_cs_fixer" },
         rust = { "rustfmt" },
         go = { "gofmt" },
         -- ["*"] = { "codespell" },
