@@ -55,7 +55,7 @@ return {
         map("n", ",u", gs.undo_stage_hunk, { desc = "[gitsigns] Undo last stage of hunk" })
         map("n", ",r", gs.reset_hunk, { desc = "[gitsigns] Reset changes of selected hunk" })
         map("n", ",R", gs.reset_buffer, { desc = "[gitsigns] Reset changes in current buffer" })
-        map("n", ",p", gs.preview_hunk, { desc = "[gitsigns] Preview commited state of selected hunk" })
+        map("n", ",p", gs.preview_hunk, { desc = "[gitsigns] Preview committed state of selected hunk" })
         map("n", ",b", function()
           gs.blame_line({ full = true })
         end, { desc = "[gitsigns] Show git blame for current file" })
