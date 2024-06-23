@@ -12,9 +12,6 @@ return {
         changedelete = { text = "~" },
         untracked = { text = "┆" },
       },
-      current_line_blame_opts = {
-        delay = 0,
-      },
       current_line_blame_formatter = "<summary> - <author> (<author_time:%Y-%m-%d--%H-%M>)",
 
       -- *************** KEYMAPS ***************
