@@ -487,6 +487,11 @@ shortcuts.globalkeys = gears.table.join(
     os.execute("~/bin/rofi-bookmarks")
   end),
 
+  -- Opens rofi firefox bookmarks menu
+  awful.key({}, "#197", function()
+    os.execute(
+      "rofi -show firefox_bookmarks -modi \"firefox_bookmarks:~/Nextcloud/Main/Further-Dotfiles/scripts/rofi-bookmarks-firefox\" -theme-str 'window {width: 70%;height: 60%;}'"
+    )
   end),
 
   -- Opens rofi search
