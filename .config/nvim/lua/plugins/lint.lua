@@ -1,7 +1,5 @@
-local ns = { noremap = true, silent = true }
-
 local function enable_linting()
-  vim.diagnostic.enable(0)
+  vim.diagnostic.enable(true, { bufnr = 0 })
   require("lint").try_lint()
   require("lint").try_lint("typos")
 end
@@ -12,7 +10,7 @@ local function disable_linting()
     return
   end
   require("lint").linters_by_ft[ft] = {}
-  vim.diagnostic.disable(0)
+  vim.diagnostic.enable(false, { bufnr = 0 })
 end
 
 return {
