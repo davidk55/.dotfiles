@@ -25,5 +25,5 @@ if autorun then
   for app = 1, #autorunApps do
     awful.spawn(autorunApps[app])
   end
-  awful.spawn("firefox")
+  awful.spawn("floorp")
 end
