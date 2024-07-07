@@ -89,6 +89,7 @@ return {
     priority = 1000,
     config = function()
       require("tokyonight").setup({
+        on_colors = function() end,
         on_highlights = function(hl)
           hl.TelescopeSelection = {
             bg = "#394b70",
