@@ -1,7 +1,7 @@
 # General
 auto-reload yes
 max-items 100
-browser "firefox --new-tab %u"
+browser "floorp --new-tab %u"
 
 # Keybindings
 unbind-key ENTER
