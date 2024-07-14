@@ -61,17 +61,6 @@ return {
       end,
     })
 
-    -- =============== MAPPINGS ===============
-    vim.keymap.set("n", "<leader>lf", function()
-      if vim.b.disable_autoformat then
-        vim.b.disable_autoformat = false
-        vim.notify("[conform] Enable Formatting", vim.log.levels.INFO)
-      else
-        vim.b.disable_autoformat = true
-        vim.notify("[conform] Disable Formatting", vim.log.levels.INFO)
-      end
-    end, { noremap = true, silent = true, desc = "[conform] Toggle formatting" })
-
     -- =============== CUSTOM COMMANDS ===============
     -- Command to disable formatting
     vim.api.nvim_create_user_command("FormatDisable", function(args)
