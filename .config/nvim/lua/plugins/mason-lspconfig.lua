@@ -134,7 +134,6 @@ return {
       ["texlab"] = function()
         lsp_con.texlab.setup({
           capabilities = capabilities,
-          on_attach = on_attach,
         })
       end,
       -- *************** BASH SERVER ***************
@@ -153,14 +152,11 @@ return {
       end,
       -- *************** DOCKER COMPOSE SERVER ***************
       ["docker_compose_language_service"] = function()
-        vim.api.nvim_create_autocmd(
-          "BufRead",
-          {
-            command = "setlocal filetype=yaml.docker-compose",
-            pattern = { "docker-compose.yml" },
-            desc = "Make docker-compose.yml also be of type docker-compose",
-          }
-        )
+        vim.api.nvim_create_autocmd("BufRead", {
+          command = "setlocal filetype=yaml.docker-compose",
+          pattern = { "docker-compose.yml" },
+          desc = "Make docker-compose.yml also be of type docker-compose",
+        })
 
         lsp_con.docker_compose_language_service.setup({
           capabilities = capabilities,
