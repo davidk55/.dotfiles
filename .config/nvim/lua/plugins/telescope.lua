@@ -182,25 +182,6 @@ return {
       require("telescope.builtin").pickers,
       { noremap = true, desc = "[telescope] Recently used pickers" }
     )
-    -- LSP Picker
-    vim.keymap.set(
-      "n",
-      "<leader>ld",
-      require("telescope.builtin").lsp_document_symbols,
-      { noremap = true, desc = "[telescope] Lsp document symbols" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>lg",
-      require("telescope.builtin").lsp_dynamic_workspace_symbols,
-      { noremap = true, desc = "[telescope] Lsp grep workspace symbols" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>li",
-      require("telescope.builtin").lsp_implementations,
-      { noremap = true, desc = "[telescope] Lsp implementations" }
-    )
 
     -- Git Pickers
     vim.keymap.set(
