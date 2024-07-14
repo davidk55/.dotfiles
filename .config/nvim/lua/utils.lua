@@ -45,4 +45,18 @@ function M.get_dotfiles()
   return dotiles_tbl
 end
 
+function M.enable_linting()
+  vim.diagnostic.enable(true, { bufnr = 0 })
+  require("lint").try_lint()
+end
+
+function M.disable_linting()
+  local ft = vim.filetype.match({ buf = 0 })
+  if ft == nil then
+    return
+  end
+  require("lint").linters_by_ft[ft] = {}
+  vim.diagnostic.enable(false, { bufnr = 0 })
+end
+
 return M
