@@ -59,6 +59,7 @@ return {
         "gitcommit",
         "go",
         "graphql",
+        "http",
         "java",
         "javascript",
         "jsdoc",
