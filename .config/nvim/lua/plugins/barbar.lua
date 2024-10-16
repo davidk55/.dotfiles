@@ -21,7 +21,12 @@ return {
       "<Cmd>BufferClose<CR>",
       { noremap = true, silent = true, desc = "[barbar] Close a buffer" }
     )
-
+    vim.keymap.set(
+      "n",
+      "<A-C>",
+      "<Cmd>BufferCloseAllButCurrent<CR>",
+      { noremap = true, silent = true, desc = "[barbar] Close all buffer except current" }
+    )
     vim.keymap.set(
       "n",
       "<A-,>",
