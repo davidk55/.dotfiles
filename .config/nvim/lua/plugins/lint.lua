@@ -9,6 +9,7 @@ return {
       html = { "htmlhint" },
       yaml = { "yamllint" },
       cpp = { "cppcheck" },
+      rust = { "clippy" },
     }
     -- Linters configurations
     local yamllint = require("lint").linters.yamllint
