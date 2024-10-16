@@ -22,7 +22,7 @@ return {
     }
 
     -- =============== AUTOCOMMANDS ===============
-    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
         if vim.b.is_linting_disabled then
           return
