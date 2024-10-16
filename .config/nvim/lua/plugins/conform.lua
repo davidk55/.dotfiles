@@ -35,6 +35,7 @@ return {
         php = { "prettierd", "rustywind", "php_cs_fixer" },
         rust = { "rustfmt" },
         go = { "gofmt" },
+        toml = { "taplo" },
         -- ["*"] = { "codespell" },
       },
       -- Formatters configurations
