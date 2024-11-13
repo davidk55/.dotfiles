@@ -420,7 +420,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle e-mail client
   awful.key({ config.modkey }, "u", function()
-    toggle_client({ class = "Mailspring" })
+    toggle_client({ class = "thunderbird" })
   end),
 
   -- Toggle spotify client
