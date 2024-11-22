@@ -12,14 +12,12 @@ local awful = require("awful")
 -- ================ AUTORUN APPLICATIONS ================
 local autorun = true
 local autorunApps = {
-  "obsidian",
-  "thunderbird",
   "keepassxc",
   "nextcloud",
   "kitty --title dev",
   "blueman-manager",
-  "dolphin",
   "/home/david/Nextcloud/Main/Further-Dotfiles/scripts/connect-bt-headphones",
+  "nm-applet",
 }
 if autorun then
   for app = 1, #autorunApps do
