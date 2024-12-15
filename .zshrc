@@ -100,6 +100,7 @@ alias p="tmux-repo-opener"
 alias reload-compose-key="setxkbmap -option compose:ralt &"
 alias cp="cp -n"
 alias zsh-stats="cat ~/.cache/zsh/hist | cut -d ' ' -f 2- | awk '{a[\$0]++}END{for(i in a){print a[i] \" \" i}}' | sort -rn | head -n 50"
+alias tablet="otd-daemon &"
 
 # ******************* ADDITIONAL ALIASES *******************
 source /home/david/Nextcloud/Main/Further-Dotfiles/config/aliases
@@ -156,17 +157,6 @@ run() {
 
 }
 
-tablet() {
-  xinput map-to-output $(xinput list | grep stylus | cut -f 2 | cut -c 4-) DP-0
-  xsetwacom --set 'HID 256c:006d Pad pad' Button 1 "key alt f3"
-  xsetwacom --set 'HID 256c:006d Pad pad' Button 2 "key ctrl z"
-  xsetwacom --set 'HID 256c:006d Pad pad' Button 3 "key ctrl shift z"
-  xsetwacom --set 'HID 256c:006d Pad pad' Button 8 "key alt f2"
-  xsetwacom --set 'HID 256c:006d Pad pad' Button 9 "key f11"
-  xsetwacom --set 'HID 256c:006d Pad pad' Button 10 "key alt f4"
-  xsetwacom --set 'HID 256c:006d Pen stylus' Button 2 "key alt f5"
-  xsetwacom --set 'HID 256c:006d Pen stylus' Button 3 "key alt f1"
-}
 
 ts-project() {
   gh repo clone davidk55/js-project-template "$1"
