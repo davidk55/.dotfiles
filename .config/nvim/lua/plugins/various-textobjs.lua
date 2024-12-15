@@ -2,7 +2,11 @@ return {
   "chrisgrieser/nvim-various-textobjs",
   config = function()
     -- =============== SETUP ===============
-    require("various-textobjs").setup({ useDefaultKeymaps = false })
+    require("various-textobjs").setup({
+      keymaps = {
+        useDefaults = true,
+      },
+    })
 
     -- =============== MAPPING ===============
     -- to select the key of key-value pairs
