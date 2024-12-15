@@ -81,6 +81,7 @@ return {
         "printf",
         "python",
         "regex",
+        "ron",
         "rust",
         "query",
         "scss",
