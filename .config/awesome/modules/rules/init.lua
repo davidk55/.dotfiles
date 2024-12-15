@@ -43,6 +43,10 @@ awful.rules.rules = {
     properties = { width = 1400, height = 900, placement = awful.placement.centered, above = true },
   },
   {
+    rule = { class = "thunderbird" },
+    properties = { width = 1400, height = 900, placement = awful.placement.centered, above = true },
+  },
+  {
     rule = { class = "mpv" },
     properties = { placement = awful.placement.centered, above = true },
   },
@@ -75,6 +79,7 @@ awful.rules.rules = {
         "Anki",
         "dolphin",
         "Mailspring",
+        "thunderbird",
         "mpv",
         "obsidian-fzf",
         "obsidian-rg",
