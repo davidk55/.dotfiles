@@ -1,7 +1,7 @@
 #!/bin/bash
 
 main() {
-  SELECTED_REPO_PATH=$(zoxide query -l | ~/bin/repo-filter | fzf --header --height=100% --border=none --header="Git Repo Opener")
+  SELECTED_REPO_PATH=$(zoxide query -l | ~/bin/repo-filter | fzf --tmux 70% --header="Git Repo Opener")
 
   if [ "$SELECTED_REPO_PATH" != "" ]; then
     REPO_NAME=$(basename "$SELECTED_REPO_PATH")
