@@ -10,7 +10,7 @@ local currentTool = "pen"
 
 function ToggleEraser()
   if currentTool == "eraser" then
-    app.uiAction({ ["action"] = "ACTION_TOOL_PEN_SIZE_THICK" })
+    app.uiAction({ ["action"] = "ACTION_TOOL_PEN_SIZE_MEDIUM" })
     app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
     currentTool = "pen"
   else
@@ -22,7 +22,7 @@ end
 
 function ToggleHighlighter()
   if currentTool == "highlighter" then
-    app.uiAction({ ["action"] = "ACTION_TOOL_PEN_SIZE_THICK" })
+    app.uiAction({ ["action"] = "ACTION_TOOL_PEN_SIZE_MEDIUM" })
     app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
     currentTool = "pen"
   else
@@ -34,7 +34,7 @@ end
 
 function ToggleHand()
   if currentTool == "hand" then
-    app.uiAction({ ["action"] = "ACTION_TOOL_PEN_SIZE_THICK" })
+    app.uiAction({ ["action"] = "ACTION_TOOL_PEN_SIZE_MEDIUM" })
     app.uiAction({ ["action"] = "ACTION_TOOL_PEN" })
     currentTool = "pen"
   else
