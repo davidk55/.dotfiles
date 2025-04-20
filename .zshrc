@@ -206,5 +206,9 @@ fi
 # add all commands in current path to autocompletion of run
 compdef _path_commands run
 
+eval "$(pyenv init -)"
+
+. /usr/share/nvm/init-nvm.sh
+
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
