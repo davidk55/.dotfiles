@@ -20,6 +20,7 @@ local autorunApps = {
   "blueman-manager",
   "dolphin",
   "/home/david/Nextcloud/Main/Further-Dotfiles/scripts/connect-bt-headphones",
+  "solaar -w hide",
 }
 if autorun then
   for app = 1, #autorunApps do
