@@ -107,15 +107,29 @@ source /home/david/Nextcloud/Main/Further-Dotfiles/config/aliases
 
 # ******************* FUNCTIONS *******************
 alarm() {
-    setopt verbose
     echo "When the alarm should go off?"
-    echo "(Syntax: <hours> <minutes> <seconds>)"
-    read alarm_hours alarm_minutes alarm_seconds
+    echo "(Syntax: <hours> <minutes>)"
+    read alarm_hours alarm_minutes
+
+    alarm_string='at now'
+    if [ "$alarm_hours" -ne "0" -o "$alarm_minutes" -ne "0" ]; then
+      alarm_string="$alarm_string +"
+    fi
+    if [ "$alarm_hours" -ne "0" ]; then
+      alarm_string="$alarm_string $alarm_hours hours"
+    fi
+    if [ "$alarm_minutes" -ne "0" ]; then
+      alarm_string="$alarm_string $alarm_minutes minutes"
+    fi
+
     echo "Name of the alarm?"
     read alarm_name
-    (sleep "$alarm_hours"h "$alarm_minutes"m "$alarm_seconds"s && notify-send -i /home/david/.local/share/icons/alarm.png -u critical "Alarm" "$alarm_name") & disown
-    unsetopt verbose
-    notify-send -i /home/david/.local/share/icons/alarm.png -u critical "An alarm was set" "$(date -d "+$alarm_hours hours +$alarm_minutes minutes +$alarm_seconds seconds" +"%H:%M:%S")"
+
+    cur_seconds=$(date +"%S")
+    echo $cur_seconds
+    echo "sleep "$cur_seconds" && notify-send -i /home/david/.local/share/icons/alarm.png -u critical "Alarm" "$alarm_name"" | eval "$alarm_string" >/dev/null 2>&1
+
+    notify-send -i /home/david/.local/share/icons/alarm.png -u critical "An alarm for "$alarm_name" was set" "$(date -d "+$alarm_hours hours +$alarm_minutes minutes" +"%H:%M:%S")"
 }
 
 n() {
@@ -156,7 +170,6 @@ run() {
   setsid "$1" &>/dev/null; exit
 
 }
-
 
 ts-project() {
   gh repo clone davidk55/js-project-template "$1"
