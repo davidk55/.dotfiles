@@ -10,6 +10,10 @@ return {
       yaml = { "yamllint" },
       cpp = { "cppcheck" },
       rust = { "clippy" },
+      javascript = { "eslint_d" },
+      javascriptreact = { "eslint_d" },
+      typescript = { "eslint_d" },
+      typescriptreact = { "eslint_d" },
     }
     -- Linters configurations
     local yamllint = require("lint").linters.yamllint
@@ -19,6 +23,16 @@ return {
       "--format",
       "parsable",
       "-",
+    }
+    local eslint_d = require("lint").linters.eslint_d
+    eslint_d.args = {
+      "--format",
+      "json",
+      "--stdin",
+      "--stdin-filename",
+      function()
+        return vim.api.nvim_buf_get_name(0)
+      end,
     }
 
     -- =============== AUTOCOMMANDS ===============
