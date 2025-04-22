@@ -1,6 +1,6 @@
 return {
   "mrcjkb/rustaceanvim",
-  ft = { "rust" },
+  lazy = false,
   dependencies = { "WhoIsSethDaniel/mason-tool-installer.nvim", "neovim/nvim-lspconfig" },
   config = function()
     -- =============== VARIABLES ===============
