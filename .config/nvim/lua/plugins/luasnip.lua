@@ -3,7 +3,6 @@ return {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "rafamadriz/friendly-snippets",
-      "hrsh7th/nvim-cmp",
     },
     build = "make install_jsregexp",
     config = function()
@@ -16,7 +15,7 @@ return {
       require("luasnip").filetype_extend("php", { "html" })
 
       -- load my custom snippets
-      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/lua/plugins/snippets" })
+      require("luasnip.loaders.from_lua").lazy_load({ paths = { "~/.config/nvim/lua/plugins/snippets" } })
 
       -- =============== GLOBAL FUNCTIONS ===============
       _G.tab_complete = function()
@@ -72,5 +71,4 @@ return {
       )
     end,
   },
-  "saadparwaiz1/cmp_luasnip",
 }
