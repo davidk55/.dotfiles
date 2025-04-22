@@ -1,3 +1,9 @@
+-- =============== OPTIONS ===============
+-- general
+vim.bo.softtabstop = 2
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = 2
+
 -- =============== AUTOCOMMANDS ===============
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.java",
