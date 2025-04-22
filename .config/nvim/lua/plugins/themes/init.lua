@@ -26,11 +26,12 @@ return {
           light = "latte",
           dark = "frappe",
         },
+
         integrations = {
           barbar = true,
           fidget = true,
           flash = true,
-          cmp = true,
+          cmp = false,
           dap = true,
           dap_ui = true,
           gitsigns = true,
@@ -44,6 +45,7 @@ return {
           mini = {
             enabled = true,
           },
+          blink_cmp = true,
           native_lsp = {
             enabled = true,
             virtual_text = {
@@ -77,6 +79,30 @@ return {
           rainbow_delimiters = true,
           which_key = false,
         },
+        custom_highlights = function(colors)
+          return {
+            BlinkCmpMenu = { link = "Normal" },
+            BlinkCmpMenuBorder = { link = "FloatBorder" },
+            -- BlinkCmpMenuSelection = { bg = colors.mantle },
+            -- BlinkCmpScrollBarThumb = { bg = colors.mantle },
+            -- BlinkCmpScrollBarGutter = { bg = colors.mantle },
+            -- BlinkCmpLabel = { bg = colors.mantle },
+            -- BlinkCmpLabelDeprecated = { bg = colors.mantle },
+            -- BlinkCmpLabelMatch = { bg = colors.mantle },
+            -- BlinkCmpLabelDetail = { bg = colors.mantle },
+            -- BlinkCmpLabelDescription = { bg = colors.mantle },
+            -- BlinkCmpKind = { bg = colors.mantle },
+            BlinkCmpSource = { link = "Normal" },
+            -- BlinkCmpGhostText = { bg = colors.mantle },
+            BlinkCmpDoc = { link = "Normal" },
+            BlinkCmpDocBorder = { link = "FloatBorder" },
+            BlinkCmpDocSeparator = { link = "FloatBorder" },
+            BlinkCmpDocCursorLine = { link = "CursorLine" },
+            -- BlinkCmpSignatureHelp = { bg = colors.mantle },
+            -- BlinkCmpSignatureHelpBorder = { bg = colors.mantle },
+            -- BlinkCmpSignatureHelpActiveParameter = { bg = colors.mantle },
+          }
+        end,
       })
       vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank{ higroup='Visual', timeout=300 }]])
       vim.cmd("colorscheme catppuccin")
