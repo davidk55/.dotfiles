@@ -12,12 +12,20 @@ return {
           -- insert mode mappings
           i = {
             ["<C-w>t"] = actions.select_tab,
+            ["<C-Left>"] = actions.preview_scrolling_left,
+            ["<C-Right>"] = actions.preview_scrolling_right,
+            ["<C-Up>"] = actions.preview_scrolling_up,
+            ["<C-Down>"] = actions.preview_scrolling_down,
           },
 
           -- normal mode mappings
           n = {
             ["<C-s>"] = actions.select_horizontal,
             ["dd"] = actions.delete_buffer,
+            ["<C-Left>"] = actions.preview_scrolling_left,
+            ["<C-Right>"] = actions.preview_scrolling_right,
+            ["<C-Up>"] = actions.preview_scrolling_up,
+            ["<C-Down>"] = actions.preview_scrolling_down,
           },
         },
         cache_picker = { num_pickers = -1 },
