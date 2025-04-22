@@ -1,12 +1,15 @@
 return {
   "saghen/blink.cmp",
-  dependencies = { "rafamadriz/friendly-snippets", "folke/lazydev.nvim" },
+  dependencies = { "rafamadriz/friendly-snippets", "folke/lazydev.nvim", "L3MON4D3/LuaSnip" },
   version = "1.*",
   opts = {
     keymap = {
       preset = "default",
       ["<C-Up>"] = { "scroll_documentation_up", "fallback" },
       ["<C-Down>"] = { "scroll_documentation_down", "fallback" },
+    },
+    snippets = {
+      preset = "luasnip",
     },
     appearance = {
       nerd_font_variant = "mono",
