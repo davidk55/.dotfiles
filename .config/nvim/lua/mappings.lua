@@ -53,8 +53,32 @@ vim.keymap.set("i", ";;", function()
   if string.sub(line, #line, #line) == ";" then
     return "<Esc>$i"
   else
-    return "<Esc>A;<Esc><CR>"
+    return "<Esc>A;<CR>"
   end
+end, { expr = true, desc = "Put ; at the end and go to next line" })
+vim.keymap.set("i", ";:", function()
+  local line = vim.api.nvim_get_current_line()
+  if string.sub(line, #line, #line) == ";" then
+    return "<Esc>$i"
+  else
+    return "<Esc>A;<ESC><CR>"
+  end
+end, { expr = true, desc = "Put ; at the end and go to next line" })
+
+vim.keymap.set("i", ";)", function()
+  local line = vim.api.nvim_get_current_line()
+  if string.sub(line, #line, #line) == ";" then
+    return "<Esc>$i"
+  else
+    return "<Esc>f)a "
+  end
+end, { expr = true, desc = "Put ; at the end and go to next line" })
+vim.keymap.set("i", ";{", function()
+  -- local line = vim.api.nvim_get_current_line()
+  -- if string.sub(line, #line, #line) == ";" then
+  --   return "<Esc>$i"
+  -- else
+  return "<Esc>A {<CR>}<Esc>O"
 end, { expr = true, desc = "Put ; at the end and go to next line" })
 vim.keymap.set(
   "i",
