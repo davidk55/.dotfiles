@@ -120,6 +120,32 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
+  "<leader>jR",
+  ":JavaRunnerStopMain<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Stop main" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>jp",
+  ":JavaProfile<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Open profile UI" }
+)
+-- Workspace
+vim.keymap.set(
+  "n",
+  "<leader>jb",
+  ":JavaBuildBuildWorkspace<CR>",
+  { noremap = true, silent = true, buffer = true, desc = "[java] Run a full workspace build" }
+)
+vim.keymap.set("n", "<leader>jc", ":JavaBuildCleanWorkspace<CR>", {
+  noremap = true,
+  silent = true,
+  buffer = true,
+  desc = "[java] Clear the workspace cache (you have to close nvim afterwards)",
+})
+-- Testing
+vim.keymap.set(
+  "n",
   "<leader>jt",
   ":JavaTestRunCurrentMethod<CR>",
   { noremap = true, silent = true, buffer = true, desc = "[java] Run current test method" }
