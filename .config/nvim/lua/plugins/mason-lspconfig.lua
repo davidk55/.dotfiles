@@ -357,6 +357,9 @@ return {
         lsp_con.jdtls.setup({
           capabilities = capabilities,
           on_attach = on_attach,
+          handlers = {
+            ["$/progress"] = function(_, _, _) end,
+          },
         })
       end,
       -- *************** PYTHON SERVER ***************
