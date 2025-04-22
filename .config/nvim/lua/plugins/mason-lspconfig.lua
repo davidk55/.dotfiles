@@ -111,6 +111,23 @@ return {
           },
         })
       end,
+      -- *************** CSS SERVER ***************
+      ["cssls"] = function()
+        lsp_con.cssls.setup({
+          capabilities = capabilities,
+          settings = {
+            css = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+            scss = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+            less = { validate = true, lint = {
+              unknownAtRules = "ignore",
+            } },
+          },
+        })
+      end,
       -- *************** JSON SERVER ***************
       ["jsonls"] = function()
         -- set the the filetype of tsconfig.json to jsonc (json with comments)
