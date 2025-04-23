@@ -15,7 +15,7 @@ local spotify_widget = require("modules.awesome-wm-widgets.spotify-widget.spotif
 
 -- ================ TEXTCLOCK ================
 local text_clock = wibox.widget.textclock("%a   %b. %d   %H:%M  ")
-text_clock.font = "SFNS Display 16"
+text_clock.font = "SFNS Display 14"
 
 -- ================ SEPARATOR ================
 local separator = wibox.widget.textbox("   ")
@@ -89,7 +89,7 @@ awful.screen.connect_for_each_screen(function(s)
         spotify_widget({
           play_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-running.svg",
           pause_icon = "/home/david/.config/awesome/modules/awesome-wm-widgets/spotify-widget/icons/spotify-pause.svg",
-          font = "SFNS Display 14",
+          font = "SFNS Display 12",
           max_length = 40,
           dim_when_paused = true,
           dim_opacity = 0.5,
@@ -102,7 +102,7 @@ awful.screen.connect_for_each_screen(function(s)
       separator,
       volume_widget({
         widget_type = "icon_and_text",
-        font = "SFNS Display 14",
+        font = "SFNS Display 12",
       }),
       separator,
       text_clock,
