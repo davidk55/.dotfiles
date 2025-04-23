@@ -12,6 +12,10 @@ local wibox = require("wibox")
 local gears = require("gears")
 local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
 local spotify_widget = require("modules.awesome-wm-widgets.spotify-widget.spotify")
+local cpu_widget = require("modules.awesome-wm-widgets.cpu-widget.cpu-widget")
+local ram_widget = require("modules.awesome-wm-widgets.ram-widget.ram-widget")
+local brightness_widget = require("modules.awesome-wm-widgets.brightness-widget.brightness")
+local battery_widget = require("modules.awesome-wm-widgets.batteryarc-widget.batteryarc")
 
 -- ================ TEXTCLOCK ================
 local text_clock = wibox.widget.textclock("%a   %b. %d   %H:%M  ")
@@ -100,9 +104,25 @@ awful.screen.connect_for_each_screen(function(s)
         6
       ),
       separator,
+      cpu_widget(),
+      separator,
+      ram_widget(),
+      separator,
+      brightness_widget({
+        type = "icon_and_text",
+        program = "brightnessctl",
+        font = "Noto Sans 10",
+      }),
+      separator,
       volume_widget({
         widget_type = "icon_and_text",
-        font = "SFNS Display 12",
+        font = "SFNS Display 10",
+      }),
+      separator,
+      battery_widget({
+        show_current_level = true,
+        size = 25,
+        font = "Noto Sans 10",
       }),
       separator,
       text_clock,
