@@ -222,6 +222,7 @@ compdef _path_commands run
 eval "$(pyenv init -)"
 
 . /usr/share/nvm/init-nvm.sh
+nvm use default >/dev/null 2>&1
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
