@@ -23,7 +23,23 @@ return {
       function()
         require("flash").treesitter()
       end,
-      desc = "[flash] Run with treesitter",
+      desc = "[flash] Selection of near treesitter nodes",
+    },
+    {
+      "r",
+      mode = "o",
+      function()
+        require("flash").remote()
+      end,
+      desc = "[flash] Run remote",
+    },
+    {
+      "R",
+      mode = { "o", "x" },
+      function()
+        require("flash").treesitter_search()
+      end,
+      desc = "[flash] Selection of remote treesitter nodes",
     },
   },
 }
