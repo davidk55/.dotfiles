@@ -368,7 +368,16 @@ shortcuts.clientkeys = gears.table.join(
       c:emit_signal("request::activate", "key.unminimize", { raise = true })
     end
     mouse_on_focussed_client()
-  end, { description = "restore minimized", group = "awesome: clients" })
+  end, { description = "restore minimized", group = "awesome: clients" }),
+
+  -- Focus the last client (by focus)
+  awful.key({ config.modkey, "Shift" }, "f", function()
+    if client.focus then
+      local c = client.focus
+      c.floating = true
+      c.ontop = true
+    end
+  end, { description = "set floating and ontop", group = "awesome: clients" })
 )
 
 -- ================ MOUSE ================
