@@ -12,12 +12,11 @@ local awful = require("awful")
 -- ================ AUTORUN APPLICATIONS ================
 local autorun = true
 local autorunApps = {
+  "obsidian",
   "keepassxc",
   "nextcloud",
   "kitty --title dev",
   "blueman-manager",
-  "/home/david/Nextcloud/Main/Further-Dotfiles/scripts/connect-bt-headphones",
-  "solaar -w hide",
   "redshift -c /home/david/Nextcloud/Main/Further-Dotfiles/config/redshift/redshift.conf",
   "nm-applet",
 }
