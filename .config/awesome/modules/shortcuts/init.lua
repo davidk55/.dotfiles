@@ -264,12 +264,10 @@ shortcuts.clientkeys = gears.table.join(
   end, { description = "close", group = "awesome: clients" }),
 
   -- Toggle client floating
-  awful.key(
-    { config.modkey, "Control" },
-    "space",
-    awful.client.floating.toggle,
-    { description = "toggle floating", group = "awesome: clients" }
-  ),
+  awful.key({ config.modkey, "Control" }, "space", function(c)
+    c.floating = not c.floating
+    c.ontop = false
+  end, { description = "toggle floating", group = "awesome: clients" }),
 
   -- Make focused client master
   awful.key({ config.modkey }, ".", function(c)
