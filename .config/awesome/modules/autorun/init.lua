@@ -19,6 +19,7 @@ local autorunApps = {
   "/home/david/Nextcloud/Main/Further-Dotfiles/scripts/connect-bt-headphones",
   "solaar -w hide",
   "redshift -c /home/david/Nextcloud/Main/Further-Dotfiles/config/redshift/redshift.conf",
+  "nm-applet",
 }
 if autorun then
   for app = 1, #autorunApps do
