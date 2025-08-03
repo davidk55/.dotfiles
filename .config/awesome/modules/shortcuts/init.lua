@@ -24,7 +24,7 @@ local toggleable_applications = {
   class = {
     "firefox",
     "LibreWolf",
-    "floorp",
+    "floorp-default",
     "obsidian",
     "KeePassXC",
     "dolphin",
@@ -402,7 +402,7 @@ shortcuts.globalkeys = gears.table.join(
   awful.key({ config.modkey }, "i", function()
     toggle_client({ class = "LibreWolf" })
     toggle_client({ class = "firefox" })
-    toggle_client({ class = "floorp" })
+    toggle_client({ class = "floorp-default" })
   end),
 
   -- Toggle obsidian client
