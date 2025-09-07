@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.doc",
+  "nvim-mini/mini.doc",
   config = function()
     -- =============== SETUP ===============
     require("mini.doc").setup()
