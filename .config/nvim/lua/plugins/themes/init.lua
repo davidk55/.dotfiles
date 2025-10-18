@@ -45,9 +45,10 @@ return {
           mini = {
             enabled = true,
           },
-          blink_cmp = true,
-          native_lsp = {
-            enabled = true,
+          blink_cmp = {
+            style = "bordered",
+          },
+          lsp_styles = {
             virtual_text = {
               errors = { "italic" },
               hints = { "italic" },
@@ -73,11 +74,10 @@ return {
           telescope = {
             enabled = true,
           },
-          treesitter = true,
           treesitter_context = true,
           ufo = true,
           rainbow_delimiters = true,
-          which_key = false,
+          which_key = true,
         },
         custom_highlights = function(colors)
           return {
