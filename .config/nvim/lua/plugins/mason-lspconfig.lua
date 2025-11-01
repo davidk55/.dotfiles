@@ -3,7 +3,6 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "neovim/nvim-lspconfig",
-    "nvim-java/nvim-java",
     "saghen/blink.cmp",
   },
   config = function()
