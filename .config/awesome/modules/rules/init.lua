@@ -43,7 +43,7 @@ awful.rules.rules = {
     properties = { width = 1400, height = 900, placement = awful.placement.centered, above = true },
   },
   {
-    rule = { class = "thunderbird" },
+    rule = { class = "org.mozilla.Thunderbird" },
     properties = { width = 1400, height = 900, placement = awful.placement.centered, above = true },
   },
   {
@@ -79,7 +79,7 @@ awful.rules.rules = {
         "Anki",
         "dolphin",
         "Mailspring",
-        "thunderbird",
+        "org.mozilla.Thunderbird",
         "mpv",
         "obsidian-fzf",
         "obsidian-rg",
