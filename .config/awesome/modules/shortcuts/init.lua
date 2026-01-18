@@ -548,6 +548,15 @@ shortcuts.globalkeys = gears.table.join(
   end),
   awful.key({}, "#209", function()
     togglePause()
+  end),
+  awful.key({}, "#171", function()
+    os.execute("playerctl next")
+  end),
+  awful.key({}, "#173", function()
+    os.execute("playerctl previous")
+  end),
+  awful.key({}, "#172", function()
+    os.execute("playerctl play-pause")
   end)
 )
 
