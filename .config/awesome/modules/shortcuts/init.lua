@@ -442,7 +442,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle intellij client
   awful.key({ config.modkey }, "y", function()
-    toggle_client({ instance = "jetbrains-idea" })
+    toggle_client({ instance = "jetbrains-idea-ce" })
   end),
 
   -- Toggle newsboat
