@@ -6,6 +6,7 @@
   editor = nvim
 	excludesfile = /home/david/.config/git/ignore
   pager = delta
+	autocrlf = input
 
 [alias]
   p = push
