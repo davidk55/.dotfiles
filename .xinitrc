@@ -41,7 +41,7 @@ eval "$(ssh-agent)"
 setxkbmap -option compose:ralt &
 
 # Load fcitx5
-fcitx5 -d &
+#fcitx5 -d &
 
 # Display resolution
 xrandr --output DP-0 --primary --mode 1920x1080 --rate 144 --left-of HDMI-0 &
