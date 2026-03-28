@@ -14,7 +14,7 @@ return {
     -- =============== SETUP ===============
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "catppuccin-nvim",
         disabled_filetypes = {
           "NvimTree",
         },
