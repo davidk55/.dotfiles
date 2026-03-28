@@ -22,14 +22,14 @@ return {
         if require("luasnip").expand_or_jumpable() then
           return "<cmd>lua require'luasnip'.jump(1)<CR>"
         else
-          return "<Tab>"
+          return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
         end
       end
       _G.s_tab_complete = function()
         if require("luasnip").jumpable(-1) then
           return "<cmd>lua require'luasnip'.jump(-1)<CR>"
         else
-          return "<S-Tab>"
+          return vim.api.nvim_replace_termcodes("<S-Tab>", true, true, true)
         end
       end
 
