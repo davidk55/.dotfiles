@@ -104,8 +104,12 @@ return {
           }
         end,
       })
-      vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank{ higroup='Visual', timeout=300 }]])
-      vim.cmd("colorscheme catppuccin")
+      vim.api.nvim_create_autocmd("TextYankPost", {
+        callback = function()
+          vim.highlight.on_yank({ higroup = "Visual", timeout = 300 })
+        end,
+      })
+      vim.cmd("colorscheme catppuccin-nvim")
     end,
   },
 
