@@ -83,6 +83,7 @@ awful.rules.rules = {
         "mpv",
         "obsidian-fzf",
         "obsidian-rg",
+        "Emulator",
       },
     },
     properties = { floating = true },
