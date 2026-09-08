@@ -9,7 +9,7 @@
 
 local hotkeys_popup = require("awful.hotkeys_popup.widget")
 
-local obsidian_rule_any = { class = { "obsidian" } }
+local obsidian_rule_any = { class = { "md.obsidian.Obsidian" } }
 for group_name, group_data in pairs({
   ["obsidian: folding"] = { color = "#514568", rule_any = obsidian_rule_any },
   ["obsidian: windows"] = { color = "#514568", rule_any = obsidian_rule_any },

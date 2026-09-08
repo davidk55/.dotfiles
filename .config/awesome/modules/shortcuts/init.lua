@@ -25,7 +25,7 @@ local toggleable_applications = {
     "firefox",
     "LibreWolf",
     "floorp",
-    "obsidian",
+    "md.obsidian.Obsidian",
     "KeePassXC",
     "dolphin",
     "Mailspring",
@@ -407,7 +407,7 @@ shortcuts.globalkeys = gears.table.join(
 
   -- Toggle obsidian client
   awful.key({ config.modkey }, "o", function()
-    toggle_client({ class = "obsidian" })
+    toggle_client({ class = "md.obsidian.Obsidian" })
   end),
 
   -- Toggle keepass client
@@ -458,6 +458,11 @@ shortcuts.globalkeys = gears.table.join(
   -- Toggle whatsapp
   awful.key({ config.modkey }, "d", function()
     toggle_client({ class = "Whatsapp-for-linux" })
+  end),
+
+  -- Toggle pomodoro
+  awful.key({ config.modkey }, "t", function()
+    toggle_client({ class = "io.github.focustimerhq.FocusTimer" })
   end)
 )
 
