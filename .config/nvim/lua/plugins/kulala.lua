@@ -1,4 +1,4 @@
 return {
-  "mistweaverco/kulala.nvim",
+  "dont-be-evil-company/kulala.nvim",
   opts = {},
 }
