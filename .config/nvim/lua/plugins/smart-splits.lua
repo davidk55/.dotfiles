@@ -3,7 +3,7 @@ return {
   config = function()
     -- =============== SETUP ===============
     require("smart-splits").setup({
-      cursor_follows_swapped_bufs = true,
+      swap = { move_cursor = true },
     })
 
     -- =============== MAPPINGS ===============
