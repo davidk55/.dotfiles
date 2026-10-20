@@ -2,7 +2,7 @@
 
 main() {
   name=~/Nextcloud/Main/Images/Screenshots/screenshot--$(date +"%Y-%m-%d--%H-%M-%S").png
-  (maim -s -o "$name")
+  grim -g "$(slurp)" "$name"
   notify-send -i "$name" "A screenshot was taken and saved" "$name"
 }
 
