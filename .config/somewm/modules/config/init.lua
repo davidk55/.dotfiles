@@ -33,4 +33,7 @@ awful.input.keyboard_repeat_delay = 210
 -- ================ SET LAYOUTS ================
 awful.layout.append_default_layout(awful.layout.suit.spiral.dwindle)
 
+-- ================ ENABLE LOCKSCREEN ================
+require("lockscreen").init()
+
 return config
