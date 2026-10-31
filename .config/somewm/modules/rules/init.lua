@@ -38,6 +38,7 @@ ruled.client.connect_signal("request::rules", function()
     "Godot_Engine",
     "obsidian-fzf",
     "io.github.focustimerhq.FocusTimer",
+    "Pomotroid",
   }
   for _, current_class in ipairs(classes) do
     ruled.client.append_rule({
