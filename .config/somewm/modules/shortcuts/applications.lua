@@ -11,8 +11,10 @@ local awful = require("awful")
 local config = require("modules.config")
 local toggle_client = require("modules.toggle-clients").toggle_client
 local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
+local focus_master_if_needed = require("modules.toggle-clients").focus_master_if_needed
 
 -- ================ APPLICATIONS ================
+
 awful.keyboard.append_global_keybindings({
   -- Toggle firefox client
   awful.key({ config.modkey }, "i", function()
@@ -41,12 +43,14 @@ awful.keyboard.append_global_keybindings({
   -- Toggle dev client
   awful.key({ config.modkey }, ";", function()
     toggle_client({ name = "dev" })
+    focus_master_if_needed()
   end),
 
   -- Toggle pdf viewer
   awful.key({ config.modkey }, "'", function()
     toggle_client({ class = "dolphin" })
     toggle_client({ class = "org.kde.dolphin" })
+    focus_master_if_needed()
   end),
 
   -- Toggle e-mail client

@@ -2,6 +2,7 @@
 main() {
   somewm-client eval "require('modules.interaction').hide_clients( { { class = 'floorp' } } )"
   somewm-client eval "require('modules.interaction').move_client_to_screen( { class = 'floorp' }, 1)"
+  somewm-client eval "require('modules.toggle-clients')).focus_master_if_needed"
 }
 
 main

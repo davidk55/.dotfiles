@@ -9,6 +9,7 @@
 
 local awful = require("awful")
 local config = require("modules.config")
+local focus_master_if_needed = require("modules.toggle-clients").focus_master_if_needed
 
 for i = 1, 5 do
   awful.keyboard.append_global_keybindings({
@@ -18,6 +19,7 @@ for i = 1, 5 do
         local tag = s.tags[i]
         if tag then
           tag:view_only()
+          focus_master_if_needed()
         end
       end
     end, { description = "view tag #" .. i, group = "awesome: tags" }),
@@ -37,6 +39,7 @@ for i = 1, 5 do
         local tag = client.focus.screen.tags[i]
         if tag then
           client.focus:move_to_tag(tag)
+          focus_master_if_needed()
         end
       end
     end, { description = "move focused client to tag #" .. i, group = "awesome: tags" }),
