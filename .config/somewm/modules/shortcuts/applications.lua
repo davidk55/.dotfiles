@@ -32,19 +32,80 @@ awful.keyboard.append_global_keybindings({
   awful.key({ config.modkey }, "p", function()
     toggle_client({ class = "KeePassXC" })
     toggle_client({ class = "org.keepassxc.KeePassXC" })
+    local s = awful.screen.focused()
+    local current = s.selected_tag
+    if not current then
+      return
+    end
+
+    local tags = s.tags
+    local next_tag = tags[(current.index % #tags) + 1]
+    if not next_tag or next_tag == current then
+      return
+    end
+
+    next_tag:view_only()
+
+    -- gears.timer.start_new(0.1, function()
+    if current.valid then
+      current:view_only()
+    end
+    focus_master_if_needed()
+    -- return false
+    -- end)
   end),
 
   -- Toggle dev client
   awful.key({ config.modkey }, ";", function()
     toggle_client({ name = "dev" })
+    local s = awful.screen.focused()
+    local current = s.selected_tag
+    if not current then
+      return
+    end
+
+    local tags = s.tags
+    local next_tag = tags[(current.index % #tags) + 1]
+    if not next_tag or next_tag == current then
+      return
+    end
+
+    next_tag:view_only()
+
+    -- gears.timer.start_new(0.1, function()
+    if current.valid then
+      current:view_only()
+    end
     focus_master_if_needed()
+    -- return false
+    -- end)
   end),
 
   -- Toggle pdf viewer
   awful.key({ config.modkey }, "'", function()
     toggle_client({ class = "dolphin" })
     toggle_client({ class = "org.kde.dolphin" })
+    local s = awful.screen.focused()
+    local current = s.selected_tag
+    if not current then
+      return
+    end
+
+    local tags = s.tags
+    local next_tag = tags[(current.index % #tags) + 1]
+    if not next_tag or next_tag == current then
+      return
+    end
+
+    next_tag:view_only()
+
+    -- gears.timer.start_new(0.1, function()
+    if current.valid then
+      current:view_only()
+    end
     focus_master_if_needed()
+    -- return false
+    -- end)
   end),
 
   -- Toggle e-mail client
