@@ -26,12 +26,6 @@ awful.keyboard.append_global_keybindings({
   -- Toggle obsidian client
   awful.key({ config.modkey }, "o", function()
     toggle_client({ class = "md.obsidian.Obsidian" })
-    local naughty = require("naughty")
-
-    naughty.notification({
-      title = "Debug",
-      message = tostring(client.focus and client.focus.class or "no focus"),
-    })
   end),
 
   -- Toggle keepass client
