@@ -9,6 +9,7 @@
 
 local awful = require("awful")
 local ruled = require("ruled")
+local gears = require("gears")
 local dpi = require("beautiful.xresources").apply_dpi
 
 ruled.client.connect_signal("request::rules", function()
@@ -16,9 +17,9 @@ ruled.client.connect_signal("request::rules", function()
   ruled.client.append_rule({
     rule = {},
     properties = {
-      -- shape = gears.shape.rounded_rect,
-      border_width = dpi(1),
-      opacity = 0.9,
+      shape = gears.shape.rounded_rect,
+      border_width = dpi(0),
+      opacity = 0.6,
     },
   })
   -- ================ GENERAL FLOATING RULES ================
@@ -108,3 +109,15 @@ end)
 client.connect_signal("mouse::enter", function(c)
   c:activate({ context = "mouse_enter", raise = false })
 end)
+
+-- ================ PROPER FOCUS RESTORE ================
+
+-- tag.connect_signal("property::selected", function(t)
+--   if t.selected then
+--     FOCUS_MASTER_IF_NEEDED(t.screen)
+--   end
+-- end)
+--
+-- screen.connect_signal("request::focus_restore", function(s)
+--   FOCUS_MASTER_IF_NEEDED(s)
+-- end)
