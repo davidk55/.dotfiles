@@ -94,6 +94,7 @@ return {
               "client",
               "root",
               "mouse",
+              "tag",
             },
           },
           telemetry = { enable = false },

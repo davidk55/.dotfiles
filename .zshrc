@@ -48,9 +48,6 @@ export KEYTIMEOUT=1
 autoload edit-command-line; zle -N edit-command-line
 bindkey "^e" edit-command-line
 
-# decrease delay when holding a key
-xset r rate 210 40
-
 # ******************* OTHER KEYBINDINGS *******************
 bindkey -s "^g" "git status^m"
 
@@ -77,7 +74,7 @@ alias cleanm="sudo make clean && rm -f config.h && git reset --hard origin/maste
 alias upd="sudo pacman -Syu"
 alias upd2="yay -Syu --diffmenu"
 alias cl="clear"
-alias x="startx"
+alias x="somewm"
 alias tl="tldr"
 alias calc="bc"
 alias al="alarm"
@@ -210,6 +207,13 @@ cdr(){
   cd $(git rev-parse --show-toplevel)
 }
 
+nvm() {
+  unset -f nvm
+  . /usr/share/nvm/init-nvm.sh
+  nvm use default >/dev/null 2>&1
+  nvm "$@"
+}
+
 
 # run showpoke on startup when not in tmux and the terminal is kitty
 if [[ $KITTY_INSTALLATION_DIR == "/usr/lib/kitty" ]] && [[ ! $TERM_PROGRAM == "tmux" ]] && [[ ! -v NVIM_LOG_FILE ]]; then
@@ -219,8 +223,6 @@ fi
 # add all commands in current path to autocompletion of run
 compdef _path_commands run
 
-. /usr/share/nvm/init-nvm.sh
-nvm use default >/dev/null 2>&1
-
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export SSH_AUTH_SOCK=/run/user/1000/gcr/ssh

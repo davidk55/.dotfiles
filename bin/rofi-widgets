@@ -1,27 +1,33 @@
 #!/bin/bash
 
 main() {
-  options="Screenshot to Clipboard\nScreenshot Save\nColor Picker\nEnglish Text Extractor\nGerman Text Extractor\nJapanese Text Extractor"
+  options="Screenshot to Clipboard\nScreenshot Save\nColor Picker\nEnglish Text Extractor\nGerman Text Extractor\nJapanese Text Extractor\nJSON Formatter\nRemove Query Parameters"
   choice=$(echo -e "$options" | rofi -dmenu -i)
 
   case "$choice" in
   "Screenshot to Clipboard")
-    eval "maim -s --hidecursor | xclip -selection clipboard -target image/png"
+    grim -g "$(slurp -b '#00000040' -c '#ffffff' -s '#ffffff20' -d)" - | wl-copy --type image/png
     ;;
   "Screenshot Save")
     /home/david/bin/save-screen-select
     ;;
   "Color Picker")
-    eval "grabc | xclip -selection clipboard"
+    hyprpicker -a -f hex
     ;;
   "English Text Extractor")
-    eval "maim -s --hidecursor | tesseract stdin - 2>/dev/null | xclip -selection clipboard"
+    grim -g "$(slurp)" - | tesseract stdin stdout 2>/dev/null | wl-copy
     ;;
   "German Text Extractor")
-    eval "maim -s --hidecursor | tesseract -l deu stdin - 2>/dev/null | xclip -selection clipboard"
+    grim -g "$(slurp)" - | tesseract -l deu stdin stdout 2>/dev/null | wl-copy
     ;;
   "Japanese Text Extractor")
-    eval "maim -s --hidecursor | tesseract -l jpn stdin - 2>/dev/null | xclip -selection clipboard"
+    grim -g "$(slurp)" - | tesseract -l jpn stdin stdout 2>/dev/null | wl-copy
+    ;;
+  "JSON Formatter")
+    wl-paste --no-newline | jq '.' | wl-copy
+    ;;
+  "Remove Query Parameters")
+    wl-paste --no-newline | sed 's/[?#].*//' | wl-copy
     ;;
   *)
     echo "Invalid choice"
